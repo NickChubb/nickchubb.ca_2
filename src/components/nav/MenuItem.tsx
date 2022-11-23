@@ -1,36 +1,38 @@
-import React, { useEffect, useState } from "react"
-import styled from "styled-components"
-import StyledLink from "../shared/link"
+import React, { Children, useEffect, useState } from 'react'
+import styled from 'styled-components'
+import StyledLink from '../shared/link'
+import { text } from '../shared/styles'
 
-const MenuItemWrapper = styled(StyledLink)`
-  font-size: 20px;
-  transition: 0.25s;
+const MenuItemWrapper = styled(StyledLink)<{ fontSize: string }>`
+  font-size: ${props => props.fontSize ?? '22'}px;
+  transition: 0.5s;
 
   &:hover {
-    opacity: 1;
-    font-size: 22px;
+    color: ${text.normal} !important;
+    font-size: ${props => props.fontSize ? props.fontSize + 2 : '24'}px;
 
     &::before {
-      content: "> ";
+      content: '> ';
     }
   }
 `
 
 type MenuItemProps = {
   sectionName: string
+  fontSize?: number
 }
 
-const MenuItem: React.FC<MenuItemProps>  = ({ sectionName }) => {
-
-  const [anchorTarget, setAnchorTarget] = useState<HTMLElement | null>(null);
+const MenuItem: React.FC<MenuItemProps> = ({ sectionName, fontSize }) => {
+  const [anchorTarget, setAnchorTarget] = useState<HTMLElement | null>(null)
 
   useEffect(() => {
-    setAnchorTarget(document.getElementById(sectionName));
-  }, [sectionName]);
+    setAnchorTarget(document.getElementById(sectionName))
+  }, [sectionName])
 
   const handleClick = (event: { preventDefault: () => void }) => {
     event.preventDefault()
-    anchorTarget && anchorTarget.scrollIntoView({ behavior: "smooth", block: "start" })
+    anchorTarget &&
+      anchorTarget.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
   return (
@@ -39,6 +41,7 @@ const MenuItem: React.FC<MenuItemProps>  = ({ sectionName }) => {
       onClick={handleClick}
       aria-label={`Scroll to ${sectionName}`}
       className="menu-item"
+      fontSize={fontSize}
     >
       {sectionName}
     </MenuItemWrapper>

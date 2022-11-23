@@ -48,7 +48,7 @@ const Home = () => {
       <AppWrapper>
         <Nav />
         <MainWrapper>
-          <HeaderSection />
+          {/* <HeaderSection /> */}
           <BioSection />
           <ProjectsSection />
           <ExperienceSection />

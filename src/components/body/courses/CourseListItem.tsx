@@ -1,13 +1,13 @@
-import React from "react"
-import styled from "styled-components"
+import React from 'react'
+import styled from 'styled-components'
 import {
   AccordionItem,
   AccordionItemHeading,
   AccordionItemButton,
   AccordionItemPanel,
-} from "react-accessible-accordion"
-import { CourseItem } from "./CourseTypes"
-import { GoLinkExternal } from "react-icons/go"
+} from 'react-accessible-accordion'
+import { CourseItem } from './CourseTypes'
+import { GoLinkExternal } from 'react-icons/go'
 
 const ListItemWapper = styled(AccordionItem)`
   border-top: 1px solid rgba(0, 0, 0, 0.1);
@@ -18,7 +18,7 @@ const ListItemHeading = styled(AccordionItemHeading)`
 `
 
 const ListItemButton = styled(AccordionItemButton)`
-  background-color: rgb(32,32,32);
+  background-color: rgb(32, 32, 32);
   color: #bbbbbb;
   cursor: pointer;
   padding: 18px;
@@ -28,7 +28,7 @@ const ListItemButton = styled(AccordionItemButton)`
   transition: 0.25s;
 
   &:hover {
-    background-color: rgb(38,38,38);
+    background-color: rgb(38, 38, 38);
   }
 
   &:before {
@@ -42,14 +42,21 @@ const ListItemButton = styled(AccordionItemButton)`
     transform: rotate(-45deg);
   }
 
-  &[aria-expanded='true']::before, &[aria-selected='true']::before {
+  &[aria-expanded='true']::before,
+  &[aria-selected='true']::before {
     transform: rotate(45deg);
   }
 `
 
+const ListItemTitle = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`
+
 const ListItemPanel = styled(AccordionItemPanel)`
   padding: 20px;
-  transition: 0.25s;
+  background-color: rgb(24, 24, 24);
 `
 
 const CourseListItem: React.FC<{ course: CourseItem }> = ({ course }) => {
@@ -57,12 +64,15 @@ const CourseListItem: React.FC<{ course: CourseItem }> = ({ course }) => {
     <ListItemWapper>
       <ListItemHeading>
         <ListItemButton>
-          <b>{course.title}</b> <i> -- {course.num}</i>
+          <b>{course.title}</b> <i>-- {course.num}</i>
+          {/* <ListItemTitle>
+            <b>{course.title}</b> <i>{course.num}</i>
+          </ListItemTitle> */}
         </ListItemButton>
       </ListItemHeading>
       <ListItemPanel>
         <p>
-          {course.description}{" "}
+          {course.description}{' '}
           <a href={course.link}>
             <GoLinkExternal />
           </a>

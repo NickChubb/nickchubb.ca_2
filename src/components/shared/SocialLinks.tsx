@@ -2,6 +2,7 @@ import React from "react"
 import { FaLinkedin, FaGithub, FaEnvelope, FaFileAlt } from "react-icons/fa"
 import styled from "styled-components"
 import StyledLink from "./link"
+import { text } from '../shared/styles'
 
 type SocialLink = {
   title: string
@@ -35,20 +36,22 @@ export const socialLinks: SocialLinksType = [
 ]
 
 const SocialLinkWrapper = styled.div`
-  font-size: 20px;
+  font-size: 22px;
   display: flex;
   flex-direction: row;
   gap: 12px;
+  color: ${text.normal};
 
   &:hover > * {
-    opacity: 0.3 !important;
+    color: ${text.fade};
   }
   
   & > * {
     transition: 0.25s;
   }
   & > *:hover {
-    opacity: 1 !important;
+    color: ${text.normal} !important;
+    font-size: 24px;
   }
 `
 

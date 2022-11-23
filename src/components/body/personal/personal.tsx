@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import Section from '../../shared/section'
+import { text } from '../../shared/styles'
 import AboutSection from './AboutSection'
 import BookshelfSection from './BookshelfSection'
 
-const BodyWrapper = styled.div`
-  height: 1200px;
-  min-width: 60%;
+const PersonalSectionWrapper = styled(Section)`
+  &:hover {
+    &.navwrapper {
+      color: ${text.fade}
+    }
+  }
 `
 
 const NavWrapper = styled.div`
@@ -16,6 +20,12 @@ const NavWrapper = styled.div`
 
 const NavItem = styled.h3`
   cursor: pointer;
+  transition: 0.25s;
+  color: ${text.normal};
+
+  &:hover {
+    color: ${text.normal} !important;
+  }
 `
 
 const PersonalSection = () => {
@@ -29,14 +39,14 @@ const PersonalSection = () => {
   }
 
   return (
-    <Section title="personal">
-      <NavWrapper>
+    <PersonalSectionWrapper title="personal">
+      <NavWrapper className="navwrapper">
         <NavItem onClick={() => setPage(1)}>About</NavItem>
         <NavItem onClick={() => setPage(2)}>Bookshelf</NavItem>
       </NavWrapper>
 
       {getBodyContent()}
-    </Section>
+    </PersonalSectionWrapper>
   )
 }
 
