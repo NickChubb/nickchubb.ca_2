@@ -1,7 +1,7 @@
 import React from "react"
 import { FaLinkedin, FaGithub, FaEnvelope, FaFileAlt } from "react-icons/fa"
 import styled from "styled-components"
-import StyledLink from "./link"
+import { StyledLink } from "./link"
 import { text } from '../shared/styles'
 
 type SocialLink = {
@@ -50,7 +50,7 @@ const SocialLinkWrapper = styled.div`
     transition: 0.25s;
   }
   & > *:hover {
-    color: ${text.normal} !important;
+    color: ${text.green} !important;
     font-size: 24px;
   }
 `

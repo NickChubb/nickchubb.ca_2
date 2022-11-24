@@ -1,14 +1,17 @@
 import Head from 'next/head'
 import styled from 'styled-components'
-import BioSection from '../src/components/body/bio'
+import BioSection from '../src/components/body/bio/BioContent'
 import BodySection from '../src/components/body'
-import AboutSection from '../src/components/body/personal/personal'
-import CoursesSection from '../src/components/body/courses/courses'
-import ExperienceSection from '../src/components/body/experience/experience'
-import ProjectsSection from '../src/components/body/projects/projects'
+import AboutContent from '../src/components/body/personal/PersonalContent'
+import CoursesContent from '../src/components/body/courses/CoursesContent'
+import ExperienceContent from '../src/components/body/experience/ExperienceContent'
+import ProjectsSection from '../src/components/body/projects/ProjectsContent'
 import FooterSection from '../src/components/footer'
 import HeaderSection from '../src/components/header'
-import Nav from '../src/components/nav/nav'
+import Nav from '../src/components/nav/NavBar'
+import React, { createContext, Dispatch, SetStateAction, useState } from 'react'
+import Section from '../src/components/shared/Section'
+import { sections } from '../src/components/body/sections'
 
 const Container = styled.div`
   width: 100vw;
@@ -24,7 +27,7 @@ const AppWrapper = styled.div`
 
   @media only screen and (max-width: 1360px) {
     max-width: 100%;
-  } 
+  }
 `
 
 const MainWrapper = styled.main`
@@ -37,6 +40,15 @@ const MainWrapper = styled.main`
 `
 
 const Home = () => {
+  const [visible, setVisible] = useState('bio')
+
+  const renderSections = () => {
+    return sections.map((section, key) => (
+      <Section key={key} Component={section.Component} title={section.title} setVisible={setVisible} />
+    ))
+  }
+
+
   return (
     <Container>
       <Head>
@@ -46,18 +58,13 @@ const Home = () => {
       </Head>
 
       <AppWrapper>
-        <Nav />
-        <MainWrapper>
-          {/* <HeaderSection /> */}
-          <BioSection />
-          <ProjectsSection />
-          <ExperienceSection />
-          <CoursesSection />
-          <AboutSection />
+        <Nav visible={visible} />
+        <MainWrapper id="main">
+          {/* <ProjectsSection setVisible={setVisible} /> */}
+          {renderSections()}
           <FooterSection />
         </MainWrapper>
       </AppWrapper>
-
     </Container>
   )
 }

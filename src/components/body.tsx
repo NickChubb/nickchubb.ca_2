@@ -1,9 +1,9 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import AboutSection from "./body/personal/personal"
-import CoursesSection from "./body/courses/courses"
-import ExperienceSection from "./body/experience/experience"
-import ProjectsSection from "./body/projects/projects"
+import AboutSection from "./body/personal/PersonalContent"
+import CoursesSection from "./body/courses/CoursesContent"
+import ExperienceSection from "./body/experience/ExperienceContent"
+import ProjectsSection from "./body/projects/ProjectsContent"
 
 const BodyWrapper = styled.div`
   height: 1200px;

@@ -5,15 +5,16 @@ import { Accordion } from "react-accessible-accordion"
 import CourseListItem from "./CourseListItem"
 import { CourseItem } from "./CourseTypes"
 import { courseData } from "../../../data/courses"
+import { SectionProps } from "../../shared/types"
 
 const CourseListWrapper = styled(Accordion)`
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 2px;
 `
 
-const CoursesContent = () => {
+const CoursesContent: React.FC = () => {
   return (
-    <Section title="courses">
+    <>
       <CourseListWrapper allowZeroExpanded>
         {courseData && courseData.length >= 0 ? (
           courseData.map(
@@ -25,7 +26,7 @@ const CoursesContent = () => {
           <p>Error loading courses.</p>
         )}
       </CourseListWrapper>
-    </Section>
+    </>
   )
 }
 

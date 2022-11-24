@@ -1,6 +1,7 @@
 import styled from "styled-components"
+import { text } from "./styles"
 
-const StyledLink = styled.a`
+export const StyledLink = styled.a`
   transiition: 0.25s;
 
   &:hover {
@@ -13,4 +14,11 @@ const StyledLink = styled.a`
   }
 `
 
-export default StyledLink
+export const ExternalLink = styled.a`
+  font-weight: 800;
+  opacity: 0.8;
+
+  &:hover {
+    color: ${text.green};
+  }
+`

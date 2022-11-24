@@ -4,6 +4,7 @@ import { FiGlobe } from 'react-icons/fi'
 import Section from '../../shared/Section'
 import { experienceData } from '../../../data/experience'
 import { Experience } from './ExperienceTypes'
+import { SectionProps } from '../../shared/types'
 
 const ExperienceCard = styled.div``
 
@@ -22,9 +23,9 @@ const ExperienceCardSubtitle = styled.div`
   margin: 0 0 12px;
 `
 
-const ExperienceSection = () => {
+const ExperienceContent: React.FC = () => {
   return (
-    <Section title="experience">
+    <>
       {experienceData &&
         experienceData.length > 0 &&
         experienceData
@@ -73,8 +74,8 @@ const ExperienceSection = () => {
               </ExperienceCard>
             )
           })}
-    </Section>
+    </>
   )
 }
 
-export default ExperienceSection
+export default ExperienceContent

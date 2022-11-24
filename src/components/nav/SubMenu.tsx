@@ -17,10 +17,10 @@ const SubMenuTitle = styled.div`
 const SubMenuChildrenWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
   text-align: right;
   overflow: hidden;
   border: 0;
-  visibility: hidden;
   max-height: 0;
   transition: max-height 0.5s ease-out, border 0.5s ease;
 
@@ -29,6 +29,10 @@ const SubMenuChildrenWrapper = styled.div`
     border-top: 1px solid #383838;
     padding-top: 8px;
   }
+`
+
+const Divider = styled.div`
+  width: 80px;
 `
 
 type SubMenuProps = {
@@ -44,6 +48,7 @@ const SubMenu: React.FC<SubMenuProps> = ({ title, children }) => {
       <SubMenuTitle className="submenu-title" onClick={() => setShow(!show)}>{title}</SubMenuTitle>
       {/* {show && ( */}
       <SubMenuChildrenWrapper className="submenu-children">
+        <Divider />
         {children}
       </SubMenuChildrenWrapper>
       {/* )} */}

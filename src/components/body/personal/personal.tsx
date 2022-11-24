@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import Section from '../../shared/section'
+import Section from '../../shared/Section'
 import { text } from '../../shared/styles'
 import AboutSection from './AboutSection'
 import BookshelfSection from './BookshelfSection'
