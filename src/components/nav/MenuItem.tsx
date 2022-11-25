@@ -4,7 +4,7 @@ import { StyledLink } from '../shared/link'
 import { text } from '../shared/styles'
 
 const MenuItemWrapper = styled(StyledLink)<{
-  fontSize: number
+  fontSize?: number
   visible: boolean
   clicked: boolean
 }>`
@@ -60,10 +60,10 @@ type MenuItemProps = {
   fontSize?: number
 }
 
-const MenuItem: React.FC<MenuItemProps> = ({
+const MenuItem: React.FC<MenuItemProps & React.HTMLAttributes<HTMLDivElement>> = ({
   sectionName,
   visible,
-  fontSize,
+  fontSize
 }) => {
   const isVisible = visible === sectionName
   const [anchorTarget, setAnchorTarget] = useState<HTMLElement | null>(null)

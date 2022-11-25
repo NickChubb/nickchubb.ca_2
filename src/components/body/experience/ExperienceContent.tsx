@@ -1,10 +1,8 @@
 import { DateTime } from 'luxon'
 import styled from 'styled-components'
 import { FiGlobe } from 'react-icons/fi'
-import Section from '../../shared/Section'
 import { experienceData } from '../../../data/experience'
 import { Experience } from './ExperienceTypes'
-import { SectionProps } from '../../shared/types'
 import { ExternalLink } from '../../shared/link'
 
 const ExperienceCardList = styled.div`
@@ -47,9 +45,6 @@ const ExperienceContent: React.FC = () => {
       {experienceData &&
         experienceData.length > 0 &&
         experienceData
-          .sort((a: Experience, b: Experience) => {
-            return a.finishDate > b.finishDate
-          })
           .map((experience: Experience, key) => {
             if (!experience.display) return null
             return (

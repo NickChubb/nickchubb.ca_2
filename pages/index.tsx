@@ -1,16 +1,9 @@
 import Head from 'next/head'
 import styled from 'styled-components'
-import BioSection from '../src/components/body/bio/BioContent'
-import BodySection from '../src/components/body'
-import AboutContent from '../src/components/body/personal/PersonalContent'
-import CoursesContent from '../src/components/body/courses/CoursesContent'
-import ExperienceContent from '../src/components/body/experience/ExperienceContent'
-import ProjectsSection from '../src/components/body/projects/ProjectsContent'
 import FooterSection from '../src/components/footer'
-import HeaderSection from '../src/components/header'
 import Nav from '../src/components/nav/NavBar'
-import React, { createContext, Dispatch, SetStateAction, useState } from 'react'
-import Section from '../src/components/shared/Section'
+import React, { useState } from 'react'
+import Section from '../src/components/shared/section'
 import { sections } from '../src/components/body/sections'
 
 const Container = styled.div`
@@ -47,7 +40,6 @@ const Home = () => {
       <Section key={key} Component={section.Component} title={section.title} setVisible={setVisible} />
     ))
   }
-
 
   return (
     <Container>

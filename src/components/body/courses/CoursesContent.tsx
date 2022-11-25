@@ -1,11 +1,9 @@
 import React from "react"
 import styled from "styled-components"
-import Section from "../../shared/Section"
 import { Accordion } from "react-accessible-accordion"
 import CourseListItem from "./CourseListItem"
 import { CourseItem } from "./CourseTypes"
 import { courseData } from "../../../data/courses"
-import { SectionProps } from "../../shared/types"
 
 const CourseListWrapper = styled(Accordion)`
   border: 1px solid rgba(0, 0, 0, 0.1);

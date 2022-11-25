@@ -1,10 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { projectData } from '../../../data/projects'
-import Section from '../../shared/Section'
 import { SectionProps } from '../../shared/types'
 
-const ProjectCard = styled(Section)``
+const ProjectCard = styled.div``
 
 const ProjectTitle = styled.div``
 
@@ -12,8 +11,8 @@ const ProjectTechnologies = styled.div``
 
 const ProjectsSection: React.FC<SectionProps> = ({ setVisible }) => {
   return (
-    <Section title="projects" setVisible={setVisible}>
-      {projectData &&
+    <>
+      {/* {projectData &&
         projectData.length > 0 &&
         projectData.map((project, key) => {
           if (!project.display) return null
@@ -23,8 +22,8 @@ const ProjectsSection: React.FC<SectionProps> = ({ setVisible }) => {
               <ProjectTechnologies>{project.technologies}</ProjectTechnologies>
             </ProjectCard>
           )
-        })}
-    </Section>
+        })} */}
+    </>
   )
 }
 
