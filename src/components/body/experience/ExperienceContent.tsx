@@ -5,6 +5,13 @@ import Section from '../../shared/Section'
 import { experienceData } from '../../../data/experience'
 import { Experience } from './ExperienceTypes'
 import { SectionProps } from '../../shared/types'
+import { ExternalLink } from '../../shared/link'
+
+const ExperienceCardList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+`
 
 const ExperienceCard = styled.div``
 
@@ -23,9 +30,20 @@ const ExperienceCardSubtitle = styled.div`
   margin: 0 0 12px;
 `
 
+const ExperienceFooter = styled.small`
+  padding-top: 8px;
+`
+
+const Link = styled(ExternalLink)`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 6px;
+`
+
 const ExperienceContent: React.FC = () => {
   return (
-    <>
+    <ExperienceCardList>
       {experienceData &&
         experienceData.length > 0 &&
         experienceData
@@ -60,21 +78,15 @@ const ExperienceContent: React.FC = () => {
                     return <li key={key}>{description}</li>
                   })}
                 </ExperienceCardDescription>
-                <p
-                  style={{
-                    textAlign: 'end',
-                  }}
-                >
-                  <small>
-                    <a href={experience.website}>
-                      Website <FiGlobe />
-                    </a>
-                  </small>
-                </p>
+                <ExperienceFooter>
+                  <Link href={experience.website}>
+                    Website <FiGlobe />
+                  </Link>
+                </ExperienceFooter>
               </ExperienceCard>
             )
           })}
-    </>
+    </ExperienceCardList>
   )
 }
 

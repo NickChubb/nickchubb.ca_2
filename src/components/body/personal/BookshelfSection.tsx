@@ -3,14 +3,28 @@ import { BsLink45Deg } from 'react-icons/bs'
 import styled from 'styled-components';
 import { bookData } from '../../../data/books';
 import { ExternalLink, StyledLink } from '../../shared/link';
+import { text } from '../../shared/styles';
 
 const BookList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 16px;
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
 `
 
 const BookListItem = styled.li`
+
+  &:hover {
+    &:before {
+      color: ${text.green};
+    }
+  }
+
+  &:before {
+    content: '>  ';
+  }
 `
 
 const BookshelfSection = () => {

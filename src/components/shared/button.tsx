@@ -3,22 +3,23 @@ import styled from "styled-components"
 import { text } from "./styles"
 
 const ButtonWrapper = styled.a`
-  padding: 8px 16px;
-  background: #383838;
+  padding: 10px 20px;
+  background: #1F1F1F;
   border-radius: 4px;
   color: ${text.normal};
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   transition: 0.25s;
 
   &:hover {
-    background: #525252;
+    background: #292929;
     transform: scale(0.98);
   }
 
   &:active {
-    background: #444444;
+    background: #333333;
+    color: ${text.green}
   }
 `
 

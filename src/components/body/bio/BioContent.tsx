@@ -33,14 +33,14 @@ const RolesList = styled.ul`
 const ButtonContainer = styled.div`
   margin: 1rem 0;
   display: flex;
-  gap: 8px;
+  gap: 12px;
 `
 
 const BioContent: React.FC<SectionProps> = () => {
   return (
     <>
       <BioWrapper>
-        <BioParagraph>Hi, my name is Nick Chubb. I am a...</BioParagraph>
+        <BioParagraph>Hi 👋  my name is Nick Chubb. I am a...</BioParagraph>
         <RolesList>
           <li>
             🖥{'\t'}Computer Science & Molecular Biology student at Simon Fraser
@@ -52,14 +52,14 @@ const BioContent: React.FC<SectionProps> = () => {
           </li>
           <li>
             👨🏼‍💼 Account Manager for{' '}
-            <ExternalLink href="https://https://vanstartupweek.ca/">
+            <ExternalLink href="https://vanstartupweek.ca/">
               Vancouver Startup Week
             </ExternalLink>
           </li>
         </RolesList>
         <BioParagraph>
           I am an aspiring <b>full-stack developer</b> and I will be seeking
-          employment opportunities for Summer 2023. If you or someone you know
+          employment opportunities starting Summer 2023. If you or someone you know
           are hiring, I would love to hear from you!
         </BioParagraph>
         <ButtonContainer>

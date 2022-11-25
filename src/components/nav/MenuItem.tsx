@@ -13,7 +13,7 @@ const MenuItemWrapper = styled(StyledLink)<{
   font-family: 'Roboto Mono', monospace;
 
   &:hover {
-    color: ${text.normal} !important;
+    color: ${props => props.clicked ? text.green : text.normal} !important;
     font-size: ${(props) => (props.fontSize ? props.fontSize + 2 : '24')}px;
 
     &::before {
