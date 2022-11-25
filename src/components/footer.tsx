@@ -5,7 +5,7 @@ import { text } from "./shared/styles";
 
 const FooterWrapper = styled.footer`
   width: 100%;
-  padding: 32px 48px;
+  padding: 32px 48px 32px 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

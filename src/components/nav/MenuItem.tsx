@@ -1,4 +1,4 @@
-import React, { Children, useEffect, useState } from 'react'
+import React, { Children, Dispatch, SetStateAction, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { StyledLink } from '../shared/link'
 import { text } from '../shared/styles'
@@ -57,31 +57,28 @@ const MenuItemWrapper = styled(StyledLink)<{
 type MenuItemProps = {
   sectionName: string
   visible: string
+  clicked: string
+  setClicked: Dispatch<SetStateAction<string>>
   fontSize?: number
 }
 
 const MenuItem: React.FC<MenuItemProps & React.HTMLAttributes<HTMLDivElement>> = ({
   sectionName,
   visible,
+  clicked,
+  setClicked,
   fontSize
 }) => {
   const isVisible = visible === sectionName
   const [anchorTarget, setAnchorTarget] = useState<HTMLElement | null>(null)
-  const [clicked, setClicked] = useState(false)
 
   useEffect(() => {
     setAnchorTarget(document.getElementById(sectionName))
   }, [sectionName])
 
-  useEffect(() => {
-    if (visible === sectionName) {
-      setClicked(false)
-    }
-  }, [visible])
-
   const handleClick = (event: { preventDefault: () => void }) => {
     event.preventDefault()
-    setClicked(true)
+    setClicked(sectionName)
     anchorTarget &&
       anchorTarget.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
@@ -93,7 +90,7 @@ const MenuItem: React.FC<MenuItemProps & React.HTMLAttributes<HTMLDivElement>> =
       aria-label={`Scroll to ${sectionName}`}
       className="menu-item"
       visible={isVisible}
-      clicked={clicked}
+      clicked={clicked === sectionName}
       fontSize={fontSize}
     >
       {sectionName}

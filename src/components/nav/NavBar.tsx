@@ -58,10 +58,18 @@ const SocialLinksWrapper = styled.div`
 `
 
 const NavBar: React.FC<{ visible: string }> = ({ visible }) => {
+  const [clicked, setClicked] = useState('bio')
 
   const renderMenu = () => {
     return sections.map((section, key) => (
-      <MenuItem key={key} sectionName={section.title} visible={visible} className="menu-item" />
+      <MenuItem
+        key={key}
+        sectionName={section.title}
+        visible={visible}
+        className="menu-item"
+        clicked={clicked}
+        setClicked={setClicked}
+      />
     ))
   }
 
