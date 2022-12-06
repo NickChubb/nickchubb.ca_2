@@ -1,4 +1,4 @@
-import { Dispatch, useState } from 'react'
+import {  useRef, useState } from 'react'
 import Image from 'next/image'
 import styled from 'styled-components'
 import { FaCaretRight } from 'react-icons/fa'
@@ -7,6 +7,7 @@ import { breakpoints, colour, text } from '../shared/styles'
 import MenuItem from './MenuItem'
 import SubMenu from './SubMenu'
 import { sections } from '../body/sections'
+import useClickOutside from '../../hooks/use-click-outside'
 
 const NavWrapper = styled.div<{ isHidden: boolean }>`
   height: 100vh;
@@ -125,6 +126,9 @@ type NavBarProps = {
 
 const NavBar: React.FC<NavBarProps> = ({ section, setSection }) => {
   const [isHidden, setHidden] = useState(true)
+  const navBarRef = useRef(null)
+  const hide = () => setHidden(true)
+  useClickOutside(navBarRef, hide)
 
   const renderMenu = () => {
     return sections.map(({ title }, key) => (
@@ -140,7 +144,7 @@ const NavBar: React.FC<NavBarProps> = ({ section, setSection }) => {
   }
 
   return (
-    <NavWrapper isHidden={isHidden}>
+    <NavWrapper isHidden={isHidden} ref={navBarRef}>
       <HeaderImage src="/me.png" width={200} height={200} alt="me" />
       <HeaderTitle>Nick Chubb</HeaderTitle>
       <MenuItemContainer>
