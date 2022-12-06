@@ -3,26 +3,41 @@ import CoursesContent from './courses/CoursesContent'
 import ExperienceContent from './experience/ExperienceContent'
 import PersonalContent from './personal/PersonalContent'
 
-type section = {
+export type section = {
   title: string
-  Component: React.FC<any>
+  Content: React.FC<any> // | Array<section>
+  center?: boolean
 }
 
 export const sections: Array<section> = [
   {
     title: 'bio',
-    Component: BioContent
+    Content: BioContent,
+    center: true
   },
+  // {
+  //   title: 'projects',
+  //   Content: [
+  //     {
+  //       title: 'dockerman',
+  //       Content: DockermanContent
+  //     },
+  //     {
+  //       title: 'hawking',
+  //       Content: HawkingContent
+  //     }
+  //   ]
+  // },
   {
     title: 'experience',
-    Component: ExperienceContent,
+    Content: ExperienceContent,
   },
   {
     title: 'courses',
-    Component: CoursesContent,
+    Content: CoursesContent,
   },
   {
     title: 'personal',
-    Component: PersonalContent,
+    Content: PersonalContent,
   },
 ]

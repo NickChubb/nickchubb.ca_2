@@ -5,6 +5,7 @@ import Nav from '../src/components/nav/NavBar'
 import React, { useState } from 'react'
 import Section from '../src/components/shared/section'
 import { sections } from '../src/components/body/sections'
+import { breakpoints } from '../src/components/shared/styles'
 
 const Container = styled.div`
   width: 100vw;
@@ -18,7 +19,7 @@ const AppWrapper = styled.div`
   display: flex;
   flex-direction: row;
 
-  @media only screen and (max-width: 1360px) {
+  @media only screen and (max-width: ${breakpoints.mobile}) {
     max-width: 100%;
   }
 `
@@ -30,15 +31,46 @@ const MainWrapper = styled.main`
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    padding: 0 2rem;
+  }
 `
 
 const Home = () => {
   const [visible, setVisible] = useState('bio')
 
   const renderSections = () => {
-    return sections.map((section, key) => (
-      <Section key={key} Component={section.Component} title={section.title} setVisible={setVisible} />
-    ))
+    return sections.map((section, key) => {
+      console.log(section.center)
+      const content = section.Content
+      return (
+        <Section
+          key={key}
+          Component={section.Content}
+          title={section.title}
+          setVisible={setVisible}
+          center={section.center ?? false}
+        />
+      )
+      // if (Array.isArray(content)) {
+      //   return content.map((subsection) => (
+      //     <Section
+      //       key={key}
+      //       Component={subsection.Content}
+      //       title={section.title}
+      //       setVisible={setVisible}
+      //     />
+      //   ))
+      // } else
+      //   <Section
+      //     key={key}
+      //     Component={section.Content}
+      //     title={section.title}
+      //     setVisible={setVisible}
+      //     center={section.center ?? false}
+      //   />
+    })
   }
 
   return (

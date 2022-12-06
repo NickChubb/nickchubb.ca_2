@@ -6,7 +6,8 @@ body {
   margin: 0;
   font-family: 'Lato', sans-serif;
   font-size: 18px;
-  color: rgb(200, 200, 200)
+  color-scheme: dark;
+  background: #111111;
 }
 
 a {
@@ -18,16 +19,6 @@ a {
 * {
   box-sizing: border-box;
   /* color: rgba(222, 222, 222, 1); */
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: #111111;
-  }
 }
 
 .accordion__panel {

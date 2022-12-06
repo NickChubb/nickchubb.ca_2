@@ -19,16 +19,17 @@ const ButtonWrapper = styled.a`
 
   &:active {
     background: #333333;
-    color: ${text.green}
+    color: ${text.green};
   }
 `
 
 type ButtonProps = {
   href: string
   children: React.ReactNode
+  onClick?: React.MouseEvent<HTMLElement>
 }
 
-const Button: React.FC<ButtonProps> = ({ href, children }) => {
+const Button: React.FC<ButtonProps> = ({ href, children, onClick }) => {
   return <ButtonWrapper href={href}>{children}</ButtonWrapper>
 }
 

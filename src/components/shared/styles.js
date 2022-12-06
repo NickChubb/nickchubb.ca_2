@@ -5,7 +5,13 @@ export const text = {
 }
 
 export const colour = {
+  background: '',
+  navBackground: '#181818',
   button: '',
   buttonHover: '',
   butonActive: ''
+}
+
+export const breakpoints = {
+  mobile: '768px'
 }

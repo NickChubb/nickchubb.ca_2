@@ -8,7 +8,7 @@ import { ExternalLink } from '../../shared/link'
 const ExperienceCardList = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 42px;
 `
 
 const ExperienceCard = styled.div``
@@ -28,8 +28,8 @@ const ExperienceCardSubtitle = styled.div`
   margin: 0 0 12px;
 `
 
-const ExperienceFooter = styled.small`
-  padding-top: 8px;
+const ExperienceFooter = styled.div`
+  padding-top: 16px;
 `
 
 const Link = styled(ExternalLink)`
@@ -50,9 +50,11 @@ const ExperienceContent: React.FC = () => {
             return (
               <ExperienceCard key={key}>
                 <ExperienceCardHeader>
-                  <ExperienceCardTitle>
-                    {experience.company}
-                  </ExperienceCardTitle>
+                  <ExternalLink href={experience.website}>
+                    <ExperienceCardTitle>
+                      {experience.company}
+                    </ExperienceCardTitle>
+                  </ExternalLink>
                   <ExperienceCardSubtitle>
                     <i>{experience.title}</i>
                     <i>
@@ -73,11 +75,6 @@ const ExperienceContent: React.FC = () => {
                     return <li key={key}>{description}</li>
                   })}
                 </ExperienceCardDescription>
-                <ExperienceFooter>
-                  <Link href={experience.website}>
-                    Website <FiGlobe />
-                  </Link>
-                </ExperienceFooter>
               </ExperienceCard>
             )
           })}

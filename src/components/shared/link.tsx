@@ -17,6 +17,7 @@ export const StyledLink = styled.a`
 export const ExternalLink = styled.a`
   font-weight: 800;
   opacity: 0.8;
+  transition: all 0.25s;
 
   &:hover {
     color: ${text.green};

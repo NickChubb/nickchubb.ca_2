@@ -30,6 +30,10 @@ const RolesList = styled.ul`
   list-style: none;
 `
 
+const RolesListItem = styled.li`
+  margin-top: 16px;
+`
+
 const ButtonContainer = styled.div`
   margin: 1rem 0;
   display: flex;
@@ -42,20 +46,20 @@ const BioContent: React.FC<SectionProps> = () => {
       <BioWrapper>
         <BioParagraph>Hi 👋  my name is Nick Chubb. I am a...</BioParagraph>
         <RolesList>
-          <li>
+          <RolesListItem>
             🖥{'\t'}Computer Science & Molecular Biology student at Simon Fraser
             University
-          </li>
-          <li>
+          </RolesListItem>
+          <RolesListItem>
             🐻 Junior Frontend Developer at{' '}
             <ExternalLink href="https://machobear.ca/">Machobear Studios</ExternalLink>
-          </li>
-          <li>
+          </RolesListItem>
+          <RolesListItem>
             👨🏼‍💼 Account Manager for{' '}
             <ExternalLink href="https://vanstartupweek.ca/">
               Vancouver Startup Week
             </ExternalLink>
-          </li>
+          </RolesListItem>
         </RolesList>
         <BioParagraph>
           I am an aspiring <b>full-stack developer</b> and I will be seeking

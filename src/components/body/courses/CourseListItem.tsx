@@ -8,6 +8,7 @@ import {
 } from 'react-accessible-accordion'
 import { CourseItem } from './CourseTypes'
 import { GoLinkExternal } from 'react-icons/go'
+import { ExternalLink } from '../../shared/link'
 
 const ListItemWapper = styled(AccordionItem)`
   border-top: 1px solid rgba(0, 0, 0, 0.1);
@@ -73,9 +74,9 @@ const CourseListItem: React.FC<{ course: CourseItem }> = ({ course }) => {
       <ListItemPanel>
         <p>
           {course.description}{' '}
-          <a href={course.link}>
+          <ExternalLink href={course.link}>
             <GoLinkExternal />
-          </a>
+          </ExternalLink>
         </p>
       </ListItemPanel>
     </ListItemWapper>

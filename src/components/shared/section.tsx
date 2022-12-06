@@ -1,13 +1,20 @@
 import { Dispatch, SetStateAction, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import useOnScreen from '../../hooks/use-on-screen'
+import { section } from '../body/sections'
 import { text } from './styles'
 
-export const SectionWrapper = styled.div<{ ref: any }>`
+export const SectionWrapper = styled.div<{ ref: any, center?: boolean }>`
   width: 100%;
   min-height: 100vh;
-  padding: 48px 48px 48px 0;
+  padding: 48px 0;
   transition: 0.25s;
+
+  ${props => props.center && `
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  `}
 `
 
 export const SectionTitle = styled.h2<{ isVisible: boolean }>`
@@ -23,9 +30,10 @@ type SectionProps = {
   title: string
   setVisible: Dispatch<SetStateAction<string>>
   Component: React.FC<any>
+  center?: boolean
 }
 
-const Section: React.FC<SectionProps> = ({ title, setVisible, Component }) => {
+const Section: React.FC<SectionProps> = ({ title, setVisible, Component, center }) => {
   const ref = useRef()
   const isVisible = useOnScreen(ref)
   if (isVisible) {
@@ -34,7 +42,7 @@ const Section: React.FC<SectionProps> = ({ title, setVisible, Component }) => {
   }
 
   return (
-    <SectionWrapper id={title} ref={ref}>
+    <SectionWrapper id={title} ref={ref} center={center}>
       <SectionTitle isVisible={isVisible}>{title}</SectionTitle>
       <Component />
     </SectionWrapper>

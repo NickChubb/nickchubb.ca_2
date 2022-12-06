@@ -58,5 +58,5 @@ export const bookData = [
     author: 'Matt Gunn',
     notes: [''],
     link: 'https://www.amazon.ca/Scrambles-Southwest-British-Columbia-Matt/dp/0973548908/ref=sr_1_1?crid=1FEF4VXXGGI4J&dchild=1&keywords=scrambles+in+southwest+british+columbia&qid=1628829773&sprefix=scrambles%2Caps%2C324&sr=8-1',
-  },
+  }
 ];
