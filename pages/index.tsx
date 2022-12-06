@@ -1,11 +1,12 @@
 import Head from 'next/head'
 import styled from 'styled-components'
 import FooterSection from '../src/components/footer'
-import Nav from '../src/components/nav/NavBar'
+import NavBar from '../src/components/nav/NavBar'
 import React, { useState } from 'react'
 import Section from '../src/components/shared/section'
 import { sections } from '../src/components/body/sections'
 import { breakpoints } from '../src/components/shared/styles'
+import { useRouter } from 'next/router'
 
 const Container = styled.div`
   width: 100vw;
@@ -38,7 +39,9 @@ const MainWrapper = styled.main`
 `
 
 const Home = () => {
-  const [visible, setVisible] = useState('bio')
+  const { asPath } = useRouter()
+  const currentSection = asPath.substring(2)
+  const [section, setSection] = useState(currentSection ?? 'bio')
 
   const renderSections = () => {
     return sections.map((section, key) => {
@@ -49,7 +52,7 @@ const Home = () => {
           key={key}
           Component={section.Content}
           title={section.title}
-          setVisible={setVisible}
+          setSection={setSection}
           center={section.center ?? false}
         />
       )
@@ -82,7 +85,7 @@ const Home = () => {
       </Head>
 
       <AppWrapper>
-        <Nav visible={visible} />
+        <NavBar section={section} setSection={setSection}/>
         <MainWrapper id="main">
           {/* <ProjectsSection setVisible={setVisible} /> */}
           {renderSections()}

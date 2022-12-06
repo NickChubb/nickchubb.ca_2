@@ -11,6 +11,7 @@ const MenuItemWrapper = styled(StyledLink)<{
   font-size: ${(props) => props.fontSize ?? '22'}px;
   transition: 0.5s;
   font-family: 'Roboto Mono', monospace;
+  white-space: nowrap;
 
   &:hover {
     color: ${props => props.clicked ? text.green : text.normal} !important;
@@ -56,22 +57,20 @@ const MenuItemWrapper = styled(StyledLink)<{
 
 type MenuItemProps = {
   sectionName: string
-  visible: string
-  clicked: string
-  setClicked: Dispatch<SetStateAction<string>>
+  section: string
+  setSection: Dispatch<SetStateAction<string>>
   fontSize?: number
   setHidden?: Dispatch<SetStateAction<boolean>>
 }
 
 const MenuItem: React.FC<MenuItemProps & React.HTMLAttributes<HTMLDivElement>> = ({
   sectionName,
-  visible,
-  clicked,
-  setClicked,
+  section,
+  setSection,
   fontSize,
   setHidden
 }) => {
-  const isVisible = visible === sectionName
+  const isVisible = section === sectionName
   const [anchorTarget, setAnchorTarget] = useState<HTMLElement | null>(null)
 
   useEffect(() => {
@@ -80,7 +79,7 @@ const MenuItem: React.FC<MenuItemProps & React.HTMLAttributes<HTMLDivElement>> =
 
   const handleClick = (event: { preventDefault: () => void }) => {
     event.preventDefault()
-    setClicked(sectionName)
+    setSection(sectionName)
     if (setHidden) setHidden(true)
     anchorTarget &&
       anchorTarget.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -93,7 +92,7 @@ const MenuItem: React.FC<MenuItemProps & React.HTMLAttributes<HTMLDivElement>> =
       aria-label={`Scroll to ${sectionName}`}
       className="menu-item"
       visible={isVisible}
-      clicked={clicked === sectionName}
+      clicked={section === sectionName}
       fontSize={fontSize}
     >
       {sectionName}

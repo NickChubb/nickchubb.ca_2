@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { text } from '../../shared/styles'
+import { breakpoints, text } from '../../shared/styles'
 import { SectionProps } from '../../shared/types'
 import AboutSection from './AboutSection'
 import BookshelfSection from './BookshelfSection'
@@ -17,6 +17,10 @@ const NavWrapper = styled.div`
   font-family: 'Roboto Mono', monospace;
   display: flex;
   gap: 48px;
+
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    justify-content: space-between;
+  }
 `
 
 const NavItem = styled.h3<{ isActive: boolean }>`
