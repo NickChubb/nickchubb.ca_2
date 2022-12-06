@@ -20,7 +20,7 @@ const BioWrapper = styled.div`
 `
 
 const BioParagraph = styled.div`
-
+  text-align: justify;
 `
 
 const BioTitle = styled.h2`

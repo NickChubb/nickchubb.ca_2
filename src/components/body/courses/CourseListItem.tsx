@@ -56,8 +56,9 @@ const ListItemTitle = styled.div`
 `
 
 const ListItemPanel = styled(AccordionItemPanel)`
-  padding: 20px;
+  padding: 24px;
   background-color: rgb(24, 24, 24);
+  text-align: justify;
 `
 
 const CourseListItem: React.FC<{ course: CourseItem }> = ({ course }) => {

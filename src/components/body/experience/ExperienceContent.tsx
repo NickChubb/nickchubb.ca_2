@@ -15,7 +15,11 @@ const ExperienceCard = styled.div``
 
 const ExperienceCardHeader = styled.div``
 
-const ExperienceCardDescription = styled.div``
+const ExperienceCardDescription = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`
 
 const ExperienceCardTitle = styled.h3`
   margin: 0 0 4px;
