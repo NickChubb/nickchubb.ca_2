@@ -42,6 +42,7 @@ export const SectionTitle = styled.h2<{ isVisible: boolean }>`
 
 const FragmentLink = styled.a`
   display: none;
+  padding: 0;
 `
 
 type SectionProps = {
