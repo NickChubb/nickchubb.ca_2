@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Dispatch, useState } from 'react'
 import Image from 'next/image'
 import styled from 'styled-components'
 import { FaCaretRight } from 'react-icons/fa'
@@ -7,7 +7,6 @@ import { breakpoints, colour, text } from '../shared/styles'
 import MenuItem from './MenuItem'
 import SubMenu from './SubMenu'
 import { sections } from '../body/sections'
-import Button from '../shared/button'
 
 const NavWrapper = styled.div<{ isHidden: boolean }>`
   height: 100vh;
@@ -41,6 +40,7 @@ const NavWrapper = styled.div<{ isHidden: boolean }>`
     right: 0px;
     background: ${colour.navBackground};
     transition: 0.5s;
+    padding: 48px;
 
     ${(props) => props.isHidden && `right: -100%;`}
   }
@@ -55,6 +55,7 @@ const HeaderImage = styled(Image)`
 const HeaderTitle = styled.h1`
   font-family: 'Roboto Mono', monospace;
   margin-bottom: 0;
+  white-space: nowrap;
 `
 
 const MenuItemContainer = styled.div`
@@ -117,19 +118,22 @@ const MenuButton = styled.a<{ isHidden: boolean }>`
   }
 `
 
-const NavBar: React.FC<{ visible: string }> = ({ visible }) => {
-  const [clicked, setClicked] = useState('bio')
+type NavBarProps = {
+  section: string
+  setSection: React.Dispatch<React.SetStateAction<string>>
+}
+
+const NavBar: React.FC<NavBarProps> = ({ section, setSection }) => {
   const [isHidden, setHidden] = useState(true)
 
   const renderMenu = () => {
-    return sections.map((section, key) => (
+    return sections.map(({ title }, key) => (
       <MenuItem
         key={key}
-        sectionName={section.title}
-        visible={visible}
+        sectionName={title}
         className="menu-item"
-        clicked={clicked}
-        setClicked={setClicked}
+        section={section}
+        setSection={setSection}
         setHidden={setHidden}
       />
     ))
