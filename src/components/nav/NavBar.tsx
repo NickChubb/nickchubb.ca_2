@@ -130,6 +130,7 @@ const NavBar: React.FC<{ visible: string }> = ({ visible }) => {
         className="menu-item"
         clicked={clicked}
         setClicked={setClicked}
+        setHidden={setHidden}
       />
     ))
   }
