@@ -1,4 +1,4 @@
-import {  useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import Image from 'next/image'
 import styled from 'styled-components'
 import { FaCaretRight } from 'react-icons/fa'
@@ -94,29 +94,33 @@ const MenuButton = styled.a<{ isHidden: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #1f1f1f;
-  transition: 0.25s;
+  background: #292929;
   cursor: pointer;
-
-  ${(props) =>
-    props.isHidden &&
-    `
-    transform: rotate(180deg);
-  `}
+  box-shadow: 2px 1px 1px #181818;
 
   &:hover {
-    background: #292929;
+    background: #383838;
     transform: scale(0.98);
   }
 
   &:active {
-    background: #333333;
+    background: #424242;
     color: ${text.green} !important;
   }
 
   @media only screen and (min-width: ${breakpoints.mobile}) {
     display: none;
   }
+`
+
+const MenuButtonIcon = styled(FaCaretRight)<{ isHidden: boolean }>`
+  transition: 0.5s;
+
+  ${(props) =>
+    props.isHidden &&
+    `
+    transform: rotate(180deg);
+  `}
 `
 
 type NavBarProps = {
@@ -157,7 +161,7 @@ const NavBar: React.FC<NavBarProps> = ({ section, setSection }) => {
       </MenuItemContainer>
       <SocialLinks />
       <MenuButton onClick={() => setHidden(!isHidden)} isHidden={isHidden}>
-        <FaCaretRight />
+        <MenuButtonIcon isHidden={isHidden} />
       </MenuButton>
     </NavWrapper>
   )

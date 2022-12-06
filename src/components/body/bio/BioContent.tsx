@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import styled from 'styled-components'
 import Button from '../../shared/button'
 import { FaLinkedin, FaEnvelope, FaFileAlt } from 'react-icons/fa'
@@ -19,6 +20,19 @@ const BioWrapper = styled.div`
   gap: 32px;
 `
 
+const HeaderImageWrapper = styled.div`
+  width: 100%;
+`
+
+const HeaderImage = styled(Image)`
+  margin: 0 auto;
+  display: none;
+
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    display: block;
+  }
+`
+
 const BioParagraph = styled.div`
   text-align: justify;
 `
@@ -29,11 +43,17 @@ const BioTitle = styled.h2`
 
 const RolesList = styled.ul`
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    margin: 0;
+    padding-left: 16px;
+  }
 `
 
-const RolesListItem = styled.li`
-  margin-top: 16px;
-`
+const RolesListItem = styled.li``
 
 const ButtonContainer = styled.div`
   margin: 1rem 0;
@@ -49,6 +69,9 @@ const BioContent: React.FC<SectionProps> = () => {
   return (
     <>
       <BioWrapper>
+        <HeaderImageWrapper>
+          <HeaderImage src="/me.png" width={200} height={200} alt="me" />
+        </HeaderImageWrapper>
         <BioParagraph>Hi 👋  my name is Nick Chubb. I am a...</BioParagraph>
         <RolesList>
           <RolesListItem>
