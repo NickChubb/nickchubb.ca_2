@@ -8,6 +8,7 @@ const ButtonWrapper = styled.a`
   border-radius: 4px;
   color: ${text.normal};
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 10px;
   transition: 0.25s;

@@ -4,6 +4,7 @@ import Button from '../../shared/button'
 import { FaLinkedin, FaEnvelope, FaFileAlt } from 'react-icons/fa'
 import { SectionProps } from '../../shared/types'
 import { ExternalLink } from '../../shared/link'
+import { breakpoints } from '../../shared/styles'
 
 const HeaderWrapper = styled.div`
   padding: 32px 0;
@@ -38,6 +39,10 @@ const ButtonContainer = styled.div`
   margin: 1rem 0;
   display: flex;
   gap: 12px;
+
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    flex-direction: column;
+  }
 `
 
 const BioContent: React.FC<SectionProps> = () => {
