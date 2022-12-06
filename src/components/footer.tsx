@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import SocialLinks from "./shared/SocialLinks";
-import { text } from "./shared/styles";
+import { breakpoints, text } from "./shared/styles";
 
 const FooterWrapper = styled.footer`
   width: 100%;
@@ -9,6 +9,11 @@ const FooterWrapper = styled.footer`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    flex-direction: column;
+    gap: 16px;
+  }
 `
 
 const Copyright = styled.div`

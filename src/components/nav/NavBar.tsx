@@ -46,6 +46,12 @@ const NavWrapper = styled.div<{ isHidden: boolean }>`
   }
 `
 
+const HeaderImage = styled(Image)`
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    display: none;
+  }
+`
+
 const HeaderTitle = styled.h1`
   font-family: 'Roboto Mono', monospace;
   margin-bottom: 0;
@@ -130,7 +136,7 @@ const NavBar: React.FC<{ visible: string }> = ({ visible }) => {
 
   return (
     <NavWrapper isHidden={isHidden}>
-      <Image src="/me.png" width={200} height={200} alt="me" />
+      <HeaderImage src="/me.png" width={200} height={200} alt="me" />
       <HeaderTitle>Nick Chubb</HeaderTitle>
       <MenuItemContainer>
         {/* <SubMenu title="projects">
