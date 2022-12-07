@@ -2,6 +2,8 @@ import { useRef, useState } from 'react'
 import Image from 'next/image'
 import styled from 'styled-components'
 import { FaCaretRight } from 'react-icons/fa'
+// @ts-ignore
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import SocialLinks from '../shared/SocialLinks'
 import { breakpoints, colour, text } from '../shared/styles'
 import MenuItem from './MenuItem'
@@ -131,7 +133,20 @@ type NavBarProps = {
 const NavBar: React.FC<NavBarProps> = ({ section, setSection }) => {
   const [isHidden, setHidden] = useState(true)
   const navBarRef = useRef(null)
-  const hide = () => setHidden(true)
+
+  const hide = () => { 
+    enableBodyScroll(navBarRef.current)
+    setHidden(true)
+  }
+
+  const show = () => {
+    console.log(navBarRef.current)
+    disableBodyScroll(navBarRef.current)
+    setHidden(false)
+  }
+
+  const toggle = isHidden ? show : hide
+
   useClickOutside(navBarRef, hide)
 
   const renderMenu = () => {
@@ -142,7 +157,7 @@ const NavBar: React.FC<NavBarProps> = ({ section, setSection }) => {
         className="menu-item"
         section={section}
         setSection={setSection}
-        setHidden={setHidden}
+        hideNav={hide}
       />
     ))
   }
@@ -160,7 +175,7 @@ const NavBar: React.FC<NavBarProps> = ({ section, setSection }) => {
         {renderMenu()}
       </MenuItemContainer>
       <SocialLinks />
-      <MenuButton onClick={() => setHidden(!isHidden)} isHidden={isHidden}>
+      <MenuButton onClick={toggle} isHidden={isHidden}>
         <MenuButtonIcon isHidden={isHidden} />
       </MenuButton>
     </NavWrapper>

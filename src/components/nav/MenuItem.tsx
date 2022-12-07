@@ -60,7 +60,7 @@ type MenuItemProps = {
   section: string
   setSection: Dispatch<SetStateAction<string>>
   fontSize?: number
-  setHidden?: Dispatch<SetStateAction<boolean>>
+  hideNav?: () => void
 }
 
 const MenuItem: React.FC<MenuItemProps & React.HTMLAttributes<HTMLDivElement>> = ({
@@ -68,7 +68,7 @@ const MenuItem: React.FC<MenuItemProps & React.HTMLAttributes<HTMLDivElement>> =
   section,
   setSection,
   fontSize,
-  setHidden
+  hideNav
 }) => {
   const isVisible = section === sectionName
   const [anchorTarget, setAnchorTarget] = useState<HTMLElement | null>(null)
@@ -80,7 +80,7 @@ const MenuItem: React.FC<MenuItemProps & React.HTMLAttributes<HTMLDivElement>> =
   const handleClick = (event: { preventDefault: () => void }) => {
     event.preventDefault()
     setSection(sectionName)
-    if (setHidden) setHidden(true)
+    if (hideNav) hideNav()
     anchorTarget &&
       anchorTarget.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
