@@ -37,10 +37,11 @@ const Divider = styled.div`
 
 type SubMenuProps = {
   title: string
+  currentSection: string
   children: React.ReactNode
 }
 
-const SubMenu: React.FC<SubMenuProps> = ({ title, children }) => {
+const SubMenu: React.FC<SubMenuProps> = ({ title, currentSection, children }) => {
   const [show, setShow] = useState(false)
 
   return (

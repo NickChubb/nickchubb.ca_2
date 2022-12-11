@@ -21,6 +21,7 @@
     "react-accessible-accordion": "^5.0.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.6.0",
+    "react-responsive-carousel": "^3.2.23",
     "styled-components": "^5.3.6",
     "typescript": "4.8.4"
   },

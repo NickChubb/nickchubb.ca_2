@@ -48,7 +48,7 @@ const FragmentLink = styled.a`
 type SectionProps = {
   title: string
   setSection: Dispatch<SetStateAction<string>>
-  Component: React.FC<any>
+  Component: React.FC<any> | React.ReactNode
   center?: boolean
 }
 
@@ -56,11 +56,20 @@ const Section: React.FC<SectionProps> = ({ title, setSection, Component, center 
   const ref = useRef()
   const isVisible = useOnScreen(ref)
   if (isVisible) {
-    console.log('setting visible ' + title)
     setSection(title)
   }
 
-  const getLink = () => {}
+  const getLink = () => {
+    const scrollTarget = document.getElementById(title)
+    scrollTarget?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    // Copy fragment link to clipboard
+  }
+
+  const getBody = () => {
+    if (typeof Component === 'function') return <Component />
+    console.log(title)
+    return Component
+  }
 
   return (
     <SectionWrapper id={title} ref={ref} center={center}>
@@ -68,7 +77,7 @@ const Section: React.FC<SectionProps> = ({ title, setSection, Component, center 
         <SectionTitle isVisible={isVisible}>{title}</SectionTitle>
         <FragmentLink><small> #</small></FragmentLink>
       </SectionHeader>
-      <Component />
+      {getBody()}
     </SectionWrapper>
   )
 }

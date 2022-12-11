@@ -43,36 +43,34 @@ const Home = () => {
   const currentSection = asPath.substring(2)
   const [section, setSection] = useState(currentSection ?? 'bio')
 
+  const renderSubsection = () => {}
+
   const renderSections = () => {
     return sections.map((section, key) => {
-      console.log(section.center)
       const content = section.Content
-      return (
-        <Section
-          key={key}
-          Component={section.Content}
-          title={section.title}
-          setSection={setSection}
-          center={section.center ?? false}
-        />
-      )
-      // if (Array.isArray(content)) {
-      //   return content.map((subsection) => (
-      //     <Section
-      //       key={key}
-      //       Component={subsection.Content}
-      //       title={section.title}
-      //       setVisible={setVisible}
-      //     />
-      //   ))
-      // } else
-      //   <Section
-      //     key={key}
-      //     Component={section.Content}
-      //     title={section.title}
-      //     setVisible={setVisible}
-      //     center={section.center ?? false}
-      //   />
+      if (Array.isArray(content)) {
+        return content.map((subsection) => (
+          <Section
+            key={key}
+            //@ts-ignore
+            Component={subsection.Content}
+            title={subsection.title}
+            setSection={setSection}
+            center={section.center ?? false}
+          />
+        ))
+      } else {
+        return (
+          <Section
+            key={key}
+            //@ts-ignore
+            Component={section.Content}
+            title={section.title}
+            setSection={setSection}
+            center={section.center ?? false}
+          />
+        )
+      }
     })
   }
 

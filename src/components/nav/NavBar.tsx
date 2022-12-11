@@ -8,7 +8,7 @@ import SocialLinks from '../shared/SocialLinks'
 import { breakpoints, colour, text } from '../shared/styles'
 import MenuItem from './MenuItem'
 import SubMenu from './SubMenu'
-import { sections } from '../body/sections'
+import { Section, sections } from '../body/sections'
 import useClickOutside from '../../hooks/use-click-outside'
 
 const NavWrapper = styled.div<{ isHidden: boolean }>`
@@ -86,8 +86,8 @@ const SocialLinksWrapper = styled.div`
 
 const MenuButton = styled.a<{ isHidden: boolean }>`
   border-radius: 50%;
-  height: 50px;
-  width: 50px;
+  height: 65px;
+  width: 65px;
   position: fixed;
   bottom: 48px;
   right: 48px;
@@ -134,7 +134,7 @@ const NavBar: React.FC<NavBarProps> = ({ section, setSection }) => {
   const [isHidden, setHidden] = useState(true)
   const navBarRef = useRef(null)
 
-  const hide = () => { 
+  const hide = () => {
     enableBodyScroll(navBarRef.current)
     setHidden(true)
   }
@@ -149,17 +149,53 @@ const NavBar: React.FC<NavBarProps> = ({ section, setSection }) => {
 
   useClickOutside(navBarRef, hide)
 
+  // const MenuItemWrapper = ({ title, key }) => {
+  //   return (
+  //     <MenuItem
+  //       key={key}
+  //       sectionName={title}
+  //       className="menu-item"
+  //       section={section}
+  //       setSection={setSection}
+  //       hideNav={hide}
+  //     />
+  //   )
+  // }
+
+  const renderSubmenu = (sectionTitle: string, content: Array<Section>) => {
+    return (
+      <SubMenu title={sectionTitle} currentSection={section}>
+        {content.map(({ title: subtitle }, key) => {
+          return (
+            <MenuItem
+              key={key}
+              sectionName={subtitle}
+              className="menu-item"
+              section={section}
+              setSection={setSection}
+              hideNav={hide}
+              fontSize={18}
+            />
+          )
+        })}
+      </SubMenu>
+    )
+  }
+
   const renderMenu = () => {
-    return sections.map(({ title }, key) => (
-      <MenuItem
-        key={key}
-        sectionName={title}
-        className="menu-item"
-        section={section}
-        setSection={setSection}
-        hideNav={hide}
-      />
-    ))
+    return sections.map(({ title, Content }, key) => {
+      if (Array.isArray(Content)) return renderSubmenu(title, Content)
+      return (
+        <MenuItem
+          key={key}
+          sectionName={title}
+          className="menu-item"
+          section={section}
+          setSection={setSection}
+          hideNav={hide}
+        />
+      )
+    })
   }
 
   return (
@@ -167,16 +203,11 @@ const NavBar: React.FC<NavBarProps> = ({ section, setSection }) => {
       <HeaderImage src="/me.png" width={200} height={200} alt="me" />
       <HeaderTitle>Nick Chubb</HeaderTitle>
       <MenuItemContainer>
-        {/* <SubMenu title="projects">
-          <MenuItem sectionName="dockerman" visible={visible} fontSize={18} />
-          <MenuItem sectionName="hawking" visible={visible} fontSize={18} />
-          <MenuItem sectionName="ReversiRust" visible={visible} fontSize={18} />
-        </SubMenu> */}
         {renderMenu()}
       </MenuItemContainer>
       <SocialLinks />
       <MenuButton onClick={toggle} isHidden={isHidden}>
-        <MenuButtonIcon isHidden={isHidden} />
+        <MenuButtonIcon isHidden={isHidden} fontSize={24} />
       </MenuButton>
     </NavWrapper>
   )

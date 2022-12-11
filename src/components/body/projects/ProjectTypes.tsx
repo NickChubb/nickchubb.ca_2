@@ -3,7 +3,7 @@ type Link = {
   url: string
 }
 
-type Image = {
+export type ImageDetails = {
   path: string
   title: string
   description: string
@@ -17,7 +17,7 @@ export type Project = {
   description: Array<string>
   github: string
   links: Array<Link>
-  image: Array<Image>
+  image: Array<ImageDetails>
 }
 
 export type ProjectData = Array<Project>
