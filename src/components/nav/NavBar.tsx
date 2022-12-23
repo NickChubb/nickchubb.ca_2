@@ -34,6 +34,8 @@ const NavWrapper = styled.div<{ isHidden: boolean }>`
     color: ${text.fade};
   }
 
+  
+
   @media only screen and (max-width: ${breakpoints.mobile}) {
     height: 100%;
     width: fit-content;
@@ -140,7 +142,6 @@ const NavBar: React.FC<NavBarProps> = ({ section, setSection }) => {
   }
 
   const show = () => {
-    console.log(navBarRef.current)
     disableBodyScroll(navBarRef.current)
     setHidden(false)
   }
@@ -162,13 +163,13 @@ const NavBar: React.FC<NavBarProps> = ({ section, setSection }) => {
   //   )
   // }
 
-  const renderSubmenu = (sectionTitle: string, content: Array<Section>) => {
+  const renderSubmenu = (sectionTitle: string, content: Array<Section>, key: number) => {
     return (
       <SubMenu title={sectionTitle} currentSection={section}>
-        {content.map(({ title: subtitle }, key) => {
+        {content.map(({ title: subtitle }, submenuKey) => {
           return (
             <MenuItem
-              key={key}
+              key={`${key}-${submenuKey}`}
               sectionName={subtitle}
               className="menu-item"
               section={section}
@@ -184,7 +185,7 @@ const NavBar: React.FC<NavBarProps> = ({ section, setSection }) => {
 
   const renderMenu = () => {
     return sections.map(({ title, Content }, key) => {
-      if (Array.isArray(Content)) return renderSubmenu(title, Content)
+      if (Array.isArray(Content)) return renderSubmenu(title, Content, key)
       return (
         <MenuItem
           key={key}

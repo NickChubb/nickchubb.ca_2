@@ -3,6 +3,7 @@ import BioContent from './bio/BioContent'
 import CoursesContent from './courses/CoursesContent'
 import ExperienceContent from './experience/ExperienceContent'
 import PersonalContent from './personal/PersonalContent'
+import ProjectsContent from './projects/NewProjectsPage/NewProjectsPage'
 import ProjectPage from './projects/ProjectPage/ProjectPage'
 
 export type Section = {
@@ -23,17 +24,21 @@ export const sections: Array<Section> = [
   },
   {
     title: 'projects',
-    Content: [
-      {
-        title: 'dockerman',
-        Content: <ProjectPage project={projectData[0]} />
-      },
-      {
-        title: 'hawking',
-        Content: <ProjectPage project={projectData[1]} />
-      }
-    ]
+    Content: ProjectsContent
   },
+  // {
+  //   title: 'projects',
+  //   Content: [
+  //     {
+  //       title: 'dockerman',
+  //       Content: <ProjectPage project={projectData[0]} />
+  //     },
+  //     {
+  //       title: 'hawking',
+  //       Content: <ProjectPage project={projectData[1]} />
+  //     }
+  //   ]
+  // },
   {
     title: 'courses',
     Content: CoursesContent,

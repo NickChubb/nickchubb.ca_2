@@ -78,7 +78,7 @@ export const projectData: ProjectData = [
   },
   {
     title: 'ReversiRust',
-    display: true,
+    display: false,
     summary:
       'A Rust implementation of the popular board game Reversi (Othello), using AI algorithms.',
     technologies: 'Rust',

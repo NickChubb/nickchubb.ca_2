@@ -24,3 +24,12 @@ a {
 .accordion__panel {
   animation: fadein 0.35s ease-in;
 }
+
+.slider-wrapper, .carousel-slider, .slider {
+  width: 100%;
+  height: 100%;
+
+  @media only screen and (max-width: '768px') {
+    max-height: 300px;
+  }
+}

@@ -1,12 +1,13 @@
 import { Dispatch, SetStateAction, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import useOnScreen from '../../hooks/use-on-screen'
+import { scrollToSection } from '../../utils/scroll'
 import { breakpoints, text } from './styles'
 
 export const SectionWrapper = styled.div<{ ref: any, center?: boolean }>`
   width: 100%;
   min-height: 100vh;
-  padding: 48px 0;
+  padding: 0 0 48px;
   transition: 0.25s;
 
   ${props => props.center && `
@@ -60,14 +61,12 @@ const Section: React.FC<SectionProps> = ({ title, setSection, Component, center 
   }
 
   const getLink = () => {
-    const scrollTarget = document.getElementById(title)
-    scrollTarget?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    scrollToSection(title)
     // Copy fragment link to clipboard
   }
 
   const getBody = () => {
     if (typeof Component === 'function') return <Component />
-    console.log(title)
     return Component
   }
 

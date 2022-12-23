@@ -29,7 +29,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "src/hooks/use-alert.js", "src/hooks/use-alert.js"  ],
   "exclude": [
     "node_modules"
   ]

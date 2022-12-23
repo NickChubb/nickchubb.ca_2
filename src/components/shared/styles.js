@@ -7,6 +7,8 @@ export const text = {
 export const colour = {
   background: '',
   navBackground: '#181818',
+  cardBackground: '#242424',
+  cardHighlighted: '#343434',
   button: '',
   buttonHover: '',
   butonActive: ''

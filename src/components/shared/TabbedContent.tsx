@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import styled from 'styled-components'
+import { scrollToSection } from '../../utils/scroll'
 import { breakpoints, text } from './styles'
 
 const TabbedContentWrapper = styled.div``
@@ -17,6 +18,7 @@ const NavWrapper = styled.div`
 const NavItem = styled.h3<{ isActive: boolean }>`
   cursor: pointer;
   color: ${text.normal};
+  margin: 0 0 24px;
 
   &:hover {
     color: ${text.normal} !important;
@@ -39,9 +41,10 @@ export type Page = {
 
 type TabbedContentProps = {
   pages: Array<Page>
+  sectionTitle: string
 }
 
-const TabbedContent: React.FC<TabbedContentProps> = ({ pages }) => {
+const TabbedContent: React.FC<TabbedContentProps> = ({ pages, sectionTitle }) => {
   const [page, setPage] = useState(0)
 
   const getBodyContent = () => {
@@ -50,12 +53,17 @@ const TabbedContent: React.FC<TabbedContentProps> = ({ pages }) => {
 
   const isActive = (pageNum: number) => pageNum === page
 
+  const handleClick = (key: number) => {
+    scrollToSection(sectionTitle)
+    setPage(key)
+  }
+
   return (
     <TabbedContentWrapper>
       <NavWrapper className="navwrapper">
         {pages.map((item, key) => (
           <NavItem
-            onClick={() => setPage(key)}
+            onClick={() => handleClick(key)}
             isActive={isActive(key)}
             key={key}
           >

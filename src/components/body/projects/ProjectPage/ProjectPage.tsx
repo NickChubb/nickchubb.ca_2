@@ -1,6 +1,6 @@
 import TabbedContent from '../../../shared/TabbedContent'
 import { Project } from '../ProjectTypes'
-import GallerySection from './GallerySection'
+import GallerySection from '../NewProjectsPage/Gallery'
 import SummarySection from './SummarySection'
 
 const ProjectPage: React.FC<{ project: Project }> = ({ project }) => {
@@ -16,7 +16,7 @@ const ProjectPage: React.FC<{ project: Project }> = ({ project }) => {
   ]
 
   return (
-    <TabbedContent pages={pages} />
+    <TabbedContent pages={pages} sectionTitle={project.title}/>
   )
 }
 

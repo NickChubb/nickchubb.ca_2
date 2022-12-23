@@ -14,7 +14,7 @@ const SubMenuTitle = styled.div`
   transition: 0.5s;
 `
 
-const SubMenuChildrenWrapper = styled.div`
+const SubMenuChildrenWrapper = styled.div<{ isExpanded: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -23,6 +23,12 @@ const SubMenuChildrenWrapper = styled.div`
   border: 0;
   max-height: 0;
   transition: max-height 0.5s ease-out, border 0.5s ease;
+
+  ${(props) =>
+    props.isExpanded &&
+    `
+    max-height: 200px;
+  `}
 
   &>*:first-child {
     margin-top: 8px;
@@ -41,18 +47,22 @@ type SubMenuProps = {
   children: React.ReactNode
 }
 
-const SubMenu: React.FC<SubMenuProps> = ({ title, currentSection, children }) => {
-  const [show, setShow] = useState(false)
-
+const SubMenu: React.FC<SubMenuProps> = ({
+  title,
+  currentSection,
+  children,
+}) => {
+  const isExpanded = currentSection === 'dockerman' || currentSection === 'hawking'
   return (
     <SubMenuWrapper>
-      <SubMenuTitle className="submenu-title" onClick={() => setShow(!show)}>{title}</SubMenuTitle>
-      {/* {show && ( */}
-      <SubMenuChildrenWrapper className="submenu-children">
+      <SubMenuTitle className="submenu-title">{title}</SubMenuTitle>
+      <SubMenuChildrenWrapper
+        className="submenu-children"
+        isExpanded={isExpanded}
+      >
         <Divider />
         {children}
       </SubMenuChildrenWrapper>
-      {/* )} */}
     </SubMenuWrapper>
   )
 }

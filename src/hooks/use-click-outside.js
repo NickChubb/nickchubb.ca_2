@@ -9,7 +9,6 @@ const useClickOutside = (ref, callback) => {
      * Alert if clicked on outside of element
      */
     const handleClickOutside = (event) => {
-      console.log(event)
       if (ref.current && !ref.current.contains(event.target)) {
         callback()
       }
