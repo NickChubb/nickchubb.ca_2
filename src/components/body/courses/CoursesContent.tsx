@@ -4,6 +4,7 @@ import { Accordion } from "react-accessible-accordion"
 import CourseListItem from "./CourseListItem"
 import { CourseItem } from "./CourseTypes"
 import { courseData } from "../../../data/courses"
+import 'react-accessible-accordion/dist/fancy-example.css'
 
 const CourseListWrapper = styled(Accordion)`
   border: 1px solid rgba(0, 0, 0, 0.1);
