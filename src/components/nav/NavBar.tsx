@@ -13,8 +13,8 @@ import useClickOutside from '../../hooks/use-click-outside'
 
 const NavWrapper = styled.div<{ isHidden: boolean }>`
   height: 100vh;
-  width: 30vw;
-  padding: 64px 112px 64px 64px;
+  width: 35vw;
+  padding: 64px 142px 64px 64px;
   position: sticky;
   top: 0px;
   display: flex;
@@ -33,8 +33,6 @@ const NavWrapper = styled.div<{ isHidden: boolean }>`
   &:hover > * > * {
     color: ${text.fade};
   }
-
-  
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
     height: 100%;

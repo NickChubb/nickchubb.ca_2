@@ -10,10 +10,10 @@ export const experienceData: ExperienceData = [
     finishDate: '2022-12',
     website: 'https://machobear.ca/',
     description: [
-      'Contributed to the release of several prominent user-forward features for liv.rent product',
-      'Notable contributions include: new user toaster, pre-authorized debits, ',
-      'Worked with technologies such as: React, Next.js',
-      '',
+      'Worked on liv.rent team: a full-service rental web app for managing listings, contracts, chats, payments, etc.',
+      'Implemented several prominent features, including new user toaster and tour, custom contract builder, and more',
+      'Developed, tested, and deployed functional components for React web apps in adherence to coding standards',
+      'Troubleshooting and resolving complex front-end issues with Redux, Ramda, and other libraries',
     ],
   },
   {

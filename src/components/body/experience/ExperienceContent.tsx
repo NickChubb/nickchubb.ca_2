@@ -54,7 +54,7 @@ const ExperienceContent: React.FC = () => {
             return (
               <ExperienceCard key={key}>
                 <ExperienceCardHeader>
-                  <ExternalLink href={experience.website}>
+                  <ExternalLink href={experience.website} style={{ opacity: 1 }}>
                     <ExperienceCardTitle>
                       {experience.company}
                     </ExperienceCardTitle>
