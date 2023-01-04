@@ -9,6 +9,7 @@ import {
 import { CourseItem } from './CourseTypes'
 import { GoLinkExternal } from 'react-icons/go'
 import { ExternalLink } from '../../shared/link'
+import { colour, shadow, text } from '../../shared/styles'
 
 const ListItemWapper = styled(AccordionItem)`
   border-top: 1px solid rgba(0, 0, 0, 0.1);
@@ -19,8 +20,8 @@ const ListItemHeading = styled(AccordionItemHeading)`
 `
 
 const ListItemButton = styled(AccordionItemButton)`
-  background-color: rgb(32, 32, 32);
-  color: #bbbbbb;
+  background-color: ${colour.cardHeader};
+  color: ${text.normal};
   cursor: pointer;
   padding: 18px;
   width: 100%;
@@ -57,8 +58,12 @@ const ListItemTitle = styled.div`
 
 const ListItemPanel = styled(AccordionItemPanel)`
   padding: 24px;
-  background-color: rgb(24, 24, 24);
+  background-color: ${colour.cardBackground};
   text-align: justify;
+  color: ${text.light};
+  box-shadow: 2px 2px 5px ${shadow.inset} inset;
+
+  animation: fadein 0.35s ease-in;
 `
 
 const CourseListItem: React.FC<{ course: CourseItem }> = ({ course }) => {

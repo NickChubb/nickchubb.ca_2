@@ -11,24 +11,29 @@ const ProjectContent = styled.div`
   display: flex;
   width: 100%;
   height: 80vh;
-  background: ${colour.cardHighlighted};
+  background: ${colour.cardHeader};
   border-radius: 8px;
 `
 
 const ProjectNavWrapper = styled.div`
   text-align: right;
-  background: ${colour.cardHighlighted};
+  background: ${colour.cardHeader};
 `
 
 const ProjectNavItem = styled.h3<{ isActive: boolean }>`
   margin: 0;
   padding: 24px 48px;
   cursor: pointer;
+  transition: 0.25s;
 
   ${props => props.isActive && `
-    background: ${colour.cardBackground};
+    background: ${colour.cardBackground} !important;
     color: ${text.green};
   `}
+
+  &:hover {
+    background: ${colour.cardHighlighted};
+  }
 `
 
 const ProjectDisplayWrapper = styled.div`

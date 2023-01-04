@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints, colour } from '../../../shared/styles'
+import { breakpoints, colour, text } from '../../../shared/styles'
 import { Project } from '../ProjectTypes'
 import Gallery from './Gallery'
 
@@ -8,6 +8,10 @@ const ProjectDisplayWrapper = styled.div`
   display: flex;
   flex-direction: column;
   background: ${colour.cardBackground};
+  color: ${text.light};
+
+  animation: all 0.35s ease-in;
+  transition: all 0.2s;
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
     height: fit-content;
