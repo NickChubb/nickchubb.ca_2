@@ -18,6 +18,7 @@ const BioWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 32px;
+  max-width: 740px;
 `
 
 const HeaderImageWrapper = styled.div`
@@ -72,18 +73,18 @@ const BioContent: React.FC<SectionProps> = () => {
         <HeaderImageWrapper>
           <HeaderImage src="/me.png" width={200} height={200} alt="me" />
         </HeaderImageWrapper>
-        <BioParagraph>Hi 👋  my name is Nick Chubb. I am a...</BioParagraph>
+        <BioParagraph>Hi, my name is Nick Chubb. I am a...</BioParagraph>
         <RolesList>
           <RolesListItem>
-            🖥{'\t'}Computer Science & Molecular Biology student at Simon Fraser
+            🖥{' '}Computer Science & Molecular Biology student at Simon Fraser
             University
           </RolesListItem>
           <RolesListItem>
-            🐻 Junior Frontend Developer at{' '}
+            🐻{' '}Junior Frontend Developer at{' '}
             <ExternalLink href="https://machobear.ca/">Machobear Studios</ExternalLink>
           </RolesListItem>
           <RolesListItem>
-            👨🏼‍💼 Account Manager for{' '}
+            👨🏼‍💼{' '}Account Manager for{' '}
             <ExternalLink href="https://vanstartupweek.ca/">
               Vancouver Startup Week
             </ExternalLink>
