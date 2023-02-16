@@ -31,6 +31,7 @@ const ExperienceCardDescription = styled.ul`
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
     text-align: justify;
+    font-size: 16px;
   }
 `
 

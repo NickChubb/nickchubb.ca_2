@@ -20,6 +20,13 @@ export const colour = {
   butonActive: ''
 }
 
+export const fontSize = {
+  small: '16px',
+  normal: '18px',
+  large: '20px',
+  xlarge: '22px'
+}
+
 export const breakpoints = {
   mobile: '768px'
 }

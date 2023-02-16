@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints, colour, text } from '../../../shared/styles'
+import { breakpoints, colour, fontSize, text } from '../../../shared/styles'
 import { Project } from '../ProjectTypes'
 import Gallery from './Gallery'
 
@@ -22,6 +22,7 @@ const ProjectDisplayWrapper = styled.div`
 
 const Title = styled.h3`
   margin: 0;
+  color: ${text.normal};
 `
 
 const Summary = styled.div`
@@ -44,12 +45,18 @@ const DescriptionWrapper = styled.ul`
   margin-left: 0;
   padding-left: 24px;
   list-style-position: outside;
+
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    padding-left: 16px;
+  }
 `
 
 const DescriptionListItem = styled.li`
   // &:before {
   //   content: '>  ';
   // }
+  font-size: ${fontSize.small};
+  text-align: justify;
 `
 
 const ProjectDisplay: React.FC<{ project: Project; isMobile: boolean }> = ({
