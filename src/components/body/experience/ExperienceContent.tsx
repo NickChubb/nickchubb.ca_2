@@ -11,14 +11,28 @@ const ExperienceCardList = styled.div`
   gap: 42px;
 `
 
-const ExperienceCard = styled.div``
-
-const ExperienceCardHeader = styled.div``
-
-const ExperienceCardDescription = styled.div`
+const ExperienceCard = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
+`
+
+const ExperienceCardHeader = styled.div``
+
+const ExperienceCardDescription = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding-left: 16px;
+  // list-style: none;
+  list-style-position: outside;
+`
+
+const ExperienceListItem = styled.li`
+  // &:before {
+  //   content: '>  ';
+  // }
 `
 
 const ExperienceCardTitle = styled.h3`
@@ -76,7 +90,7 @@ const ExperienceContent: React.FC = () => {
                 </ExperienceCardHeader>
                 <ExperienceCardDescription>
                   {experience.description.map((description, key) => {
-                    return <li key={key}>{description}</li>
+                    return <ExperienceListItem key={key}>{description}</ExperienceListItem>
                   })}
                 </ExperienceCardDescription>
               </ExperienceCard>

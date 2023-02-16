@@ -18,6 +18,12 @@ export const bookData = [
     link: 'https://www.amazon.ca/Meditations-New-Translation-Marcus-Aurelius/dp/0812968255/ref=sr_1_1?dchild=1&keywords=meditations&qid=1628829611&sr=8-1',
   },
   {
+    title: 'The Magic of Thinking Big',
+    author: 'David J. Schwartz',
+    notes: [''],
+    link: 'https://www.amazon.ca/Magic-Thinking-Big-David-Schwartz/dp/0671646788/ref=sr_1_1?keywords=the+magic+of+thinking+big&qid=1676511808&sr=8-1',
+  },
+  {
     title: 'The Hard Thing about Hard Things',
     author: 'Ben Horowitz',
     notes: [''],
