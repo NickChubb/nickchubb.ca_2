@@ -1,3 +1,5 @@
+import crypto from 'crypto'
+
 const hashObject = async (obj) => {
   // convert object to JSON string
   const objString = JSON.stringify(obj)
