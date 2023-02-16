@@ -40,6 +40,7 @@ export const projectData: ProjectData = [
           'View logs from database of performed actions, login requests, and more.',
       },
     ],
+    icon: '🐳',
   },
   {
     title: 'hawking',
@@ -75,6 +76,7 @@ export const projectData: ProjectData = [
         description: '',
       },
     ],
+    icon: '🤖',
   },
   {
     title: 'ReversiRust',
@@ -101,5 +103,6 @@ export const projectData: ProjectData = [
         description: '',
       },
     ],
+    icon: '🦀',
   },
 ]

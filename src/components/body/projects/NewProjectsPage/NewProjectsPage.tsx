@@ -22,7 +22,7 @@ const ProjectNavWrapper = styled.div`
 
 const ProjectNavItem = styled.h3<{ isActive: boolean }>`
   margin: 0;
-  padding: 24px 48px;
+  padding: 24px 24px;
   cursor: pointer;
   transition: 0.25s;
 
@@ -70,7 +70,7 @@ const ProjectsContent = () => {
                 onClick={() => handleClick(key)}
                 isActive={project === key}
               >
-                {item.title}
+                {item.icon}
               </ProjectNavItem>
             )
         )}

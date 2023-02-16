@@ -18,6 +18,7 @@ export type Project = {
   github: string
   links: Array<Link>
   image: Array<ImageDetails>
+  icon: string
 }
 
 export type ProjectData = Array<Project>

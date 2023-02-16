@@ -18,6 +18,10 @@ const ProjectDisplayWrapper = styled.div`
   }
 `
 
+const Title = styled.h3`
+  margin: 0;
+`
+
 const Summary = styled.div`
   padding: 24px 32px;
   display: flex;
@@ -30,26 +34,27 @@ const Paragraph = styled.p`
 `
 
 const DescriptionWrapper = styled.ul`
-  list-style: none;
+  // list-style: none;
   margin: 0;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  list-style: none;
   margin-left: 0;
-  padding-left: 8px;
+  padding-left: 24px;
+  list-style-position: outside;
 `
 
 const DescriptionListItem = styled.li`
-  &:before {
-    content: '>  ';
-  }
+  // &:before {
+  //   content: '>  ';
+  // }
 `
 
 const ProjectDisplay: React.FC<{ project: Project }> = ({ project }) => {
   return (
     <ProjectDisplayWrapper>
       <Summary>
+        <Title>{project?.title}</Title>
         <Paragraph><i>{project?.summary}</i></Paragraph>
         <Paragraph><b>Made with:</b> {project?.technologies}</Paragraph>
         <DescriptionWrapper>
