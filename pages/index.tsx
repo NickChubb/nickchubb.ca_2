@@ -43,8 +43,6 @@ const Home = () => {
   const currentSection = asPath.substring(2)
   const [section, setSection] = useState(currentSection ?? 'bio')
 
-  const renderSubsection = () => {}
-
   const renderSections = () => {
     return sections.map((section, key) => {
       const content = section.Content
@@ -74,7 +72,7 @@ const Home = () => {
     })
   }
 
-  return (
+  return typeof window === 'undefined' ? null : (
     <Container>
       <Head>
         <title>Nick Chubb</title>
@@ -83,7 +81,7 @@ const Home = () => {
       </Head>
 
       <AppWrapper>
-        <NavBar section={section} setSection={setSection}/>
+        <NavBar section={section} setSection={setSection} />
         <MainWrapper id="main">
           {/* <ProjectsSection setVisible={setVisible} /> */}
           {renderSections()}
