@@ -26,7 +26,9 @@ const ProjectNavItem = styled.h3<{ isActive: boolean }>`
   cursor: pointer;
   transition: 0.25s;
 
-  ${props => props.isActive && `
+  ${(props) =>
+    props.isActive &&
+    `
     background: ${colour.cardBackground} !important;
     color: ${text.green};
   `}
@@ -40,6 +42,12 @@ const ProjectDisplayWrapper = styled.div`
   height: 100%;
 `
 
+const MobileProjectDisplayWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+`
+
 const ProjectsContent = () => {
   const [project, setProject] = useState(0)
   const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile})`)
@@ -49,16 +57,15 @@ const ProjectsContent = () => {
     setProject(key)
   }
 
-  if (isMobile) return (
-    <>
-      {projectData.map((item, key) => (
-        <>
-          <h3>{item.title}</h3>
-          <ProjectDisplay project={item} key={key} />
-        </>
-      ))}
-    </>
-  )
+  if (isMobile)
+    return (
+      <MobileProjectDisplayWrapper>
+        {projectData.map((item, key) => {
+          if (!item.display) return null
+          return <ProjectDisplay project={item} key={key} isMobile={isMobile} />
+        })}
+      </MobileProjectDisplayWrapper>
+    )
 
   return (
     <ProjectContent>
@@ -76,7 +83,7 @@ const ProjectsContent = () => {
         )}
       </ProjectNavWrapper>
       <ProjectDisplayWrapper>
-        <ProjectDisplay project={projectData[project]} />
+        <ProjectDisplay project={projectData[project]} isMobile={isMobile} />
       </ProjectDisplayWrapper>
     </ProjectContent>
   )

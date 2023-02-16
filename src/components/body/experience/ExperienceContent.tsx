@@ -4,6 +4,7 @@ import { FiGlobe } from 'react-icons/fi'
 import { experienceData } from '../../../data/experience'
 import { Experience } from './ExperienceTypes'
 import { ExternalLink } from '../../shared/link'
+import { breakpoints } from '../../shared/styles'
 
 const ExperienceCardList = styled.div`
   display: flex;
@@ -27,6 +28,10 @@ const ExperienceCardDescription = styled.ul`
   padding-left: 16px;
   // list-style: none;
   list-style-position: outside;
+
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    text-align: justify;
+  }
 `
 
 const ExperienceListItem = styled.li`
@@ -43,7 +48,12 @@ const ExperienceCardSubtitle = styled.div`
   display: flex;
   justify-content: space-between;
 
-  margin: 0 0 12px;
+  margin: 12px 0 12px;
+
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    flex-direction: column;
+    gap: 4px;
+  }
 `
 
 const ExperienceFooter = styled.div`
@@ -74,12 +84,12 @@ const ExperienceContent: React.FC = () => {
                     </ExperienceCardTitle>
                   </ExternalLink>
                   <ExperienceCardSubtitle>
-                    <i>{experience.title}</i>
+                    <b>{experience.title}</b>
                     <i>
                       {DateTime.fromISO(experience.startDate).toFormat(
                         'LLL yyyy'
                       )}{' '}
-                      --{' '}
+                      —{' '}
                       {experience.finishDate != 'present'
                         ? DateTime.fromISO(experience.finishDate).toFormat(
                             'LLL yyyy'

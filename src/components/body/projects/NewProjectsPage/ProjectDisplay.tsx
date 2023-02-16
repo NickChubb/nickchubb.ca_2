@@ -15,6 +15,8 @@ const ProjectDisplayWrapper = styled.div`
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
     height: fit-content;
+    margin: 0 -2rem;
+    color: ${text.normal};
   }
 `
 
@@ -50,13 +52,23 @@ const DescriptionListItem = styled.li`
   // }
 `
 
-const ProjectDisplay: React.FC<{ project: Project }> = ({ project }) => {
+const ProjectDisplay: React.FC<{ project: Project; isMobile: boolean }> = ({
+  project,
+  isMobile,
+}) => {
   return (
     <ProjectDisplayWrapper>
       <Summary>
-        <Title>{project?.title}</Title>
-        <Paragraph><i>{project?.summary}</i></Paragraph>
-        <Paragraph><b>Made with:</b> {project?.technologies}</Paragraph>
+        <Title>
+          {isMobile ? <>{project?.icon}&nbsp;&nbsp;&nbsp;&nbsp;</> : ``}
+          {project?.title}
+        </Title>
+        <Paragraph>
+          <i>{project?.summary}</i>
+        </Paragraph>
+        <Paragraph>
+          <b>Made with:</b> {project?.technologies}
+        </Paragraph>
         <DescriptionWrapper>
           {project.description.map((item, key) => (
             <DescriptionListItem key={key}>{item}</DescriptionListItem>
