@@ -4,6 +4,7 @@ import { validateToken } from '../../../src/utils/admin'
 
 type Data = {
   error: string | null
+  user: string | null | undefined
 }
 
 export default async function handler(
@@ -14,9 +15,10 @@ export default async function handler(
     // validate token and send 200 if valid, 401 if invalid
     const isValid = await validateToken(req.body.token)
     if (isValid) {
-      return res.status(200).json({ error: null })
+      const user = process.env.ADMIN_USERNAME
+      return res.status(200).json({ error: null, user: user })
     } else {
-      return res.status(401).json({ error: 'token is invalid' })
+      return res.status(401).json({ error: 'token is invalid', user: null })
     }
   }
 }
