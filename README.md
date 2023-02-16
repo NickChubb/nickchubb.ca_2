@@ -1,8 +1,8 @@
 # Personal Portfolio Site 2.0
 
-<a href="https://nickchubb.ca" target="_blank" >Live Site -- nickchubb.ca 🌐</a>
+🌐 Live Site can be found at -> [NickChubb.ca](https://nickchubb.ca)
 
-Made with Next.js and Typescript.
+🔧 Made with Next.js and Typescript.
 
 ## Screenshots
 
