@@ -15,6 +15,7 @@ export const experienceData: ExperienceData = [
       'Developed, tested, and deployed functional components for React web apps in adherence to coding standards',
       'Troubleshooting and resolving complex front-end issues with Redux, Ramda, and other libraries',
     ],
+    image: '/machobear_logo.png',
   },
   {
     display: true,
@@ -29,6 +30,7 @@ export const experienceData: ExperienceData = [
       'Implemented front-end authentication and registration pages using Next.js for Paylancer app ',
       'Designed back-end API system to manage affiliate discount codes using the Shopify API'
     ],
+    image: '/skyrocket_logo.png',
   },
   {
     display: true,
@@ -44,7 +46,8 @@ export const experienceData: ExperienceData = [
       // 'Wrote more than 100 tests across multiple services and stabilized Jenkins environment of over 600 tests',
       'Worked with Java, JUnit, Intellij, and Linux to effectively write and debug professional software tests',
       // 'Utilized Jenkins, Postman, Wireshark, and MongoDB to debug services and investigate networking problems',
-    ],  
+    ],
+    image: '/incognito_logo.jpeg',
   },
   {
     display: true,
@@ -58,6 +61,7 @@ export const experienceData: ExperienceData = [
       'Co-ordinated and hosted weekly panels with a range of companies within the local start-up community',
       'Hosted more than 15 panels throughout the week of the event',
     ],
+    image: '/vsw_logo.jpeg',
   },
   {
     display: true,
@@ -72,6 +76,7 @@ export const experienceData: ExperienceData = [
       'Formalized process and procedure with management practices, such as a Kanban board for designating work',
       'Effectively led and managed a team of 10 students to completely re-write society By-Laws and Policy',
     ],
+    image: '/sus_logo.png',
   },
   {
     display: false,

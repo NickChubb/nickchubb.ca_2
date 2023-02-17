@@ -7,6 +7,7 @@ export type Experience = {
     finishDate: string
     description: Array<string>
     website: string
+    image?: string
   }
   
 export type ExperienceData = Array<Experience>

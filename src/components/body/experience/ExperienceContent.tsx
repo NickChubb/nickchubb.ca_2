@@ -1,24 +1,41 @@
 import { DateTime } from 'luxon'
 import styled from 'styled-components'
-import { FiGlobe } from 'react-icons/fi'
 import { experienceData } from '../../../data/experience'
 import { Experience } from './ExperienceTypes'
 import { ExternalLink } from '../../shared/link'
 import { breakpoints } from '../../shared/styles'
+import Image from 'next/image'
 
 const ExperienceCardList = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 42px;
+  gap: 56px;
 `
 
 const ExperienceCard = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 24px;
 `
 
-const ExperienceCardHeader = styled.div``
+const ExperienceCardHeader = styled.div`
+  display: flex;
+  gap: 24px;
+  align-items: center;
+`
+
+const ExperienceCardHeaderTitle = styled.div`
+  width: 100%;
+`
+
+const ExperienceCardHeaderImage = styled.div<{ src: string }>`
+  min-width: 75px;
+  min-height: 75px;
+  border-radius: 4px;
+  background-image: url(${(props) => props.src});
+  background-size: contain;
+  background-position: center;
+`
 
 const ExperienceCardDescription = styled.ul`
   display: flex;
@@ -49,7 +66,7 @@ const ExperienceCardSubtitle = styled.div`
   display: flex;
   justify-content: space-between;
 
-  margin: 12px 0 12px;
+  margin: 8px 0 0;
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
     flex-direction: column;
@@ -73,13 +90,19 @@ const ExperienceContent: React.FC = () => {
     <ExperienceCardList>
       {experienceData &&
         experienceData.length > 0 &&
-        experienceData
-          .map((experience: Experience, key) => {
-            if (!experience.display) return null
-            return (
-              <ExperienceCard key={key}>
-                <ExperienceCardHeader>
-                  <ExternalLink href={experience.website} style={{ opacity: 1 }}>
+        experienceData.map((experience: Experience, key) => {
+          if (!experience.display) return null
+          return (
+            <ExperienceCard key={key}>
+              <ExperienceCardHeader>
+                {experience.image && (
+                  <ExperienceCardHeaderImage src={experience.image} />
+                )}
+                <ExperienceCardHeaderTitle>
+                  <ExternalLink
+                    href={experience.website}
+                    style={{ opacity: 1 }}
+                  >
                     <ExperienceCardTitle>
                       {experience.company}
                     </ExperienceCardTitle>
@@ -98,15 +121,20 @@ const ExperienceContent: React.FC = () => {
                         : experience.finishDate}
                     </i>
                   </ExperienceCardSubtitle>
-                </ExperienceCardHeader>
-                <ExperienceCardDescription>
-                  {experience.description.map((description, key) => {
-                    return <ExperienceListItem key={key}>{description}</ExperienceListItem>
-                  })}
-                </ExperienceCardDescription>
-              </ExperienceCard>
-            )
-          })}
+                </ExperienceCardHeaderTitle>
+              </ExperienceCardHeader>
+              <ExperienceCardDescription>
+                {experience.description.map((description, key) => {
+                  return (
+                    <ExperienceListItem key={key}>
+                      {description}
+                    </ExperienceListItem>
+                  )
+                })}
+              </ExperienceCardDescription>
+            </ExperienceCard>
+          )
+        })}
     </ExperienceCardList>
   )
 }
