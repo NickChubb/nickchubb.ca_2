@@ -25,7 +25,7 @@ const FooterSection = () => {
   return (
     <FooterWrapper>
       <Copyright>
-        copyright &copy; Nick Chubb 2022
+        copyright &copy; Nick Chubb 2023
       </Copyright>
       <SocialLinks />
     </FooterWrapper>

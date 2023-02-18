@@ -66,8 +66,6 @@ const ExperienceCardSubtitle = styled.div`
   display: flex;
   justify-content: space-between;
 
-  margin: 8px 0 0;
-
   @media only screen and (max-width: ${breakpoints.mobile}) {
     flex-direction: column;
     gap: 4px;

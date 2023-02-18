@@ -26,7 +26,7 @@ const Title = styled.h3`
 `
 
 const Summary = styled.div`
-  padding: 24px 32px;
+  padding: 24px 32px 32px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -37,11 +37,10 @@ const Paragraph = styled.p`
 `
 
 const DescriptionWrapper = styled.ul`
-  // list-style: none;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 4px;
   margin-left: 0;
   padding-left: 24px;
   list-style-position: outside;

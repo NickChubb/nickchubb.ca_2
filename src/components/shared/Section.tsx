@@ -9,6 +9,7 @@ export const SectionWrapper = styled.div<{ ref: any, center?: boolean }>`
   min-height: 100vh;
   padding: 0 0 48px;
   transition: 0.25s;
+  margin-bottom: 48px;
 
   ${props => props.center && `
     display: flex;
