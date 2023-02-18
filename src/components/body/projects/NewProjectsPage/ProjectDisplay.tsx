@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints, colour, fontSize, text } from '../../../shared/styles'
+import { breakpoints, colour, fontSize, shadow, text } from '../../../shared/styles'
 import { Project } from '../ProjectTypes'
 import Gallery from './Gallery'
 
@@ -17,6 +17,7 @@ const ProjectDisplayWrapper = styled.div`
     height: fit-content;
     margin: 0 -2rem;
     color: ${text.normal};
+    box-shadow: 2px 2px 5px ${shadow.inset} inset;
   }
 `
 
