@@ -20,11 +20,11 @@ const CourseListWrapper = styled(Accordion)`
 const CoursesContent: React.FC = () => {
   return (
     <>
-      <CourseListWrapper allowZeroExpanded>
+      <CourseListWrapper allowZeroExpanded preExpanded={['0']}>
         {courseData && courseData.length >= 0 ? (
           courseData.map(
             (course: CourseItem, key: React.Key | null | undefined) => {
-              return <CourseListItem key={key} course={course} />
+              return <CourseListItem key={key} course={course} uuid={`${key}`} />
             }
           )
         ) : (

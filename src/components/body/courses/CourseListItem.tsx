@@ -66,18 +66,19 @@ const ListItemPanel = styled(AccordionItemPanel)`
   animation: fadein 0.35s ease-in;
 `
 
-const CourseListItem: React.FC<{ course: CourseItem }> = ({ course }) => {
+const CourseListItem: React.FC<{ course: CourseItem, uuid: string }> = ({ course, uuid }) => {
   return (
-    <ListItemWapper>
+    <ListItemWapper uuid={uuid}>
       <ListItemHeading>
         <ListItemButton>
-          <b>{course.title}</b> <i>-- {course.num}</i>
+          <b>{course.title}</b>
           {/* <ListItemTitle>
             <b>{course.title}</b> <i>{course.num}</i>
           </ListItemTitle> */}
         </ListItemButton>
       </ListItemHeading>
       <ListItemPanel>
+        <i>({course.num})</i>
         <p>
           {course.description}{' '}
           <ExternalLink href={course.link}>
