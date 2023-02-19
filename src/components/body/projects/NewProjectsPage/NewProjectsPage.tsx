@@ -40,6 +40,7 @@ const ProjectNavItem = styled.h3<{ isActive: boolean }>`
 
 const ProjectDisplayWrapper = styled.div`
   height: 100%;
+  width: 100%;
 `
 
 const MobileProjectDisplayWrapper = styled.div`
