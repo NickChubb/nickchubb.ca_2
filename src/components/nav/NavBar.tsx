@@ -81,7 +81,7 @@ const ChildMenu = styled.div`
 `
 
 const SocialLinksWrapper = styled.div`
-  margin-top: 48px;s
+  margin-top: 48px;
 `
 
 const MenuButton = styled.a<{ isHidden: boolean }>`

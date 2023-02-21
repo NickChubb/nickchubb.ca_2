@@ -44,13 +44,28 @@ const DropdownButton = styled.div<{ isHidden: boolean }>`
   `}
 `
 
-const DropdownMenuWrapper = styled.div`
+const DropdownMenuWrapper = styled.div<{ isHidden: boolean }>`
   position: absolute;
   background-color: ${colour.cardHighlighted};
+  box-shadow: 4px 4px 16px 0 #111111;
+  border: 1px solid #111111;
   margin-top: 4px;
   padding: 4px 0;
   border-radius: 4px;
-  left: -169%;
+  left: -170%;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition-duration: 0.5s, 0.2s;
+  transition-property: max-height, opacity;
+  transition-timing-function: ease-in-out;
+
+  ${(props) =>
+    !props.isHidden &&
+    `
+    opacity: 1;
+    max-height: 200px;
+  `}
 `
 
 const DropdownMenuItem = styled.a`
@@ -78,16 +93,14 @@ const DropdownMenu: React.FC<{ data: Array<Link> }> = ({ data }) => {
       <DropdownButton onClick={toggle} isHidden={isHidden}>
         <AiOutlineMenu />
       </DropdownButton>
-      {isHidden ? null : (
-        <DropdownMenuWrapper>
-          {data.map((item, key) => (
-            <DropdownMenuItem key={key} href={item.url}>
-              {item.Icon ? item.Icon : <FaExternalLinkAlt />}
-              {item.title}
-            </DropdownMenuItem>
-          ))}
-        </DropdownMenuWrapper>
-      )}
+      <DropdownMenuWrapper isHidden={isHidden}>
+        {data.map((item, key) => (
+          <DropdownMenuItem key={key} href={item.url}>
+            {item.Icon ? item.Icon : <FaExternalLinkAlt />}
+            {item.title}
+          </DropdownMenuItem>
+        ))}
+      </DropdownMenuWrapper>
     </DropdownWrapper>
   )
 }
