@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import DropdownMenu from '../../../shared/DropdownMenu'
 import { breakpoints, colour, fontSize, shadow, text } from '../../../shared/styles'
 import { Project } from '../ProjectTypes'
 import Gallery from './Gallery'
@@ -19,6 +20,13 @@ const ProjectDisplayWrapper = styled.div`
     color: ${text.normal};
     box-shadow: 2px 2px 5px ${shadow.inset} inset;
   }
+`
+
+const ProjectDisplayHeader = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 `
 
 const Title = styled.h3`
@@ -66,10 +74,13 @@ const ProjectDisplay: React.FC<{ project: Project; isMobile: boolean }> = ({
   return (
     <ProjectDisplayWrapper>
       <Summary>
-        <Title>
-          {isMobile ? <>{project?.icon}&nbsp;&nbsp;&nbsp;&nbsp;</> : ``}
-          {project?.title}
-        </Title>
+        <ProjectDisplayHeader>
+          <Title>
+            {isMobile ? <>{project?.icon}&nbsp;&nbsp;&nbsp;&nbsp;</> : ``}
+            {project?.title}
+          </Title>
+          <DropdownMenu data={project.links} />
+        </ProjectDisplayHeader>
         <Paragraph>
           <i>{project?.summary}</i>
         </Paragraph>

@@ -1,3 +1,4 @@
+import { FaGithub } from 'react-icons/fa'
 import { ProjectData } from '../components/body/projects/ProjectTypes'
 
 export const projectData: ProjectData = [
@@ -13,12 +14,12 @@ export const projectData: ProjectData = [
       'Log screen shows login history and more for Dockerman app',
       'Config screen allows users to simply change app configuration parameters',
     ],
-    github: 'https://github.com/NickChubb/dockerman',
     links: [
       {
-        title: '',
-        url: '',
-      },
+        title: 'Github',
+        url: 'https://github.com/NickChubb/dockerman',
+        Icon: <FaGithub />
+      }
     ],
     image: [
       {
@@ -52,11 +53,11 @@ export const projectData: ProjectData = [
       'React control-panel utilizes SQL to allow users to easily manage database of events at Simon Fraser University',
       'Uses GIPHY SDK to get gifs in response to user query',
     ],
-    github: 'https://github.com/NickChubb/hawking',
     links: [
       {
-        title: '',
-        url: '',
+        title: 'Github',
+        url: 'https://github.com/NickChubb/hawking',
+        Icon: <FaGithub />
       },
     ],
     image: [
@@ -89,8 +90,12 @@ export const projectData: ProjectData = [
       'AI uses Monte Carlo Tree Search algorithm with two different heuristics for multiple bot difficulties',
       'Created for Artifical Intelligence Survey (CMPT 310) final project - Final Mark: 18/18',
     ],
-    github: 'https://github.com/NickChubb/ReversiRust',
     links: [
+      {
+        title: 'Github',
+        url: 'https://github.com/NickChubb/ReversiRust',
+        Icon: <FaGithub />
+      },
       {
         title: 'Crates.io (installation)',
         url: 'https://crates.io/crates/reversi',

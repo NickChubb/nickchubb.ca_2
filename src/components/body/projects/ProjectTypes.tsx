@@ -1,6 +1,7 @@
-type Link = {
+export type Link = {
   title: string
   url: string
+  Icon?: JSX.Element
 }
 
 export type ImageDetails = {
@@ -15,7 +16,6 @@ export type Project = {
   summary: string
   technologies: string
   description: Array<string>
-  github: string
   links: Array<Link>
   image: Array<ImageDetails>
   icon: string
