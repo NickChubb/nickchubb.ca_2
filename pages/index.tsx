@@ -80,6 +80,12 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <meta property="og:title" content="Nick Chubb 👨‍💻" />
+      <meta property="og:image" content="/me.png" />
+      <meta property="og:url" content="https://nickchubb.ca" />
+      <meta property="og:description" content="Hi" />
+      <meta property="og:type" content="website" />
+
       <AppWrapper>
         <NavBar section={section} setSection={setSection} />
         <MainWrapper id="main">
