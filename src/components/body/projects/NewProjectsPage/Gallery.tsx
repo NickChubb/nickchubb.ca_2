@@ -19,9 +19,12 @@ const CarouselWrapper = styled(Carousel)`
   width: 100%;
   height: 100%;
   position: relative;
+  border-radius: 0 0 4px 0;
+  overflow: hidden;
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
     max-height: 300px;
+    border-radius: 0;
   }
 `
 

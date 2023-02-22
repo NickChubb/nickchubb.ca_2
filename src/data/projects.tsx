@@ -97,7 +97,7 @@ export const projectData: ProjectData = [
         Icon: <FaGithub />
       },
       {
-        title: 'Crates.io (installation)',
+        title: 'Crates.io',
         url: 'https://crates.io/crates/reversi',
       },
     ],

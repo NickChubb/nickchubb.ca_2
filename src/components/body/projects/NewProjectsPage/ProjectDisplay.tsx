@@ -16,6 +16,7 @@ const ProjectDisplayWrapper = styled.div`
   flex-direction: column;
   background: ${colour.cardBackground};
   color: ${text.light};
+  border-radius: 0 4px 4px 0;
 
   animation: all 0.35s ease-in;
   transition: all 0.2s;

@@ -6,7 +6,7 @@ import useClickOutside from '../../hooks/use-click-outside'
 import useOnScroll from '../../hooks/use-on-scroll'
 import { Link } from '../body/projects/ProjectTypes'
 import Button from './button'
-import { colour, text } from './styles'
+import { colour, shadow, text } from './styles'
 
 const DropdownWrapper = styled.div`
   position: relative;
@@ -22,6 +22,7 @@ const DropdownButton = styled.div<{ isHidden: boolean }>`
   border-radius: 4px;
   color: ${text.normal};
   transition: 0.25s;
+  border: 1px solid transparent;
 
   &:hover {
     ${(props) => props.isHidden && `
@@ -41,18 +42,20 @@ const DropdownButton = styled.div<{ isHidden: boolean }>`
     `
     background-color: ${colour.cardHighlighted};
     color: ${text.green};
+    box-shadow: 4px 4px 16px 0 ${shadow.inset};
+    border: 1px solid ${shadow.inset};
   `}
 `
 
 const DropdownMenuWrapper = styled.div<{ isHidden: boolean }>`
   position: absolute;
   background-color: ${colour.cardHighlighted};
-  box-shadow: 4px 4px 16px 0 #111111;
-  border: 1px solid #111111;
+  box-shadow: 4px 4px 16px 0 ${shadow.inset};
+  border: 1px solid ${shadow.inset};
   margin-top: 4px;
   padding: 4px 0;
   border-radius: 4px;
-  left: -170%;
+  right: 0px;
   max-height: 0;
   overflow: hidden;
   opacity: 0;
@@ -72,7 +75,7 @@ const DropdownMenuItem = styled.a`
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 4px 16px;
+  padding: 6px 24px;
   transition: 0.25s;
 
   &:hover {
@@ -95,7 +98,7 @@ const DropdownMenu: React.FC<{ data: Array<Link> }> = ({ data }) => {
       </DropdownButton>
       <DropdownMenuWrapper isHidden={isHidden}>
         {data.map((item, key) => (
-          <DropdownMenuItem key={key} href={item.url}>
+          <DropdownMenuItem key={key} href={isHidden ? undefined : item.url}>
             {item.Icon ? item.Icon : <FaExternalLinkAlt />}
             {item.title}
           </DropdownMenuItem>

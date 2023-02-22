@@ -61,7 +61,7 @@ const ListItemPanel = styled(AccordionItemPanel)`
   background-color: ${colour.cardBackground};
   text-align: justify;
   color: ${text.light};
-  box-shadow: 2px 2px 5px ${shadow.inset} inset;
+  box-shadow: 2px 2px 16px ${shadow.inset} inset;
 
   animation: fadein 0.35s ease-in;
 `

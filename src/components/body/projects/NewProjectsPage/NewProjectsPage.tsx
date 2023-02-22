@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { projectData } from '../../../../data/projects'
-import { breakpoints, colour, text } from '../../../shared/styles'
+import { breakpoints, colour, shadow, text } from '../../../shared/styles'
 import { Project, ProjectData } from '../ProjectTypes'
 import ProjectDisplay from './ProjectDisplay'
 import { scrollToSection } from '../../../../utils/scroll'
@@ -13,11 +13,17 @@ const ProjectContent = styled.div`
   height: 80vh;
   background: ${colour.cardHeader};
   border-radius: 8px;
+  border: 1px solid ${shadow.inset};
 `
 
 const ProjectNavWrapper = styled.div`
   text-align: right;
   background: ${colour.cardHeader};
+  border-radius: 4px 0 0 4px;
+
+  & > :first-child {
+    border-radius: 4px 0 0 0;
+  }
 `
 
 const ProjectNavItem = styled.h3<{ isActive: boolean }>`
