@@ -1,6 +1,12 @@
 import styled from 'styled-components'
 import DropdownMenu from '../../../shared/DropdownMenu'
-import { breakpoints, colour, fontSize, shadow, text } from '../../../shared/styles'
+import {
+  breakpoints,
+  colour,
+  fontSize,
+  shadow,
+  text,
+} from '../../../shared/styles'
 import { Project } from '../ProjectTypes'
 import Gallery from './Gallery'
 
@@ -38,11 +44,20 @@ const Summary = styled.div`
   padding: 24px 32px 32px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
 `
 
-const Paragraph = styled.p`
+const Paragraph = styled.p<{ type?: string, fontSize?: string }>`
   margin: 0;
+
+  ${(props) =>
+    props.type === 'quote' &&
+    `
+    border-left: 3px solid ${colour.cardHighlighted};
+    padding-left: 12px;
+  `}
+
+  ${(props) => props.fontSize && `font-size: ${props.fontSize}px;`}
 `
 
 const DescriptionWrapper = styled.ul`
@@ -81,17 +96,17 @@ const ProjectDisplay: React.FC<{ project: Project; isMobile: boolean }> = ({
           </Title>
           <DropdownMenu data={project.links} />
         </ProjectDisplayHeader>
-        <Paragraph>
+        <Paragraph type="quote">
           <i>{project?.summary}</i>
-        </Paragraph>
-        <Paragraph>
-          <b>Made with:</b> {project?.technologies}
         </Paragraph>
         <DescriptionWrapper>
           {project.description.map((item, key) => (
             <DescriptionListItem key={key}>{item}</DescriptionListItem>
           ))}
         </DescriptionWrapper>
+        <Paragraph fontSize="16">
+          <b>Made with:</b> {project?.technologies}
+        </Paragraph>
       </Summary>
       <Gallery images={project.image} />
     </ProjectDisplayWrapper>
