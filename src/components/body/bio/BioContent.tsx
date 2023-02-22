@@ -5,7 +5,7 @@ import Button from '../../shared/button'
 import { FaLinkedin, FaEnvelope, FaFileAlt } from 'react-icons/fa'
 import { SectionProps } from '../../shared/types'
 import { ExternalLink } from '../../shared/link'
-import { breakpoints } from '../../shared/styles'
+import { breakpoints, fontSize } from '../../shared/styles'
 
 const HeaderWrapper = styled.div`
   padding: 32px 0;
@@ -15,6 +15,7 @@ const HeaderWrapper = styled.div`
 const HeaderTitle = styled.h1``
 
 const BioWrapper = styled.div`
+  font-size: ${fontSize.large};
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -79,10 +80,10 @@ const BioContent: React.FC<SectionProps> = () => {
             🖥{' '}Computer Science & Molecular Biology student at Simon Fraser
             University
           </RolesListItem>
-          <RolesListItem>
+          {/* <RolesListItem>
             🐻{' '}Junior Frontend Developer at{' '}
             <ExternalLink href="https://machobear.ca/">Machobear Studios</ExternalLink>
-          </RolesListItem>
+          </RolesListItem> */}
           <RolesListItem>
             👨🏼‍💼{' '}Account Manager for{' '}
             <ExternalLink href="https://vanstartupweek.ca/">
