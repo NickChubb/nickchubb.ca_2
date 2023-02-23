@@ -1,10 +1,8 @@
-import { projectData } from '../../data/projects'
 import BioContent from './bio/BioContent'
 import CoursesContent from './courses/CoursesContent'
 import ExperienceContent from './experience/ExperienceContent'
 import PersonalContent from './personal/PersonalContent'
-import ProjectsContent from './projects/NewProjectsPage/NewProjectsPage'
-import ProjectPage from './projects/ProjectPage/ProjectPage'
+import ProjectsContent from './projects/ProjectsContent'
 
 export type Section = {
   title: string
@@ -26,19 +24,6 @@ export const sections: Array<Section> = [
     title: 'projects',
     Content: ProjectsContent
   },
-  // {
-  //   title: 'projects',
-  //   Content: [
-  //     {
-  //       title: 'dockerman',
-  //       Content: <ProjectPage project={projectData[0]} />
-  //     },
-  //     {
-  //       title: 'hawking',
-  //       Content: <ProjectPage project={projectData[1]} />
-  //     }
-  //   ]
-  // },
   {
     title: 'courses',
     Content: CoursesContent,

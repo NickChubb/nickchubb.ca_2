@@ -4,7 +4,6 @@ import { experienceData } from '../../../data/experience'
 import { Experience } from './ExperienceTypes'
 import { ExternalLink } from '../../shared/link'
 import { breakpoints } from '../../shared/styles'
-import Image from 'next/image'
 
 const ExperienceCardList = styled.div`
   display: flex;

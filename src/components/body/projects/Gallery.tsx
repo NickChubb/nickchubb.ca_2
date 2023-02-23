@@ -1,9 +1,8 @@
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { Carousel } from 'react-responsive-carousel'
-import Image from 'next/image'
-import { ImageDetails } from '../ProjectTypes'
+import { ImageDetails } from './ProjectTypes'
 import styled from 'styled-components'
-import { breakpoints } from '../../../shared/styles'
+import { breakpoints } from '../../shared/styles'
 
 const GalleryWrapper = styled.div`
   height: 100%;
@@ -50,12 +49,6 @@ const Gallery: React.FC<{ images: Array<ImageDetails> }> = ({ images }) => {
               backgroundImage: `url("${imageData.path}")`,
             }}
           >
-            {/* <Image
-              src={imageData.path}
-              alt={imageData.description}
-              // width={100}
-              fill
-            /> */}
             {imageData.description !== '' && (
               <p className="legend">{imageData.description}</p>
             )}

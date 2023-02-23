@@ -1,13 +1,13 @@
 import styled from 'styled-components'
-import DropdownMenu from '../../../shared/DropdownMenu'
+import DropdownMenu from '../../shared/DropdownMenu'
 import {
   breakpoints,
   colour,
   fontSize,
   shadow,
   text,
-} from '../../../shared/styles'
-import { Project } from '../ProjectTypes'
+} from '../../shared/styles'
+import { Project } from './ProjectTypes'
 import Gallery from './Gallery'
 
 const ProjectDisplayWrapper = styled.div`
@@ -34,6 +34,12 @@ const ProjectDisplayHeader = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    background: ${colour.cardHeader};
+    margin: -24px -32px 0;
+    padding: 20px 32px;
+  }
 `
 
 const Title = styled.h3`
