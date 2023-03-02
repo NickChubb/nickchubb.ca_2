@@ -16,6 +16,7 @@ export const experienceData: ExperienceData = [
       'Troubleshooting and resolving complex front-end issues with Redux, Ramda, and other libraries',
     ],
     image: '/machobear_logo.png',
+    paid: true
   },
   {
     display: true,
@@ -31,6 +32,7 @@ export const experienceData: ExperienceData = [
       'Designed back-end API system to manage affiliate discount codes using the Shopify API'
     ],
     image: '/skyrocket_logo.png',
+    paid: true
   },
   {
     display: true,
@@ -48,6 +50,7 @@ export const experienceData: ExperienceData = [
       // 'Utilized Jenkins, Postman, Wireshark, and MongoDB to debug services and investigate networking problems',
     ],
     image: '/incognito_logo.jpeg',
+    paid: true
   },
   {
     display: true,
@@ -62,6 +65,7 @@ export const experienceData: ExperienceData = [
       'Hosted more than 15 panels throughout the week of the event',
     ],
     image: '/vsw_logo.jpeg',
+    paid: false
   },
   {
     display: true,
@@ -77,6 +81,7 @@ export const experienceData: ExperienceData = [
       'Effectively led and managed a team of 10 students to completely re-write society By-Laws and Policy',
     ],
     image: '/sus_logo.png',
+    paid: false
   },
   {
     display: false,
@@ -87,5 +92,6 @@ export const experienceData: ExperienceData = [
     finishDate: '2020-04',
     website: 'https://sfss.ca/',
     description: ['', '', ''],
+    paid: false
   },
 ];

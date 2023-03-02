@@ -8,6 +8,7 @@ export type Experience = {
     description: Array<string>
     website: string
     image?: string
+    paid: boolean
   }
   
 export type ExperienceData = Array<Experience>

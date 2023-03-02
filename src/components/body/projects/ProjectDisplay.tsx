@@ -38,7 +38,7 @@ const ProjectDisplayHeader = styled.div`
   @media only screen and (max-width: ${breakpoints.mobile}) {
     background: ${colour.cardHeader};
     margin: -24px -32px 0;
-    padding: 20px 32px;
+    padding: 16px 32px;
   }
 `
 

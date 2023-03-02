@@ -57,6 +57,42 @@ const RolesList = styled.ul`
 
 const RolesListItem = styled.li``
 
+const RolesSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 1rem 0;
+  padding-left: 40px;
+
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    margin: 0;
+    padding-left: 16px;
+  }
+`
+
+const RoleItem = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+`
+
+const RoleIcon = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+`
+
+const RoleItemDescription = styled.div`
+  display: flex;
+  align-items: center;
+  flex: 1;
+`
+
+const RoleItemWrapper = styled.div`
+  margin: 0;
+`
+
 const ButtonContainer = styled.div`
   margin: 1rem 0;
   display: flex;
@@ -74,27 +110,43 @@ const BioContent: React.FC<SectionProps> = () => {
         <HeaderImageWrapper>
           <HeaderImage src="/me.png" width={200} height={200} alt="me" />
         </HeaderImageWrapper>
-        <BioParagraph>Hi, my name is Nick Chubb. I am a...</BioParagraph>
-        <RolesList>
-          <RolesListItem>
-            🖥{' '}Computer Science & Molecular Biology student at Simon Fraser
-            University
-          </RolesListItem>
-          {/* <RolesListItem>
-            🐻{' '}Junior Frontend Developer at{' '}
-            <ExternalLink href="https://machobear.ca/">Machobear Studios</ExternalLink>
-          </RolesListItem> */}
-          <RolesListItem>
-            👨🏼‍💼{' '}Account Manager for{' '}
-            <ExternalLink href="https://vanstartupweek.ca/">
-              Vancouver Startup Week
-            </ExternalLink>
-          </RolesListItem>
-        </RolesList>
+        <BioParagraph>Hi, my name is Nick Chubb.</BioParagraph>
+        <RolesSection>
+          <RoleItem>
+            <RoleIcon>👨‍💻&nbsp;&nbsp;{'>'} </RoleIcon>
+            <RoleItemDescription>
+              <RoleItemWrapper>
+                <b>1+ years Front-end Developmemt Experience</b> with React,
+                Next.js, HTML, and CSS
+              </RoleItemWrapper>
+            </RoleItemDescription>
+          </RoleItem>
+          <RoleItem>
+            <RoleIcon>🖥&nbsp;&nbsp;{'>'} </RoleIcon>
+            <RoleItemDescription>
+              <RoleItemWrapper>
+                Computer Science & Molecular Biology student at{' '}
+                <b>Simon Fraser University</b>
+              </RoleItemWrapper>
+            </RoleItemDescription>
+          </RoleItem>
+          <RoleItem>
+            <RoleIcon>👨🏼‍💼&nbsp;&nbsp;{'>'} </RoleIcon>
+            <RoleItemDescription>
+              <RoleItemWrapper>
+                Account Manager for{' '}
+                <ExternalLink href="https://vanstartupweek.ca/">
+                  Vancouver Startup Week
+                </ExternalLink>
+              </RoleItemWrapper>
+            </RoleItemDescription>
+          </RoleItem>
+        </RolesSection>
         <BioParagraph>
-          I am an aspiring <b>full-stack developer</b> and I will be seeking
-          employment opportunities starting Summer 2023. If you or someone you know
-          are hiring, I would love to hear from you!
+          I am an aspiring <b>full-stack developer</b> and I am currently
+          seeking full-time employment opportunities starting in Summer/Fall
+          2023. If you or someone you know are hiring, I would love to hear from
+          you!
         </BioParagraph>
         <ButtonContainer>
           <Button href={'https://nickchubb.github.io/resume/'}>
