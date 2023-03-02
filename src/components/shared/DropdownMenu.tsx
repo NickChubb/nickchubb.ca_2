@@ -23,6 +23,7 @@ const DropdownButton = styled.div<{ isHidden: boolean }>`
   color: ${text.normal};
   transition: 0.25s;
   border: 1px solid transparent;
+  font-size: 20px;
 
   &:hover {
     ${(props) => props.isHidden && `
@@ -62,6 +63,10 @@ const DropdownMenuWrapper = styled.div<{ isHidden: boolean }>`
   transition-duration: 0.5s, 0.2s;
   transition-property: max-height, opacity;
   transition-timing-function: ease-in-out;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   ${(props) =>
     !props.isHidden &&
@@ -71,15 +76,33 @@ const DropdownMenuWrapper = styled.div<{ isHidden: boolean }>`
   `}
 `
 
+const DropdownMenuHeader = styled.div`
+  font-family: 'Roboto Mono', monospace;
+  color: ${text.normal};
+  font-size: 16px;
+  padding-top: 2px;
+  padding-bottom: 6px;
+  width: 100%;
+`
+
+const HorizontalLine = styled.div`
+  width: 90%;
+  height: 1px;
+  background: ${colour.cardHeader};
+  border-radius: 4px;
+`
+
 const DropdownMenuItem = styled.a`
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 24px;
+  padding: 8px 32px;
   transition: 0.25s;
+  color: ${text.normal};
 
   &:hover {
     color: white;
+    background: ${colour.cardHeader};
   }
 `
 
@@ -97,6 +120,8 @@ const DropdownMenu: React.FC<{ data: Array<Link> }> = ({ data }) => {
         <AiOutlineMenu />
       </DropdownButton>
       <DropdownMenuWrapper isHidden={isHidden}>
+        <DropdownMenuHeader>links</DropdownMenuHeader>
+        <HorizontalLine />
         {data.map((item, key) => (
           <DropdownMenuItem key={key} href={isHidden ? undefined : item.url}>
             {item.Icon ? item.Icon : <FaExternalLinkAlt />}
