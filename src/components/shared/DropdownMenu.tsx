@@ -84,7 +84,7 @@ const DropdownMenuHeader = styled.div`
   font-family: 'Roboto Mono', monospace;
   color: ${text.normal};
   font-size: 16px;
-  padding-top: 2px;
+  padding-top: 4px;
   padding-bottom: 6px;
   width: 100%;
 `
