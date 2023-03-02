@@ -24,29 +24,39 @@ const ListItemButton = styled(AccordionItemButton)`
   color: ${text.normal};
   cursor: pointer;
   padding: 18px;
+  padding-right: 30px;
   width: 100%;
   text-align: left;
   border: none;
   transition: 0.25s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   &:hover {
     background-color: rgb(38, 38, 38);
+    color: white;
   }
 
-  &:before {
+  &:after {
     display: inline-block;
     content: '';
     height: 10px;
     width: 10px;
-    margin-right: 12px;
     border-bottom: 2px solid currentColor;
     border-right: 2px solid currentColor;
     transform: rotate(-45deg);
   }
 
-  &[aria-expanded='true']::before,
-  &[aria-selected='true']::before {
-    transform: rotate(45deg);
+  &[aria-expanded='true'],
+  &[aria-selected='true'] {
+
+    color: white;
+
+    &:after {
+      transition: 0.25s;
+      transform: rotate(45deg);
+    }
   }
 `
 
@@ -72,9 +82,6 @@ const CourseListItem: React.FC<{ course: CourseItem, uuid: string }> = ({ course
       <ListItemHeading>
         <ListItemButton>
           <b>{course.title}</b>
-          {/* <ListItemTitle>
-            <b>{course.title}</b> <i>{course.num}</i>
-          </ListItemTitle> */}
         </ListItemButton>
       </ListItemHeading>
       <ListItemPanel>
