@@ -6,7 +6,7 @@ import useClickOutside from '../../hooks/use-click-outside'
 import useOnScroll from '../../hooks/use-on-scroll'
 import { Link } from '../body/projects/ProjectTypes'
 import Button from './button'
-import { colour, shadow, text } from './styles'
+import { breakpoints, colour, shadow, text } from './styles'
 
 const DropdownWrapper = styled.div`
   position: relative;
@@ -24,6 +24,10 @@ const DropdownButton = styled.div<{ isHidden: boolean }>`
   transition: 0.25s;
   border: 1px solid transparent;
   font-size: 20px;
+
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    background: #292929;
+  }
 
   &:hover {
     ${(props) => props.isHidden && `
