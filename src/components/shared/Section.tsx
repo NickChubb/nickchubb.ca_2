@@ -77,7 +77,7 @@ const Section: React.FC<SectionProps> = ({ title, setSection, Component, center 
   }
 
   return (
-    <SectionWrapper id={title} ref={ref} center={center} opacity={opacity}>
+    <SectionWrapper id={title} ref={ref} center={center} opacity={opacity.toString()}>
       <SectionHeader onClick={getLink}>
         <SectionTitle isVisible={highlightNav}>{title}</SectionTitle>
         <FragmentLink><small> #</small></FragmentLink>
