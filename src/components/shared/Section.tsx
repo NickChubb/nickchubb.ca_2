@@ -1,15 +1,18 @@
 import { Dispatch, SetStateAction, useEffect, useRef } from 'react'
 import styled from 'styled-components'
+import useFade from '../../hooks/use-fade'
 import useOnScreen from '../../hooks/use-on-screen'
 import { scrollToSection } from '../../utils/scroll'
 import { breakpoints, text } from './styles'
 
-export const SectionWrapper = styled.div<{ ref: any, center?: boolean }>`
+export const SectionWrapper = styled.div<{ ref: any, center?: boolean, opacity: string }>`
   width: 100%;
   min-height: 100vh;
   padding: 0 0 48px;
   transition: 0.25s;
   margin-bottom: 48px;
+  transition: opacity 0.5s;
+  opacity: ${props => props.opacity};
 
   ${props => props.center && `
     display: flex;
@@ -56,8 +59,10 @@ type SectionProps = {
 
 const Section: React.FC<SectionProps> = ({ title, setSection, Component, center }) => {
   const ref = useRef()
-  const isVisible = useOnScreen(ref)
-  if (isVisible) {
+  const highlightNav: boolean = useOnScreen(ref, 0.5)
+  const opacity = useFade(ref)
+  console.log(title, opacity)
+  if (highlightNav) {
     setSection(title)
   }
 
@@ -72,9 +77,9 @@ const Section: React.FC<SectionProps> = ({ title, setSection, Component, center 
   }
 
   return (
-    <SectionWrapper id={title} ref={ref} center={center}>
+    <SectionWrapper id={title} ref={ref} center={center} opacity={opacity}>
       <SectionHeader onClick={getLink}>
-        <SectionTitle isVisible={isVisible}>{title}</SectionTitle>
+        <SectionTitle isVisible={highlightNav}>{title}</SectionTitle>
         <FragmentLink><small> #</small></FragmentLink>
       </SectionHeader>
       {getBody()}
