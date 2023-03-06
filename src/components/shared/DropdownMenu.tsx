@@ -45,7 +45,7 @@ const DropdownButton = styled.div<{ isHidden: boolean }>`
   ${(props) =>
     !props.isHidden &&
     `
-    background-color: ${colour.cardHighlighted};
+    background: #343434 !important;
     color: ${text.green};
     box-shadow: 4px 4px 16px 0 ${shadow.inset};
     border: 1px solid ${shadow.inset};
@@ -87,6 +87,7 @@ const DropdownMenuHeader = styled.div`
   padding-top: 4px;
   padding-bottom: 6px;
   width: 100%;
+  font-weight: 500;
 `
 
 const HorizontalLine = styled.div`
