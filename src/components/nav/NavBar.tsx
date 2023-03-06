@@ -5,7 +5,7 @@ import { FaCaretRight } from 'react-icons/fa'
 // @ts-ignore
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import SocialLinks from '../shared/SocialLinks'
-import { breakpoints, colour, text } from '../shared/styles'
+import { breakpoints, colour, shadow, text } from '../shared/styles'
 import MenuItem from './MenuItem'
 import SubMenu from './SubMenu'
 import { Section, sections } from '../body/sections'
@@ -44,6 +44,7 @@ const NavWrapper = styled.div<{ isHidden: boolean }>`
     background: ${colour.navBackground};
     transition: 0.5s;
     padding: 48px;
+    box-shadow: 0px 0px 32px 0px ${shadow.inset};
 
     ${(props) => props.isHidden && `right: -100%;`}
   }
