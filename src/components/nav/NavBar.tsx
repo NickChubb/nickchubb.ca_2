@@ -162,7 +162,11 @@ const NavBar: React.FC<NavBarProps> = ({ section, setSection }) => {
   //   )
   // }
 
-  const renderSubmenu = (sectionTitle: string, content: Array<Section>, key: number) => {
+  const renderSubmenu = (
+    sectionTitle: string,
+    content: Array<Section>,
+    key: number
+  ) => {
     return (
       <SubMenu title={sectionTitle} currentSection={section}>
         {content.map(({ title: subtitle }, submenuKey) => {
@@ -200,11 +204,9 @@ const NavBar: React.FC<NavBarProps> = ({ section, setSection }) => {
 
   return (
     <NavWrapper isHidden={isHidden} ref={navBarRef}>
-      <HeaderImage src="/me.png" width={200} height={200} alt="me" />
+      <HeaderImage src="/me.png" width={200} height={200} alt="me" priority />
       <HeaderTitle>Nick Chubb</HeaderTitle>
-      <MenuItemContainer>
-        {renderMenu()}
-      </MenuItemContainer>
+      <MenuItemContainer>{renderMenu()}</MenuItemContainer>
       <SocialLinks />
       <MenuButton onClick={toggle} isHidden={isHidden}>
         <MenuButtonIcon isHidden={isHidden} fontSize={24} />
