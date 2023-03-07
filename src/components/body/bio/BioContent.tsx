@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import { Fade } from 'react-awesome-reveal'
 import styled from 'styled-components'
 import Button from '../../shared/button'
 import { FaLinkedin, FaEnvelope, FaFileAlt } from 'react-icons/fa'
@@ -11,8 +12,6 @@ const HeaderWrapper = styled.div`
   padding: 32px 0;
   width: 100%;
 `
-
-const HeaderTitle = styled.h1``
 
 const BioWrapper = styled.div`
   font-size: ${fontSize.large};
@@ -110,26 +109,33 @@ const BioContent: React.FC<SectionProps> = () => {
         <HeaderImageWrapper>
           <HeaderImage src="/me.png" width={200} height={200} alt="me" />
         </HeaderImageWrapper>
-        <BioParagraph>Hi, my name is Nick Chubb.</BioParagraph>
+        <Fade direction="up">
+          <BioParagraph>Hi, my name is Nick Chubb.</BioParagraph>
+        </Fade>
         <RolesSection>
-          <RoleItem>
-            <RoleIcon>👨‍💻&nbsp;&nbsp;{'>'} </RoleIcon>
-            <RoleItemDescription>
-              <RoleItemWrapper>
-                <b>1+ years Front-end Developmemt Experience</b> with React,
-                Next.js, HTML, and CSS
-              </RoleItemWrapper>
-            </RoleItemDescription>
-          </RoleItem>
-          <RoleItem>
-            <RoleIcon>🖥&nbsp;&nbsp;{'>'} </RoleIcon>
-            <RoleItemDescription>
-              <RoleItemWrapper>
-                Computer Science & Molecular Biology student at{' '}
-                <b>Simon Fraser University</b>
-              </RoleItemWrapper>
-            </RoleItemDescription>
-          </RoleItem>
+          <Fade direction="up" delay={100}>
+            <RoleItem>
+              <RoleIcon>👨‍💻&nbsp;&nbsp;{'>'} </RoleIcon>
+              <RoleItemDescription>
+                <RoleItemWrapper>
+                  <b>1+ years Front-end Development Experience</b> with React,
+                  Next.js, HTML, and CSS
+                </RoleItemWrapper>
+              </RoleItemDescription>
+            </RoleItem>
+          </Fade>
+          <Fade direction="up" delay={200}>
+            <RoleItem>
+              <RoleIcon>🖥&nbsp;&nbsp;{'>'} </RoleIcon>
+              <RoleItemDescription>
+                <RoleItemWrapper>
+                  Computer Science & Molecular Biology student at{' '}
+                  <b>Simon Fraser University</b>
+                </RoleItemWrapper>
+              </RoleItemDescription>
+            </RoleItem>
+          </Fade>
+          <Fade direction="up" delay={300}>
           <RoleItem>
             <RoleIcon>👨🏼‍💼&nbsp;&nbsp;{'>'} </RoleIcon>
             <RoleItemDescription>
@@ -141,23 +147,32 @@ const BioContent: React.FC<SectionProps> = () => {
               </RoleItemWrapper>
             </RoleItemDescription>
           </RoleItem>
+          </Fade>
         </RolesSection>
-        <BioParagraph>
-          I am an aspiring <b>full-stack developer</b> and I am currently
-          seeking full-time employment opportunities starting in Summer/Fall
-          2023. If you or someone you know are hiring, I would love to hear from
-          you!
-        </BioParagraph>
+        <Fade direction='up' delay={500}>
+          <BioParagraph>
+            I am an aspiring <b>full-stack developer</b> and I am currently
+            seeking full-time employment opportunities starting in Summer/Fall
+            2023. If you or someone you know are hiring, I would love to hear from
+            you!
+          </BioParagraph>
+        </Fade>
         <ButtonContainer>
-          <Button href={'https://nickchubb.github.io/resume/'}>
-            Resume <FaFileAlt />
-          </Button>
-          <Button href={'https://www.linkedin.com/in/nickrchubb/'}>
-            Linkedin <FaLinkedin />
-          </Button>
-          <Button href={'mailto://nick@nickchubb.ca'}>
-            Email Me <FaEnvelope />
-          </Button>
+          <Fade direction='up' delay={1000}>
+            <Button href={'https://nickchubb.github.io/resume/'}>
+              Resume <FaFileAlt />
+            </Button>
+          </Fade>
+          <Fade direction='up' delay={1100}>
+            <Button href={'https://www.linkedin.com/in/nickrchubb/'}>
+              Linkedin <FaLinkedin />
+            </Button>
+          </Fade>
+          <Fade direction='up' delay={1200}>
+            <Button href={'mailto://nick@nickchubb.ca'}>
+              Email Me <FaEnvelope />
+            </Button>
+          </Fade>
         </ButtonContainer>
       </BioWrapper>
     </>
