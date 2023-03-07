@@ -14,8 +14,6 @@ export const SectionWrapper = styled.div<{
   padding: 0 0 48px;
   transition: 0.25s;
   margin-bottom: 48px;
-  transition: opacity 0.5s;
-  opacity: 0;
 
   ${(props) =>
     props.center &&
@@ -28,8 +26,6 @@ export const SectionWrapper = styled.div<{
   @media only screen and (max-width: ${breakpoints.mobile}) {
     padding: 0;
   }
-
-  ${(props) => props.isVisible && `opacity: 1;`}
 `
 
 const SectionHeader = styled.a`
