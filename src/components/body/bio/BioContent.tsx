@@ -158,17 +158,17 @@ const BioContent: React.FC<SectionProps> = () => {
           </BioParagraph>
         </Fade>
         <ButtonContainer>
-          <Fade direction='up' delay={1000} triggerOnce>
+          <Fade direction='up' delay={1400} triggerOnce>
             <Button href={'https://nickchubb.github.io/resume/'}>
               Resume <FaFileAlt />
             </Button>
           </Fade>
-          <Fade direction='up' delay={1100} triggerOnce>
+          <Fade direction='up' delay={1500} triggerOnce>
             <Button href={'https://www.linkedin.com/in/nickrchubb/'}>
               Linkedin <FaLinkedin />
             </Button>
           </Fade>
-          <Fade direction='up' delay={1200} triggerOnce>
+          <Fade direction='up' delay={1600} triggerOnce>
             <Button href={'mailto://nick@nickchubb.ca'}>
               Email Me <FaEnvelope />
             </Button>
