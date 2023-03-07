@@ -1,20 +1,25 @@
-import { Dispatch, SetStateAction, useEffect, useRef } from 'react'
+import { Dispatch, SetStateAction, useRef } from 'react'
 import styled from 'styled-components'
-import useFade from '../../hooks/use-fade'
 import useOnScreen from '../../hooks/use-on-screen'
 import { scrollToSection } from '../../utils/scroll'
 import { breakpoints, text } from './styles'
 
-export const SectionWrapper = styled.div<{ ref: any, center?: boolean, opacity: string }>`
+export const SectionWrapper = styled.div<{
+  ref: any
+  center?: boolean
+  isVisible?: boolean
+}>`
   width: 100%;
   min-height: 100vh;
   padding: 0 0 48px;
   transition: 0.25s;
   margin-bottom: 48px;
   transition: opacity 0.5s;
-  opacity: ${props => props.opacity};
+  opacity: 0;
 
-  ${props => props.center && `
+  ${(props) =>
+    props.center &&
+    `
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,6 +28,8 @@ export const SectionWrapper = styled.div<{ ref: any, center?: boolean, opacity: 
   @media only screen and (max-width: ${breakpoints.mobile}) {
     padding: 0;
   }
+
+  ${(props) => props.isVisible && `opacity: 1;`}
 `
 
 const SectionHeader = styled.a`
@@ -57,12 +64,15 @@ type SectionProps = {
   center?: boolean
 }
 
-const Section: React.FC<SectionProps> = ({ title, setSection, Component, center }) => {
+const Section: React.FC<SectionProps> = ({
+  title,
+  setSection,
+  Component,
+  center,
+}) => {
   const ref = useRef()
-  const highlightNav: boolean = useOnScreen(ref, 0.5)
-  const opacity = useFade(ref)
-  console.log(title, opacity)
-  if (highlightNav) {
+  const isVisible: boolean = useOnScreen(ref, 0.5)
+  if (isVisible) {
     setSection(title)
   }
 
@@ -77,10 +87,16 @@ const Section: React.FC<SectionProps> = ({ title, setSection, Component, center 
   }
 
   return (
-    <SectionWrapper id={title} ref={ref} center={center} opacity={opacity.toString()}>
+    <SectionWrapper
+      id={title}
+      ref={ref}
+      center={center}
+    >
       <SectionHeader onClick={getLink}>
-        <SectionTitle isVisible={highlightNav}>{title}</SectionTitle>
-        <FragmentLink><small> #</small></FragmentLink>
+        <SectionTitle isVisible={isVisible}>{title}</SectionTitle>
+        <FragmentLink>
+          <small> #</small>
+        </FragmentLink>
       </SectionHeader>
       {getBody()}
     </SectionWrapper>

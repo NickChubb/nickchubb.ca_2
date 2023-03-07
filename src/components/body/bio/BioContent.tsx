@@ -109,11 +109,11 @@ const BioContent: React.FC<SectionProps> = () => {
         <HeaderImageWrapper>
           <HeaderImage src="/me.png" width={200} height={200} alt="me" />
         </HeaderImageWrapper>
-        <Fade direction="up">
+        <Fade direction="up" triggerOnce>
           <BioParagraph>Hi, my name is Nick Chubb.</BioParagraph>
         </Fade>
         <RolesSection>
-          <Fade direction="up" delay={100}>
+          <Fade direction="up" delay={100} triggerOnce>
             <RoleItem>
               <RoleIcon>👨‍💻&nbsp;&nbsp;{'>'} </RoleIcon>
               <RoleItemDescription>
@@ -124,7 +124,7 @@ const BioContent: React.FC<SectionProps> = () => {
               </RoleItemDescription>
             </RoleItem>
           </Fade>
-          <Fade direction="up" delay={200}>
+          <Fade direction="up" delay={200} triggerOnce>
             <RoleItem>
               <RoleIcon>🖥&nbsp;&nbsp;{'>'} </RoleIcon>
               <RoleItemDescription>
@@ -135,7 +135,7 @@ const BioContent: React.FC<SectionProps> = () => {
               </RoleItemDescription>
             </RoleItem>
           </Fade>
-          <Fade direction="up" delay={300}>
+          <Fade direction="up" delay={300} triggerOnce>
           <RoleItem>
             <RoleIcon>👨🏼‍💼&nbsp;&nbsp;{'>'} </RoleIcon>
             <RoleItemDescription>
@@ -149,7 +149,7 @@ const BioContent: React.FC<SectionProps> = () => {
           </RoleItem>
           </Fade>
         </RolesSection>
-        <Fade direction='up' delay={500}>
+        <Fade direction='up' delay={500} triggerOnce>
           <BioParagraph>
             I am an aspiring <b>full-stack developer</b> and I am currently
             seeking full-time employment opportunities starting in Summer/Fall
@@ -158,17 +158,17 @@ const BioContent: React.FC<SectionProps> = () => {
           </BioParagraph>
         </Fade>
         <ButtonContainer>
-          <Fade direction='up' delay={1000}>
+          <Fade direction='up' delay={1000} triggerOnce>
             <Button href={'https://nickchubb.github.io/resume/'}>
               Resume <FaFileAlt />
             </Button>
           </Fade>
-          <Fade direction='up' delay={1100}>
+          <Fade direction='up' delay={1100} triggerOnce>
             <Button href={'https://www.linkedin.com/in/nickrchubb/'}>
               Linkedin <FaLinkedin />
             </Button>
           </Fade>
-          <Fade direction='up' delay={1200}>
+          <Fade direction='up' delay={1200} triggerOnce>
             <Button href={'mailto://nick@nickchubb.ca'}>
               Email Me <FaEnvelope />
             </Button>
