@@ -149,7 +149,7 @@ const BioContent: React.FC<SectionProps> = () => {
           </RoleItem>
           </Fade>
         </RolesSection>
-        <Fade direction='up' delay={500} triggerOnce>
+        <Fade direction='up' delay={400} triggerOnce>
           <BioParagraph>
             I am an aspiring <b>full-stack developer</b> and I am currently
             seeking full-time employment opportunities starting in Summer/Fall
