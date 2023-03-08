@@ -12,9 +12,12 @@ import { Section, sections } from '../body/sections'
 import useClickOutside from '../../hooks/use-click-outside'
 
 const NavContainer = styled.div`
-  position: fixed;
   width: 35vw;
   z-index: 9;
+
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    position: fixed;
+  }
 `
 
 const NavWrapper = styled.div<{ isHidden: boolean }>`
@@ -100,7 +103,7 @@ const MenuButton = styled.a<{ isHidden: boolean }>`
   height: 70px;
   width: 70px;
   position: fixed;
-  bottom: 48px;
+  bottom: 64px;
   right: 48px;
   color: ${text.normal};
   display: flex;
@@ -209,7 +212,7 @@ const NavBar: React.FC<NavBarProps> = ({ section, setSection }) => {
 
   return (
     <NavContainer ref={navBarRef}>
-      <NavWrapper isHidden={isHidden}>
+      <NavWrapper isHidden={isHidden} onClick={hide}>
         <NavMenuWrapper isHidden={isHidden}>
           <HeaderImage
             src="/me.png"
