@@ -213,7 +213,7 @@ const NavBar: React.FC<NavBarProps> = ({ section, setSection }) => {
   return (
     <NavContainer ref={navBarRef}>
       <NavWrapper isHidden={isHidden} onClick={hide}>
-        <NavMenuWrapper isHidden={isHidden}>
+        <NavMenuWrapper isHidden={isHidden} onClick={e => e.stopPropagation()}>
           <HeaderImage
             src="/me.png"
             width={200}
