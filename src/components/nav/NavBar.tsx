@@ -12,7 +12,9 @@ import { Section, sections } from '../body/sections'
 import useClickOutside from '../../hooks/use-click-outside'
 
 const NavContainer = styled.div`
+  position: fixed;
   width: 35vw;
+  z-index: 9;
 `
 
 const NavWrapper = styled.div<{ isHidden: boolean }>`
