@@ -11,9 +11,31 @@ import SubMenu from './SubMenu'
 import { Section, sections } from '../body/sections'
 import useClickOutside from '../../hooks/use-click-outside'
 
-const NavWrapper = styled.div<{ isHidden: boolean }>`
-  height: 100vh;
+const NavContainer = styled.div`
   width: 35vw;
+`
+
+const NavWrapper = styled.div<{ isHidden: boolean }>`
+  position: sticky;
+  height: 100%;
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 9;
+    transition: 0.5s;
+    visibility: ${(props) => (props.isHidden ? 'hidden' : 'visible')};
+    ${(props) =>
+      !props.isHidden &&
+      `
+      display: block;
+      background: rgba(0, 0, 0, 0.5);
+    `}
+  }
+`
+
+const NavMenuWrapper = styled.div<{ isHidden: boolean }>`
+  height: 100vh;
   padding: 64px 142px 64px 0;
   position: sticky;
   top: 0px;
@@ -71,35 +93,22 @@ const MenuItemContainer = styled.div`
   position: relative;
 `
 
-const ChildMenu = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding-left: 8px;
-  text-align: right;
-  & > * {
-    font-size: 18px;
-  }
-`
-
-const SocialLinksWrapper = styled.div`
-  margin-top: 48px;
-`
-
 const MenuButton = styled.a<{ isHidden: boolean }>`
   border-radius: 50%;
-  height: 65px;
-  width: 65px;
+  height: 70px;
+  width: 70px;
   position: fixed;
   bottom: 48px;
   right: 48px;
-  border: 0px;
   color: ${text.normal};
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #292929;
+  background: #383838;
   cursor: pointer;
-  box-shadow: 2px 1px 1px #181818;
+  box-shadow: 1px 2px 8px #181818;
+  border: 1px solid #181818;
+  z-index: 15;
 
   &:hover {
     background: #383838;
@@ -123,7 +132,7 @@ const MenuButtonIcon = styled(FaCaretRight)<{ isHidden: boolean }>`
     props.isHidden &&
     `
     transform: rotate(180deg);
-  `}
+    `}
 `
 
 type NavBarProps = {
@@ -135,6 +144,8 @@ const NavBar: React.FC<NavBarProps> = ({ section, setSection }) => {
   const [isHidden, setHidden] = useState(true)
   const navBarRef = useRef(null)
 
+  console.log('isHidden', isHidden)
+
   const hide = () => {
     enableBodyScroll(navBarRef.current)
     setHidden(true)
@@ -145,22 +156,14 @@ const NavBar: React.FC<NavBarProps> = ({ section, setSection }) => {
     setHidden(false)
   }
 
-  const toggle = isHidden ? show : hide
+  // const toggle = isHidden ? show : hide
+
+  const toggle = () => {
+    console.log('isHidden', isHidden)
+    return isHidden ? show() : hide()
+  }
 
   useClickOutside(navBarRef, hide)
-
-  // const MenuItemWrapper = ({ title, key }) => {
-  //   return (
-  //     <MenuItem
-  //       key={key}
-  //       sectionName={title}
-  //       className="menu-item"
-  //       section={section}
-  //       setSection={setSection}
-  //       hideNav={hide}
-  //     />
-  //   )
-  // }
 
   const renderSubmenu = (
     sectionTitle: string,
@@ -203,15 +206,25 @@ const NavBar: React.FC<NavBarProps> = ({ section, setSection }) => {
   }
 
   return (
-    <NavWrapper isHidden={isHidden} ref={navBarRef}>
-      <HeaderImage src="/me.png" width={200} height={200} alt="me" priority />
-      <HeaderTitle>Nick Chubb</HeaderTitle>
-      <MenuItemContainer>{renderMenu()}</MenuItemContainer>
-      <SocialLinks />
+    <NavContainer ref={navBarRef}>
+      <NavWrapper isHidden={isHidden}>
+        <NavMenuWrapper isHidden={isHidden}>
+          <HeaderImage
+            src="/me.png"
+            width={200}
+            height={200}
+            alt="me"
+            priority
+          />
+          <HeaderTitle>Nick Chubb</HeaderTitle>
+          <MenuItemContainer>{renderMenu()}</MenuItemContainer>
+          <SocialLinks />
+        </NavMenuWrapper>
+      </NavWrapper>
       <MenuButton onClick={toggle} isHidden={isHidden}>
         <MenuButtonIcon isHidden={isHidden} fontSize={24} />
       </MenuButton>
-    </NavWrapper>
+    </NavContainer>
   )
 }
 
