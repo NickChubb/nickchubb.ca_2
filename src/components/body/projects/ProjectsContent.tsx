@@ -54,7 +54,7 @@ const MobileProjectDisplayWrapper = styled.div`
   gap: 64px;
 `
 
-const ProjectsContent = () => {
+const ProjectsContent: React.FC = () => {
   const [project, setProject] = useState(0)
   const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile})`)
 

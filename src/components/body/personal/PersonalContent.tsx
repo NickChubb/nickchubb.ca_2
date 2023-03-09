@@ -13,7 +13,7 @@ const pages: Array<Page> = [
   },
 ]
 
-const PersonalContent = () => {
+const PersonalContent: React.FC = () => {
   return <TabbedContent pages={pages} sectionTitle="personal" />
 }
 
