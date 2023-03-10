@@ -109,11 +109,11 @@ const BioContent: React.FC<SectionProps> = () => {
       <HeaderImageWrapper>
         <HeaderImage src="/me.png" width={200} height={200} alt="me" priority />
       </HeaderImageWrapper>
-      <Fade direction="down" duration={600}>
+      <Fade direction="down" duration={600} triggerOnce>
         <TitleParagraph>
           Hi, my name is
           <TitleLarge>
-            <Fade duration={400} cascade>
+            <Fade duration={400} cascade triggerOnce>
               Nick Chubb
             </Fade>
             <Blink>.</Blink>
@@ -121,7 +121,7 @@ const BioContent: React.FC<SectionProps> = () => {
         </TitleParagraph>
       </Fade>
       <RolesSection>
-        <Fade delay={2400} cascade>
+        <Fade delay={2400} cascade triggerOnce>
           <RoleItem>
             <RoleIcon>👨‍💻&nbsp;&nbsp;{'>'} </RoleIcon>
             <RoleItemDescription>
@@ -153,7 +153,7 @@ const BioContent: React.FC<SectionProps> = () => {
           </RoleItem>
         </Fade>
       </RolesSection>
-      <Fade direction="up" delay={4000} cascade>
+      <Fade direction="up" delay={4000} cascade triggerOnce>
         <Paragraph>
           I am an aspiring{' '}
           <Large>
@@ -167,17 +167,17 @@ const BioContent: React.FC<SectionProps> = () => {
         </Paragraph>
       </Fade>
       <ButtonContainer>
-        <Fade direction="up" delay={4600}>
+        <Fade direction="up" delay={4600} triggerOnce>
           <Button href={'https://nickchubb.github.io/resume/'} width="100%">
             Resume <FaFileAlt />
           </Button>
         </Fade>
-        <Fade direction="up" delay={4900}>
+        <Fade direction="up" delay={4900} triggerOnce>
           <Button href={'https://www.linkedin.com/in/nickrchubb/'} width="100%">
             Linkedin <FaLinkedin />
           </Button>
         </Fade>
-        <Fade direction="up" delay={5200}>
+        <Fade direction="up" delay={5200} triggerOnce>
           <Button href={'/#contact'} width="100%">
             Contact
             <FaEnvelope />
