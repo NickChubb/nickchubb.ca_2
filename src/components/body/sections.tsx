@@ -1,4 +1,5 @@
 import BioContent from './bio/BioContent'
+import ContactContent from './contact/ContactContent'
 import CoursesContent from './courses/CoursesContent'
 import ExperienceContent from './experience/ExperienceContent'
 import PersonalContent from './personal/PersonalContent'
@@ -24,12 +25,16 @@ export const sections: Array<Section> = [
     title: 'projects',
     Content: ProjectsContent
   },
-  {
-    title: 'courses',
-    Content: CoursesContent,
-  },
+  // {
+  //   title: 'courses',
+  //   Content: CoursesContent,
+  // },
   {
     title: 'personal',
     Content: PersonalContent,
   },
+  {
+    title: 'contact',
+    Content: ContactContent,
+  }
 ]

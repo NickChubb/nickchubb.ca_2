@@ -1,0 +1,1 @@
+export type State = 'DEFAULT' | 'SENDING' | 'SENT' | 'ERROR'

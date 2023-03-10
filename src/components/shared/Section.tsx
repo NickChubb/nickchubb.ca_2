@@ -89,7 +89,7 @@ const Section: React.FC<SectionProps> = ({
       center={center}
     >
       <SectionHeader onClick={getLink}>
-        <SectionTitle isVisible={isVisible}>{title}</SectionTitle>
+        {!center && <SectionTitle isVisible={isVisible}>{title}</SectionTitle>}
         <FragmentLink>
           <small> #</small>
         </FragmentLink>

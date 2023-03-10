@@ -6,62 +6,59 @@ import Button from '../../shared/button'
 import { FaLinkedin, FaEnvelope, FaFileAlt } from 'react-icons/fa'
 import { SectionProps } from '../../shared/types'
 import { ExternalLink } from '../../shared/link'
-import { breakpoints, fontSize } from '../../shared/styles'
-
-const HeaderWrapper = styled.div`
-  padding: 32px 0;
-  width: 100%;
-`
+import { breakpoints, fontSize, text } from '../../shared/styles'
+import { Blink, Large, Paragraph } from '../../shared/text'
 
 const BioWrapper = styled.div`
-  font-size: ${fontSize.large};
+  font-size: ${fontSize.normal};
   display: flex;
   flex-direction: column;
   gap: 32px;
   max-width: 740px;
+  align-self: center;
 `
 
 const HeaderImageWrapper = styled.div`
   width: 100%;
-`
-
-const HeaderImage = styled(Image)`
-  margin: 0 auto;
   display: none;
+  text-align: center;
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
     display: block;
+    margin-top: 32px;
   }
 `
 
-const BioParagraph = styled.div`
+const HeaderImage = styled(Image)``
+
+const TitleParagraph = styled.div`
+  font-family: 'Roboto Mono', monospace;
   text-align: justify;
-`
-
-const BioTitle = styled.h2`
-  padding: 48px 0;
-`
-
-const RolesList = styled.ul`
-  list-style: none;
   display: flex;
-  flex-direction: column;
-  gap: 16px;
+  align-items: baseline;
+  gap: 32px;
+  font-size: ${fontSize.xlarge};
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
-    margin: 0;
-    padding-left: 16px;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
   }
 `
 
-const RolesListItem = styled.li``
+const TitleLarge = styled.span`
+  font-size: 42px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid ${text.fade};
+  text-align: center;
+`
 
 const RolesSection = styled.div`
+  margin: 3rem 0;
+  padding-left: 40px;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin: 1rem 0;
-  padding-left: 40px;
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
     margin: 0;
@@ -96,6 +93,10 @@ const ButtonContainer = styled.div`
   margin: 1rem 0;
   display: flex;
   gap: 12px;
+  justify-content: space-between;
+  & > * {
+    flex: 1;
+  }
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
     flex-direction: column;
@@ -104,84 +105,86 @@ const ButtonContainer = styled.div`
 
 const BioContent: React.FC<SectionProps> = () => {
   return (
-    <>
-      <BioWrapper>
-        <HeaderImageWrapper>
-          <HeaderImage
-            src="/me.png"
-            width={200}
-            height={200}
-            alt="me"
-            priority
-          />
-        </HeaderImageWrapper>
-        <Fade direction="up" triggerOnce>
-          <BioParagraph>Hi, my name is Nick Chubb.</BioParagraph>
+    <BioWrapper>
+      <HeaderImageWrapper>
+        <HeaderImage src="/me.png" width={200} height={200} alt="me" priority />
+      </HeaderImageWrapper>
+      <Fade direction="down" duration={600}>
+        <TitleParagraph>
+          Hi, my name is
+          <TitleLarge>
+            <Fade duration={400} cascade>
+              Nick Chubb
+            </Fade>
+            <Blink>.</Blink>
+          </TitleLarge>
+        </TitleParagraph>
+      </Fade>
+      <RolesSection>
+        <Fade delay={2400} cascade>
+          <RoleItem>
+            <RoleIcon>👨‍💻&nbsp;&nbsp;{'>'} </RoleIcon>
+            <RoleItemDescription>
+              <RoleItemWrapper>
+                <b>1+ years Front-end Development Experience</b> with React,
+                Next.js, HTML, and CSS
+              </RoleItemWrapper>
+            </RoleItemDescription>
+          </RoleItem>
+          <RoleItem>
+            <RoleIcon>🖥&nbsp;&nbsp;{'>'} </RoleIcon>
+            <RoleItemDescription>
+              <RoleItemWrapper>
+                Computer Science & Molecular Biology student at{' '}
+                <b>Simon Fraser University</b>
+              </RoleItemWrapper>
+            </RoleItemDescription>
+          </RoleItem>
+          <RoleItem>
+            <RoleIcon>👨🏼‍💼&nbsp;&nbsp;{'>'} </RoleIcon>
+            <RoleItemDescription>
+              <RoleItemWrapper>
+                Account Manager for{' '}
+                <ExternalLink href="https://vanstartupweek.ca/">
+                  Vancouver Startup Week
+                </ExternalLink>
+              </RoleItemWrapper>
+            </RoleItemDescription>
+          </RoleItem>
         </Fade>
-        <RolesSection>
-          <Fade direction="up" delay={100} triggerOnce>
-            <RoleItem>
-              <RoleIcon>👨‍💻&nbsp;&nbsp;{'>'} </RoleIcon>
-              <RoleItemDescription>
-                <RoleItemWrapper>
-                  <b>1+ years Front-end Development Experience</b> with React,
-                  Next.js, HTML, and CSS
-                </RoleItemWrapper>
-              </RoleItemDescription>
-            </RoleItem>
-          </Fade>
-          <Fade direction="up" delay={200} triggerOnce>
-            <RoleItem>
-              <RoleIcon>🖥&nbsp;&nbsp;{'>'} </RoleIcon>
-              <RoleItemDescription>
-                <RoleItemWrapper>
-                  Computer Science & Molecular Biology student at{' '}
-                  <b>Simon Fraser University</b>
-                </RoleItemWrapper>
-              </RoleItemDescription>
-            </RoleItem>
-          </Fade>
-          <Fade direction="up" delay={300} triggerOnce>
-            <RoleItem>
-              <RoleIcon>👨🏼‍💼&nbsp;&nbsp;{'>'} </RoleIcon>
-              <RoleItemDescription>
-                <RoleItemWrapper>
-                  Account Manager for{' '}
-                  <ExternalLink href="https://vanstartupweek.ca/">
-                    Vancouver Startup Week
-                  </ExternalLink>
-                </RoleItemWrapper>
-              </RoleItemDescription>
-            </RoleItem>
-          </Fade>
-        </RolesSection>
-        <Fade direction="up" delay={400} triggerOnce>
-          <BioParagraph>
-            I am an aspiring <b>full-stack developer</b> and I am currently
-            seeking full-time employment opportunities starting in Summer/Fall
-            2023. If you or someone you know are hiring, I would love to hear
-            from you!
-          </BioParagraph>
+      </RolesSection>
+      <Fade direction="up" delay={4000} cascade>
+        <Paragraph>
+          I am an aspiring{' '}
+          <Large>
+            <b>full-stack developer</b>
+          </Large>{' '}
+          and I am currently seeking full-time employment opportunities starting
+          in Summer/Fall 2023.
+        </Paragraph>
+        <Paragraph>
+          If you or someone you know are hiring, I would love to hear from you!
+        </Paragraph>
+      </Fade>
+      <ButtonContainer>
+        <Fade direction="up" delay={4600}>
+          <Button href={'https://nickchubb.github.io/resume/'} width="100%">
+            Resume <FaFileAlt />
+          </Button>
         </Fade>
-        <ButtonContainer>
-          <Fade direction="up" delay={1400} triggerOnce>
-            <Button href={'https://nickchubb.github.io/resume/'}>
-              Resume <FaFileAlt />
-            </Button>
-          </Fade>
-          <Fade direction="up" delay={1500} triggerOnce>
-            <Button href={'https://www.linkedin.com/in/nickrchubb/'}>
-              Linkedin <FaLinkedin />
-            </Button>
-          </Fade>
-          <Fade direction="up" delay={1600} triggerOnce>
-            <Button href={'mailto://nick@nickchubb.ca'}>
-              Email Me <FaEnvelope />
-            </Button>
-          </Fade>
-        </ButtonContainer>
-      </BioWrapper>
-    </>
+        <Fade direction="up" delay={4900}>
+          <Button href={'https://www.linkedin.com/in/nickrchubb/'} width="100%">
+            Linkedin <FaLinkedin />
+          </Button>
+        </Fade>
+        <Fade direction="up" delay={5200}>
+          <Button href={'/#contact'} width="100%">
+            Contact
+            <FaEnvelope />
+          </Button>
+        </Fade>
+      </ButtonContainer>
+    </BioWrapper>
   )
 }
 
