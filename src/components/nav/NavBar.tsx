@@ -2,6 +2,7 @@ import { useRef, useState } from 'react'
 import Image from 'next/image'
 import styled from 'styled-components'
 import { FaCaretRight } from 'react-icons/fa'
+import { Fade } from 'react-awesome-reveal'
 // @ts-ignore
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import SocialLinks from '../shared/SocialLinks'
@@ -213,7 +214,10 @@ const NavBar: React.FC<NavBarProps> = ({ section, setSection }) => {
   return (
     <NavContainer ref={navBarRef}>
       <NavWrapper isHidden={isHidden} onClick={hide}>
-        <NavMenuWrapper isHidden={isHidden} onClick={e => e.stopPropagation()}>
+        <NavMenuWrapper
+          isHidden={isHidden}
+          onClick={(e) => e.stopPropagation()}
+        >
           <HeaderImage
             src="/me.png"
             width={200}
@@ -222,8 +226,14 @@ const NavBar: React.FC<NavBarProps> = ({ section, setSection }) => {
             priority
           />
           <HeaderTitle>Nick Chubb</HeaderTitle>
-          <MenuItemContainer>{renderMenu()}</MenuItemContainer>
-          <SocialLinks />
+          <MenuItemContainer>
+            <Fade duration={200} direction="down" cascade>
+              {renderMenu()}
+            </Fade>
+          </MenuItemContainer>
+          <Fade delay={600}>
+            <SocialLinks />
+          </Fade>
         </NavMenuWrapper>
       </NavWrapper>
       <MenuButton onClick={toggle} isHidden={isHidden}>

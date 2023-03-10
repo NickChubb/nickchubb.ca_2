@@ -1,9 +1,10 @@
-import React from 'react';
+import React from 'react'
+import { Fade } from 'react-awesome-reveal'
 import { BsLink45Deg } from 'react-icons/bs'
-import styled from 'styled-components';
-import { bookData } from '../../../data/books';
-import { ExternalLink, StyledLink } from '../../shared/link';
-import { text } from '../../shared/styles';
+import styled from 'styled-components'
+import { bookData } from '../../../data/books'
+import { ExternalLink, StyledLink } from '../../shared/link'
+import { text } from '../../shared/styles'
 
 const BookList = styled.ul`
   display: flex;
@@ -15,7 +16,6 @@ const BookList = styled.ul`
 `
 
 const BookListItem = styled.li`
-
   &:hover {
     &:before {
       color: ${text.green};
@@ -30,27 +30,29 @@ const BookListItem = styled.li`
 const BookshelfSection = () => {
   return (
     <BookList>
-      {bookData && bookData.length > 0
-        ? bookData.map((book, key) => (
-            <BookListItem className="links-menu"  key={key}>
-              <ExternalLink href={book.link} target="_blank" rel="noreferrer">
-                <b>{book.title}</b> <i>by</i> {book.author}{' '}
-                <small style={{ color: 'seagreen' }}>
-                  <BsLink45Deg />
-                </small>
-              </ExternalLink>
-              <br />
-              {/* {
+      <Fade>
+        {bookData && bookData.length > 0
+          ? bookData.map((book, key) => (
+              <BookListItem className="links-menu" key={key}>
+                <ExternalLink href={book.link} target="_blank" rel="noreferrer">
+                  <b>{book.title}</b> <i>by</i> {book.author}{' '}
+                  <small style={{ color: 'seagreen' }}>
+                    <BsLink45Deg />
+                  </small>
+                </ExternalLink>
+                <br />
+                {/* {
                 // If book has notes display BookNotes component
                 book.Notes && book.Notes.length > 0 ? (
                   <BookNotes notes={book.Notes} />
                 ) : null
               } */}
-            </BookListItem>
-          ))
-        : null}
+              </BookListItem>
+            ))
+          : null}
+      </Fade>
     </BookList>
-  );
-};
+  )
+}
 
-export default BookshelfSection;
+export default BookshelfSection

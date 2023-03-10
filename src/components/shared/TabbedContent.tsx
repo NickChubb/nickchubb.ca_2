@@ -44,7 +44,10 @@ type TabbedContentProps = {
   sectionTitle: string
 }
 
-const TabbedContent: React.FC<TabbedContentProps> = ({ pages, sectionTitle }) => {
+const TabbedContent: React.FC<TabbedContentProps> = ({
+  pages,
+  sectionTitle,
+}) => {
   const [page, setPage] = useState(0)
 
   const getBodyContent = () => {
@@ -71,7 +74,6 @@ const TabbedContent: React.FC<TabbedContentProps> = ({ pages, sectionTitle }) =>
           </NavItem>
         ))}
       </NavWrapper>
-
       {getBodyContent()}
     </TabbedContentWrapper>
   )
