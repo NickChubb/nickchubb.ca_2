@@ -150,8 +150,6 @@ const NavBar: React.FC<NavBarProps> = ({ section, setSection }) => {
   const [isHidden, setHidden] = useState(true)
   const navBarRef = useRef(null)
 
-  console.log('isHidden', isHidden)
-
   const hide = () => {
     enableBodyScroll(navBarRef.current)
     setHidden(true)
@@ -165,7 +163,6 @@ const NavBar: React.FC<NavBarProps> = ({ section, setSection }) => {
   // const toggle = isHidden ? show : hide
 
   const toggle = () => {
-    console.log('isHidden', isHidden)
     return isHidden ? show() : hide()
   }
 
