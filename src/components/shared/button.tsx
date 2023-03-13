@@ -1,10 +1,12 @@
-import React from "react"
-import styled from "styled-components"
-import { text } from "./styles"
+import React from 'react'
+import styled from 'styled-components'
+import { text } from './styles'
 
-const ButtonWrapper = styled.a<{ width?: string }>`
+const ButtonWrapper = styled.a<{
+  width?: string
+}>`
   padding: 10px 20px;
-  background: #1F1F1F;
+  background: #1f1f1f;
   border-radius: 4px;
   color: ${text.normal};
   display: flex;
@@ -12,7 +14,8 @@ const ButtonWrapper = styled.a<{ width?: string }>`
   align-items: center;
   gap: 10px;
   transition: 0.25s;
-  width: ${(props) => props.width || "auto"};
+  cursor: pointer;
+  width: ${(props) => props.width || 'auto'};
 
   &:hover {
     background: #292929;
@@ -26,14 +29,18 @@ const ButtonWrapper = styled.a<{ width?: string }>`
 `
 
 type ButtonProps = {
-  href: string
   children: React.ReactNode
-  onClick?: React.MouseEvent<HTMLElement>
+  href?: string
+  onClick?: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void
   width?: string
 }
 
 const Button: React.FC<ButtonProps> = ({ href, children, onClick, width }) => {
-  return <ButtonWrapper href={href} width={width}>{children}</ButtonWrapper>
+  return (
+    <ButtonWrapper href={href} width={width} onClick={onClick}>
+      {children}
+    </ButtonWrapper>
+  )
 }
 
 export default Button

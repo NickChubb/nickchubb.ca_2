@@ -1,5 +1,6 @@
 import React, { Children, Dispatch, SetStateAction, useEffect, useState } from 'react'
 import styled from 'styled-components'
+import useScrollToSection from '../../hooks/use-scroll-to-section'
 import { StyledLink } from '../shared/link'
 import { text } from '../shared/styles'
 
@@ -71,18 +72,12 @@ const MenuItem: React.FC<MenuItemProps & React.HTMLAttributes<HTMLDivElement>> =
   hideNav
 }) => {
   const isVisible = section === sectionName
-  const [anchorTarget, setAnchorTarget] = useState<HTMLElement | null>(null)
-
-  useEffect(() => {
-    setAnchorTarget(document.getElementById(sectionName))
-  }, [sectionName])
+  const scrollToSection = useScrollToSection(sectionName)
 
   const handleClick = (event: { preventDefault: () => void }) => {
     event.preventDefault()
     setSection(sectionName)
-    if (hideNav) hideNav()
-    anchorTarget &&
-      anchorTarget.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    scrollToSection()
   }
 
   return (

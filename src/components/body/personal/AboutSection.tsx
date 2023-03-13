@@ -5,12 +5,13 @@ import { aboutData } from '../../../data/about'
 
 const AboutSectionWrapper = styled.div`
   text-align: justify;
+  overflow: hidden;
 `
 
 const AboutSection = () => {
   return (
-    <Fade>
-      <AboutSectionWrapper>
+    <AboutSectionWrapper>
+      <Fade>
         {aboutData && aboutData.length > 0 ? (
           aboutData.map((p, key) => {
             return <p key={key}>{p}</p>
@@ -18,8 +19,8 @@ const AboutSection = () => {
         ) : (
           <p>Error loading bio</p>
         )}
-      </AboutSectionWrapper>
-    </Fade>
+      </Fade>
+    </AboutSectionWrapper>
   )
 }
 

@@ -8,6 +8,7 @@ import { SectionProps } from '../../shared/types'
 import { ExternalLink } from '../../shared/link'
 import { breakpoints, fontSize, text } from '../../shared/styles'
 import { Blink, Large, Paragraph } from '../../shared/text'
+import useScrollToSection from '../../../hooks/use-scroll-to-section'
 
 const BioWrapper = styled.div`
   font-size: ${fontSize.normal};
@@ -104,6 +105,13 @@ const ButtonContainer = styled.div`
 `
 
 const BioContent: React.FC<SectionProps> = () => {
+  const scrollToSection = useScrollToSection('contact')
+
+  const handleContactClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    e.preventDefault()
+    scrollToSection()
+  }
+
   return (
     <BioWrapper>
       <HeaderImageWrapper>
@@ -178,7 +186,7 @@ const BioContent: React.FC<SectionProps> = () => {
           </Button>
         </Fade>
         <Fade direction="up" delay={5200} triggerOnce>
-          <Button href={'/#contact'} width="100%">
+          <Button onClick={handleContactClick} width="100%">
             Contact
             <FaEnvelope />
           </Button>

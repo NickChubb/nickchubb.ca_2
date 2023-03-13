@@ -7,6 +7,7 @@ import { Mono, Paragraph } from '../../shared/text'
 import { State } from './ContactTypes'
 import ContactForm from './ContactForm'
 import { Dna } from 'react-loader-spinner'
+import Spacer from '../../shared/Spacer'
 
 const ContactWrapper = styled.div`
   display: flex;
@@ -46,9 +47,15 @@ const Panel = styled.div<{ type: State }>`
   `}
   ${(props) =>
     props.type === 'SENT' &&
-    `border: 2px solid ${text.green}; 
+    `
+    border: 2px solid ${text.green}; 
     color: ${text.green};
   `}
+`
+
+const Link = styled.a`
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 800;
 `
 
 const SendingPanel: React.FC = () => (
@@ -69,6 +76,10 @@ const SentPanel: React.FC = () => (
   <Panel type="SENT">
     <RiCheckboxCircleFill fontSize={84} />
     <Mono>Sent!</Mono>
+    <Spacer height="2rem" />
+    <Paragraph>
+      Thank you for your message! I will get back to you as soon as possible.
+    </Paragraph>
   </Panel>
 )
 
@@ -76,9 +87,14 @@ const ErrorPanel: React.FC = () => (
   <Panel type="ERROR">
     <RiErrorWarningLine fontSize={84} />
     <Mono>Error</Mono>
+    <Spacer height="2rem" />
     <Paragraph>
-      It seems like there is a problem sending the email... Trying sending me an
-      email directly instead by clicking here!
+      Oops! There seems to be a problem sending a contact request at this
+      time...
+    </Paragraph>
+    <Paragraph>
+      Send me an email directly instead by clicking 👉{' '}
+      <Link href="mailto:nick@nickchubb.ca">here.</Link>
     </Paragraph>
   </Panel>
 )
@@ -107,7 +123,10 @@ const ContactContent: React.FC = () => {
   return (
     <ContactWrapper>
       <Paragraph>
-        If you have any questions or would like to get in touch, please use the form below to send me an email!
+        I am currently seeking{' '}
+        <b>full-time employment opportunities starting in Summer/Fall 2023</b>.
+        If you have any questions or would like to get in touch, please use the
+        form below to send me an email!
       </Paragraph>
       <PanelWrapper>{getContactPanel()}</PanelWrapper>
     </ContactWrapper>
