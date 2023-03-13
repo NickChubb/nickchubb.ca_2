@@ -45,34 +45,20 @@ const Home = () => {
 
   const renderSections = () => {
     return sections.map((section, key) => {
-      const content = section.Content
-      if (Array.isArray(content)) {
-        return content.map((subsection) => (
-          <Section
-            key={key}
-            //@ts-ignore
-            Component={subsection.Content}
-            title={subsection.title}
-            setSection={setSection}
-            center={section.center ?? false}
-          />
-        ))
-      } else {
-        return (
-          <Section
-            key={key}
-            //@ts-ignore
-            Component={section.Content}
-            title={section.title}
-            setSection={setSection}
-            center={section.center ?? false}
-          />
-        )
-      }
+      return (
+        <Section
+          key={key}
+          //@ts-ignore
+          Component={section.Content}
+          title={section.title}
+          setSection={setSection}
+          center={section.center ?? false}
+        />
+      )
     })
   }
 
-  return typeof window === 'undefined' ? null : (
+  return (
     <Container>
       <Head>
         <title>Nick Chubb</title>
@@ -83,7 +69,6 @@ const Home = () => {
       <AppWrapper>
         <NavBar section={section} setSection={setSection} />
         <MainWrapper id="main">
-          {/* <ProjectsSection setVisible={setVisible} /> */}
           {renderSections()}
           <FooterSection />
         </MainWrapper>
