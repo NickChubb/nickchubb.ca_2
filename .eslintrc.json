@@ -6,6 +6,6 @@
     "unused-imports"
   ],
   "rules" : {
-    "unused-imports/no-unused-imports-ts": "on"
+    "unused-imports/no-unused-imports-ts": 1
   }
 }
