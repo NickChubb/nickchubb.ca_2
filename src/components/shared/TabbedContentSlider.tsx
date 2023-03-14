@@ -26,6 +26,7 @@ const NavWrapper = styled.div`
   font-family: 'Roboto Mono', monospace;
   display: flex;
   gap: 48px;
+  overflow-x: scroll;
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
     justify-content: space-between;

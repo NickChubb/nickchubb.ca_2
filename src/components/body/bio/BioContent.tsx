@@ -9,6 +9,7 @@ import { ExternalLink } from '../../shared/link'
 import { breakpoints, fontSize, text } from '../../shared/styles'
 import { Blink, Large, Paragraph } from '../../shared/text'
 import useScrollToSection from '../../../hooks/use-scroll-to-section'
+import useMediaQuery from '../../../hooks/use-media-query'
 
 const BioWrapper = styled.div`
   font-size: ${fontSize.normal};
@@ -105,6 +106,7 @@ const ButtonContainer = styled.div`
 `
 
 const BioContent: React.FC<SectionProps> = () => {
+  const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile})`)
   const scrollToSection = useScrollToSection('contact')
 
   const handleContactClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
@@ -175,17 +177,19 @@ const BioContent: React.FC<SectionProps> = () => {
         </Paragraph>
       </Fade>
       <ButtonContainer>
-        <Fade direction="up" delay={4600} triggerOnce>
+        <Fade
+          direction="up"
+          delay={isMobile ? 1000 : 4900}
+          duration={300}
+          cascade
+          triggerOnce
+        >
           <Button href={'https://nickchubb.github.io/resume/'} width="100%">
             Resume <FaFileAlt />
           </Button>
-        </Fade>
-        <Fade direction="up" delay={4900} triggerOnce>
           <Button href={'https://www.linkedin.com/in/nickrchubb/'} width="100%">
             Linkedin <FaLinkedin />
           </Button>
-        </Fade>
-        <Fade direction="up" delay={5200} triggerOnce>
           <Button onClick={handleContactClick} width="100%">
             Contact
             <FaEnvelope />
