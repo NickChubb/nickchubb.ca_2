@@ -128,36 +128,27 @@ const ContactForm: React.FC<ContactFormProps> = ({ state, setState }) => {
     }).then((res) => {
       if (res.status === 200) {
         setState('SENT')
-
       } else {
         setState('ERROR')
       }
     })
   }
 
-  const renderForm = (item?: Array<FormValues>, index?: number) => {
-    // Probably a cleaner way to do this...
-    // Aim is to render it differently on mobile and desktop and get the delay right
+  const renderForm: any = (item?: Array<FormValues>) => {
     const data = item || formData
-    let count = index ?? 1
     return data.map((item: FormValues | Array<FormValues>) => {
-      let delay
-      if (index && !isMobile) delay = index
       if (Array.isArray(item)) {
-        if (isMobile) count += item.length
-        let i = isMobile ? count - item.length : count
-        return <FormRow>{renderForm(item, i)}</FormRow>
+        if (!isMobile) return <FormRow>{renderForm(item)}</FormRow>
+        return renderForm(item)
       }
       return (
-        <Fade direction="up" delay={((delay ?? ++count) - 1) * 300} triggerOnce>
-          <item.Component
-            id={item.name}
-            name={item.name}
-            placeholder={item.placeholder}
-            component={item.component ?? ''}
-            required
-          />
-        </Fade>
+        <item.Component
+          id={item.name}
+          name={item.name}
+          placeholder={item.placeholder}
+          component={item.component ?? ''}
+          required
+        />
       )
     })
   }
@@ -176,8 +167,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ state, setState }) => {
       validate={() => ({})}
     >
       <FormWrapper>
-        {renderForm()}
-        <Fade delay={isMobile ? 1800 : 1500} style={{ flex: 1 }} triggerOnce>
+        <Fade duration={800} cascade triggerOnce>
+          {renderForm()}
           <SubmitButton type="submit" value="Submit" />
         </Fade>
       </FormWrapper>
