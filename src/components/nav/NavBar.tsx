@@ -110,19 +110,20 @@ const MenuButton = styled.a<{ isHidden: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #383838;
+  background-color: #1baf1b;
   cursor: pointer;
   box-shadow: 1px 2px 8px #181818;
-  border: 1px solid #181818;
+  border: 1px solid #189918;
   z-index: 15;
+  transition: 0.25s;
 
   &:hover {
-    background: #383838;
+    background: #189918;
     transform: scale(0.98);
   }
 
   &:active {
-    background: #424242;
+    background: #188818;
     color: ${text.green} !important;
   }
 
@@ -160,11 +161,7 @@ const NavBar: React.FC<NavBarProps> = ({ section, setSection }) => {
     setHidden(false)
   }
 
-  // const toggle = isHidden ? show : hide
-
-  const toggle = () => {
-    return isHidden ? show() : hide()
-  }
+  const toggle = isHidden ? show : hide
 
   useClickOutside(navBarRef, hide)
 
