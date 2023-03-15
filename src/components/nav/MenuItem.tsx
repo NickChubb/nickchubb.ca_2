@@ -60,8 +60,8 @@ type MenuItemProps = {
   sectionName: string
   section: string
   setSection: Dispatch<SetStateAction<string>>
+  hideNav: () => void
   fontSize?: number
-  hideNav?: () => void
 }
 
 const MenuItem: React.FC<MenuItemProps & React.HTMLAttributes<HTMLDivElement>> = ({
@@ -77,6 +77,7 @@ const MenuItem: React.FC<MenuItemProps & React.HTMLAttributes<HTMLDivElement>> =
   const handleClick = (event: { preventDefault: () => void }) => {
     event.preventDefault()
     setSection(sectionName)
+    hideNav()
     scrollToSection()
   }
 

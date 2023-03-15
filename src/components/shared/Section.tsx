@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction, useRef } from 'react'
 import styled from 'styled-components'
+import useMediaQuery from '../../hooks/use-media-query'
 import useOnScreen from '../../hooks/use-on-screen'
 import { scrollToSection } from '../../utils/scroll'
 import { breakpoints, text } from './styles'
@@ -66,8 +67,10 @@ const Section: React.FC<SectionProps> = ({
   Component,
   center,
 }) => {
+  const isMobile = useMediaQuery('(max-width: 768px)')
   const ref = useRef()
-  const isVisible: boolean = useOnScreen(ref, 0.5)
+  const threshold = title === 'experience' && isMobile ? 0.25 : 0.5
+  const isVisible: boolean = useOnScreen(ref, threshold)
   if (isVisible) {
     setSection(title)
   }
