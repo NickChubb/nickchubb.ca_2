@@ -167,7 +167,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ state, setState }) => {
       validate={() => ({})}
     >
       <FormWrapper>
-        <Fade duration={800} cascade triggerOnce>
+        <Fade duration={800} direction="up" cascade triggerOnce>
           {renderForm()}
           <SubmitButton type="submit" value="Submit" />
         </Fade>
