@@ -20,6 +20,19 @@ const BioWrapper = styled.div`
   align-self: center;
 `
 
+const BioMobileLanding = styled.div`
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 48px;
+    padding: 0 0 48px;
+  }
+`
+
+const BioMobileHeader = styled.div``
+
 const HeaderImageWrapper = styled.div`
   width: 100%;
   display: none;
@@ -116,54 +129,64 @@ const BioContent: React.FC<SectionProps> = () => {
 
   return (
     <BioWrapper>
-      <HeaderImageWrapper>
-        <HeaderImage src="/me.png" width={200} height={200} alt="me" priority />
-      </HeaderImageWrapper>
-      <Fade direction="down" duration={600} triggerOnce>
-        <TitleParagraph>
-          Hi, my name is
-          <TitleLarge>
-            <Fade duration={400} cascade triggerOnce>
-              Nick Chubb
-            </Fade>
-            <Blink>.</Blink>
-          </TitleLarge>
-        </TitleParagraph>
-      </Fade>
-      <RolesSection>
-        <Fade delay={2400} cascade triggerOnce>
-          <RoleItem>
-            <RoleIcon>👨‍💻&nbsp;&nbsp;{'>'} </RoleIcon>
-            <RoleItemDescription>
-              <RoleItemWrapper>
-                <b>1+ years Front-end Development Experience</b> with React,
-                Next.js, HTML, and CSS
-              </RoleItemWrapper>
-            </RoleItemDescription>
-          </RoleItem>
-          <RoleItem>
-            <RoleIcon>🖥&nbsp;&nbsp;{'>'} </RoleIcon>
-            <RoleItemDescription>
-              <RoleItemWrapper>
-                Computer Science & Molecular Biology student at{' '}
-                <b>Simon Fraser University</b>
-              </RoleItemWrapper>
-            </RoleItemDescription>
-          </RoleItem>
-          <RoleItem>
-            <RoleIcon>👨🏼‍💼&nbsp;&nbsp;{'>'} </RoleIcon>
-            <RoleItemDescription>
-              <RoleItemWrapper>
-                Account Manager for{' '}
-                <ExternalLink href="https://vanstartupweek.ca/">
-                  Vancouver Startup Week
-                </ExternalLink>
-              </RoleItemWrapper>
-            </RoleItemDescription>
-          </RoleItem>
+      <BioMobileLanding>
+        <BioMobileHeader>
+        <HeaderImageWrapper>
+          <HeaderImage
+            src="/me.png"
+            width={200}
+            height={200}
+            alt="me"
+            priority
+          />
+        </HeaderImageWrapper>
+        <Fade direction="down" duration={600} triggerOnce>
+          <TitleParagraph>
+            Hi, my name is
+            <TitleLarge>
+              <Fade duration={400} cascade triggerOnce>
+                Nick Chubb
+              </Fade>
+              <Blink>.</Blink>
+            </TitleLarge>
+          </TitleParagraph>
         </Fade>
-      </RolesSection>
-      <Fade direction="up" delay={4000} cascade triggerOnce>
+        </BioMobileHeader>
+        <RolesSection>
+          <Fade delay={2400} cascade triggerOnce>
+            <RoleItem>
+              <RoleIcon>👨‍💻&nbsp;&nbsp;{'>'} </RoleIcon>
+              <RoleItemDescription>
+                <RoleItemWrapper>
+                  <b>1+ years Front-end Development Experience</b> with React,
+                  Next.js, HTML, and CSS
+                </RoleItemWrapper>
+              </RoleItemDescription>
+            </RoleItem>
+            <RoleItem>
+              <RoleIcon>🖥&nbsp;&nbsp;{'>'} </RoleIcon>
+              <RoleItemDescription>
+                <RoleItemWrapper>
+                  Computer Science & Molecular Biology student at{' '}
+                  <b>Simon Fraser University</b>
+                </RoleItemWrapper>
+              </RoleItemDescription>
+            </RoleItem>
+            <RoleItem>
+              <RoleIcon>👨🏼‍💼&nbsp;&nbsp;{'>'} </RoleIcon>
+              <RoleItemDescription>
+                <RoleItemWrapper>
+                  Account Manager for{' '}
+                  <ExternalLink href="https://vanstartupweek.ca/">
+                    Vancouver Startup Week
+                  </ExternalLink>
+                </RoleItemWrapper>
+              </RoleItemDescription>
+            </RoleItem>
+          </Fade>
+        </RolesSection>
+      </BioMobileLanding>
+      <Fade direction="up" delay={isMobile ? 0 : 4000} cascade triggerOnce>
         <Paragraph>
           I am an aspiring{' '}
           <Large>
