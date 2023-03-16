@@ -131,26 +131,26 @@ const BioContent: React.FC<SectionProps> = () => {
     <BioWrapper>
       <BioMobileLanding>
         <BioMobileHeader>
-        <HeaderImageWrapper>
-          <HeaderImage
-            src="/me.png"
-            width={200}
-            height={200}
-            alt="me"
-            priority
-          />
-        </HeaderImageWrapper>
-        <Fade direction="down" duration={600} triggerOnce>
-          <TitleParagraph>
-            Hi, my name is
-            <TitleLarge>
-              <Fade duration={400} cascade triggerOnce>
-                Nick Chubb
-              </Fade>
-              <Blink>.</Blink>
-            </TitleLarge>
-          </TitleParagraph>
-        </Fade>
+          <HeaderImageWrapper>
+            <HeaderImage
+              src="/me.png"
+              width={200}
+              height={200}
+              alt="me"
+              priority
+            />
+          </HeaderImageWrapper>
+          <Fade direction="down" duration={600} triggerOnce>
+            <TitleParagraph>
+              Hi, my name is
+              <TitleLarge>
+                <Fade duration={400} cascade triggerOnce>
+                  Nick Chubb
+                </Fade>
+                <Blink>.</Blink>
+              </TitleLarge>
+            </TitleParagraph>
+          </Fade>
         </BioMobileHeader>
         <RolesSection>
           <Fade delay={2400} cascade triggerOnce>
@@ -192,8 +192,8 @@ const BioContent: React.FC<SectionProps> = () => {
           <Large>
             <b>full-stack developer</b>
           </Large>{' '}
-          and I am currently seeking full-time employment opportunities starting
-          in Summer/Fall 2023.
+          and I am currently seeking front-end or full-stack employment
+          opportunities starting in Summer/Fall 2023.
         </Paragraph>
         <Paragraph>
           If you or someone you know are hiring, I would love to hear from you!
