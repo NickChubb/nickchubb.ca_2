@@ -176,7 +176,7 @@ const BioContent: React.FC<SectionProps> = () => {
               <RoleIcon>👨🏼‍💼&nbsp;&nbsp;{'>'} </RoleIcon>
               <RoleItemDescription>
                 <RoleItemWrapper>
-                  Account Manager for{' '}
+                  Software Developer for{' '}
                   <ExternalLink href="https://vanstartupweek.ca/">
                     Vancouver Startup Week
                   </ExternalLink>
