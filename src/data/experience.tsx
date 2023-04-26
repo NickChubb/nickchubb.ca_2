@@ -69,7 +69,7 @@ export const experienceData: ExperienceData = [
   },
   {
     display: true,
-    company: 'Science Undergraduate Society',
+    company: 'SFU Science Undergraduate Society',
     title: 'President',
     location: 'Burnaby, BC',
     startDate: '2020-05',
