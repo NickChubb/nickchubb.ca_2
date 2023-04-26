@@ -158,8 +158,7 @@ const BioContent: React.FC<SectionProps> = () => {
               <RoleIcon>👨‍💻&nbsp;&nbsp;{'>'} </RoleIcon>
               <RoleItemDescription>
                 <RoleItemWrapper>
-                  <b>1+ years Front-end Development Experience</b> with React,
-                  Next.js, HTML, and CSS
+                  <b>2 years Software Development Experience</b> with React, TypeScript, and CSS
                 </RoleItemWrapper>
               </RoleItemDescription>
             </RoleItem>
