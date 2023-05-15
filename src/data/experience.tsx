@@ -55,12 +55,14 @@ export const experienceData: ExperienceData = [
   {
     display: true,
     company: 'Vancouver Startup Week',
-    title: 'Account Manager',
+    title: 'Software Developer, Account Manager',
     location: 'Vancouver, BC',
     startDate: '2021-02',
     finishDate: 'present',
     website: 'https://vanstartupweek.ca/',
     description: [
+      'Developed features for the new website using ReactJS and Next.js, including completely redeveloping the blog',
+      'Assisted in updating components to TypeScript and refactoring code to improve readability and maintainability',
       'Co-ordinated and hosted weekly panels with a range of companies within the local start-up community',
       'Hosted more than 15 panels throughout the week of the event',
     ],
