@@ -166,7 +166,7 @@ const BioContent: React.FC<SectionProps> = () => {
               <RoleIcon>🖥&nbsp;&nbsp;{'>'} </RoleIcon>
               <RoleItemDescription>
                 <RoleItemWrapper>
-                  Computer Science & Molecular Biology student at{' '}
+                  BSc. in Computer Science & Molecular Biology from{' '}
                   <b>Simon Fraser University</b>
                 </RoleItemWrapper>
               </RoleItemDescription>
