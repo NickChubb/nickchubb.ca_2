@@ -94,7 +94,7 @@ const MenuItemContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 24px;
+  gap: 22px;
   padding: 64px 0;
   position: relative;
 `
