@@ -36,30 +36,26 @@ export const socialLinks: SocialLinksType = [
 ]
 
 const SocialLinkWrapper = styled.div`
-  font-size: 22px;
+  font-size: 24px;
   display: flex;
   flex-direction: row;
   gap: 12px;
   color: ${text.normal};
+`
 
-  &:hover > * {
-    color: ${text.fade};
-  }
-  
-  & > * {
-    transition: 0.25s;
-  }
-  & > *:hover {
+const SocialLinkItem = styled(StyledLink)`
+  transition: 0.25s;
+
+  &:hover {
     color: ${text.green} !important;
-    font-size: 24px;
   }
 `
 
 const SocialLink: React.FC<{ link: SocialLink }> = ({ link }) => {
   return (
-    <StyledLink href={link.href} target="_blank">
+    <SocialLinkItem href={link.href} target="_blank">
       {link.icon}
-    </StyledLink>
+    </SocialLinkItem>
   )
 }
 
