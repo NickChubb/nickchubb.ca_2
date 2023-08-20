@@ -1,9 +1,6 @@
 import styled from 'styled-components'
-import { filter } from 'ramda'
-import { experienceData } from '../../../data/experience'
 import { Experience } from './ExperienceTypes'
 import ExperienceCard from './ExperienceCard'
-import { SectionTitle } from '../../shared/Section'
 
 const ExperienceContentWrapper = styled.div``
 
@@ -13,11 +10,11 @@ const ExperienceCardList = styled.div`
   gap: 56px;
 `
 
-const ExperienceContent: React.FC = () => {
-  // Separate experienceData into volunteer and paid experiences
-  const volunteerExperience = filter((experience: Experience) => !experience.paid, experienceData)
-  const paidExperience = filter((experience: Experience) => experience.paid, experienceData)
+type ExperienceContentData = {
+  data: Array<Experience>
+}
 
+const ExperienceContent: React.FC<ExperienceContentData> = ({ data }) => {
   const getExperienceList = (experience: Experience[]) => {
     return (
       <ExperienceCardList>
@@ -33,9 +30,7 @@ const ExperienceContent: React.FC = () => {
 
   return (
     <ExperienceContentWrapper>
-      {getExperienceList(paidExperience)}
-      <SectionTitle isVisible={true}>Volunteer Experience</SectionTitle>
-      {getExperienceList(volunteerExperience)}
+      {getExperienceList(data)}
     </ExperienceContentWrapper>
   )
 }

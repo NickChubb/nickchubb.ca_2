@@ -11,10 +11,12 @@ export const SectionWrapper = styled.div<{
   isVisible?: boolean
 }>`
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
   padding: 0 0 48px;
   transition: 0.25s;
   margin-bottom: 48px;
+  scroll-snap-align: start;
 
   ${(props) =>
     props.center &&

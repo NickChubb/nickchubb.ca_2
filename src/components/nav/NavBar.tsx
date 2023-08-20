@@ -106,7 +106,7 @@ const MenuButton = styled.a<{ isHidden: boolean }>`
   position: fixed;
   bottom: 64px;
   right: 48px;
-  color: ${text.normal};
+  color: ${text.fade};
   display: flex;
   justify-content: center;
   align-items: center;

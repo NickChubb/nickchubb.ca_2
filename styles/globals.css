@@ -9,6 +9,7 @@ body {
   font-size: 18px;
   color-scheme: dark;
   background: #111111;
+  scroll-snap-type: y mandatory;
 }
 
 a {

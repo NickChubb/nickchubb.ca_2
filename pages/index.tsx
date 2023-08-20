@@ -70,7 +70,6 @@ const Home = () => {
         <NavBar section={section} setSection={setSection} />
         <MainWrapper id="main">
           {renderSections()}
-          <FooterSection />
         </MainWrapper>
       </AppWrapper>
     </Container>
