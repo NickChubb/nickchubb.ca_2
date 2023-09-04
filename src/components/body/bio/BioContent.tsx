@@ -10,6 +10,7 @@ import { breakpoints, fontSize, text } from '../../shared/styles'
 import { Blink, Large, Paragraph } from '../../shared/text'
 import useScrollToSection from '../../../hooks/use-scroll-to-section'
 import useMediaQuery from '../../../hooks/use-media-query'
+import DesktopFade from '../../shared/DesktopFade'
 
 const BioWrapper = styled.div`
   font-size: ${fontSize.normal};
@@ -19,19 +20,6 @@ const BioWrapper = styled.div`
   max-width: 740px;
   align-self: center;
 `
-
-const BioMobileLanding = styled.div`
-  @media only screen and (max-width: ${breakpoints.mobile}) {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 48px;
-    padding: 0 0 48px;
-  }
-`
-
-const BioMobileHeader = styled.div``
 
 const HeaderImageWrapper = styled.div`
   width: 100%;
@@ -129,63 +117,59 @@ const BioContent: React.FC<SectionProps> = () => {
 
   return (
     <BioWrapper>
-      <BioMobileLanding>
-        <BioMobileHeader>
-          <HeaderImageWrapper>
-            <HeaderImage
-              src="/me.png"
-              width={200}
-              height={200}
-              alt="me"
-              priority
-            />
-          </HeaderImageWrapper>
-          <Fade direction="down" duration={600} triggerOnce>
-            <TitleParagraph>
-              Hi, my name is
-              <TitleLarge>
-                <Fade duration={400} cascade triggerOnce>
-                  Nick Chubb
-                </Fade>
-                <Blink>.</Blink>
-              </TitleLarge>
-            </TitleParagraph>
-          </Fade>
-        </BioMobileHeader>
-        <RolesSection>
-          <Fade delay={2400} cascade triggerOnce>
-            <RoleItem>
-              <RoleIcon>👨‍💻&nbsp;&nbsp;{'>'} </RoleIcon>
-              <RoleItemDescription>
-                <RoleItemWrapper>
-                  <b>2 years Software Development Experience</b> with React, TypeScript, and CSS
-                </RoleItemWrapper>
-              </RoleItemDescription>
-            </RoleItem>
-            <RoleItem>
-              <RoleIcon>🖥&nbsp;&nbsp;{'>'} </RoleIcon>
-              <RoleItemDescription>
-                <RoleItemWrapper>
-                  BSc. in Computer Science & Molecular Biology from{' '}
-                  <b>Simon Fraser University</b>
-                </RoleItemWrapper>
-              </RoleItemDescription>
-            </RoleItem>
-            <RoleItem>
-              <RoleIcon>👨🏼‍💼&nbsp;&nbsp;{'>'} </RoleIcon>
-              <RoleItemDescription>
-                <RoleItemWrapper>
-                  Software Developer for{' '}
-                  <ExternalLink href="https://vanstartupweek.ca/">
-                    Vancouver Startup Week
-                  </ExternalLink>
-                </RoleItemWrapper>
-              </RoleItemDescription>
-            </RoleItem>
-          </Fade>
-        </RolesSection>
-      </BioMobileLanding>
-      <Fade direction="up" delay={isMobile ? 0 : 4000} cascade triggerOnce>
+      <HeaderImageWrapper>
+        <HeaderImage
+          src="/me.png"
+          width={200}
+          height={200}
+          alt="me"
+          priority
+        />
+      </HeaderImageWrapper>
+      <DesktopFade direction="down" duration={600} triggerOnce>
+        <TitleParagraph>
+          Hi, my name is
+          <TitleLarge>
+            <Fade duration={400} cascade triggerOnce>
+              Nick Chubb
+            </Fade>
+            <Blink>.</Blink>
+          </TitleLarge>
+        </TitleParagraph>
+      </DesktopFade>
+      <RolesSection>
+        <DesktopFade delay={2400} cascade triggerOnce>
+          <RoleItem>
+            <RoleIcon>👨‍💻&nbsp;&nbsp;{'>'} </RoleIcon>
+            <RoleItemDescription>
+              <RoleItemWrapper>
+                <b>2 years Software Development Experience</b> with React, TypeScript, and CSS
+              </RoleItemWrapper>
+            </RoleItemDescription>
+          </RoleItem>
+          <RoleItem>
+            <RoleIcon>🖥&nbsp;&nbsp;{'>'} </RoleIcon>
+            <RoleItemDescription>
+              <RoleItemWrapper>
+                BSc. in Computer Science & Molecular Biology from{' '}
+                <b>Simon Fraser University</b>
+              </RoleItemWrapper>
+            </RoleItemDescription>
+          </RoleItem>
+          <RoleItem>
+            <RoleIcon>👨🏼‍💼&nbsp;&nbsp;{'>'} </RoleIcon>
+            <RoleItemDescription>
+              <RoleItemWrapper>
+                Software Developer for{' '}
+                <ExternalLink href="https://vanstartupweek.ca/">
+                  Vancouver Startup Week
+                </ExternalLink>
+              </RoleItemWrapper>
+            </RoleItemDescription>
+          </RoleItem>
+        </DesktopFade>
+      </RolesSection>
+      <DesktopFade direction="up" delay={isMobile ? 0 : 4000} cascade triggerOnce>
         <Paragraph>
           I am an aspiring{' '}
           <Large>
@@ -197,9 +181,9 @@ const BioContent: React.FC<SectionProps> = () => {
         <Paragraph>
           If you or someone you know are hiring, I would love to hear from you!
         </Paragraph>
-      </Fade>
+      </DesktopFade>
       <ButtonContainer>
-        <Fade
+        <DesktopFade
           direction="up"
           delay={isMobile ? 1000 : 4900}
           duration={300}
@@ -216,7 +200,7 @@ const BioContent: React.FC<SectionProps> = () => {
             Contact
             <FaEnvelope />
           </Button>
-        </Fade>
+        </DesktopFade>
       </ButtonContainer>
     </BioWrapper>
   )
