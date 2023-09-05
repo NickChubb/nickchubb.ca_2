@@ -10,13 +10,15 @@ export type Section = {
   title: string
   Content: React.FC<any>  | Array<Section> | React.ReactNode
   center?: boolean
+  hideHeader?: boolean
 }
 
 export const sections: Array<Section> = [
   {
     title: 'bio',
     Content: BioContent,
-    center: true
+    center: true,
+    hideHeader: true
   },
   {
     title: 'experience',
@@ -29,10 +31,12 @@ export const sections: Array<Section> = [
   {
     title: 'Volunteering',
     Content: <ExperienceContent data={volunteeringData}/>,
+    center: true
   },
   {
     title: 'personal',
     Content: PersonalContent,
+    center: true
   },
   {
     title: 'contact',
