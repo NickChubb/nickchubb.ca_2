@@ -10,6 +10,10 @@ body {
   color-scheme: dark;
   background: #111111;
   scroll-snap-type: y mandatory;
+
+  @media only screen and (max-width: 768px) {
+    scroll-snap-type: none;
+  }
 }
 
 a {
@@ -41,10 +45,4 @@ a {
   49% { opacity: 1; }
   50% { opacity: 0; }
  100% { opacity: 0; }
-}
-
-@media only screen and (max-width: '768px') {
-  html, body {
-    scroll-snap-type: none;
-  }
 }
