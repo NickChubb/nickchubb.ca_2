@@ -28,6 +28,8 @@ export const SectionWrapper = styled.div<{
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
     padding: 0;
+    height: unset;
+    overflow: visible;
   }
 `
 
