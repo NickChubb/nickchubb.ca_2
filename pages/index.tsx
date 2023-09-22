@@ -8,21 +8,27 @@ import { breakpoints } from '../src/components/shared/styles'
 import { useRouter } from 'next/router'
 import { find, pathOr, propEq } from 'ramda'
 
-const Container = styled.div<{ backgroundColor?: string, textColor?: string }>`
+const Container = styled.div<{
+  backgroundColor?: string
+  textColor?: string
+  isMobile?: boolean
+}>`
   width: 100vw;
   height: 100%;
   transition: background-color 0.5s, color 0.25s;
-  color: black;
-  ${(props) =>
-    props.backgroundColor &&
-    `
-    background-color: ${props.backgroundColor};
-  `}
-  ${(props) =>
-    props.textColor &&
-    `
-    color: ${props.textColor};
-  `}
+
+  @media only screen and (min-width: ${breakpoints.mobile}) {
+    ${(props) =>
+      props.backgroundColor &&
+      `
+      background-color: ${props.backgroundColor};
+    `}
+    ${(props) =>
+      props.textColor &&
+      `
+      color: ${props.textColor};
+    `}
+  }
 `
 
 const AppWrapper = styled.div`
@@ -67,11 +73,7 @@ const Home = () => {
       )
     )
     setTextColor(
-      pathOr(
-        'white',
-        ['textColor'],
-        find(propEq('title', section), sections)
-      )
+      pathOr('white', ['textColor'], find(propEq('title', section), sections))
     )
   }, [section])
 

@@ -17,6 +17,7 @@ const ContactContainer = styled.div`
 `
 
 const ContactWrapper = styled.div`
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -24,7 +25,9 @@ const ContactWrapper = styled.div`
 
 const PanelWrapper = styled.div`
   width: 100%;
-  height: 470px;
+  @media only screen and (min-width: ${breakpoints.mobile}) {
+    height: 470px;
+  }
 `
 
 const Panel = styled.div<{ type: State }>`
