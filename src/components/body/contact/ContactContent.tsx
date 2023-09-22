@@ -133,8 +133,7 @@ const ContactContent: React.FC = () => {
         <Paragraph>
           I am currently seeking{' '}
           <b>
-            front-end or full-stack employment opportunities starting in
-            Summer/Fall 2023
+            front-end or full-stack employment opportunities
           </b>
           . If you have any questions or would like to get in touch, please use
           the form below to send me an email!

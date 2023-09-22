@@ -6,6 +6,7 @@ import { aboutData } from '../../../data/about'
 const AboutSectionWrapper = styled.div`
   text-align: justify;
   overflow: hidden;
+  color: #e9eaee;
 `
 
 const AboutSection = () => {

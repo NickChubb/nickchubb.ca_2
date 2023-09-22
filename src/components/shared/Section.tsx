@@ -63,7 +63,7 @@ type SectionProps = {
   setSection: Dispatch<SetStateAction<string>>
   Component: React.FC<any> | React.ReactNode
   center?: boolean
-  hideHeader?: boolean
+  showTitle?: boolean
 }
 
 const Section: React.FC<SectionProps> = ({
@@ -71,7 +71,7 @@ const Section: React.FC<SectionProps> = ({
   setSection,
   Component,
   center,
-  hideHeader
+  showTitle,
 }) => {
   const isMobile = useMediaQuery('(max-width: 768px)')
   const ref = useRef()
@@ -92,17 +92,16 @@ const Section: React.FC<SectionProps> = ({
   }
 
   return (
-    <SectionWrapper
-      id={title}
-      ref={ref}
-      center={center}
-    >
-      <SectionHeader onClick={getLink}>
-        {!hideHeader && <SectionTitle isVisible={isVisible}>{title}</SectionTitle>}
-        <FragmentLink>
-          <small> #</small>
-        </FragmentLink>
-      </SectionHeader>
+    <SectionWrapper id={title} ref={ref} center={center}>
+      {showTitle && (
+        <SectionHeader onClick={getLink}>
+          <SectionTitle isVisible={isVisible}>{title}</SectionTitle>
+          <FragmentLink>
+            <small> #</small>
+          </FragmentLink>
+        </SectionHeader>
+      )}
+
       {getBody()}
     </SectionWrapper>
   )
