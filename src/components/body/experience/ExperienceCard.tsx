@@ -37,7 +37,7 @@ const ExperienceCardDescription = styled.ul`
   gap: 8px;
   margin: 0;
   padding-left: 16px;
-  // list-style: none;
+  color: #e9eaee;
   list-style-position: outside;
 
   @media only screen and (max-width: ${breakpoints.mobile}) {

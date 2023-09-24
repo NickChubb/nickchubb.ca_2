@@ -176,7 +176,7 @@ const BioContent: React.FC<SectionProps> = () => {
             <b>full-stack developer</b>
           </Large>{' '}
           and I am currently seeking front-end or full-stack employment
-          opportunities starting in Summer/Fall 2023.
+          opportunities.
         </Paragraph>
         <Paragraph>
           If you or someone you know are hiring, I would love to hear from you!

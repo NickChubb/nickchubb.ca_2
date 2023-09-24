@@ -8,16 +8,26 @@ import { State } from './ContactTypes'
 import ContactForm from './ContactForm'
 import { Dna } from 'react-loader-spinner'
 import Spacer from '../../shared/Spacer'
+import FooterSection from '../../footer'
 
-const ContactWrapper = styled.div`
+const ContactContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 48px;
 `
 
+const ContactWrapper = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`
+
 const PanelWrapper = styled.div`
   width: 100%;
-  height: 470px;
+  @media only screen and (min-width: ${breakpoints.mobile}) {
+    height: 470px;
+  }
 `
 
 const Panel = styled.div<{ type: State }>`
@@ -122,16 +132,18 @@ const ContactContent: React.FC = () => {
 
   return (
     <ContactWrapper>
-      <Paragraph>
-        I am currently seeking{' '}
-        <b>
-          front-end or full-stack employment opportunities starting in
-          Summer/Fall 2023
-        </b>
-        . If you have any questions or would like to get in touch, please use
-        the form below to send me an email!
-      </Paragraph>
-      <PanelWrapper>{getContactPanel()}</PanelWrapper>
+      <ContactContainer>
+        <Paragraph>
+          I am currently seeking{' '}
+          <b>
+            front-end or full-stack employment opportunities
+          </b>
+          . If you have any questions or would like to get in touch, please use
+          the form below to send me an email!
+        </Paragraph>
+        <PanelWrapper>{getContactPanel()}</PanelWrapper>
+      </ContactContainer>
+      <FooterSection />
     </ContactWrapper>
   )
 }

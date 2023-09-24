@@ -11,10 +11,14 @@ export const SectionWrapper = styled.div<{
   isVisible?: boolean
 }>`
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   padding: 0 0 48px;
   transition: 0.25s;
   margin-bottom: 48px;
+  scroll-snap-align: start;
 
   ${(props) =>
     props.center &&
@@ -26,6 +30,8 @@ export const SectionWrapper = styled.div<{
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
     padding: 0;
+    height: unset;
+    overflow: visible;
   }
 `
 
@@ -59,6 +65,7 @@ type SectionProps = {
   setSection: Dispatch<SetStateAction<string>>
   Component: React.FC<any> | React.ReactNode
   center?: boolean
+  showTitle?: boolean
 }
 
 const Section: React.FC<SectionProps> = ({
@@ -66,6 +73,7 @@ const Section: React.FC<SectionProps> = ({
   setSection,
   Component,
   center,
+  showTitle,
 }) => {
   const isMobile = useMediaQuery('(max-width: 768px)')
   const ref = useRef()
@@ -86,17 +94,16 @@ const Section: React.FC<SectionProps> = ({
   }
 
   return (
-    <SectionWrapper
-      id={title}
-      ref={ref}
-      center={center}
-    >
-      <SectionHeader onClick={getLink}>
-        {!center && <SectionTitle isVisible={isVisible}>{title}</SectionTitle>}
-        <FragmentLink>
-          <small> #</small>
-        </FragmentLink>
-      </SectionHeader>
+    <SectionWrapper id={title} ref={ref} center={center}>
+      {showTitle && (
+        <SectionHeader onClick={getLink}>
+          <SectionTitle isVisible={isVisible}>{title}</SectionTitle>
+          <FragmentLink>
+            <small> #</small>
+          </FragmentLink>
+        </SectionHeader>
+      )}
+
       {getBody()}
     </SectionWrapper>
   )
