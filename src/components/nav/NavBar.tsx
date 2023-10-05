@@ -23,7 +23,8 @@ const NavContainer = styled.div`
 
 const NavWrapper = styled.div<{ isHidden: boolean }>`
   position: sticky;
-  height: 100%;
+  height: 100vh;
+  top: 0px;
   @media only screen and (max-width: ${breakpoints.mobile}) {
     width: 100%;
     height: 100%;
@@ -43,11 +44,10 @@ const NavWrapper = styled.div<{ isHidden: boolean }>`
 const NavMenuWrapper = styled.div<{ isHidden: boolean }>`
   height: 100vh;
   padding: 64px 142px 64px 0;
-  position: sticky;
-  top: 0px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  justify-content: center;
   z-index: 10;
 
   &:hover {
@@ -65,6 +65,7 @@ const NavMenuWrapper = styled.div<{ isHidden: boolean }>`
   @media only screen and (max-width: ${breakpoints.mobile}) {
     height: 100%;
     width: fit-content;
+    justify-content: flex-start;
     max-width: 80vw;
     position: fixed;
     top: 0px;
