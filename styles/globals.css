@@ -46,3 +46,16 @@ a {
   50% { opacity: 0; }
  100% { opacity: 0; }
 }
+
+@keyframes ticker {
+  0% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+}

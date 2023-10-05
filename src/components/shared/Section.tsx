@@ -15,7 +15,7 @@ export const SectionWrapper = styled.div<{
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  padding: 0 0 48px;
+  padding: 0 0 98px;
   transition: 0.25s;
   margin-bottom: 48px;
   scroll-snap-align: start;
