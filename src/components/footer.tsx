@@ -5,7 +5,6 @@ import { breakpoints, text } from "./shared/styles";
 
 const FooterWrapper = styled.footer`
   width: 100%;
-  padding: 32px 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -13,6 +12,7 @@ const FooterWrapper = styled.footer`
   @media only screen and (max-width: ${breakpoints.mobile}) {
     flex-direction: column;
     gap: 36px;
+    padding: 32px 0;
   }
 `
 
