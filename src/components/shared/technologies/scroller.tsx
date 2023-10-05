@@ -5,7 +5,7 @@ import { colour, text } from '../styles'
 import Marquee from 'react-fast-marquee'
 
 const Container = styled.div`
-  height: 50px;
+  height: 40px;
   width: 100%;
   position: sticky;
   bottom: 0px;
