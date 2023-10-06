@@ -49,6 +49,10 @@ const TitleParagraph = styled.div`
   }
 `
 
+const ContentParagraph = styled(Paragraph)`
+  margin-bottom: -8px;
+`
+
 const TitleLarge = styled.span`
   font-size: 42px;
   padding-bottom: 8px;
@@ -170,17 +174,17 @@ const BioContent: React.FC<SectionProps> = () => {
         </DesktopFade>
       </RolesSection>
       <DesktopFade direction="up" delay={isMobile ? 0 : 4000} cascade triggerOnce>
-        <Paragraph>
+        <ContentParagraph>
           I am an aspiring{' '}
           <Large>
             <b>full-stack developer</b>
           </Large>{' '}
           and I am currently seeking front-end or full-stack employment
           opportunities.
-        </Paragraph>
-        <Paragraph>
-          If you or someone you know are hiring, I would love to hear from you!
-        </Paragraph>
+        </ContentParagraph>
+        <ContentParagraph>
+          If you are hiring, I would love to hear from you!
+        </ContentParagraph>
       </DesktopFade>
       <ButtonContainer>
         <DesktopFade
