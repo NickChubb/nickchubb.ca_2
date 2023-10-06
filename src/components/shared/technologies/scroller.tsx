@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import technologiesData from './data'
-import { colour, text } from '../styles'
+import { breakpoints, colour, text } from '../styles'
 import Marquee from 'react-fast-marquee'
+import Technologies from '.'
 
 const Container = styled.div`
   height: 40px;
@@ -21,9 +22,17 @@ const Container = styled.div`
 const ScrollerWrapper = styled.div`
   font-family: 'Roboto Mono', monospace;
   display: flex;
-  gap: 120px;
+  // gap: 120px;
   width: 100%;
   justify-content: space-between;
+
+  & > div {
+    margin-left: 60px;
+  }
+
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    // gap: 60px;
+  }
 `
 
 const Logo = styled.div`
@@ -41,13 +50,7 @@ const Scroller: React.FC<ScrollerProps> = ({}) => {
     <Container>
       <Marquee>
         <ScrollerWrapper>
-            {technologiesData &&
-              technologiesData.map((tech, key) => (
-                <Logo>
-                  <tech.image fill="black" height={24}/>
-                  {tech.showName && <>{tech.name}</>}
-                </Logo>
-              ))}
+            <Technologies />
         </ScrollerWrapper>
       </Marquee>
     </Container>

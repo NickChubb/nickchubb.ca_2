@@ -108,7 +108,7 @@ const Home = () => {
         <NavBar section={section} setSection={setSection} />
         <MainWrapper id="main">{renderSections()}</MainWrapper>
       </AppWrapper>
-      {!isMobile && <Scroller />}
+      <Scroller />
     </Container>
   )
 }
