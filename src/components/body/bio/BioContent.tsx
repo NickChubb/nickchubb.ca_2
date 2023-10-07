@@ -11,6 +11,7 @@ import { Blink, Large, Paragraph } from '../../shared/text'
 import useScrollToSection from '../../../hooks/use-scroll-to-section'
 import useMediaQuery from '../../../hooks/use-media-query'
 import DesktopFade from '../../shared/DesktopFade'
+import Technologies from '../../shared/technologies'
 
 const BioWrapper = styled.div`
   font-size: ${fontSize.normal};
@@ -19,6 +20,10 @@ const BioWrapper = styled.div`
   gap: 32px;
   max-width: 740px;
   align-self: center;
+
+  @media only screen and (min-width: ${breakpoints.mobile}) {
+    padding-top: 44px;
+  }
 `
 
 const HeaderImageWrapper = styled.div`
@@ -69,6 +74,7 @@ const RolesSection = styled.div`
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
     margin: 0;
+    margin-top: 24px;
     padding-left: 16px;
   }
 `
@@ -94,6 +100,31 @@ const RoleItemDescription = styled.div`
 
 const RoleItemWrapper = styled.div`
   margin: 0;
+`
+const Subtitle = styled.h3`
+  font-family: 'Roboto Mono', monospace;
+  padding-bottom: 8px;
+  border-bottom: 1px solid ${text.fade};
+`
+
+const MobileSkillsSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0 20px;
+
+  @media only screen and (min-width: ${breakpoints.mobile}) {
+    display: none;
+    visibility: hidden;
+  }
+`
+
+const SkillsListWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 `
 
 const ButtonContainer = styled.div`
@@ -122,13 +153,7 @@ const BioContent: React.FC<SectionProps> = () => {
   return (
     <BioWrapper>
       <HeaderImageWrapper>
-        <HeaderImage
-          src="/me.png"
-          width={200}
-          height={200}
-          alt="me"
-          priority
-        />
+        <HeaderImage src="/me.png" width={200} height={200} alt="me" priority />
       </HeaderImageWrapper>
       <DesktopFade direction="down" duration={600} triggerOnce>
         <TitleParagraph>
@@ -147,7 +172,8 @@ const BioContent: React.FC<SectionProps> = () => {
             <RoleIcon>👨‍💻&nbsp;&nbsp;{'>'} </RoleIcon>
             <RoleItemDescription>
               <RoleItemWrapper>
-                <b>2 years Software Development Experience</b> with React, TypeScript, and CSS
+                <b>2 years Software Development Experience</b> with React,
+                TypeScript, and CSS
               </RoleItemWrapper>
             </RoleItemDescription>
           </RoleItem>
@@ -173,17 +199,25 @@ const BioContent: React.FC<SectionProps> = () => {
           </RoleItem>
         </DesktopFade>
       </RolesSection>
-      <DesktopFade direction="up" delay={isMobile ? 0 : 4000} cascade triggerOnce>
+      <MobileSkillsSection>
+        <Subtitle>Skills</Subtitle>
+        <SkillsListWrapper>
+          <Technologies fill="white" />
+        </SkillsListWrapper>
+      </MobileSkillsSection>
+      <DesktopFade
+        direction="up"
+        delay={isMobile ? 0 : 4000}
+        cascade
+        triggerOnce
+      >
         <ContentParagraph>
           I am an aspiring{' '}
           <Large>
             <b>full-stack developer</b>
           </Large>{' '}
           and I am currently seeking front-end or full-stack employment
-          opportunities.
-        </ContentParagraph>
-        <ContentParagraph>
-          If you are hiring, I would love to hear from you!
+          opportunities. If you are hiring, I would love to hear from you!
         </ContentParagraph>
       </DesktopFade>
       <ButtonContainer>

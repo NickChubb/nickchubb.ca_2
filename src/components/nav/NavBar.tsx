@@ -43,7 +43,7 @@ const NavWrapper = styled.div<{ isHidden: boolean }>`
 
 const NavMenuWrapper = styled.div<{ isHidden: boolean }>`
   height: 100vh;
-  padding: 44px 142px 64px 0;
+  padding: 44px 142px 104px 0;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -107,29 +107,20 @@ const MenuButton = styled.a<{ isHidden: boolean }>`
   position: fixed;
   bottom: 64px;
   right: 48px;
-  color: ${text.fade};
+  color: ${colour.cardBackground};
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #1baf1b;
+  background-color: ${text.green};
   cursor: pointer;
   box-shadow: 1px 2px 8px #181818;
   border: 1px solid #189918;
   z-index: 15;
   transition: 0.25s;
 
-  &:hover {
-    background: #189918;
-    transform: scale(0.98);
-  }
-
-  &:active {
-    background: #188818;
-    color: ${text.green} !important;
-  }
-
   @media only screen and (min-width: ${breakpoints.mobile}) {
     display: none;
+    visibility: hidden;
   }
 `
 

@@ -7,6 +7,7 @@ import { sections } from '../src/components/body/sections'
 import { breakpoints } from '../src/components/shared/styles'
 import { useRouter } from 'next/router'
 import { find, pathOr, propEq } from 'ramda'
+import Scroller from '../src/components/shared/technologies/scroller'
 
 const Container = styled.div<{
   backgroundColor?: string
@@ -105,6 +106,7 @@ const Home = () => {
         <NavBar section={section} setSection={setSection} />
         <MainWrapper id="main">{renderSections()}</MainWrapper>
       </AppWrapper>
+      <Scroller />
     </Container>
   )
 }
