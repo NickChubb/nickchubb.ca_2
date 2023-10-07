@@ -120,7 +120,14 @@ const MenuButton = styled.a<{ isHidden: boolean }>`
   box-shadow: 1px 2px 8px #181818;
   border: 1px solid #189918;
   z-index: 15;
-  transition: 0.25s;
+  transition: 0.5s;
+
+  ${(props) =>
+    !props.isHidden &&
+    `
+    border: 1px solid #343434;
+    background-color: ${colour.cardHighlighted};
+  `}
 
   @media only screen and (min-width: ${breakpoints.mobile}) {
     display: none;
