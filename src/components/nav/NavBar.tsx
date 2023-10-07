@@ -89,6 +89,10 @@ const HeaderTitle = styled.h1`
   font-family: 'Roboto Mono', monospace;
   margin-bottom: 0;
   white-space: nowrap;
+
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    margin: 0;
+  }
 `
 
 const MenuItemContainer = styled.div`
@@ -100,7 +104,7 @@ const MenuItemContainer = styled.div`
   position: relative;
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
-    padding: 44px 0;
+    padding: 44px 0 52px;
   }
 `
 
