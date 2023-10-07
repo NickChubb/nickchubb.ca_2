@@ -22,7 +22,9 @@ const ExperienceContent: React.FC<ExperienceContentData> = ({ data }) => {
           experience.length > 0 &&
           experience.map((experience: Experience, key) => {
             if (!experience.display) return null
-            return <ExperienceCard key={key} experience={experience} />
+            return (
+              <ExperienceCard key={key} index={key} experience={experience} />
+            )
           })}
       </ExperienceCardList>
     )

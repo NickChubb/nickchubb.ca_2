@@ -11,11 +11,19 @@ const ExperienceCardWrapper = styled.div`
   gap: 24px;
 `
 
-
-const ExperienceCardHeader = styled.div`
+const ExperienceCardHeader = styled.div<{ index: number }>`
   display: flex;
   gap: 24px;
   align-items: center;
+
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    ${(props) =>
+      props.index &&
+      props.index % 2 !== 0 &&
+      `
+      flex-direction: row-reverse;
+    `}
+  }
 `
 
 const ExperienceCardHeaderTitle = styled.div`
@@ -77,10 +85,13 @@ const Link = styled(ExternalLink)`
   gap: 6px;
 `
 
-const ExperienceCard: React.FC<{ experience: Experience }> = ({ experience }) => {
+const ExperienceCard: React.FC<{ experience: Experience; index: number }> = ({
+  experience,
+  index,
+}) => {
   return (
     <ExperienceCardWrapper>
-      <ExperienceCardHeader>
+      <ExperienceCardHeader index={index}>
         {experience.image && (
           <ExperienceCardHeaderImage src={experience.image} />
         )}
