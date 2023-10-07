@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import useMediaQuery from '../../../hooks/use-media-query'
 import { breakpoints, colour, text } from '../../shared/styles'
 import { State } from './ContactTypes'
+import DesktopFade from '../../shared/DesktopFade'
 
 const FormWrapper = styled(Form)`
   display: flex;
@@ -69,7 +70,6 @@ const SubmitButton = styled.input`
   border: 2px solid ${colour.cardHighlighted};
   border-radius: 4px;
   width: 100%;
-  height: 100%;
   transition: all 0.25s ease-in-out;
 
   &:hover,
@@ -167,10 +167,10 @@ const ContactForm: React.FC<ContactFormProps> = ({ state, setState }) => {
       validate={() => ({})}
     >
       <FormWrapper>
-        <Fade duration={800} direction="up" cascade triggerOnce>
+        <DesktopFade duration={800} direction="up" cascade triggerOnce>
           {renderForm()}
           <SubmitButton type="submit" value="Submit" />
-        </Fade>
+        </DesktopFade>
       </FormWrapper>
     </Formik>
   )

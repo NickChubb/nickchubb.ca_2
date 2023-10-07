@@ -12,7 +12,7 @@ const FooterWrapper = styled.footer`
   @media only screen and (max-width: ${breakpoints.mobile}) {
     flex-direction: column;
     gap: 36px;
-    padding: 32px 0;
+    padding: 64px 0 32px;
   }
 `
 
@@ -21,7 +21,7 @@ const Copyright = styled.div`
   color: ${text.fade};
 `
 
-const FooterSection = () => {
+const FooterSection: React.FC = () => {
   return (
     <FooterWrapper>
       <Copyright>
@@ -29,7 +29,7 @@ const FooterSection = () => {
       </Copyright>
       <SocialLinks />
     </FooterWrapper>
-  );
-};
+  )
+}
 
-export default FooterSection;
+export default FooterSection

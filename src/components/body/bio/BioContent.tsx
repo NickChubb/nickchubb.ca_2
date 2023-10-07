@@ -9,7 +9,6 @@ import { ExternalLink } from '../../shared/link'
 import { breakpoints, fontSize, text } from '../../shared/styles'
 import { Blink, Large, Paragraph } from '../../shared/text'
 import useScrollToSection from '../../../hooks/use-scroll-to-section'
-import useMediaQuery from '../../../hooks/use-media-query'
 import DesktopFade from '../../shared/DesktopFade'
 import Technologies from '../../shared/technologies'
 
@@ -142,7 +141,6 @@ const ButtonContainer = styled.div`
 `
 
 const BioContent: React.FC<SectionProps> = () => {
-  const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile})`)
   const scrollToSection = useScrollToSection('contact')
 
   const handleContactClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
@@ -207,7 +205,7 @@ const BioContent: React.FC<SectionProps> = () => {
       </MobileSkillsSection>
       <DesktopFade
         direction="up"
-        delay={isMobile ? 0 : 4000}
+        delay={4000}
         cascade
         triggerOnce
       >
@@ -223,7 +221,7 @@ const BioContent: React.FC<SectionProps> = () => {
       <ButtonContainer>
         <DesktopFade
           direction="up"
-          delay={isMobile ? 1000 : 4900}
+          delay={4400}
           duration={300}
           cascade
           triggerOnce
