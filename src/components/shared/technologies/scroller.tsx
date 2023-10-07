@@ -22,7 +22,6 @@ const Container = styled.div`
 const ScrollerWrapper = styled.div`
   font-family: 'Roboto Mono', monospace;
   display: flex;
-  // gap: 120px;
   width: 100%;
   justify-content: space-between;
 

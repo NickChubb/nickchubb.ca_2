@@ -8,7 +8,6 @@ import { breakpoints } from '../src/components/shared/styles'
 import { useRouter } from 'next/router'
 import { find, pathOr, propEq } from 'ramda'
 import Scroller from '../src/components/shared/technologies/scroller'
-import useMediaQuery from '../src/hooks/use-media-query'
 
 const Container = styled.div<{
   backgroundColor?: string
@@ -64,7 +63,6 @@ const Home = () => {
   const [section, setSection] = useState(currentSection ?? 'bio')
   const [backgroundColor, setBackgroundColor] = useState('#111111')
   const [textColor, setTextColor] = useState('white')
-  const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile})`)
 
   useEffect(() => {
     // get the backgroundColor from sections data or return normal
