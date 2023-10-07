@@ -6,7 +6,7 @@ import Marquee from 'react-fast-marquee'
 import Technologies from '.'
 
 const Container = styled.div`
-  height: 40px;
+  height: 32px;
   width: 100%;
   position: sticky;
   bottom: 0px;
