@@ -12,7 +12,7 @@ const FooterWrapper = styled.footer`
   @media only screen and (max-width: ${breakpoints.mobile}) {
     flex-direction: column;
     gap: 36px;
-    padding: 112px 0 0;
+    padding: 112px 0 20px;
   }
 `
 
