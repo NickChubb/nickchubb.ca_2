@@ -98,6 +98,10 @@ const MenuItemContainer = styled.div`
   gap: 22px;
   padding: 64px 0;
   position: relative;
+
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    padding: 44px 0;
+  }
 `
 
 const MenuButton = styled.a<{ isHidden: boolean }>`
