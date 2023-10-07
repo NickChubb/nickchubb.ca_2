@@ -34,17 +34,6 @@ const ScrollerWrapper = styled.div`
       margin-left: 60px;
     }
   }
-
-  @media only screen and (max-width: ${breakpoints.mobile}) {
-    // gap: 60px;
-  }
-`
-
-const Logo = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
 `
 
 type ScrollerProps = {}
