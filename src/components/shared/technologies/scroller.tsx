@@ -27,7 +27,12 @@ const ScrollerWrapper = styled.div`
   justify-content: space-between;
 
   & > div {
-    margin-left: 60px;
+
+    margin-left: 120px;
+
+    @media only screen and (max-width: ${breakpoints.mobile}) {
+      margin-left: 60px;
+    }
   }
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
@@ -50,7 +55,7 @@ const Scroller: React.FC<ScrollerProps> = ({}) => {
     <Container>
       <Marquee>
         <ScrollerWrapper>
-            <Technologies />
+          <Technologies />
         </ScrollerWrapper>
       </Marquee>
     </Container>
