@@ -65,7 +65,7 @@ const TitleLarge = styled.span`
 `
 
 const RolesSection = styled.div`
-  margin: 3rem 0 1rem;
+  margin: 3rem 0 0;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -190,15 +190,22 @@ const BioContent: React.FC<SectionProps> = () => {
           </RoleItem>
         </DesktopFade>
       </RolesSection>
-      <SkillsSection>
-        <Subtitle>Skills</Subtitle>
-        <SkillsListWrapper>
-          <Technologies fill="white" />
-        </SkillsListWrapper>
-      </SkillsSection>
       <DesktopFade
         direction="up"
         delay={4000}
+        cascade
+        triggerOnce
+      >
+        <SkillsSection>
+          <Subtitle>Skills</Subtitle>
+          <SkillsListWrapper>
+            <Technologies fill="white" />
+          </SkillsListWrapper>
+        </SkillsSection>
+      </DesktopFade>
+      <DesktopFade
+        direction="up"
+        delay={4500}
         cascade
         triggerOnce
       >
@@ -214,7 +221,7 @@ const BioContent: React.FC<SectionProps> = () => {
       <ButtonContainer>
         <DesktopFade
           direction="up"
-          delay={4400}
+          delay={5000}
           duration={300}
           cascade
           triggerOnce
