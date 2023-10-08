@@ -3,7 +3,7 @@ import { ExperienceData } from "../components/body/experience/ExperienceTypes";
 export const experienceData: ExperienceData = [
   {
     display: true,
-    company: 'Machobear Studios Inc.',
+    company: 'Machobear Studios',
     title: 'Jr. Developer',
     location: 'Vancouver, BC',
     startDate: '2022-05',
@@ -36,8 +36,8 @@ export const experienceData: ExperienceData = [
   },
   {
     display: true,
-    company: 'Incognito Software Systems Inc.',
-    title: 'Quality Assurance Engineer',
+    company: 'Incognito Software Systems',
+    title: 'QA Engineer',
     location: 'Vancouver, BC',
     startDate: '2020-09',
     finishDate: '2021-04',

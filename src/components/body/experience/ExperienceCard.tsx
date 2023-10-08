@@ -17,12 +17,7 @@ const ExperienceCardHeader = styled.div<{ index: number }>`
   align-items: center;
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
-    ${(props) =>
-      props.index &&
-      props.index % 2 !== 0 &&
-      `
-      flex-direction: row-reverse;
-    `}
+    flex-direction: row-reverse;
   }
 `
 
