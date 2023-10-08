@@ -65,8 +65,7 @@ const TitleLarge = styled.span`
 `
 
 const RolesSection = styled.div`
-  margin: 3rem 0;
-  padding-left: 40px;
+  margin: 3rem 0 1rem;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -74,7 +73,6 @@ const RolesSection = styled.div`
   @media only screen and (max-width: ${breakpoints.mobile}) {
     margin: 0;
     margin-top: 24px;
-    padding-left: 16px;
   }
 `
 
@@ -106,17 +104,12 @@ const Subtitle = styled.h3`
   border-bottom: 1px solid ${text.fade};
 `
 
-const MobileSkillsSection = styled.div`
+const SkillsSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
   padding: 8px 0 20px;
-
-  @media only screen and (min-width: ${breakpoints.mobile}) {
-    display: none;
-    visibility: hidden;
-  }
 `
 
 const SkillsListWrapper = styled.div`
@@ -197,12 +190,12 @@ const BioContent: React.FC<SectionProps> = () => {
           </RoleItem>
         </DesktopFade>
       </RolesSection>
-      <MobileSkillsSection>
+      <SkillsSection>
         <Subtitle>Skills</Subtitle>
         <SkillsListWrapper>
           <Technologies fill="white" />
         </SkillsListWrapper>
-      </MobileSkillsSection>
+      </SkillsSection>
       <DesktopFade
         direction="up"
         delay={4000}

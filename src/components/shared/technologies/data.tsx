@@ -3,9 +3,9 @@ import TypeScriptLogo from './icons/typescript.svg'
 import ReactLogo from './icons/reactjs.svg'
 import NextLogo from './icons/nextjs.svg'
 import NodeLogo from './icons/nodejs.svg'
+import ExpressLogo from './icons/expressjs.svg'
 import JavaLogo from './icons/java.svg'
 import DockerLogo from './icons/docker.svg'
-import HtmlLogo from './icons/html.svg'
 import CssLogo from './icons/css.svg'
 
 const data: Technology[] = [
@@ -26,6 +26,11 @@ const data: Technology[] = [
     name: 'Node.js',
     image: NodeLogo,
     showName: true,
+  },
+  {
+    name: 'Express.js',
+    image: ExpressLogo,
+    showName: true
   },
   {
     name: 'Java',
