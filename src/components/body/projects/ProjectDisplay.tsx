@@ -78,6 +78,7 @@ const DescriptionWrapper = styled.ul`
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
     padding-left: 16px;
+    gap: 16px;
   }
 `
 

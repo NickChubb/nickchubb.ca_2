@@ -51,6 +51,7 @@ const ExperienceCardDescription = styled.ul`
   @media only screen and (max-width: ${breakpoints.mobile}) {
     text-align: justify;
     font-size: 16px;
+    gap: 16px;
   }
 `
 
@@ -72,17 +73,6 @@ const ExperienceCardSubtitle = styled.div`
     flex-direction: column;
     gap: 4px;
   }
-`
-
-const ExperienceFooter = styled.div`
-  padding-top: 16px;
-`
-
-const Link = styled(ExternalLink)`
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 6px;
 `
 
 const ExperienceCard: React.FC<{ experience: Experience; index: number }> = ({
