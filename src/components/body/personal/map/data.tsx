@@ -1,6 +1,6 @@
 export const visited = [
   'Canada',
-  'United States of America',
+  'United States',
   'Mexico',
   'Belize',
   'Cayman Islands',

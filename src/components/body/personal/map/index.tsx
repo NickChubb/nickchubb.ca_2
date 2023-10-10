@@ -4,8 +4,9 @@ import { ComposableMap, Geographies, Geography } from 'react-simple-maps'
 import { text } from '../../../shared/styles'
 import { includes, propSatisfies } from 'ramda'
 import { visited } from './data'
+import map from './map.json'
 
-const geoUrl = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json'
+const geoUrl = map
 
 const MapSectionWrapper = styled.div``
 
@@ -14,7 +15,7 @@ const MapSection: React.FC<{}> = () => {
     <MapSectionWrapper>
       <div>Travel is a big part of my life</div>
       <div>Countries Visited: {visited.length}/195</div>
-      <ComposableMap>
+      <ComposableMap projection="geoMercator" width={1200} height={900}>
         <Geographies geography={geoUrl}>
           {({ geographies }) =>
             geographies.map((geo) => {
