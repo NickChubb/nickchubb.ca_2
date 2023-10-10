@@ -32,6 +32,11 @@ const ExperienceCardHeaderImage = styled.div<{ src: string }>`
   background-image: url(${(props) => props.src});
   background-size: contain;
   background-position: center;
+
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    min-width: 100px;
+    min-height: 100px;
+  }
 `
 
 const ExperienceCardDescription = styled.ul`
