@@ -4,7 +4,7 @@ export const volunteeringData: ExperienceData = [
   {
     display: true,
     company: 'Vancouver Startup Week',
-    title: 'Software Developer, Account Manager',
+    title: 'Software Developer',
     location: 'Vancouver, BC',
     startDate: '2021-02',
     finishDate: 'present',
