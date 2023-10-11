@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { fontSize } from "../shared/styles"
+import { fontSize, text } from "../shared/styles"
 
 export const Blink = styled.span`
   animation: blinker 1.12s linear infinite;
@@ -15,4 +15,8 @@ export const Mono = styled.span`
 
 export const Paragraph = styled.div`
   text-align: justify;
+`
+
+export const GreenText = styled.span`
+  color: ${text.green};
 `

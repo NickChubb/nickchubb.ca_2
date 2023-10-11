@@ -5,10 +5,16 @@ import { breakpoints, text } from '../../../shared/styles'
 import { includes, propSatisfies } from 'ramda'
 import { visited } from './data'
 import map from './map.json'
+import useMediaQuery from '../../../../hooks/use-media-query'
+import { GreenText } from '../../../shared/text'
 
 const geoUrl = map
 
 const MapSectionWrapper = styled.div``
+
+const TotalCount = styled.h4`
+  font-family: 'Roboto Mono', monospace;
+`
 
 const MapWrapper = styled.div`
   @media only screen and (max-width: ${breakpoints.mobile}) {
@@ -17,10 +23,15 @@ const MapWrapper = styled.div`
 `
 
 const MapSection: React.FC<{}> = () => {
+  const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile})`)
   return (
     <MapSectionWrapper>
-      <div>Travel is a big part of my life</div>
-      <div>Countries Visited: {visited.length}/195</div>
+      <div>
+        Travel is an important pastime for me, and a big part of my life. As of
+        2023, I have spent nearly 6 months collectively solo-travelling
+        throughout Europe and Southeast Asia.
+      </div>
+      <TotalCount>Countries Visited: <GreenText>{visited.length}</GreenText>/195</TotalCount>
       <MapWrapper>
         <ComposableMap projection="geoMercator" width={1200} height={900}>
           <Geographies geography={geoUrl}>
@@ -30,7 +41,9 @@ const MapSection: React.FC<{}> = () => {
                 const fill = includes(geo.properties.name, visited)
                   ? text.green
                   : 'white'
-                return <Geography fill={fill} key={geo.rsmKey} geography={geo} />
+                return (
+                  <Geography fill={fill} key={geo.rsmKey} geography={geo} />
+                )
               })
             }
           </Geographies>
