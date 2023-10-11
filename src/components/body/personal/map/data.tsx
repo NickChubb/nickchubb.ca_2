@@ -17,6 +17,7 @@ export const visited = [
   'Czechia',
   'Germany',
   'Belgium',
+  'Poland',
   'Slovakia',
   'Hungary',
   'Croatia',

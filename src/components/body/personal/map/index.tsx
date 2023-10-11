@@ -26,11 +26,11 @@ const MapSection: React.FC<{}> = () => {
   const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile})`)
   return (
     <MapSectionWrapper>
-      <div>
+      <p>
         Travel is an important pastime for me, and a big part of my life. As of
         2023, I have spent nearly 6 months collectively solo-travelling
         throughout Europe and Southeast Asia.
-      </div>
+      </p>
       <TotalCount>Countries Visited: <GreenText>{visited.length}</GreenText>/195</TotalCount>
       <MapWrapper>
         <ComposableMap projection="geoMercator" width={1200} height={900}>
