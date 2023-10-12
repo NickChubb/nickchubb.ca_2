@@ -30,7 +30,9 @@ const DropdownButton = styled.div<{ isHidden: boolean }>`
   }
 
   &:hover {
-    ${(props) => props.isHidden && `
+    ${(props) =>
+      props.isHidden &&
+      `
       transition: 0s;
       background: #292929;
       transform: scale(0.98);
@@ -61,12 +63,8 @@ const DropdownMenuWrapper = styled.div<{ isHidden: boolean }>`
   padding: 4px 0;
   border-radius: 4px;
   right: 0px;
-  max-height: 0;
   overflow: hidden;
   opacity: 0;
-  transition-duration: 0.5s, 0.2s;
-  transition-property: max-height, opacity;
-  transition-timing-function: ease-in-out;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -76,18 +74,7 @@ const DropdownMenuWrapper = styled.div<{ isHidden: boolean }>`
     !props.isHidden &&
     `
     opacity: 1;
-    max-height: 200px;
   `}
-`
-
-const DropdownMenuHeader = styled.div`
-  font-family: 'Roboto Mono', monospace;
-  color: ${text.normal};
-  font-size: 16px;
-  padding-top: 4px;
-  padding-bottom: 6px;
-  width: 100%;
-  font-weight: 500;
 `
 
 const HorizontalLine = styled.div`
@@ -100,10 +87,12 @@ const HorizontalLine = styled.div`
 const DropdownMenuItem = styled.a`
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   padding: 8px 32px;
   transition: 0.25s;
   color: ${text.normal};
+  width: 100%;
 
   &:hover {
     color: white;
@@ -125,13 +114,14 @@ const DropdownMenu: React.FC<{ data: Array<Link> }> = ({ data }) => {
         <AiOutlineMenu />
       </DropdownButton>
       <DropdownMenuWrapper isHidden={isHidden}>
-        <DropdownMenuHeader>links</DropdownMenuHeader>
-        <HorizontalLine />
         {data.map((item, key) => (
-          <DropdownMenuItem key={key} href={isHidden ? undefined : item.url}>
-            {item.Icon ? item.Icon : <FaExternalLinkAlt />}
-            {item.title}
-          </DropdownMenuItem>
+          <>
+            {key !== 0 && <HorizontalLine />}
+            <DropdownMenuItem key={key} href={isHidden ? undefined : item.url} target='_blank'>
+              {item.Icon ? item.Icon : <FaExternalLinkAlt />}
+              {item.title}
+            </DropdownMenuItem>
+          </>
         ))}
       </DropdownMenuWrapper>
     </DropdownWrapper>

@@ -10,6 +10,7 @@ const Logo = styled.div`
   justify-content: center;
   align-items: center;
   gap: 8px;
+  user-select: none;
 `
 
 type TechnologiesProps = {

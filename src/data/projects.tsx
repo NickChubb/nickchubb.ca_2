@@ -1,12 +1,48 @@
 import { FaGithub } from 'react-icons/fa'
+import { RiComputerLine } from 'react-icons/ri'
 import { ProjectData } from '../components/body/projects/ProjectTypes'
 
 export const projectData: ProjectData = [
   {
+    title: 'Communities',
+    display: true,
+    summary: 'Social Network built on a Blockchain Backend',
+    technologies: 'JavaScript, ReactJS, Next.js, MongoDB, Solidity',
+    description: [
+      'ReactJS front-end for a social network with a backend built on the blockchain',
+      'Access to different user-created communities are controlled by Solidity smart contracts',
+      'Uses MongoDB for database of community posts',
+    ],
+    links: [
+      {
+        title: 'Github',
+        url: 'https://github.com/NickChubb/Communities',
+        Icon: <FaGithub />
+      },
+      {
+        title: 'Demo',
+        url: 'https://communities-mocha.vercel.app/',
+        Icon: <RiComputerLine />
+      }
+    ],
+    image: [
+      {
+        path: 'https://user-images.githubusercontent.com/4172020/274536375-a4a9b272-045f-4474-a975-60a3dde9fc7f.png',
+        title: 'Container Control Panel',
+      },
+      {
+        path: 'https://user-images.githubusercontent.com/4172020/274536408-d283b6f0-caea-4ddc-8cc3-d2cfae6a0c0d.png',
+        title: 'Config Screen'
+      }
+    ],
+    icon: '🦄',
+    alert: 'Live demo currently non-functional since depreciation of Ropsten test network'
+  },
+  {
     title: 'dockerman',
     display: true,
     summary: 'A React app for controlling and hosting docker containers.',
-    technologies: 'ReactJS, Node.js, Express.js, Docker',
+    technologies: 'JavaScript, ReactJS, Node.js, Express.js, Docker, SQL',
     description: [
       'Modular server back-end which utilizes Node.js and Docker to serve containers on the same web domain',
       'Uses Node.js as the backend to manage routing private and public routes',
@@ -46,8 +82,8 @@ export const projectData: ProjectData = [
   {
     title: 'hawking',
     display: true,
-    summary: 'The Science Undergraduate Society Multi-purpose Discord Bot.',
-    technologies: 'ReactJS, Node.js',
+    summary: 'The SFU Science Discord Multi-purpose Bot.',
+    technologies: 'JavaScript, ReactJS, Node.js, Express.js, SQL',
     description: [
       'Discord bot built with Discord.js API and React to solve multiple needs for Science Undergraduate Society',
       'React control-panel utilizes SQL to allow users to easily manage database of events at Simon Fraser University',
