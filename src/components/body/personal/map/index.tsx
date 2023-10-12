@@ -33,7 +33,7 @@ const MapSection: React.FC<{}> = () => {
       </p>
       <TotalCount>Countries Visited: <GreenText>{visited.length}</GreenText>/195</TotalCount>
       <MapWrapper>
-        <ComposableMap projection="geoMercator" width={1200} height={900}>
+        <ComposableMap projection="geoMercator" width={1100} height={900}>
           <Geographies geography={geoUrl}>
             {({ geographies }) =>
               geographies.map((geo) => {
