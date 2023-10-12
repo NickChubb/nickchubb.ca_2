@@ -49,9 +49,6 @@ const Gallery: React.FC<{ images: Array<ImageDetails> }> = ({ images }) => {
               backgroundImage: `url("${imageData.path}")`,
             }}
           >
-            {imageData.description !== '' && (
-              <p className="legend">{imageData.description}</p>
-            )}
           </ImageContainer>
         ))}
       </CarouselWrapper>

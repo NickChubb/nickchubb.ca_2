@@ -48,7 +48,7 @@ const Title = styled.h3`
 `
 
 const Summary = styled.div`
-  padding: 24px 32px 32px;
+  padding: 24px 32px;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -90,6 +90,16 @@ const DescriptionListItem = styled.li`
   text-align: justify;
 `
 
+const Alert = styled.div`
+  font-size: 14px;
+  padding: 4px;
+  border-radius: 4px;
+  text-align: center;
+  border: 1px solid #eed3d7;
+  background-color: #f2dede;
+  color: #b94a48;
+`
+
 const ProjectDisplay: React.FC<{ project: Project; isMobile: boolean }> = ({
   project,
   isMobile,
@@ -115,6 +125,7 @@ const ProjectDisplay: React.FC<{ project: Project; isMobile: boolean }> = ({
         <Paragraph fontSize="16">
           <b>Made with:</b> {project?.technologies}
         </Paragraph>
+        {project?.alert && <Alert>{project?.alert}</Alert>}
       </Summary>
       <Gallery images={project.image} />
     </ProjectDisplayWrapper>

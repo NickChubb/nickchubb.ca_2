@@ -7,7 +7,7 @@ export type Link = {
 export type ImageDetails = {
   path: string
   title: string
-  description: string
+  description?: string
 }
 
 export type Project = {
@@ -19,6 +19,7 @@ export type Project = {
   links: Array<Link>
   image: Array<ImageDetails>
   icon: string
+  alert?: string
 }
 
 export type ProjectData = Array<Project>
