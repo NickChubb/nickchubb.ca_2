@@ -12,6 +12,7 @@ export const projectData: ProjectData = [
       'ReactJS front-end for a social network with a backend built on the blockchain',
       'Access to different user-created communities are controlled by Solidity smart contracts',
       'Uses MongoDB for database of community posts',
+      'Currenly operational on the Ethereum Sepolia testnetwork (See dropdown meu for link)'
     ],
     links: [
       {
@@ -28,15 +29,18 @@ export const projectData: ProjectData = [
     image: [
       {
         path: 'https://user-images.githubusercontent.com/4172020/274536375-a4a9b272-045f-4474-a975-60a3dde9fc7f.png',
-        title: 'Container Control Panel',
+        title: 'Wallet Login',
+      },
+      {
+        path: 'https://user-images.githubusercontent.com/4172020/275204331-d8eb5ce1-c7b6-4945-be86-9641b3cd7639.png',
+        title: 'Explore Communities'
       },
       {
         path: 'https://user-images.githubusercontent.com/4172020/274536408-d283b6f0-caea-4ddc-8cc3-d2cfae6a0c0d.png',
-        title: 'Config Screen'
+        title: 'Create a new Community'
       }
     ],
     icon: '🦄',
-    alert: 'Live demo currently non-functional since depreciation of Ropsten test network'
   },
   {
     title: 'dockerman',
