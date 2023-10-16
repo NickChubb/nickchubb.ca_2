@@ -28,16 +28,16 @@ export const projectData: ProjectData = [
     ],
     image: [
       {
-        path: 'https://user-images.githubusercontent.com/4172020/274536375-a4a9b272-045f-4474-a975-60a3dde9fc7f.png',
-        title: 'Wallet Login',
-      },
-      {
-        path: 'https://user-images.githubusercontent.com/4172020/275204331-d8eb5ce1-c7b6-4945-be86-9641b3cd7639.png',
+        path: 'https://user-images.githubusercontent.com/4172020/275337420-f8f09c25-d1ef-4478-a04d-575694b8fcdc.png',
         title: 'Explore Communities'
       },
       {
         path: 'https://user-images.githubusercontent.com/4172020/274536408-d283b6f0-caea-4ddc-8cc3-d2cfae6a0c0d.png',
         title: 'Create a new Community'
+      },
+      {
+        path: 'https://user-images.githubusercontent.com/4172020/275337478-4dfbdb74-779b-4a59-b3f3-5d530b6a8fc3.png',
+        title: 'User\'s page',
       }
     ],
     icon: '🦄',
