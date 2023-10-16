@@ -17,6 +17,8 @@ const TotalCount = styled.h4`
 `
 
 const MapWrapper = styled.div`
+  max-width: 880px;
+  max-height: 500px;
   @media only screen and (max-width: ${breakpoints.mobile}) {
     margin: 0 -36px;
   }
@@ -26,11 +28,6 @@ const MapSection: React.FC<{}> = () => {
   const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile})`)
   return (
     <MapSectionWrapper>
-      <p>
-        Travel is an important pastime for me, and a big part of my life. As of
-        2023, I have spent nearly 6 months collectively solo-travelling
-        throughout Europe and Southeast Asia.
-      </p>
       <TotalCount>Countries Visited: <GreenText>{visited.length}</GreenText>/195</TotalCount>
       <MapWrapper>
         <ComposableMap projection="geoMercator" width={1100} height={900}>
