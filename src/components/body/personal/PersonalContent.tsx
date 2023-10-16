@@ -2,6 +2,7 @@ import TabbedContentSlider from '../../shared/TabbedContentSlider'
 import TabbedContent, { Page } from '../../shared/TabbedContent'
 import AboutSection from './AboutSection'
 import BookshelfSection from './BookshelfSection'
+import MapSection from './map'
 
 const pages: Array<Page> = [
   {
@@ -11,6 +12,10 @@ const pages: Array<Page> = [
   {
     title: 'bookshelf',
     Content: <BookshelfSection />,
+  },
+  {
+    title: 'map',
+    Content: <MapSection />,
   },
 ]
 
