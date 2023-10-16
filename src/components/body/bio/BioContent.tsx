@@ -190,25 +190,17 @@ const BioContent: React.FC<SectionProps> = () => {
           </RoleItem>
         </DesktopFade>
       </RolesSection>
-      <DesktopFade
-        direction="up"
-        delay={4000}
-        cascade
-        triggerOnce
-      >
-        <SkillsSection>
+      <SkillsSection>
+        <DesktopFade delay={4000} triggerOnce>
           <Subtitle>Skills</Subtitle>
+        </DesktopFade>
+        <DesktopFade direction="up" delay={4200} cascade triggerOnce>
           <SkillsListWrapper>
-            <Technologies fill="white" />
+              <Technologies fill="white" />
           </SkillsListWrapper>
-        </SkillsSection>
-      </DesktopFade>
-      <DesktopFade
-        direction="up"
-        delay={4500}
-        cascade
-        triggerOnce
-      >
+        </DesktopFade>
+      </SkillsSection>
+      <DesktopFade direction="up" delay={4500} cascade triggerOnce>
         <ContentParagraph>
           I am an aspiring{' '}
           <Large>
