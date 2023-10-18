@@ -2,7 +2,6 @@ import { Dispatch, SetStateAction, useRef } from 'react'
 import styled from 'styled-components'
 import useMediaQuery from '../../hooks/use-media-query'
 import useOnScreen from '../../hooks/use-on-screen'
-import { scrollToSection } from '../../utils/scroll'
 import { breakpoints, text } from './styles'
 
 export const SectionWrapper = styled.div<{
@@ -75,17 +74,12 @@ const Section: React.FC<SectionProps> = ({
   center,
   showTitle,
 }) => {
-  const isMobile = useMediaQuery('(max-width: 768px)')
+  const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile})`)
   const ref = useRef()
   const threshold = title === 'experience' && isMobile ? 0.25 : 0.5
   const isVisible: boolean = useOnScreen(ref, threshold)
   if (isVisible) {
     setSection(title)
-  }
-
-  const getLink = () => {
-    scrollToSection(title)
-    // Copy fragment link to clipboard
   }
 
   const getBody = () => {
@@ -95,15 +89,7 @@ const Section: React.FC<SectionProps> = ({
 
   return (
     <SectionWrapper id={title} ref={ref} center={center}>
-      {showTitle && (
-        <SectionHeader onClick={getLink}>
-          <SectionTitle isVisible={isVisible}>{title}</SectionTitle>
-          <FragmentLink>
-            <small> #</small>
-          </FragmentLink>
-        </SectionHeader>
-      )}
-
+      {showTitle && <SectionTitle isVisible={isVisible}>{title}</SectionTitle>}
       {getBody()}
     </SectionWrapper>
   )
