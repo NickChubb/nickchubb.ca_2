@@ -43,6 +43,7 @@ const ModalLink = styled.a<{ fade: boolean }>`
   ${(props) =>
     !props.fade &&
     `
+    transition: opacity 0s;
     opacity: 1;
   `}
 
