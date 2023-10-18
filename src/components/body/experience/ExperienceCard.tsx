@@ -62,6 +62,7 @@ const ExperienceListItem = styled.li`
 
 const ExperienceCardTitle = styled.h3`
   margin: 0 0 4px;
+  width: fit-content;
 `
 
 const ExperienceCardSubtitle = styled.div`
@@ -85,9 +86,12 @@ const ExperienceCard: React.FC<{ experience: Experience; index: number }> = ({
           <ExperienceCardHeaderImage src={experience.image} />
         )}
         <ExperienceCardHeaderTitle>
-          <ExternalLink href={experience.website} style={{ opacity: 1 }}>
-            <ExperienceCardTitle>{experience.company}</ExperienceCardTitle>
-          </ExternalLink>
+          <ExperienceCardTitle>
+            <ExternalLink href={experience.website} style={{ opacity: 1 }}>
+              {experience.company}
+            </ExternalLink>
+          </ExperienceCardTitle>
+
           <ExperienceCardSubtitle>
             <b>{experience.title}</b>
             <i>

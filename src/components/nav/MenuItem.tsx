@@ -13,6 +13,7 @@ const MenuItemWrapper = styled(StyledLink)<{
   transition: 0.5s;
   font-family: 'Roboto Mono', monospace;
   white-space: nowrap;
+  user-select: none;
 
   &:before {
     content: "";

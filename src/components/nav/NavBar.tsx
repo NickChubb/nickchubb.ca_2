@@ -80,6 +80,7 @@ const NavMenuWrapper = styled.div<{ isHidden: boolean }>`
 `
 
 const HeaderImage = styled(Image)`
+  user-select: none;
   @media only screen and (max-width: ${breakpoints.mobile}) {
     display: none;
   }
@@ -89,6 +90,7 @@ const HeaderTitle = styled.h1`
   font-family: 'Roboto Mono', monospace;
   margin-bottom: 0;
   white-space: nowrap;
+  user-select: none;
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
     margin: 0;

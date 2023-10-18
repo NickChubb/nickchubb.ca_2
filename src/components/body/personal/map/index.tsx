@@ -28,7 +28,9 @@ const MapSection: React.FC<{}> = () => {
   const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile})`)
   return (
     <MapSectionWrapper>
-      <TotalCount>Countries Visited: <GreenText>{visited.length}</GreenText>/195</TotalCount>
+      <TotalCount>
+        Countries Visited: <GreenText>{visited.length}</GreenText>/195
+      </TotalCount>
       <MapWrapper>
         <ComposableMap projection="geoMercator" width={1100} height={900}>
           <Geographies geography={geoUrl}>
@@ -39,7 +41,12 @@ const MapSection: React.FC<{}> = () => {
                   ? text.green
                   : 'white'
                 return (
-                  <Geography fill={fill} key={geo.rsmKey} geography={geo} />
+                  <Geography
+                    fill={fill}
+                    key={geo.rsmKey}
+                    geography={geo}
+                    tabIndex={-1}
+                  />
                 )
               })
             }
