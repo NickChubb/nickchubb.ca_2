@@ -1,13 +1,13 @@
 import Head from 'next/head'
 import styled from 'styled-components'
 import NavBar from '../src/components/nav/NavBar'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Section from '../src/components/shared/Section'
 import { sections } from '../src/components/body/sections'
 import { breakpoints } from '../src/components/shared/styles'
 import { useRouter } from 'next/router'
-import { find, pathOr, propEq } from 'ramda'
 import Scroller from '../src/components/shared/technologies/scroller'
+import GithubModal from '../src/components/shared/GithubModal'
 
 const Container = styled.div<{
   backgroundColor?: string
@@ -90,6 +90,7 @@ const Home = () => {
         <NavBar section={section} setSection={setSection} />
         <MainWrapper id="main">{renderSections()}</MainWrapper>
       </AppWrapper>
+      <GithubModal section={section} />
       <Scroller />
     </Container>
   )
