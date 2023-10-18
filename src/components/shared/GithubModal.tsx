@@ -64,10 +64,11 @@ const GithubModal: React.FC<GithubModalPops> = ({ section }) => {
   const [triggeredPopup, setTriggered] = useState(false)
   const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile})`)
 
-  const link = useMemo(
-    () => `https://github.com/NickChubb/nickchubb.ca_2/tree/main/src/components/body/${section}`,
-    [section]
-  )
+  const link = useMemo(() => {
+    // volunteering section usees same component as experience
+    const slug = section === 'volunteering' ? 'experience' : section
+    return `https://github.com/NickChubb/nickchubb.ca_2/tree/main/src/components/body/${slug}`
+  }, [section])
 
   useEffect(() => {
     if (section === 'experience' && triggeredPopup === false) {
@@ -83,7 +84,7 @@ const GithubModal: React.FC<GithubModalPops> = ({ section }) => {
       {showPopup && (
         <Popup>
           <PopupButton>
-            <AiFillCloseCircle onClick={() => setShowPopup(false)}/>
+            <AiFillCloseCircle onClick={() => setShowPopup(false)} />
           </PopupButton>
           <span>
             Click this button to explore the current section on Github
