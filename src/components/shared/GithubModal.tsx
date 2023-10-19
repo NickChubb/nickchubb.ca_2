@@ -35,6 +35,10 @@ const PopupButton = styled.span`
   cursor: pointer;
 `
 
+const PopupContent = styled.span`
+  color: #ccc;
+`
+
 const ModalLink = styled.a<{ fade: boolean }>`
   color: white;
   opacity: 0.5;
@@ -87,9 +91,9 @@ const GithubModal: React.FC<GithubModalPops> = ({ section }) => {
           <PopupButton>
             <AiFillCloseCircle onClick={() => setShowPopup(false)} />
           </PopupButton>
-          <span>
+          <PopupContent>
             Click this button to explore the current section on Github
-          </span>
+          </PopupContent>
           <span>👉</span>
         </Popup>
       )}
