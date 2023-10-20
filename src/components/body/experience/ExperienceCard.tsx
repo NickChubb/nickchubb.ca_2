@@ -2,7 +2,7 @@ import { DateTime } from 'luxon'
 import React from 'react'
 import styled from 'styled-components'
 import { ExternalLink } from '../../shared/link'
-import { breakpoints } from '../../shared/styles'
+import { breakpoints, text } from '../../shared/styles'
 import { Experience } from './ExperienceTypes'
 
 const ExperienceCardWrapper = styled.div`
@@ -45,7 +45,7 @@ const ExperienceCardDescription = styled.ul`
   gap: 8px;
   margin: 0;
   padding-left: 16px;
-  color: #e9eaee;
+  color: ${text.light};
   list-style-position: outside;
 
   @media only screen and (max-width: ${breakpoints.mobile}) {

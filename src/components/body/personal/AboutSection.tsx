@@ -2,11 +2,12 @@ import React from 'react'
 import { Fade } from 'react-awesome-reveal'
 import styled from 'styled-components'
 import { aboutData } from '../../../data/about'
+import { text } from '../../shared/styles'
 
 const AboutSectionWrapper = styled.div`
   text-align: justify;
   overflow: hidden;
-  color: #e9eaee;
+  color: ${text.light};
 `
 
 const AboutSection = () => {

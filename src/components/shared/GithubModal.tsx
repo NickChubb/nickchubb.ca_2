@@ -36,7 +36,7 @@ const PopupButton = styled.span`
 `
 
 const PopupContent = styled.span`
-  color: #ccc;
+  color: ${text.light};
 `
 
 const ModalLink = styled.a<{ fade: boolean }>`
