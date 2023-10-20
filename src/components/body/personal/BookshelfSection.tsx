@@ -1,9 +1,8 @@
 import React from 'react'
 import { Fade } from 'react-awesome-reveal'
-import { BsLink45Deg } from 'react-icons/bs'
 import styled from 'styled-components'
 import { bookData } from '../../../data/books'
-import { ExternalLink, StyledLink } from '../../shared/link'
+import { ExternalLink } from '../../shared/link'
 import { text } from '../../shared/styles'
 
 const BookList = styled.ul`
@@ -36,11 +35,7 @@ const BookshelfSection = () => {
               <BookListItem className="links-menu" key={key}>
                 <ExternalLink href={book.link} target="_blank" rel="noreferrer">
                   <b>{book.title}</b> <i>by</i> {book.author}{' '}
-                  <small style={{ color: 'seagreen' }}>
-                    <BsLink45Deg />
-                  </small>
                 </ExternalLink>
-                <br />
                 {/* {
                 // If book has notes display BookNotes component
                 book.Notes && book.Notes.length > 0 ? (
