@@ -1,57 +1,144 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import { ComposableMap, Geographies, Geography } from 'react-simple-maps'
+import { ComposableMap, Geographies } from 'react-simple-maps'
 import { breakpoints, text } from '../../../shared/styles'
-import { includes, propSatisfies } from 'ramda'
-import { visited } from './data'
+import { find, includes, prop, propEq, map as rMap } from 'ramda'
+import { visitedCountries } from './data'
 import map from './map.json'
-import useMediaQuery from '../../../../hooks/use-media-query'
 import { GreenText } from '../../../shared/text'
+import MapItem from './MapItem'
 
+const countryList = rMap((item) => prop('name', item), visitedCountries)
 const geoUrl = map
 
 const MapSectionWrapper = styled.div``
 
-const TotalCount = styled.h4`
+const MapInfo = styled.div`
   font-family: 'Roboto Mono', monospace;
+  font-size: 16px;
+  margin: 1rem 0 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 16px;
+
+  & > div {
+    flex: 1;
+    text-align: center;
+  }
+`
+
+const TotalCount = styled.div`
+
+`
+
+const SelectedCountry = styled.div``
+
+const FirstVisited = styled.div`
+
 `
 
 const MapWrapper = styled.div`
-  max-width: 880px;
-  max-height: 500px;
+  display: flex;
+  flex-direction: row;
+`
+
+const MapLegend = styled.div`
+  position: absolute;
+  width: 150px;
+  overflow: hidden;
+
+  &:hover {
+    & > * {
+      translate: 0;
+    }
+  }
+`
+
+const CountryList = styled.div`
+  font-family: 'Roboto Mono', monospace;
+  font-size: 16px;
+  max-height: 525px;
+  overflow-y: scroll;
+  overscroll-behavior: contain;
+  translate: -150px;
+  transition: 0.5s translate;
+  color: ${text.light};
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`
+
+const CountryListItem = styled.div<{ current: boolean }>`
+  cursor: pointer;
+
+  ${(props) =>
+    props.current &&
+    `
+    color: ${text.green};
+  `}
+
+  &:hover {
+    color: white;
+  }
+`
+
+const ComposableMapWrapper = styled.div`
+  width: 100%;
+  height: 100%;
   @media only screen and (max-width: ${breakpoints.mobile}) {
     margin: 0 -36px;
   }
 `
 
 const MapSection: React.FC<{}> = () => {
-  const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile})`)
+  const [current, setCurrent] = useState('Canada')
+
   return (
     <MapSectionWrapper>
-      <TotalCount>
-        Countries Visited: <GreenText>{visited.length}</GreenText>/195
-      </TotalCount>
+      <MapInfo>
+        <SelectedCountry>
+          Selected: <GreenText><b>{current}</b></GreenText>
+        </SelectedCountry>
+        <FirstVisited>
+          Visited: <GreenText><b>{prop('visited', find(propEq('name', current), visitedCountries))}</b></GreenText>
+        </FirstVisited>
+        <TotalCount>
+          Total: <GreenText>{visitedCountries.length}</GreenText>/195
+        </TotalCount>
+      </MapInfo>
       <MapWrapper>
-        <ComposableMap projection="geoMercator" width={1100} height={900}>
-          <Geographies geography={geoUrl}>
-            {({ geographies }) =>
-              geographies.map((geo) => {
-                console.log(geo.properties.name)
-                const fill = includes(geo.properties.name, visited)
-                  ? text.green
-                  : 'white'
-                return (
-                  <Geography
-                    fill={fill}
-                    key={geo.rsmKey}
-                    geography={geo}
-                    tabIndex={-1}
-                  />
+        <MapLegend>
+          <CountryList>
+            {countryList.map((item) => (
+              <CountryListItem
+                current={item === current}
+                onClick={() => setCurrent(item)}
+              >
+                {item}
+              </CountryListItem>
+            ))}
+          </CountryList>
+        </MapLegend>
+        <ComposableMapWrapper>
+          <ComposableMap projection="geoMercator" width={1100} height={900}>
+            <Geographies geography={geoUrl}>
+              {({ geographies }) =>
+                geographies.map(
+                  (geo) => (
+                    <MapItem
+                      visited={includes(geo.properties.name, countryList)}
+                      selected={current === geo.properties.name}
+                      geo={geo}
+                      onClick={() => setCurrent(geo.properties.name)}
+                    />
+                  )
                 )
-              })
-            }
-          </Geographies>
-        </ComposableMap>
+              }
+            </Geographies>
+          </ComposableMap>
+        </ComposableMapWrapper>
       </MapWrapper>
     </MapSectionWrapper>
   )
