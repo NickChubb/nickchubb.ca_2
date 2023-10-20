@@ -3,7 +3,7 @@ import { CountryData } from "./types";
 export const visitedCountries: CountryData[] = [
   {
     name: 'Canada',
-    visited: 'Country of Birth'
+    visited: 'Birth'
   },
   {
     name: 'United States',
