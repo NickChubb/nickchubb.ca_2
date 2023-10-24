@@ -10,12 +10,12 @@ const pages: Array<Page> = [
     Content: <AboutSection />,
   },
   {
-    title: 'bookshelf',
-    Content: <BookshelfSection />,
-  },
-  {
     title: 'map',
     Content: <MapSection />,
+  },
+  {
+    title: 'bookshelf',
+    Content: <BookshelfSection />,
   },
 ]
 

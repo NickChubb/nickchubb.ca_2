@@ -61,6 +61,10 @@ const CountryList = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
+
+  @media only screen and (min-width: ${breakpoints.large}) {
+    max-height: 700px;
+  }
 `
 
 const CountryListItem = styled.div<{ current: boolean }>`
