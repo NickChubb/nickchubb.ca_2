@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { IoIosArrowForward } from "react-icons/io";
 import { ComposableMap, Geographies } from 'react-simple-maps'
 import { breakpoints, text } from '../../../shared/styles'
 import { find, includes, prop, propEq, map as rMap } from 'ramda'
@@ -34,6 +35,12 @@ const MapInfo = styled.div`
 const MapWrapper = styled.div`
   display: flex;
   flex-direction: row;
+
+  &:hover {
+    & > div > .legend-icon {
+      opacity: 0.4;
+    }
+  }
 `
 
 const MapLegend = styled.div`
@@ -45,7 +52,21 @@ const MapLegend = styled.div`
     & > * {
       translate: 0;
     }
+    & > .legend-icon {
+      opacity: 0 !important;
+      translate: 100px;
+    }
   }
+`
+
+const LegendIcon = styled.span`
+  font-size: 48px;
+  position: absolute;
+  top: 50%;
+  right: 60%;
+  color: ${text.light};
+  opacity: 0;
+  transition: translate 0.5s, opacity 0.5s;
 `
 
 const CountryList = styled.div`
@@ -125,6 +146,9 @@ const DesktopMap: React.FC<{}> = () => {
               </CountryListItem>
             ))}
           </CountryList>
+          <LegendIcon className='legend-icon'>
+            <IoIosArrowForward />
+          </LegendIcon>
         </MapLegend>
         <ComposableMapWrapper>
           <ComposableMap projection="geoMercator" width={1100} height={900}>
