@@ -10,11 +10,12 @@ export const SectionWrapper = styled.div<{
   isVisible?: boolean
 }>`
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 32px);
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
-  padding: 0 0 88px;
+  padding: 0 0 48px;
   transition: 0.25s;
   margin-bottom: 48px;
   scroll-snap-align: start;
@@ -34,14 +35,20 @@ export const SectionWrapper = styled.div<{
   }
 `
 
-const SectionHeader = styled.a`
+const SectionContentWrapper = styled.div`
   display: flex;
-  align-items: center;
-  gap: 24px;
-  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
 
-  &:hover > a {
-    display: block;
+  @media only screen and (min-width: ${breakpoints.mobile}) {
+    max-height: 848px;
+    max-width: 1040px;
+    height: 100%;
+    width: 100%;
+  }
+
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    width: 100%;
   }
 `
 
@@ -89,8 +96,10 @@ const Section: React.FC<SectionProps> = ({
 
   return (
     <SectionWrapper id={title} ref={ref} center={center}>
-      {showTitle && <SectionTitle isVisible={isVisible}>{title}</SectionTitle>}
-      {getBody()}
+      <SectionContentWrapper>
+        {showTitle && <SectionTitle isVisible={isVisible}>{title}</SectionTitle>}
+        {getBody()}
+      </SectionContentWrapper>
     </SectionWrapper>
   )
 }

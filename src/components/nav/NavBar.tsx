@@ -23,7 +23,7 @@ const NavContainer = styled.div`
 
 const NavWrapper = styled.div<{ isHidden: boolean }>`
   position: sticky;
-  height: 100vh;
+  height: calc(100vh - 32px);
   top: 0px;
   @media only screen and (max-width: ${breakpoints.mobile}) {
     width: 100%;
@@ -42,8 +42,8 @@ const NavWrapper = styled.div<{ isHidden: boolean }>`
 `
 
 const NavMenuWrapper = styled.div<{ isHidden: boolean }>`
-  height: 100vh;
-  padding: 44px 142px 104px 0;
+  height: 100%;
+  padding: 0 142px 0 0;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -88,6 +88,7 @@ const HeaderImage = styled(Image)`
 
 const HeaderTitle = styled.h1`
   font-family: 'Roboto Mono', monospace;
+  line-height: 36px;
   margin-bottom: 0;
   white-space: nowrap;
   user-select: none;
