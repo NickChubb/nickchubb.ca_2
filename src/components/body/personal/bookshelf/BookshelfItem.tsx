@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Book } from './types'
 import styled from 'styled-components'
-import { colour, text } from '../../../shared/styles'
+import { breakpoints, colour, text } from '../../../shared/styles'
 import { ExternalLink } from '../../../shared/link'
 
 const Wrapper = styled.div<{ isOpen: boolean }>`
@@ -45,14 +45,28 @@ const InfoSection = styled.div`
 
 const DescriptionSection = styled.div``
 
-const Description = styled.p`
+const Description = styled.div`
   color: ${text.light};
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    font-size: 16px;
+  }
+`
+
+const DescriptionWrapper = styled.div`
+  max-height: 96px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
 `
 
 const DescriptionInfoLine = styled.small`
   font-family: 'Roboto Mono', monospace;
   display: flex;
   gap: 8px;
+
+  @media only screen and (min-width: ${breakpoints.mobile}) {
+    margin-top: 8px;
+  }
 `
 
 const MoreLink = styled.small`
@@ -98,7 +112,10 @@ const BookshelfItem: React.FC<{
         <InfoSection>
           <DescriptionSection>
             <Description>
-              {description}
+              <DescriptionWrapper>
+                {description}
+              </DescriptionWrapper>
+              ...
               <ExternalLink target="_blank" href={infoLink}>
                 <MoreLink> more</MoreLink>
               </ExternalLink>
@@ -110,8 +127,6 @@ const BookshelfItem: React.FC<{
           <ImageSection>
             {imageLinks && imageLinks.smallThumbnail && (
               <Image
-                // width={92}
-                // src={imageLinks.smallThumbnail}
                 style={{ backgroundImage: `url(${imageLinks.smallThumbnail})` }}
               />
             )}
