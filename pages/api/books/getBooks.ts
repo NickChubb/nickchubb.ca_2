@@ -28,7 +28,6 @@ export default async function handler(
             pipe(path(['volumeInfo']) as () => Book, pick(bookInfo)),
             data.items
           )
-          console.log(bookList)
           return res.status(200).json(bookList)
         })
       } else {

@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import SocialLinks from "./shared/SocialLinks";
 import { breakpoints, text } from "./shared/styles";
+import DesktopFade from "./shared/DesktopFade";
 
 const FooterWrapper = styled.footer`
   width: 100%;
@@ -24,10 +25,12 @@ const Copyright = styled.div`
 const FooterSection: React.FC = () => {
   return (
     <FooterWrapper>
-      <Copyright>
-        copyright &copy; Nick Chubb 2023
-      </Copyright>
-      <SocialLinks />
+      <DesktopFade delay={2000} duration={400} triggerOnce>
+        <Copyright>
+          copyright &copy; Nick Chubb 2023
+        </Copyright>
+        <SocialLinks />
+      </DesktopFade>
     </FooterWrapper>
   )
 }

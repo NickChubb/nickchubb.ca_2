@@ -17,8 +17,16 @@ const BodyWrapper = styled.div<{ pageNum: number }>`
 
 const TabWrapper = styled.div`
   min-width: 100%;
+  max-width: 100%;
   &:not(:first-child){
     margin-left: 24px;
+  }
+
+  @media only screen and (min-width: ${breakpoints.mobile}) {
+    height: calc(
+      848px - 132px - 62px
+    ); // height of tabbed content slider - title - tab nav
+    overflow-y: scroll;
   }
 `
 
@@ -37,6 +45,7 @@ const NavItem = styled.h3<{ isActive: boolean }>`
   cursor: pointer;
   color: ${text.normal};
   margin: 0 0 24px;
+  user-select: none;
 
   &:hover {
     color: ${text.normal} !important;
