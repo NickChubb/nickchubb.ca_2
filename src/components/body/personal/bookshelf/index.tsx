@@ -7,10 +7,10 @@ import { breakpoints } from '../../../shared/styles'
 
 const BookshelfSectionWrapper = styled.div`
   @media only screen and (min-width: ${breakpoints.mobile}) {
+    overflow-y: scroll;
     height: calc(
       848px - 132px - 62px
     ); // height of tabbed content slider - title - tab nav
-    overflow-y: scroll;
   }
 `
 
