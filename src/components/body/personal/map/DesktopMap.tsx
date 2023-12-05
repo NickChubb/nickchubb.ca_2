@@ -38,7 +38,7 @@ const MapWrapper = styled.div`
 
   &:hover {
     & > div > .legend-icon {
-      opacity: 0.4;
+      animation: mapLegendIcon 2s ease-out infinite;
     }
   }
 `
@@ -53,6 +53,7 @@ const MapLegend = styled.div`
       translate: 0;
     }
     & > .legend-icon {
+      animation: unset;
       opacity: 0 !important;
       translate: 100px;
     }
