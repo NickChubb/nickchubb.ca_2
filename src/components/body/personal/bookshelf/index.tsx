@@ -6,6 +6,7 @@ import { breakpoints, colour, text } from '../../../shared/styles'
 import Loading from '../../../shared/Loading'
 import Error from '../../../shared/Error'
 import { FaCaretLeft, FaCaretRight } from 'react-icons/fa'
+import { scrollToSection } from '../../../../utils/scroll'
 
 const BookshelfSectionWrapper = styled.div`
   @media only screen and (min-width: ${breakpoints.mobile}) {
@@ -74,6 +75,11 @@ const BookshelfSection: React.FC<{}> = () => {
 
   if (error) return <Error />
 
+  const handleNavClick = (pageNum: number) => {
+    setPage(pageNum)
+    scrollToSection('personal')
+  }
+
   return (
     <BookshelfSectionWrapper>
       <Bookshelf>
@@ -88,8 +94,8 @@ const BookshelfSection: React.FC<{}> = () => {
             />
           ))}
           <BookshelfNav>
-            {page !== 0 && <NavItem onClick={() => setPage(page - 1)}><FaCaretLeft /></NavItem>}
-            {!maxPage && <NavItem onClick={() => setPage(page + 1)}><FaCaretRight /></NavItem>}
+            {page !== 0 && <NavItem onClick={() => handleNavClick(page - 1)}><FaCaretLeft /></NavItem>}
+            {!maxPage && <NavItem onClick={() => handleNavClick(page + 1)}><FaCaretRight /></NavItem>}
           </BookshelfNav>
       </Bookshelf>
     </BookshelfSectionWrapper>
