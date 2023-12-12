@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { map, path, pick, pipe } from 'ramda'
 import { Book } from '../../../src/components/body/personal/bookshelf/types'
 
-const BOOKS_PER_PAGE = 8
+const BOOKS_PER_PAGE = 6
 
 const bookInfo = [
   'title',
