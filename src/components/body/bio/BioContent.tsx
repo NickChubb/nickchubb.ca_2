@@ -202,12 +202,11 @@ const BioContent: React.FC<SectionProps> = () => {
       </SkillsSection>
       <DesktopFade direction="up" delay={4500} cascade triggerOnce>
         <ContentParagraph>
-          I am an aspiring{' '}
+          I am{' '}
           <Large>
-            <b>full-stack developer</b>
+            <b>Full-Stack Developer</b>
           </Large>{' '}
-          and I am currently seeking front-end or full-stack employment
-          opportunities. If you are hiring, I would love to hear from you!
+          who is currently seeking employment opportunities in Toronto or Vancouver, Canada. If you are hiring, I would love to hear from you!
         </ContentParagraph>
       </DesktopFade>
       <ButtonContainer>
