@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import technologiesData from './data'
 import { breakpoints, colour, text } from '../styles'
 import Marquee from 'react-fast-marquee'
 import Technologies from '.'

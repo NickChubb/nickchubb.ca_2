@@ -6,7 +6,7 @@ import Section from '../src/components/shared/Section'
 import { sections } from '../src/components/body/sections'
 import { breakpoints } from '../src/components/shared/styles'
 import { useRouter } from 'next/router'
-import Scroller from '../src/components/shared/technologies/Scroller'
+import Scroller from '../src/components/shared/technologies/scroller'
 import GithubModal from '../src/components/shared/GithubModal'
 import useOnFocusChangeFavicon from '../src/hooks/use-on-focus-change-favicon'
 
