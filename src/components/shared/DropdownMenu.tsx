@@ -1,11 +1,10 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { FaExternalLinkAlt } from 'react-icons/fa'
 import styled from 'styled-components'
 import useClickOutside from '../../hooks/use-click-outside'
 import useOnScroll from '../../hooks/use-on-scroll'
 import { Link } from '../body/projects/ProjectTypes'
-import Button from './Button'
 import { breakpoints, colour, shadow, text } from './styles'
 
 const DropdownWrapper = styled.div`
