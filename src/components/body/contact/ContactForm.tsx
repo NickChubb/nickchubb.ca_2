@@ -3,7 +3,7 @@ import { Fade } from 'react-awesome-reveal'
 import styled from 'styled-components'
 import useMediaQuery from '../../../hooks/use-media-query'
 import { breakpoints, colour, text } from '../../shared/styles'
-import { State } from './ContactTypes'
+import { State } from './types'
 import DesktopFade from '../../shared/DesktopFade'
 
 const FormWrapper = styled(Form)`

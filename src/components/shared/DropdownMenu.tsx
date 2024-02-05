@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import useClickOutside from '../../hooks/use-click-outside'
 import useOnScroll from '../../hooks/use-on-scroll'
 import { Link } from '../body/projects/ProjectTypes'
-import Button from './button'
+import Button from './Button'
 import { breakpoints, colour, shadow, text } from './styles'
 
 const DropdownWrapper = styled.div`

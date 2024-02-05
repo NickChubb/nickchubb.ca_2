@@ -1,5 +1,4 @@
-import TabbedContentSlider from '../../shared/TabbedContentSlider'
-import TabbedContent, { Page } from '../../shared/TabbedContent'
+import TabbedContentSlider, { Page } from '../../shared/TabbedContentSlider'
 import AboutSection from './AboutSection'
 import BookshelfSection from './bookshelf'
 import MapSection from './map'

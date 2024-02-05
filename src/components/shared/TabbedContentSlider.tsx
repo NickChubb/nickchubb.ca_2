@@ -71,7 +71,7 @@ type TabbedContentProps = {
   sectionTitle: string
 }
 
-const TabbedContent: React.FC<TabbedContentProps> = ({
+const TabbedContentSlider: React.FC<TabbedContentProps> = ({
   pages,
   sectionTitle,
 }) => {
@@ -110,4 +110,4 @@ const TabbedContent: React.FC<TabbedContentProps> = ({
   )
 }
 
-export default TabbedContent
+export default TabbedContentSlider

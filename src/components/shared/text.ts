@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { fontSize, text } from "../shared/styles"
+import { fontSize, text } from "./styles"
 
 export const Blink = styled.span`
   animation: blinker 1.12s linear infinite;

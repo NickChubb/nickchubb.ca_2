@@ -4,11 +4,11 @@ import { RiCheckboxCircleFill, RiErrorWarningLine } from 'react-icons/ri'
 import useMediaQuery from '../../../hooks/use-media-query'
 import { breakpoints, colour, text } from '../../shared/styles'
 import { Mono, Paragraph } from '../../shared/text'
-import { State } from './ContactTypes'
+import { State } from './types'
 import ContactForm from './ContactForm'
 import { Dna } from 'react-loader-spinner'
 import Spacer from '../../shared/Spacer'
-import FooterSection from '../../footer'
+import FooterSection from '../../FooterSection'
 
 const ContactContainer = styled.div`
   display: flex;
