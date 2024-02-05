@@ -8,6 +8,7 @@ import { breakpoints } from '../src/components/shared/styles'
 import { useRouter } from 'next/router'
 import Scroller from '../src/components/shared/technologies/scroller'
 import GithubModal from '../src/components/shared/GithubModal'
+import useOnFocusChangeFavicon from '../src/hooks/use-on-focus-change-favicon'
 
 const Container = styled.div<{
   backgroundColor?: string
@@ -61,6 +62,7 @@ const Home = () => {
   const { asPath } = useRouter()
   const currentSection = asPath.substring(2)
   const [section, setSection] = useState(currentSection ?? 'bio')
+  useOnFocusChangeFavicon()
 
   const renderSections = () => {
     return sections.map((section, key) => {
