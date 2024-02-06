@@ -7,9 +7,9 @@ import QRCode from 'react-qr-code'
 import { breakpoints, colour, text } from '../../src/components/shared/styles'
 import Link from 'next/link'
 import useMediaQuery from '../../src/hooks/use-media-query'
-import MobileLinkPage from './MobileLinkPage'
-import { Link as LinkListItem } from './types'
-import { links } from './links'
+import MobileLinkPage from '../../src/components/LinkPage/MobileLinkPage'
+import { Link as LinkListItem } from '../../src/components/LinkPage/types'
+import { links } from '../../src/components/LinkPage/links'
 
 const Container = styled.div`
   width: 100vw;
