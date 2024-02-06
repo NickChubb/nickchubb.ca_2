@@ -74,7 +74,7 @@ const NavMenuWrapper = styled.div<{ isHidden: boolean }>`
     background: ${colour.navBackground};
     transition: 0.5s;
     padding: 48px;
-    box-shadow: 0px 0px 32px 0px ${shadow.inset};
+    box-shadow: ${shadow.drop};
 
     ${(props) => props.isHidden && `right: -100%;`}
   }
