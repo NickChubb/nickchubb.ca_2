@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { ExternalLink } from '../../shared/link'
 import { breakpoints, text } from '../../shared/styles'
 import { Experience } from './ExperienceTypes'
+import { Mono } from '../../shared/text'
 
 const ExperienceCardWrapper = styled.div`
   display: flex;
@@ -42,7 +43,7 @@ const ExperienceCardHeaderImage = styled.div<{ src: string }>`
 const ExperienceCardDescription = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   margin: 0;
   padding-left: 16px;
   color: ${text.light};
@@ -75,6 +76,10 @@ const ExperienceCardSubtitle = styled.div`
   }
 `
 
+const SkillsTitle = styled.strong`
+  border-bottom: 1px solid ${text.fade};
+`
+
 const ExperienceCard: React.FC<{ experience: Experience; index: number }> = ({
   experience,
   index,
@@ -94,12 +99,14 @@ const ExperienceCard: React.FC<{ experience: Experience; index: number }> = ({
 
           <ExperienceCardSubtitle>
             <b>{experience.title}</b>
-            <i>
-              {DateTime.fromISO(experience.startDate).toFormat('LLL yyyy')} —{' '}
-              {experience.finishDate != 'present'
-                ? DateTime.fromISO(experience.finishDate).toFormat('LLL yyyy')
-                : experience.finishDate}
-            </i>
+            <Mono>
+              <small>
+                {DateTime.fromISO(experience.startDate).toFormat('LLL yyyy')} —{' '}
+                {experience.finishDate != 'present'
+                  ? DateTime.fromISO(experience.finishDate).toFormat('LLL yyyy')
+                  : experience.finishDate}
+              </small>
+            </Mono>
           </ExperienceCardSubtitle>
         </ExperienceCardHeaderTitle>
       </ExperienceCardHeader>
@@ -109,6 +116,13 @@ const ExperienceCard: React.FC<{ experience: Experience; index: number }> = ({
             <ExperienceListItem key={key}>{description}</ExperienceListItem>
           )
         })}
+        {experience.skills && experience.skills.length > 0 && (
+          <small style={{ marginTop: '6px' }}>
+            <Mono>
+              <SkillsTitle>Skills</SkillsTitle>: {experience.skills.join(', ')}
+            </Mono>
+          </small>
+        )}
       </ExperienceCardDescription>
     </ExperienceCardWrapper>
   )
