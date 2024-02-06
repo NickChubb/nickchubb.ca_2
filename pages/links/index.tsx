@@ -7,6 +7,9 @@ import QRCode from 'react-qr-code'
 import { breakpoints, colour, text } from '../../src/components/shared/styles'
 import Link from 'next/link'
 import useMediaQuery from '../../src/hooks/use-media-query'
+import MobileLinkPage from './MobileLinkPage'
+import { Link as LinkListItem } from './types'
+import { links } from './links'
 
 const Container = styled.div`
   width: 100vw;
@@ -22,10 +25,6 @@ const Wrapper = styled.main`
   padding: 32px;
   border-radius: 12px;
   gap: 32px;
-
-  @media only screen and (max-width: ${breakpoints.mobile}) {
-    background-color: unset;
-  }
 `
 
 const QRCodeContainer = styled.div`
@@ -37,10 +36,6 @@ const QRCodeContainer = styled.div`
 
 const HeaderImage = styled(Image)`
   user-select: none;
-
-  @media only screen and (max-width: ${breakpoints.mobile}) {
-    align-self: center;
-  }
 `
 
 const Body = styled.div`
@@ -48,10 +43,6 @@ const Body = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
-  @media only screen and (max-width: ${breakpoints.mobile}) {
-    gap: 32px;
-  }
 `
 
 const Content = styled.div`
@@ -68,10 +59,6 @@ const LinksListWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 8px;
-
-  @media only screen and (max-width: ${breakpoints.mobile}) {
-    gap: 16px;
-  }
 `
 
 const LinksListItem = styled.div`
@@ -87,36 +74,25 @@ const Footer = styled.small`
   color: ${text.fade};
 `
 
-type Link = {
-  title: string
-  href: string
-}
+const LinkPageWrapper: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => (
+  <Container>
+    <Head>
+      <title>Nick Chubb</title>
+      <meta name="description" content="My Personal Links 🤓" />
+      <link rel="icon" href="/favicon.ico" />
+    </Head>
+    {children}
+  </Container>
+)
 
-const links: Array<Link> = [
-  {
-    title: 'Github',
-    href: 'https://github.com/NickChubb',
-  },
-  {
-    title: 'Linkedin',
-    href: 'https://www.linkedin.com/in/nickrchubb/',
-  },
-  {
-    title: 'Resume',
-    href: 'https://nickchubb.github.io/resume/',
-  },
-  {
-    title: 'Email Me',
-    href: 'mailto://nick@nickchubb.ca',
-  },
-]
-
-const Links: React.FC = () => {
+const LinkPage: React.FC<{}> = () => {
   const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile})`)
 
-  const renderLinksList = () => {
-    return links.map((link, key) => (
-      <LinksListItem>
+  const renderLinksList = (linksList: Array<LinkListItem>) => {
+    return linksList.map((link, key) => (
+      <LinksListItem key={key}>
         <Mono>
           <a href={link.href}>{link.title}</a>
         </Mono>
@@ -124,52 +100,40 @@ const Links: React.FC = () => {
     ))
   }
 
-  return (
-    <Container>
-      <Head>
-        <title>Nick Chubb</title>
-        <meta name="description" content="My Personal Links 🤓" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+  if (isMobile)
+    return (
+      <LinkPageWrapper>
+        <MobileLinkPage renderLinksList={renderLinksList} />
+      </LinkPageWrapper>
+    )
 
+  return (
+    <LinkPageWrapper>
       <Wrapper>
-        {!isMobile && (
-          <QRCodeContainer>
-            <QRCode
-              value="https://nickchubb.ca"
-              style={{
-                height: '100%',
-                width: 'auto',
-                background: text.fade,
-                padding: '16px',
-                borderRadius: '12px',
-              }}
-              bgColor={text.fade}
-            />
-          </QRCodeContainer>
-        )}
+        <QRCodeContainer>
+          <QRCode
+            value="https://nickchubb.ca"
+            style={{
+              height: '100%',
+              width: 'auto',
+              background: text.fade,
+              padding: '16px',
+              borderRadius: '12px',
+            }}
+            bgColor={text.fade}
+          />
+        </QRCodeContainer>
         <Body>
-          {isMobile && (
+          <Title>Nick Chubb</Title>
+          <Content>
+            <LinksListWrapper>{renderLinksList(links)}</LinksListWrapper>
             <HeaderImage
               src="/me.png"
-              width={200}
-              height={200}
+              width={160}
+              height={160}
               alt="me"
               priority
             />
-          )}
-          <Title>Nick Chubb</Title>
-          <Content>
-            <LinksListWrapper>{renderLinksList()}</LinksListWrapper>
-            {!isMobile && (
-              <HeaderImage
-                src="/me.png"
-                width={160}
-                height={160}
-                alt="me"
-                priority
-              />
-            )}
           </Content>
           <Footer>
             <Mono>
@@ -178,8 +142,8 @@ const Links: React.FC = () => {
           </Footer>
         </Body>
       </Wrapper>
-    </Container>
+    </LinkPageWrapper>
   )
 }
 
-export default Links
+export default LinkPage
