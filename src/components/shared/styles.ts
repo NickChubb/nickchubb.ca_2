@@ -8,6 +8,7 @@ export const text = {
 
 export const shadow = {
   inset: '#141414',
+  drop: '0px 0px 32px 0px #060606'
 }
 
 export const colour = {
