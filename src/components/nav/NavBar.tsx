@@ -13,7 +13,6 @@ import { Section, sections } from '../body/sections'
 import useClickOutside from '../../hooks/use-click-outside'
 
 const NavContainer = styled.div`
-  width: 35vw;
   z-index: 9;
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
