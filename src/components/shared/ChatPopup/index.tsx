@@ -4,7 +4,11 @@ import styled from 'styled-components'
 import { colour, shadow, text } from '../styles'
 import useClickOutside from '../../../hooks/use-click-outside'
 import { Field, Form, Formik } from 'formik'
-import { Mono } from '../text'
+import { Code, Mono } from '../text'
+import FloatingActionButton from './FloatingActionButton'
+import ChatLoading from './ChatLoading'
+import { ChatItem } from './types'
+import { commands, getHelpMessage, getSuggestionsMessage } from './chat'
 
 const Container = styled.div`
   height: 100vh;
@@ -21,20 +25,58 @@ const Container = styled.div`
 `
 
 const PopupWrapper = styled.div`
+  max-width: 640px;
+  width: 100%;
   padding: 16px;
   border-radius: 8px;
   background: ${colour.cardBackground};
-  box-shadow: 0px 0px 32px 0px ${shadow.inset};
+  box-shadow: ${shadow.drop};
 `
 
 const PopupHeader = styled.div`
-  padding: 16px;
+  padding: 16px 16px 0;
   text-align: center;
   color: ${text.light};
 `
 
+const PopupHeaderTitle = styled.div`
+  margin-bottom: 12px;
+`
+
+const PopupHeaderSubtitle = styled.div`
+  color: ${text.fade};
+`
+
+const Separator = styled.div`
+  height: 1px;
+  width: 100%:
+  border-radius: 4px;
+  margin: 16px;
+  background-color: ${colour.cardHeader};
+`
+
 const ChatArea = styled.div`
-  padding: 16px;
+  margin: 16px;
+  max-height: 360px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column-reverse;
+`
+
+const UserChatElement = styled.div`
+  color: ${text.light};
+`
+
+const BotChatItem = styled.div`
+  padding: 8px 20px;
+  margin: 12px;
+  border-radius: 4px;
+  color: ${text.light};
+  background-color: ${colour.cardHeader};
+`
+
+const ChatLine = styled.p`
+  margin: 4px;
 `
 
 const Input = styled(Field)`
@@ -50,23 +92,65 @@ const Input = styled(Field)`
   }
 `
 
-const renderChat = (chat: Array<string>) => {
-  return chat.map((elem) => (
-    <div>{`> ${elem}`}</div>
-  ))
+const exitQuery = ['exit', 'quit', ':wq']
+
+const renderChat = (chat: Array<ChatItem>) => {
+  return chat.map((elem) => {
+    if (elem.user) {
+      return <UserChatElement>{`> ${elem.message}`}</UserChatElement>
+    } else {
+      return (
+        <BotChatItem>
+          {Array.isArray(elem.message)
+            ? elem.message.map((line) => <ChatLine>{line}</ChatLine>)
+            : elem.message}
+        </BotChatItem>
+      )
+    }
+  })
 }
 
 const ChatPopup: React.FC = () => {
   const [isVisible, setVisibile] = useState(false)
-  const [chat, setChat] = useState<Array<string>>([])
+  const [isLoading, setLoading] = useState(false)
+  const [chat, setChat] = useState<Array<ChatItem>>([])
   const popupRef = useRef(null)
   const show = () => setVisibile(true)
   const hide = () => setVisibile(false)
+  const clear = () => setChat([])
   useChatShortcut(show)
   useClickOutside(popupRef, hide)
 
-  const handleSubmit = (message: string) => {
-    setChat([...chat, message])
+  const handleSubmit = async (message: string) => {
+    message = message.trim().toLowerCase()
+
+    const localCommand = (callback: () => Array<string>) => {
+      return setChat([
+        { message: callback(), user: false },
+        { message: message, user: true },
+        ...chat,
+      ])
+    }
+
+    // Local Commands
+    if (commands[0].command.includes(message)) return hide()
+    if (commands[1].command.includes(message)) return clear()
+    if (commands[2].command.includes(message))
+      return localCommand(getHelpMessage)
+    if (commands[3].command.includes(message))
+      return localCommand(getSuggestionsMessage)
+
+    // Fetch response from backend API
+    const newChat = [{ message: message, user: true }, ...chat]
+    setChat(newChat)
+    setLoading(true)
+    const res = await fetch('/api/chat', {
+      method: 'POST',
+      body: message,
+    })
+    const data = await res.json()
+    setChat([{ message: data, user: false }, ...newChat])
+    setLoading(false)
   }
 
   if (isVisible) {
@@ -74,9 +158,22 @@ const ChatPopup: React.FC = () => {
       <Container>
         <PopupWrapper ref={popupRef}>
           <PopupHeader>
-            <Mono>Hey, welcome to my AI-powered chat-bot, ask me anything!</Mono>
+            <PopupHeaderTitle>
+              <Mono>Hey, welcome to my AI-powered chat-bot! 🤖</Mono>
+            </PopupHeaderTitle>
+            <PopupHeaderSubtitle>
+              <small>
+                {'> '}
+                <Code>exit</Code> to exit or <Code>help</Code> for a list of
+                commands
+              </small>
+            </PopupHeaderSubtitle>
           </PopupHeader>
-          <ChatArea>{renderChat(chat)}</ChatArea>
+          <Separator />
+          <ChatArea>
+            {isLoading && <ChatLoading />}
+            {renderChat(chat)}
+          </ChatArea>
           <Formik
             initialValues={{ message: '' }}
             onSubmit={({ message }, { resetForm }) => {
@@ -90,6 +187,8 @@ const ChatPopup: React.FC = () => {
                 name="message"
                 id="message"
                 placeholder="✨ Ask me anything! ✨"
+                disabled={isLoading}
+                autoComplete="off"
                 autoFocus
               />
             </Form>
@@ -99,7 +198,7 @@ const ChatPopup: React.FC = () => {
     )
   }
 
-  return null
+  return <FloatingActionButton show={show} />
 }
 
 export default ChatPopup

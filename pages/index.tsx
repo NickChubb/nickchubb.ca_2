@@ -10,6 +10,7 @@ import Scroller from '../src/components/shared/technologies/Scroller'
 import GithubModal from '../src/components/shared/GithubModal'
 import useOnFocusChangeFavicon from '../src/hooks/use-on-focus-change-favicon'
 import ChatPopup from '../src/components/shared/ChatPopup'
+import useMediaQuery from '../src/hooks/use-media-query'
 
 const Container = styled.div<{
   backgroundColor?: string
@@ -62,6 +63,7 @@ const Home: React.FC = () => {
   const { asPath } = useRouter()
   const currentSection = asPath.substring(2)
   const [section, setSection] = useState(currentSection ?? 'bio')
+  const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile})`)
   useOnFocusChangeFavicon()
 
   const renderSections = () => {
@@ -94,7 +96,7 @@ const Home: React.FC = () => {
       </AppWrapper>
       <GithubModal section={section} />
       <Scroller />
-      <ChatPopup />
+      {!isMobile && <ChatPopup />}
     </Container>
   )
 }
