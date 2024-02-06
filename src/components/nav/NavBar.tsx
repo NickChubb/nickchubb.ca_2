@@ -37,6 +37,7 @@ const NavWrapper = styled.div<{ isHidden: boolean }>`
       `
       display: block;
       background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(2px);
     `}
   }
 `
