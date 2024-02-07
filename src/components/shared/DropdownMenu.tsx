@@ -55,8 +55,8 @@ const DropdownButton = styled.div<{ isHidden: boolean }>`
 
 const DropdownMenuWrapper = styled.div<{ isHidden: boolean }>`
   position: absolute;
-  background-color: ${colour.cardHighlighted};
-  box-shadow: 4px 4px 16px 0 ${shadow.inset};
+  background-color: ${colour.cardHeader};
+  box-shadow: ${shadow.tooltip};
   border: 1px solid ${shadow.inset};
   margin-top: 4px;
   padding: 4px 0;
@@ -95,7 +95,7 @@ const DropdownMenuItem = styled.a`
 
   &:hover {
     color: white;
-    background: ${colour.cardHeader};
+    background: ${colour.cardBackground};
   }
 `
 
