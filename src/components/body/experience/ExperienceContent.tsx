@@ -7,7 +7,7 @@ const ExperienceContentWrapper = styled.div``
 const ExperienceCardList = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 56px;
+  gap: 38px;
 `
 
 type ExperienceContentData = {

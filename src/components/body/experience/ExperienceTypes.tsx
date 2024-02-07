@@ -7,6 +7,7 @@ export type Experience = {
     finishDate: string
     description: Array<string>
     website: string
+    skills?: Array<string>
     image?: string
     paid: boolean
   }

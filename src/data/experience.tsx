@@ -15,6 +15,7 @@ export const experienceData: ExperienceData = [
       'Developed, tested, and deployed functional components for React web apps in adherence to coding standards',
       'Troubleshooting and resolving complex front-end issues with Redux, Ramda, and other libraries',
     ],
+    skills: ['TypeScript', 'JavaScript', 'ReactJS', ],
     image: '/machobear_logo.png',
     paid: true
   },
@@ -31,6 +32,7 @@ export const experienceData: ExperienceData = [
       'Implemented front-end authentication and registration pages using Next.js for Paylancer app ',
       'Designed back-end API system to manage affiliate discount codes using the Shopify API'
     ],
+    skills: ['JavaScript', 'HTML', 'CSS'],
     image: '/skyrocket_logo.png',
     paid: true
   },
@@ -49,6 +51,7 @@ export const experienceData: ExperienceData = [
       'Worked with Java, JUnit, Intellij, and Linux to effectively write and debug professional software tests',
       // 'Utilized Jenkins, Postman, Wireshark, and MongoDB to debug services and investigate networking problems',
     ],
+    skills: ['Java', 'Unit Testing'],
     image: '/incognito_logo.jpeg',
     paid: true
   },

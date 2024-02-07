@@ -15,6 +15,7 @@ export const volunteeringData: ExperienceData = [
       'Co-ordinated and hosted weekly panels with a range of companies within the local start-up community',
       'Hosted more than 15 panels throughout the week of the event',
     ],
+    skills: ['JavaScript', 'TypeScript', 'ReactJS'],
     image: '/vsw_logo.jpeg',
     paid: false
   },
@@ -31,6 +32,7 @@ export const volunteeringData: ExperienceData = [
       'Formalized process and procedure with management practices, such as a Kanban board for designating work',
       'Effectively led and managed a team of 10 students to completely re-write society By-Laws and Policy',
     ],
+    skills: ['Leadership', 'Team Management'],
     image: '/sus_logo.png',
     paid: false
   },
