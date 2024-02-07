@@ -43,7 +43,7 @@ const ExperienceCardHeaderImage = styled.div<{ src: string }>`
 const ExperienceCardDescription = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
   margin: 0;
   padding-left: 16px;
   color: ${text.light};
@@ -117,8 +117,8 @@ const ExperienceCard: React.FC<{ experience: Experience; index: number }> = ({
           )
         })}
         {experience.skills && experience.skills.length > 0 && (
-          <small style={{ marginTop: '6px' }}>
-            <Mono>
+          <small style={{ marginTop: '8px' }}>
+            <Mono style={{ marginTop: '8px' }}>
               <SkillsTitle>Skills</SkillsTitle>: {experience.skills.join(', ')}
             </Mono>
           </small>
