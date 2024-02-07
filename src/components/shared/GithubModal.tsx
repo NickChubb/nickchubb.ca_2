@@ -77,7 +77,6 @@ const GithubModal: React.FC<GithubModalPops> = ({ section }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [triggeredPopup, setTriggered] = useState(false)
   const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile})`)
-  if (isMobile) return null
 
   const link = useMemo(() => {
     // volunteering section usees same component as experience
@@ -119,6 +118,8 @@ const GithubModal: React.FC<GithubModalPops> = ({ section }) => {
       setTriggered(true)
     }
   }, [section])
+
+  if (isMobile) return null
 
   return (
     <>
