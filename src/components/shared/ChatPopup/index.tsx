@@ -69,7 +69,7 @@ const UserChatElement = styled.div`
 
 const BotChatItem = styled.div`
   padding: 8px 20px;
-  margin: 12px;
+  margin: 12px 0;
   border-radius: 4px;
   color: ${text.light};
   background-color: ${colour.cardHeader};
@@ -83,7 +83,7 @@ const Input = styled(Field)`
   width: 100%;
   padding: 16px 16px;
   font-size: 18px;
-  border: 1px solid ${colour.cardHighlighted};
+  border: 1px solid rgb(20, 20, 20);
   background-color: ${colour.cardHeader};
   color: ${text.light};
   border-radius: 4px;

@@ -20,7 +20,7 @@ export const commands: Array<CommandType> = [
     description: 'Generate a list of available functions.'
   },
   {
-    id: 4,
+    id: 3,
     name: 'suggestions',
     command: ['suggestions', 'suggest'],
     description: 'Generate a list of suggested queries.'
