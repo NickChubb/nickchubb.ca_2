@@ -15,7 +15,6 @@ export const SectionWrapper = styled.div<{
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: 0 0 48px;
   transition: 0.25s;
   margin-bottom: 48px;
   scroll-snap-align: start;
@@ -52,26 +51,11 @@ const SectionContentWrapper = styled.div`
   }
 `
 
-export const SectionTitle = styled.h2<{ isVisible: boolean }>`
-  font-family: 'Roboto Mono', monospace;
-  transition: color 0.5s;
-  padding-bottom: 8px;
-  margin: 48px 0;
-  max-width: fit-content;
-  border-bottom: 1px solid ${text.fade};
-`
-
-const FragmentLink = styled.a`
-  display: none;
-  padding: 0;
-`
-
 type SectionProps = {
   title: string
   setSection: Dispatch<SetStateAction<string>>
   Component: React.FC<any> | React.ReactNode
   center?: boolean
-  showTitle?: boolean
 }
 
 const Section: React.FC<SectionProps> = ({
@@ -79,7 +63,6 @@ const Section: React.FC<SectionProps> = ({
   setSection,
   Component,
   center,
-  showTitle,
 }) => {
   const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile})`)
   const ref = useRef()
@@ -97,7 +80,6 @@ const Section: React.FC<SectionProps> = ({
   return (
     <SectionWrapper id={title} ref={ref} center={center}>
       <SectionContentWrapper>
-        {showTitle && <SectionTitle isVisible={isVisible}>{title}</SectionTitle>}
         {getBody()}
       </SectionContentWrapper>
     </SectionWrapper>

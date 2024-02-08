@@ -8,19 +8,11 @@ import { State } from './types'
 import ContactForm from './ContactForm'
 import { Dna } from 'react-loader-spinner'
 import Spacer from '../../shared/Spacer'
-import FooterSection from '../../FooterSection'
 
 const ContactContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 48px;
-`
-
-const ContactWrapper = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 `
 
 const PanelWrapper = styled.div`
@@ -131,7 +123,6 @@ const ContactContent: React.FC = () => {
   }
 
   return (
-    <ContactWrapper>
       <ContactContainer>
         <Paragraph>
           I am currently seeking{' '}
@@ -143,8 +134,6 @@ const ContactContent: React.FC = () => {
         </Paragraph>
         <PanelWrapper>{getContactPanel()}</PanelWrapper>
       </ContactContainer>
-      <FooterSection />
-    </ContactWrapper>
   )
 }
 
