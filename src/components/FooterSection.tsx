@@ -27,7 +27,7 @@ const FooterSection: React.FC = () => {
     <FooterWrapper>
       <DesktopFade delay={2000} duration={400} triggerOnce>
         <Copyright>
-          copyright &copy; Nick Chubb 2023
+          copyright &copy; Nick Chubb 2024
         </Copyright>
         <SocialLinks />
       </DesktopFade>
