@@ -58,9 +58,6 @@ const NavMenuWrapper = styled.div<{ isHidden: boolean }>`
       max-height: 200px;
     }
   }
-  &:hover > * > * {
-    color: ${text.fade};
-  }
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
     height: 100%;

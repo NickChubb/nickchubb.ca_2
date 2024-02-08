@@ -10,7 +10,6 @@ export type Section = {
   title: string
   Content: React.FC<any>  | Array<Section> | React.ReactNode
   center?: boolean
-  showTitle?: boolean
   backgroundColor?: string
   textColor?: string
 }
@@ -20,7 +19,6 @@ export const sections: Array<Section> = [
     title: 'bio',
     Content: BioContent,
     center: true,
-    showTitle: false,
   },
   {
     title: 'experience',
@@ -31,6 +29,7 @@ export const sections: Array<Section> = [
   {
     title: 'projects',
     Content: ProjectsContent,
+    center: true
   },
   {
     title: 'volunteering',
@@ -46,5 +45,6 @@ export const sections: Array<Section> = [
   {
     title: 'contact',
     Content: ContactContent,
+    center: true
   }
 ]

@@ -14,6 +14,7 @@ const MenuItemWrapper = styled(StyledLink)<{
   font-family: 'Roboto Mono', monospace;
   white-space: nowrap;
   user-select: none;
+  color: ${text.fade};
 
   &:before {
     content: "";
