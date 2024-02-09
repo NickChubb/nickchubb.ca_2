@@ -133,13 +133,13 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ hide }) => {
     if (!isPresent) {
       gsap.to(popupRef.current, {
         translateY: '-50px',
-        duration: 0.4,
+        duration: 0.35,
         ease: 'power.in',
       })
       gsap.to(containerRef.current, {
         opacity: 0,
         delay: 0.2,
-        duration: 0.2,
+        duration: 0.15,
         onComplete: () => safeToRemove?.(),
       })
     }

@@ -1,10 +1,7 @@
 import { useEffect } from 'react'
 
 const handleKeyDown = (toggle: () => void, key: string, metaKey: boolean) => {
-  if (key === 'k' && metaKey) {
-    console.log('toggled')
-    toggle()
-  }
+  if (key === 'k' && metaKey) toggle()
 }
 
 const useChatShortcut = (toggle: () => void) => {
