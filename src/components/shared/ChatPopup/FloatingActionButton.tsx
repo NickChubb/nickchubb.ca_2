@@ -6,7 +6,7 @@ import useKeyPress from '../../../hooks/use-key-press'
 const Wrapper = styled.div<{ isActive: boolean }>`
   position: fixed;
   right: 64px;
-  bottom: 140px;
+  bottom: 84px;
   padding: 16px;
   background: ${colour.cardBackground};
   box-shadow: ${shadow.drop};
