@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { commands, getHelpMessage, getSuggestionsMessage } from './chat'
 import { ChatItem } from './types'
 import useClickOutside from '../../../hooks/use-click-outside'
@@ -8,8 +8,10 @@ import { Field, Form, Formik } from 'formik'
 import { Code, Mono } from '../text'
 import ChatLoading from './ChatLoading'
 import useKeyPress from '../../../hooks/use-key-press'
+import { usePresence } from 'framer-motion'
+import { gsap } from 'gsap'
 
-const Container = styled.div`
+const Container = styled.div<{ isPresent: boolean }>`
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -19,8 +21,8 @@ const Container = styled.div`
   z-index: 100000;
   position: fixed;
   top: 0px;
-  transition: 0.5s;
-  backdrop-filter: blur(2px);
+
+  ${(props) => props.isPresent && `backdrop-filter: blur(2px);`}
 `
 
 const PopupWrapper = styled.div`
@@ -115,15 +117,33 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ hide }) => {
   const [isLoading, setLoading] = useState(false)
   const [chat, setChat] = useState<Array<ChatItem>>([])
   const clear = () => setChat([])
-  
+
   // Handle hiding chat window when clicking away from popup
   const popupRef = useRef(null)
   useClickOutside(popupRef, hide)
 
   // Handle close on escape key press
   const isActive = useKeyPress('Escape')
-  if(isActive) hide()
+  if (isActive) hide()
 
+  const containerRef = useRef(null)
+  const [isPresent, safeToRemove] = usePresence()
+
+  useEffect(() => {
+    if (!isPresent) {
+      gsap.to(popupRef.current, {
+        translateY: '-50px',
+        duration: 0.4,
+        ease: 'power.in',
+      })
+      gsap.to(containerRef.current, {
+        opacity: 0,
+        delay: 0.2,
+        duration: 0.2,
+        onComplete: () => safeToRemove?.(),
+      })
+    }
+  }, [isPresent, safeToRemove])
 
   const handleSubmit = async (message: string) => {
     message = message.trim().toLowerCase()
@@ -158,7 +178,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ hide }) => {
   }
 
   return (
-    <Container>
+    <Container isPresent={isPresent} ref={containerRef}>
       <PopupWrapper ref={popupRef}>
         <PopupHeader>
           <PopupHeaderTitle>

@@ -7,7 +7,7 @@ const Wrapper = styled.div<{ isActive: boolean }>`
   position: fixed;
   right: 64px;
   bottom: 84px;
-  padding: 16px;
+  padding: 16px 18px;
   background: ${colour.cardBackground};
   box-shadow: ${shadow.drop};
   cursor: pointer;
@@ -35,7 +35,7 @@ type FloatingActionButtonProps = {
 }
 
 const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
-  show,
+  show
 }) => {
   const isActive = useKeyPress('Meta')
 
