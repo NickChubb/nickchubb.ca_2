@@ -12,7 +12,6 @@ const Wrapper = styled.div<{ isActive: boolean }>`
   box-shadow: ${shadow.drop};
   cursor: pointer;
   border-radius: 8px;
-  transition: 0.25s;
   border: 1px solid #111;
   color: ${text.light};
 
@@ -40,7 +39,7 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
 }) => {
   const isActive = useKeyPress('Meta')
 
-  return <Wrapper onClick={show} isActive={isActive}>{'⌘ + k'}</Wrapper>
+  return <Wrapper onClick={show} isActive={isActive}>{'⌘ + K'}</Wrapper>
 }
 
 export default FloatingActionButton
