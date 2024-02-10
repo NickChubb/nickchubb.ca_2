@@ -21,6 +21,7 @@ const Container = styled.div<{ isPresent: boolean }>`
   z-index: 100000;
   position: fixed;
   top: 0px;
+  opacity: 0;
 
   ${(props) => props.isPresent && `backdrop-filter: blur(2px);`}
 `
@@ -132,7 +133,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ hide }) => {
   useEffect(() => {
     if (!isPresent) {
       gsap.to(popupRef.current, {
-        translateY: '-50px',
+        translateY: '-25px',
         duration: 0.35,
         ease: 'power.in',
       })
@@ -141,6 +142,16 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ hide }) => {
         delay: 0.2,
         duration: 0.15,
         onComplete: () => safeToRemove?.(),
+      })
+    } else {
+      gsap.to(popupRef.current, {
+        translateY: '25px',
+        duration: 0.35,
+        ease: 'power.out'
+      })
+      gsap.to(containerRef.current, {
+        opacity: 1,
+        duration: 0.25
       })
     }
   }, [isPresent, safeToRemove])

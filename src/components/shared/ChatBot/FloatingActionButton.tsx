@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { colour, shadow, text } from '../styles'
 import useKeyPress from '../../../hooks/use-key-press'
