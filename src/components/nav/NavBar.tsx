@@ -220,7 +220,7 @@ const NavBar: React.FC<NavBarProps> = ({ section, setSection }) => {
           onClick={(e) => e.stopPropagation()}
         >
           <HeaderImage
-            src="/me.png"
+            src="/me_coding.png"
             width={200}
             height={200}
             alt="me"
