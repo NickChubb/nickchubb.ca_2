@@ -32,7 +32,7 @@ export const volunteeringData: ExperienceData = [
       'Formalized process and procedure with management practices, such as a Kanban board for designating work',
       'Effectively led and managed a team of 10 students to completely re-write society By-Laws and Policy',
     ],
-    skills: ['Leadership', 'Project Management', 'Team Management'],
+    skills: ['Leadership', 'Communication', 'Project Management', 'Team Management'],
     image: '/sus_logo.png',
     paid: false
   },
