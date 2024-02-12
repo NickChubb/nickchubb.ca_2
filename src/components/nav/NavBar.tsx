@@ -11,6 +11,7 @@ import MenuItem from './MenuItem'
 import SubMenu from './SubMenu'
 import { Section, sections } from '../body/sections'
 import useClickOutside from '../../hooks/use-click-outside'
+import { HeaderImage, HeaderTitle } from './nav.styled'
 
 const NavContainer = styled.div`
   z-index: 9;
@@ -73,25 +74,6 @@ const NavMenuWrapper = styled.div<{ isHidden: boolean }>`
     box-shadow: ${shadow.drop};
 
     ${(props) => props.isHidden && `right: -100%;`}
-  }
-`
-
-const HeaderImage = styled(Image)`
-  user-select: none;
-  @media only screen and (max-width: ${breakpoints.mobile}) {
-    display: none;
-  }
-`
-
-const HeaderTitle = styled.h1`
-  font-family: 'Roboto Mono', monospace;
-  line-height: 36px;
-  margin-bottom: 0;
-  white-space: nowrap;
-  user-select: none;
-
-  @media only screen and (max-width: ${breakpoints.mobile}) {
-    margin: 0;
   }
 `
 
