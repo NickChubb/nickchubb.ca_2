@@ -15,6 +15,8 @@ const ContactContainer = styled.div`
   gap: 48px;
 `
 
+const ContactHeader = styled.div``
+
 const PanelWrapper = styled.div`
   width: 100%;
   @media only screen and (min-width: ${breakpoints.mobile}) {
@@ -55,9 +57,18 @@ const Panel = styled.div<{ type: State }>`
   `}
 `
 
+const Content = styled.div`
+  color: ${text.light};
+`
+
 const Link = styled.a`
   font-family: 'Roboto Mono', monospace;
   font-weight: 800;
+`
+
+const Subtitle = styled.h3`
+  font-family: 'Roboto Mono', monospace;
+  // padding-bottom: 8px;
 `
 
 const SendingPanel: React.FC = () => (
@@ -103,7 +114,6 @@ const ErrorPanel: React.FC = () => (
 
 const ContactContent: React.FC = () => {
   const [state, setState] = useState<State>('DEFAULT')
-  const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile})`)
 
   const getContactPanel = () => {
     switch (state) {
@@ -123,17 +133,18 @@ const ContactContent: React.FC = () => {
   }
 
   return (
-      <ContactContainer>
-        <Paragraph>
-          I am currently seeking{' '}
-          <b>
-            Full-Stack employment opportunities
-          </b>
-          . If you have any questions or would like to get in touch, please use
-          the form below to send me an email!
-        </Paragraph>
-        <PanelWrapper>{getContactPanel()}</PanelWrapper>
-      </ContactContainer>
+    <ContactContainer>
+      <ContactHeader>
+        <Subtitle>
+          I am currently seeking Full-stack Engineering opportunities!
+        </Subtitle>
+        <Content>
+          If you have any questions or would like to get in touch, please use the
+          form below to send me an email.
+        </Content>
+      </ContactHeader>
+      <PanelWrapper>{getContactPanel()}</PanelWrapper>
+    </ContactContainer>
   )
 }
 
