@@ -10,10 +10,10 @@ export const volunteeringData: ExperienceData = [
     finishDate: 'present',
     website: 'https://vanstartupweek.ca/',
     description: [
-      'Developed features for the new website using ReactJS and Next.js, including completely redeveloping the blog',
-      'Assisted in updating components to TypeScript and refactoring code to improve readability and maintainability',
-      'Co-ordinated and hosted weekly panels with a range of companies within the local start-up community',
-      'Hosted more than 15 panels throughout the week of the event',
+      'Developed features for the new website using ReactJS and TypeScript, including completely redeveloping the blog',
+      'Enhanced code maintainability and scalability by refactoring components to TypeScript, minimizing potential errors',
+      'Integrated Contentful CRM to dynamically update site content, bypassing bottleneck on development team',
+      'Collaborated closely with design team to to implement Figma mockups and ensure a cohesive user interface',
     ],
     skills: ['TypeScript', 'JavaScript', 'ReactJS', 'CSS'],
     image: '/vsw_logo.jpeg',
@@ -28,23 +28,28 @@ export const volunteeringData: ExperienceData = [
     finishDate: '2021-04',
     website: 'https://sfusus.com/',
     description: [
-      'Organized and chaired weekly team meetings to plan events and advocacy',
-      'Formalized process and procedure with management practices, such as a Kanban board for designating work',
-      'Effectively led and managed a team of 10 students to completely re-write society By-Laws and Policy',
+      'Led a 10-member executive team overseeing a student society with 3000+ members, ensuring efficient operations',
+      'Planned and orchestrated weekly team meetings, facilitating event planning and advocacy efforts',
+      'Spearheaded rewriting of By-Laws and Policy, implementing formalized processes like a Kanban board for task delegation',
     ],
     skills: ['Leadership', 'Communication', 'Project Management', 'Team Management'],
     image: '/sus_logo.png',
     paid: false
   },
   {
-    display: false,
+    display: true,
     company: 'Simon Fraser Student Society',
     title: 'Board Member',
     location: 'Burnaby, BC',
     startDate: '2019-05',
     finishDate: '2020-04',
     website: 'https://sfss.ca/',
-    description: ['', '', ''],
+    description: [
+      'Represented the Faculty of Applied Science as an integral part of the student society for all of SFU',
+      'Established and led a team as chair of the Surrey Campus Committee to successfully host over 15 events'
+    ],
+    skills: ['Leadership', 'Communication', 'Project Management', 'Team Management' ],
+    image: '/sfss_logo.jpeg',
     paid: false
   },
 ];
