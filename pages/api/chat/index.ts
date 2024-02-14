@@ -1,9 +1,12 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { createClient } from '@supabase/supabase-js'
+
 const supabase = createClient(
   process.env.NEXT_PRIVATE_SUPABASE_URL || '',
   process.env.NEXT_PRIVATE_SUPABASE_ANON_KEY || ''
 )
+
+const CHATBOT_BASE_URL = 'localhost:8080/'
 
 export default async function handler(
   req: NextApiRequest,
@@ -21,10 +24,12 @@ export default async function handler(
   if (error) return res.status(500).json(error)
 
   // If query does not exist yet
-  if (!data[0]) { 
-    // query from llamaindex
+  if (!data[0]) {
+    const CHATBOT_ENDPOINT = CHATBOT_BASE_URL + `message=${query}`
+    const response = await fetch(CHATBOT_ENDPOINT)
     // insert query and response into supabase
-    // return response
+    console.log(response)
+    return res.status(200).json(response)
   }
 
   return res.status(200).json(data[0].response)
