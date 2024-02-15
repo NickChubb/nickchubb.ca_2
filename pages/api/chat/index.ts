@@ -6,7 +6,7 @@ const supabase = createClient(
   process.env.NEXT_PRIVATE_SUPABASE_ANON_KEY || ''
 )
 
-const CHATBOT_BASE_URL = 'localhost:8080/'
+const CHATBOT_BASE_URL = 'https://chatbot-jjmgef5kcq-uc.a.run.app/'
 
 export default async function handler(
   req: NextApiRequest,
@@ -25,11 +25,11 @@ export default async function handler(
 
   // If query does not exist yet
   if (!data[0]) {
-    const CHATBOT_ENDPOINT = CHATBOT_BASE_URL + `message=${query}`
+    const CHATBOT_ENDPOINT = CHATBOT_BASE_URL + `?message=${query}`
     const response = await fetch(CHATBOT_ENDPOINT)
     // insert query and response into supabase
-    console.log(response)
-    return res.status(200).json(response)
+    const text = await response.text()
+    return res.status(200).json(text)
   }
 
   return res.status(200).json(data[0].response)
