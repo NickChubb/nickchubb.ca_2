@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { text } from '../styles'
 
 const Container = styled.div`
+  margin-top: 8px;
   width: 100%;
   display: flex;
   justify-content: center;

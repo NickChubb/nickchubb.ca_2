@@ -1,4 +1,5 @@
-import { CommandType } from "./types"
+import { v4 as uuidv4 } from 'uuid'
+import { ChatItem, CommandType } from "./types"
 
 export const commands: Array<CommandType> = [
   {
@@ -37,4 +38,24 @@ export const getHelpMessage = (): Array<string> => {
 
 export const getSuggestionsMessage = (): Array<string> => {
   return ['What projects have you worked on?', 'How much experience do you have as a Back-end Developer?']
+}
+
+// Maintain copy of chat in the LocalStorage for persistence across visits
+export const getLocalChat = (): Array<ChatItem> => {
+  return JSON.parse(localStorage.getItem('nickchubb-ca-chat') ?? '[]')
+}
+
+export const storeLocalChat = (chat: Array<ChatItem>): void => {
+  localStorage.setItem('nickchubb-ca-chat', JSON.stringify(chat))
+}
+
+// Generates UUID for each user of the chatbot
+export const getUserId = () => {
+  const userId = localStorage.getItem('nickchubb-ca-userId')
+  if (!userId) {
+    const newId = uuidv4()
+    localStorage.setItem('nickchubb-ca-userId', newId)
+    return newId
+  }
+  return userId
 }

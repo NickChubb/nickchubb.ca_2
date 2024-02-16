@@ -6,6 +6,8 @@ import { AnimatePresence } from 'framer-motion'
 import { Tooltip, TooltipContent, TooltipTrigger } from '../Tooltip'
 import styled from 'styled-components'
 import { colour, shadow } from '../styles'
+import { ChatItem } from './types'
+import { getLocalChat } from './chat'
 
 const TooltipPopup = styled.div`
   background: ${colour.cardHeader};
@@ -22,6 +24,7 @@ const TooltipPopup = styled.div`
 `
 
 const ChatBot: React.FC = () => {
+  const [chat, setChat] = useState<Array<ChatItem>>(getLocalChat())
   const [isVisible, setVisibile] = useState(false)
   const show = () => setVisibile(true)
   const hide = () => setVisibile(false)
@@ -30,7 +33,7 @@ const ChatBot: React.FC = () => {
   return (
     <>
       <AnimatePresence>
-        {isVisible ? <ChatWindow hide={hide} /> : null}
+        {isVisible ? <ChatWindow hide={hide} chat={chat} setChat={setChat} /> : null}
       </AnimatePresence>
       <Tooltip initialOpen={true}>
         <TooltipContent>

@@ -1,10 +1,36 @@
-# Personal Portfolio Site 2.0
+# Personal Portfolio Site 3.0
 
 🌐 Live Site can be found at -> [NickChubb.ca](https://nickchubb.ca)
 
 🔧 Made with Next.js and Typescript.
 
 ## Features
+
+1. AI-Powered Chatbot 
+
+2. Interactive Travel Map
+
+3. Bookshelf populated from Google Books API
+
+4. Contact Form
+
+5. Full Mobile Compatibility
+
+## History
+
+My first personal portfolio webiste was created in 2019 and hosted on an Amazon AWS EC2 instance. A simple Nginx static HTML page. Eventually, I wanted to upgrade from my simple page which was just links to a more comprehensive site which defines me better. I created a new design which was still very far from perfect, and integrated with a go backend to dynamically load the data for the site from a MongoDB server. This is the current versions: V3. 
+
+## Implementation Decisions
+
+The biggest changes going into the 3rd version were Next.js and moving away from AWS to host on Vercel. 
+
+The backend uses a Supabase PostgreSQL database, which at the time of writing primarily includes data related to my Chatbot component.
+
+## Challenges
+
+
+
+## Image Gallery
 
 ![www nickchubb ca_ (1)](https://user-images.githubusercontent.com/4172020/219312428-dc15a1b1-eca6-4478-b490-ce1424490948.png)
 

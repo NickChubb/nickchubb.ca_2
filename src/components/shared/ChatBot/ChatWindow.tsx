@@ -1,5 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { commands, getHelpMessage, getSuggestionsMessage } from './chat'
+import React, { SetStateAction, useEffect, useRef, useState } from 'react'
+import {
+  commands,
+  getHelpMessage,
+  getSuggestionsMessage,
+  storeLocalChat,
+  getUserId
+} from './chat'
 import { ChatItem } from './types'
 import useClickOutside from '../../../hooks/use-click-outside'
 import styled from 'styled-components'
@@ -10,6 +16,7 @@ import ChatLoading from './ChatLoading'
 import useKeyPress from '../../../hooks/use-key-press'
 import { usePresence } from 'framer-motion'
 import { gsap } from 'gsap'
+import { useUserInfo } from '../../../hooks/use-user-info'
 
 const Container = styled.div<{ isPresent: boolean }>`
   height: 100vh;
@@ -63,6 +70,7 @@ const ChatArea = styled.div`
   overflow-y: scroll;
   display: flex;
   flex-direction: column-reverse;
+  background: ${colour.cardBackground};
 `
 
 const UserChatElement = styled.div`
@@ -70,10 +78,12 @@ const UserChatElement = styled.div`
 `
 
 const BotChatItem = styled.div`
-  padding: 8px 20px;
-  margin: 12px 0;
+  padding: 12px 20px;
+  margin: 16px 0;
   border-radius: 4px;
-  color: ${text.light};
+  font-size: 16px;
+  line-height: 22px;
+  color: ${text.fade};
   background-color: ${colour.cardHeader};
 `
 
@@ -112,24 +122,35 @@ const renderChat = (chat: Array<ChatItem>) => {
 
 type ChatWindowProps = {
   hide: () => void
+  chat: Array<ChatItem>
+  setChat: React.Dispatch<SetStateAction<ChatItem[]>>
 }
 
-const ChatWindow: React.FC<ChatWindowProps> = ({ hide }) => {
+const ChatWindow: React.FC<ChatWindowProps> = ({ hide, chat, setChat }) => {
   const [isLoading, setLoading] = useState(false)
-  const [chat, setChat] = useState<Array<ChatItem>>([])
-  const clear = () => setChat([])
+  const clear = () => updateChat([])
+  const userData = useUserInfo()
 
   // Handle hiding chat window when clicking away from popup
   const popupRef = useRef(null)
   useClickOutside(popupRef, hide)
 
   // Handle close on escape key press
-  const isActive = useKeyPress('Escape')
-  if (isActive) hide()
+  const isEscapeActive = useKeyPress('Escape')
+  if (isEscapeActive) hide()
 
+  // Ref for input form to reset focus when API call is finished
+  const inputRef = useRef<HTMLInputElement>(null)
+  useEffect(() => {
+    // Check if the input is re-enabled
+    if (inputRef.current && !isLoading) {
+      inputRef.current.focus()
+    }
+  }, [isLoading])
+
+  // Generate fade on window leaving and entering DOM with framer-motion
   const containerRef = useRef(null)
   const [isPresent, safeToRemove] = usePresence()
-
   useEffect(() => {
     if (!isPresent) {
       gsap.to(popupRef.current, {
@@ -147,20 +168,25 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ hide }) => {
       gsap.to(popupRef.current, {
         translateY: '25px',
         duration: 0.35,
-        ease: 'power.out'
+        ease: 'power.out',
       })
       gsap.to(containerRef.current, {
         opacity: 1,
-        duration: 0.25
+        duration: 0.25,
       })
     }
   }, [isPresent, safeToRemove])
+
+  const updateChat = (chat: Array<ChatItem>) => {
+    setChat(chat)
+    storeLocalChat(chat)
+  }
 
   const handleSubmit = async (message: string) => {
     message = message.trim().toLowerCase()
 
     const localCommand = (callback: () => Array<string>) => {
-      return setChat([
+      return updateChat([
         { message: callback(), user: false },
         { message: message, user: true },
         ...chat,
@@ -175,16 +201,21 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ hide }) => {
     if (commands[3].command.includes(message))
       return localCommand(getSuggestionsMessage)
 
-    // Fetch response from backend API
+    // Fetch response from backend API and update chat
     const newChat = [{ message: message, user: true }, ...chat]
-    setChat(newChat)
+    const userId = getUserId()
+    updateChat(newChat)
     setLoading(true)
-    const res = await fetch('/api/chat', {
+    const body = {
+      message: message,
+      userData: { ...userData, userId },
+    }
+    const response = await fetch('/api/chat', {
       method: 'POST',
-      body: message,
+      body: JSON.stringify(body),
     })
-    const data = await res.json()
-    setChat([{ message: data, user: false }, ...newChat])
+    const data = await response.json()
+    updateChat([{ message: data, user: false }, ...newChat])
     setLoading(false)
   }
 
@@ -217,10 +248,13 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ hide }) => {
         >
           <Form>
             <Input
+              innerRef={inputRef}
               type="text"
               name="message"
               id="message"
-              placeholder="✨ Ask me anything! ✨"
+              placeholder={
+                isLoading ? 'Generating response...' : '✨ Ask me anything! ✨'
+              }
               disabled={isLoading}
               autoComplete="off"
               autoFocus
