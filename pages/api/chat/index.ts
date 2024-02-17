@@ -25,23 +25,29 @@ export default async function handler(
   const { message, userData } = JSON.parse(req.body)
   const query = message.toLowerCase().trim()
 
+  if (!userData || !userData.userId)
+    return res.status(500).json({ error: 'No user data supplied.' })
+
   // Upsert user to DB
-  // TODO add error checks
-  const { data: user } = await supabase.from('users').upsert({
-    id: userData.userId,
-    country_name: userData.country_name,
-    city: userData.city,
-    IPv4: userData.IPv4,
-    state: userData.state,
-  })
+  supabase
+    .from('users')
+    .upsert({
+      id: userData.userId,
+      country_name: userData.country_name,
+      city: userData.city,
+      IPv4: userData.IPv4,
+      state: userData.state,
+    })
+    .then(({ error }) => error && console.log(error))
 
   // Update users messages array
   // TODO combine this and the above call to one rpc function
-  const { error: rpcError } = await supabase.rpc('append_to_messages', {
-    user_id: userData.userId,
-    message: query
-  })
-  console.log(rpcError)
+  supabase
+    .rpc('append_to_messages', {
+      user_id: userData.userId,
+      message: query,
+    })
+    .then(({ error }) => error && console.log(error))
 
   // Access query cache to see if query has been asked before
   const { data, error } = await supabase
@@ -50,18 +56,30 @@ export default async function handler(
     .eq('query', query)
 
   // Error connecting to Supabase
-  if (error) return res.status(500).json(error)
+  if (error) return res.status(500).json({ err: true, msg: error })
 
   // If query does not exist yet
   if (!data[0]) {
     const CHATBOT_ENDPOINT = CHATBOT_BASE_URL + `?message=${query}`
-    const response = await fetch(CHATBOT_ENDPOINT)
-    const text = await response.text()
+    try {
+      const response = await fetch(CHATBOT_ENDPOINT)
+      if (!response.ok) throw new Error
+      const text = await response.text()
+      if (!text) throw new Error
 
-    // TODO insert query and response into supabase
+        // Insert query and response into supabase
+        // supabase
+        //   .from('chatbot')
+        //   .insert({ query: query, response: text })
+        //   .then(({ error }) => error && console.log(error))
 
-    return res.status(200).json(text)
+        return res.status(200).json({ msg: text })
+    } catch (err) {
+      return res
+        .status(500)
+        .json({ err: true, msg: 'Error: could not fetch OpenAI data...' })
+    }
   }
 
-  return res.status(200).json(data[0].response)
+  return res.status(200).json({ msg: data[0].response })
 }

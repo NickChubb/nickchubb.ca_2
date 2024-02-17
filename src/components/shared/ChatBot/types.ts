@@ -1,6 +1,7 @@
 export type ChatItem = {
   message: string | Array<string>
   user: boolean
+  error?: boolean
 }
 
 export type CommandType = {

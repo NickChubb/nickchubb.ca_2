@@ -77,7 +77,7 @@ const UserChatElement = styled.div`
   color: ${text.light};
 `
 
-const BotChatItem = styled.div`
+const BotChatItem = styled.div<{ error?: boolean }>`
   padding: 12px 20px;
   margin: 16px 0;
   border-radius: 4px;
@@ -85,6 +85,10 @@ const BotChatItem = styled.div`
   line-height: 22px;
   color: ${text.fade};
   background-color: ${colour.cardHeader};
+
+  ${(props) => props.error && `
+    color: ${text.red};
+  `}
 `
 
 const ChatLine = styled.p`
@@ -110,7 +114,7 @@ const renderChat = (chat: Array<ChatItem>) => {
       return <UserChatElement>{`> ${elem.message}`}</UserChatElement>
     } else {
       return (
-        <BotChatItem>
+        <BotChatItem error={elem.error}>
           {Array.isArray(elem.message)
             ? elem.message.map((line) => <ChatLine>{line}</ChatLine>)
             : elem.message}
@@ -215,7 +219,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ hide, chat, setChat }) => {
       body: JSON.stringify(body),
     })
     const data = await response.json()
-    updateChat([{ message: data, user: false }, ...newChat])
+    updateChat([{ message: data.msg, user: false, error: data.err }, ...newChat])
     setLoading(false)
   }
 
