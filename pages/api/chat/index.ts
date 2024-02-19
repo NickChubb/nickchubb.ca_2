@@ -26,20 +26,7 @@ export default async function handler(
   // Prevent too many requests from being sent to OpenAI
   await rateLimitMiddleware(req, res)
 
-  // Upsert user to DB
-  supabase
-    .from('users')
-    .upsert({
-      id: userData.userId,
-      country_name: userData.country_name,
-      city: userData.city,
-      IPv4: userData.IPv4,
-      state: userData.state,
-    })
-    .then(({ error }) => error && console.log(error))
-
-  // Update users messages array
-  // TODO combine this and the above call to one rpc function
+  // Append message to user
   supabase
     .rpc('append_to_messages', {
       user_id: userData.userId,

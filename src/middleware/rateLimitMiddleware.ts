@@ -19,6 +19,20 @@ const rateLimitMiddleware = async (
   const currentTime = new Date()
 
   try {
+
+    // Upsert user to DB
+    await supabase
+      .from('users')
+      .upsert({
+        id: userData.userId,
+        country_name: userData.country_name,
+        city: userData.city,
+        ip: userData.IPv4,
+        state: userData.state,
+      })
+      .then(({ error }) => error && console.log(error))
+
+    // fetch request count and time
     const { data, error } = await supabase
       .from('users')
       .select('request_count, last_request_time')
