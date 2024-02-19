@@ -18,7 +18,6 @@ const Container = styled.div<{
 }>`
   width: 100vw;
   height: 100%;
-  overflow-x: hidden;
   transition: background-color 0.5s, color 0.25s;
 
   @media only screen and (min-width: ${breakpoints.mobile}) {
