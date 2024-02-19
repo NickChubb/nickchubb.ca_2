@@ -20,6 +20,7 @@ body {
   color-scheme: dark;
   background: #111111;
   scroll-snap-type: y mandatory;
+  overflow-x: hidden;
 
   @media only screen and (max-width: 768px) {
     scroll-snap-type: none;
