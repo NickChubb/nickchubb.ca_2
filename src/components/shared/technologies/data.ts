@@ -5,6 +5,7 @@ import NextLogo from './icons/nextjs.svg'
 import NodeLogo from './icons/nodejs.svg'
 import ExpressLogo from './icons/expressjs.svg'
 import JavaLogo from './icons/java.svg'
+// import PostgreSQLLogo from './icons/postgresql.svg'
 import DockerLogo from './icons/docker.svg'
 import CssLogo from './icons/css.svg'
 
@@ -37,6 +38,10 @@ const data: Technology[] = [
     image: JavaLogo,
     showName: true,
   },
+  // {
+  //   name: 'PostgreSQL',
+  //   image: PostgreSQLLogo
+  // },
   {
     name: 'Docker',
     image: DockerLogo
