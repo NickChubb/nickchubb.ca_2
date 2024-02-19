@@ -1,20 +1,15 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
+import crypto from 'crypto'
 import { createClient } from '@supabase/supabase-js'
+import rateLimitMiddleware from '../../../src/middleware/rateLimitMiddleware'
 
 const supabase = createClient(
   process.env.NEXT_PRIVATE_SUPABASE_URL || '',
   process.env.NEXT_PRIVATE_SUPABASE_ANON_KEY || ''
 )
 
-const CHATBOT_BASE_URL = 'https://chatbot-jjmgef5kcq-uc.a.run.app/'
-
-/*
-  create function append_to_messages(user_id uuid, message text) returns void as $$
-    update users
-    set messages = array_append(messages, message)
-    where user_id = id;
-  $$ language sql;
-*/
+const CHATBOT_BASE_URL = process.env.CHATBOT_BASE_URL || ''
+const CHATBOT_API_SECRET = process.env.CHATBOT_API_SECRET || ''
 
 export default async function handler(
   req: NextApiRequest,
@@ -27,6 +22,9 @@ export default async function handler(
 
   if (!userData || !userData.userId)
     return res.status(500).json({ error: 'No user data supplied.' })
+
+  // Prevent too many requests from being sent to OpenAI
+  await rateLimitMiddleware(req, res)
 
   // Upsert user to DB
   supabase
@@ -49,37 +47,19 @@ export default async function handler(
     })
     .then(({ error }) => error && console.log(error))
 
-  // Access query cache to see if query has been asked before
-  const { data, error } = await supabase
-    .from('chatbot')
-    .select('response')
-    .eq('query', query)
+  const secret = crypto.createHash('sha256').update(CHATBOT_API_SECRET).digest('hex')
+  const endpoint =
+    CHATBOT_BASE_URL + `?message=${query}&secret=${secret}`
+  try {
+    const response = await fetch(endpoint)
+    if (!response.ok) throw new Error()
+    const text = await response.text()
+    if (!text) throw new Error()
 
-  // Error connecting to Supabase
-  if (error) return res.status(500).json({ err: true, msg: error })
-
-  // If query does not exist yet
-  if (!data[0]) {
-    const CHATBOT_ENDPOINT = CHATBOT_BASE_URL + `?message=${query}`
-    try {
-      const response = await fetch(CHATBOT_ENDPOINT)
-      if (!response.ok) throw new Error
-      const text = await response.text()
-      if (!text) throw new Error
-
-        // Insert query and response into supabase
-        // supabase
-        //   .from('chatbot')
-        //   .insert({ query: query, response: text })
-        //   .then(({ error }) => error && console.log(error))
-
-        return res.status(200).json({ msg: text })
-    } catch (err) {
-      return res
-        .status(500)
-        .json({ err: true, msg: 'Error: could not fetch OpenAI data...' })
-    }
+    return res.status(200).json({ message: text })
+  } catch (err) {
+    return res
+      .status(500)
+      .json({ error: 'Error: could not fetch OpenAI data...' })
   }
-
-  return res.status(200).json({ msg: data[0].response })
 }

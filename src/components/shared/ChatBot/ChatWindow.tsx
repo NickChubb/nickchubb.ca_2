@@ -86,7 +86,9 @@ const BotChatItem = styled.div<{ error?: boolean }>`
   color: ${text.fade};
   background-color: ${colour.cardHeader};
 
-  ${(props) => props.error && `
+  ${(props) =>
+    props.error &&
+    `
     color: ${text.red};
   `}
 `
@@ -219,7 +221,10 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ hide, chat, setChat }) => {
       body: JSON.stringify(body),
     })
     const data = await response.json()
-    updateChat([{ message: data.msg, user: false, error: data.err }, ...newChat])
+    updateChat([
+      { message: data.message ?? data.error, user: false, error: !!data.error },
+      ...newChat,
+    ])
     setLoading(false)
   }
 
