@@ -37,9 +37,12 @@ type FloatingActionButtonProps = {
 const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
   show
 }) => {
-  const isActive = useKeyPress('Meta')
+  const isMac = navigator.userAgent.toUpperCase().indexOf('MAC OS X') >= 0
+  const buttonText = isMac ? '⌘ + K' : 'Ctrl + K'
+  const isMetaActive = useKeyPress('Meta')
+  const isCtrlActive = useKeyPress('Control')
 
-  return <Wrapper onClick={show} isActive={isActive}>{'⌘ + K'}</Wrapper>
+  return <Wrapper onClick={show} isActive={isMetaActive || isCtrlActive}>{buttonText}</Wrapper>
 }
 
 export default FloatingActionButton

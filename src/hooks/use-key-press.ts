@@ -5,7 +5,7 @@ const useKeyPress = (key: string) => {
 
   const handleKeyDown = (e: KeyboardEvent) => e.key === key && setActive(true)
   const handleKeyUp = (e: KeyboardEvent) => e.key === key && setActive(false)
-  
+
   // set the state to inactive when the page is blurred
   // prevents from getting stuck in an active state if the key is 
   // released the page is no longer in focus.
