@@ -15,6 +15,7 @@ export const HeaderTitle = styled.h1`
   margin-bottom: 0;
   white-space: nowrap;
   user-select: none;
+  font-weight: 400;
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
     margin: 0;

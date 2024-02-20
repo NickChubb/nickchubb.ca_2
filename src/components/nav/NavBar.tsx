@@ -44,7 +44,7 @@ const NavWrapper = styled.div<{ isHidden: boolean }>`
 
 const NavMenuWrapper = styled.div<{ isHidden: boolean }>`
   height: 100%;
-  padding: 0 142px 20px 0;
+  padding: 0 142px 34px 0;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -84,6 +84,7 @@ const MenuItemContainer = styled.div`
   gap: 22px;
   padding: 64px 0;
   position: relative;
+  font-weight: 300;
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
     padding: 44px 0 52px;
