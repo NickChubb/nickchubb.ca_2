@@ -16,6 +16,7 @@ const ButtonWrapper = styled.a<{
   transition: 0.25s;
   cursor: pointer;
   width: ${(props) => props.width || 'auto'};
+  font-family: 'Roboto Mono', monospace;
 
   &:hover {
     background: #292929;

@@ -220,13 +220,13 @@ const BioContent: React.FC<SectionProps> = () => {
           triggerOnce
         >
           <Button href={'https://nickchubb.github.io/resume/'} width="100%">
-            Resume <FaFileAlt />
+            resume <FaFileAlt />
           </Button>
           <Button href={'https://www.linkedin.com/in/nickrchubb/'} width="100%">
-            Linkedin <FaLinkedin />
+            linkedin <FaLinkedin />
           </Button>
           <Button onClick={handleContactClick} width="100%">
-            Contact
+            contact
             <FaEnvelope />
           </Button>
         </DesktopFade>
