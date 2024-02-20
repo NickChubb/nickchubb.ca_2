@@ -26,7 +26,7 @@ const TabWrapper = styled.div`
     height: calc(
       848px - 132px - 62px
     ); // height of tabbed content slider - title - tab nav
-    overflow-y: auto;
+    overflow-y: scroll;
   }
 `
 
@@ -34,7 +34,7 @@ const NavWrapper = styled.div`
   font-family: 'Roboto Mono', monospace;
   display: flex;
   gap: 48px;
-  overflow-x: scroll;
+  overflow-x: auto;
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
     justify-content: space-between;
