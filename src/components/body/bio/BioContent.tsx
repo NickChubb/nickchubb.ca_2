@@ -146,7 +146,7 @@ const BioContent: React.FC<SectionProps> = () => {
   return (
     <BioWrapper>
       <HeaderImageWrapper>
-        <HeaderImage src="/me.png" width={200} height={200} alt="me" priority />
+        <HeaderImage src="/me_coding.png" width={200} height={200} alt="me" priority />
       </HeaderImageWrapper>
       <DesktopFade direction="down" duration={500} triggerOnce>
         <TitleParagraph>
