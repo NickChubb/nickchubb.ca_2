@@ -17,6 +17,7 @@ import useKeyPress from '../../../hooks/use-key-press'
 import { usePresence } from 'framer-motion'
 import { gsap } from 'gsap'
 import { useUserInfo } from '../../../hooks/use-user-info'
+import useMediaQuery from '../../../hooks/use-media-query'
 
 const Container = styled.div<{ isPresent: boolean }>`
   height: 100vh;
@@ -34,7 +35,7 @@ const Container = styled.div<{ isPresent: boolean }>`
 `
 
 const PopupWrapper = styled.div`
-  max-width: 640px;
+  max-width: 720px;
   width: 100%;
   padding: 16px;
   border-radius: 8px;
@@ -42,7 +43,8 @@ const PopupWrapper = styled.div`
   box-shadow: ${shadow.drop};
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
-    height: 100%;
+    height: 100vh;
+    border-radius: 0;
   }
 `
 
@@ -75,9 +77,11 @@ const ChatArea = styled.div`
   display: flex;
   flex-direction: column-reverse;
   background: ${colour.cardBackground};
+  text-align: justify;
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
-    max-height: unset;
+    max-height: calc(100vh - 236px);
+    height: 100%;
   }
 `
 
@@ -141,6 +145,7 @@ type ChatWindowProps = {
 }
 
 const ChatWindow: React.FC<ChatWindowProps> = ({ hide, chat, setChat }) => {
+  const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile})`)
   const [isLoading, setLoading] = useState(false)
   const clear = () => updateChat([])
   const userData = useUserInfo()
@@ -168,7 +173,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ hide, chat, setChat }) => {
   useEffect(() => {
     if (!isPresent) {
       gsap.to(popupRef.current, {
-        translateY: '-25px',
+        translateY: isMobile ? 0 : '-25px',
         duration: 0.35,
         ease: 'power.in',
       })
@@ -180,7 +185,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ hide, chat, setChat }) => {
       })
     } else {
       gsap.to(popupRef.current, {
-        translateY: '25px',
+        translateY: isMobile ? 0 : '25px',
         duration: 0.35,
         ease: 'power.out',
       })
@@ -241,7 +246,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ hide, chat, setChat }) => {
       <PopupWrapper ref={popupRef}>
         <PopupHeader>
           <PopupHeaderTitle>
-            <Mono>Hey, welcome to my AI-powered chat-bot! 🤖</Mono>
+            <Mono>Hey, welcome to my AI-powered chatbot! 🤖</Mono>
           </PopupHeaderTitle>
           <PopupHeaderSubtitle>
             <small>
