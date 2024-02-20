@@ -5,13 +5,13 @@ import { FaCaretRight } from 'react-icons/fa'
 import { Fade } from 'react-awesome-reveal'
 // @ts-ignore
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
-import SocialLinks from '../shared/SocialLinks'
 import { breakpoints, colour, shadow, text } from '../shared/styles'
 import MenuItem from './MenuItem'
 import SubMenu from './SubMenu'
 import { Section, sections } from '../body/sections'
 import useClickOutside from '../../hooks/use-click-outside'
 import { HeaderImage, HeaderTitle } from './nav.styled'
+import ChatbotButton from '../shared/ChatBot/ChatbotButton'
 
 const NavContainer = styled.div`
   z-index: 9;
@@ -216,7 +216,7 @@ const NavBar: React.FC<NavBarProps> = ({ section, setSection }) => {
             </Fade>
           </MenuItemContainer>
           <Fade delay={600}>
-            <SocialLinks />
+            <ChatbotButton />
           </Fade>
         </NavMenuWrapper>
       </NavWrapper>

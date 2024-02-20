@@ -9,7 +9,7 @@ import {
 import { ChatItem } from './types'
 import useClickOutside from '../../../hooks/use-click-outside'
 import styled from 'styled-components'
-import { colour, shadow, text } from '../styles'
+import { breakpoints, colour, shadow, text } from '../styles'
 import { Field, Form, Formik } from 'formik'
 import { Code, Mono } from '../text'
 import ChatLoading from './ChatLoading'
@@ -40,6 +40,10 @@ const PopupWrapper = styled.div`
   border-radius: 8px;
   background: ${colour.cardBackground};
   box-shadow: ${shadow.drop};
+
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    height: 100%;
+  }
 `
 
 const PopupHeader = styled.div`
@@ -71,6 +75,10 @@ const ChatArea = styled.div`
   display: flex;
   flex-direction: column-reverse;
   background: ${colour.cardBackground};
+
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    max-height: unset;
+  }
 `
 
 const UserChatElement = styled.div`
