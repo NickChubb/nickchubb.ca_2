@@ -46,13 +46,13 @@ export const projectData: ProjectData = [
     title: 'Chatbot',
     display: true,
     summary:
-      'Python chatbot that uses LlamaIndex to perform Retrieval-Augmented Generation about me',
+      'Python Bot uses OpenAI API to ask questions about me with my own data',
     technologies: 'TypeScript, Python, ReactJs, PostgreSQL, Docker',
     description: [
-      '',
+      'TypeScript chat popup frontend allows visitors to my site to ask questions',
       'Dockerized Python Flask server and Python Retrieval-Augmented Generation (RAG) library LlamaIndex',
-      '',
-      'User authentication and rate-limiting by integration with PostgreSQL database',
+      'User cookie authentication and rate-limiting by integration with PostgreSQL database',
+      'CORS enabled and shared secret authorization allows only API calls from frontend to chatbot API'
     ],
     links: [
       {
@@ -119,7 +119,7 @@ export const projectData: ProjectData = [
     technologies: 'JavaScript, ReactJS, Node.js, Express.js, SQL',
     description: [
       'Discord bot built with Discord.js API and React to solve multiple needs for Science Undergraduate Society',
-      '',
+      'Node.js and Express.js backend integrates with SQLite3 database',
       'React control-panel utilizes SQL to allow users to easily manage database of events at Simon Fraser University',
       'Uses GIPHY SDK to get gifs in response to user query',
     ],
@@ -137,12 +137,12 @@ export const projectData: ProjectData = [
         description: '',
       },
       {
-        path: '/img/projects/hawking-1.png',
+        path: '/img/projects/hawking-2.png',
         title: '',
         description: '',
       },
       {
-        path: '/img/projects/hawking-1.png',
+        path: '/img/projects/hawking-3.png',
         title: '',
         description: '',
       },

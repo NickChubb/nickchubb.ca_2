@@ -44,6 +44,7 @@ const NavButton = styled.div`
 `
 
 const Image = styled(motion.div)<{ src: string }>`
+  position: absolute;
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -109,7 +110,7 @@ const Slideshow: React.FC<SlideshowProps> = ({ images }) => {
             x: { type: 'spring', stiffness: 300, damping: 30 },
             opacity: { duration: 0.2 },
           }}
-          drag="x"
+          drag={images.length <= 1 ? false : "x"}
           dragConstraints={{ left: 0, right: 0 }}
           dragElastic={1}
           onDragEnd={(e, { offset, velocity }) => {

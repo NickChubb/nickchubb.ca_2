@@ -13,6 +13,7 @@ import { useEffect, useRef } from 'react'
 import { motion, usePresence } from 'framer-motion'
 import { gsap } from 'gsap'
 import Slideshow from './Slideshow'
+import { Mono } from '../../shared/text'
 
 const ProjectDisplayWrapper = styled.div`
   height: 100%;
@@ -79,6 +80,7 @@ const DescriptionWrapper = styled.ul`
   margin-left: 0;
   padding-left: 24px;
   list-style-position: outside;
+  // list-style: none;
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
     padding-left: 16px;
@@ -88,6 +90,7 @@ const DescriptionWrapper = styled.ul`
 
 const DescriptionListItem = styled.li`
   // &:before {
+  //   font-family: 'Roboto Mono', monospace;
   //   content: '>  ';
   // }
   font-size: ${fontSize.small};
@@ -102,6 +105,10 @@ const Alert = styled.div`
   border: 1px solid #eed3d7;
   background-color: #f2dede;
   color: #b94a48;
+`
+
+const MadeWith = styled.strong`
+  border-bottom: 1px solid ${text.fade};
 `
 
 const ProjectDisplay: React.FC<{ project: Project; isMobile: boolean }> = ({
@@ -145,7 +152,9 @@ const ProjectDisplay: React.FC<{ project: Project; isMobile: boolean }> = ({
           ))}
         </DescriptionWrapper>
         <Paragraph fontSize="16">
-          <b>Made with:</b> {project?.technologies}
+          <Mono>
+            <MadeWith>Made with</MadeWith>: {project?.technologies}
+          </Mono>
         </Paragraph>
         {project?.alert && <Alert>{project?.alert}</Alert>}
       </Summary>
