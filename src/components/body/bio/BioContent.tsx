@@ -146,11 +146,11 @@ const BioContent: React.FC<SectionProps> = () => {
       <HeaderImageWrapper>
         <HeaderImage src="/me.png" width={200} height={200} alt="me" priority />
       </HeaderImageWrapper>
-      <DesktopFade direction="down" duration={600} triggerOnce>
+      <DesktopFade direction="down" duration={500} triggerOnce>
         <TitleParagraph>
           Hi, my name is
           <TitleLarge>
-            <Fade duration={400} cascade triggerOnce>
+            <Fade duration={300} cascade triggerOnce>
               Nick Chubb
             </Fade>
             <Blink>.</Blink>
@@ -158,7 +158,7 @@ const BioContent: React.FC<SectionProps> = () => {
         </TitleParagraph>
       </DesktopFade>
       <RolesSection>
-        <DesktopFade delay={2400} cascade triggerOnce>
+        <DesktopFade delay={1800} cascade triggerOnce>
           <RoleItem>
             <RoleIcon>👨‍💻&nbsp;&nbsp;{'>'} </RoleIcon>
             <RoleItemDescription>
@@ -191,16 +191,16 @@ const BioContent: React.FC<SectionProps> = () => {
         </DesktopFade>
       </RolesSection>
       <SkillsSection>
-        <DesktopFade delay={4000} triggerOnce>
+        <DesktopFade delay={3200} triggerOnce>
           <Subtitle>Skills</Subtitle>
         </DesktopFade>
-        <DesktopFade direction="up" delay={4200} cascade triggerOnce>
+        <DesktopFade direction="up" delay={3400} cascade triggerOnce>
           <SkillsListWrapper>
               <Technologies fill="white" />
           </SkillsListWrapper>
         </DesktopFade>
       </SkillsSection>
-      <DesktopFade direction="up" delay={4500} cascade triggerOnce>
+      <DesktopFade direction="up" delay={3600} cascade triggerOnce>
         <ContentParagraph>
           I am{' '}
           <Large>
@@ -212,7 +212,7 @@ const BioContent: React.FC<SectionProps> = () => {
       <ButtonContainer>
         <DesktopFade
           direction="up"
-          delay={5000}
+          delay={4000}
           duration={300}
           cascade
           triggerOnce
