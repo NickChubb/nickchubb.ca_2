@@ -12,35 +12,64 @@ export const projectData: ProjectData = [
       'ReactJS front-end for a social network with a backend built on the blockchain',
       'Access to different user-created communities are controlled by Solidity smart contracts',
       'Uses MongoDB for database of community posts',
-      'Currenly operational on the Ethereum Sepolia testnetwork (See dropdown meu for link)'
+      'Currenly operational on the Ethereum Sepolia testnetwork (See dropdown meu for link)',
     ],
     links: [
       {
         title: 'Github',
         url: 'https://github.com/NickChubb/Communities',
-        Icon: <FaGithub />
+        Icon: <FaGithub />,
       },
       {
         title: 'Demo',
         url: 'https://communities-mocha.vercel.app/',
-        Icon: <RiComputerLine />
-      }
+        Icon: <RiComputerLine />,
+      },
     ],
     image: [
       {
-        path: 'https://user-images.githubusercontent.com/4172020/275337420-f8f09c25-d1ef-4478-a04d-575694b8fcdc.png',
-        title: 'Explore Communities'
+        path: '/img/projects/communities-1.png',
+        title: 'Explore Communities',
       },
       {
-        path: 'https://user-images.githubusercontent.com/4172020/274536408-d283b6f0-caea-4ddc-8cc3-d2cfae6a0c0d.png',
-        title: 'Create a new Community'
+        path: '/img/projects/communities-2.png',
+        title: 'Create a new Community',
       },
       {
-        path: 'https://user-images.githubusercontent.com/4172020/275337478-4dfbdb74-779b-4a59-b3f3-5d530b6a8fc3.png',
-        title: 'User\'s page',
-      }
+        path: '/img/projects/communities-3.png',
+        title: "User's page",
+      },
     ],
     icon: '🦄',
+  },
+  {
+    title: 'Chatbot',
+    display: true,
+    summary:
+      'Python chatbot that uses LlamaIndex to perform Retrieval-Augmented Generation about me',
+    technologies: 'TypeScript, Python, ReactJs, PostgreSQL, Docker',
+    description: [
+      '',
+      'Dockerized Python Flask server and Python Retrieval-Augmented Generation (RAG) library LlamaIndex',
+      '',
+      'User authentication and rate-limiting by integration with PostgreSQL database',
+    ],
+    links: [
+      {
+        title: 'Github',
+        url: 'https://github.com/NickChubb/chatbot',
+        Icon: <FaGithub />,
+      },
+    ],
+    image: [
+      {
+        path: '/img/projects/chatbot-1.png',
+        title: 'React Popup Chat Window',
+        description:
+          'Start/Stop/Restart individual containers or all containers.  Serve port from container at URL endpoint to quickly host GUI and API apps.',
+      },
+    ],
+    icon: '✨',
   },
   {
     title: 'dockerman',
@@ -51,31 +80,31 @@ export const projectData: ProjectData = [
       'Modular server back-end which utilizes Node.js and Docker to serve containers on the same web domain',
       'Uses Node.js as the backend to manage routing private and public routes',
       'Utilizes SQLite3 database to store information about containers, logs, and more',
-      'Log screen shows login history and more for Dockerman app',
+      // 'Log screen shows login history and more for Dockerman app',
       'Config screen allows users to simply change app configuration parameters',
     ],
     links: [
       {
         title: 'Github',
         url: 'https://github.com/NickChubb/dockerman',
-        Icon: <FaGithub />
-      }
+        Icon: <FaGithub />,
+      },
     ],
     image: [
       {
-        path: 'https://i.imgur.com/7I1RGFl.png',
+        path: '/img/projects/dockerman-1.png',
         title: 'Container Control Panel',
         description:
           'Start/Stop/Restart individual containers or all containers.  Serve port from container at URL endpoint to quickly host GUI and API apps.',
       },
       {
-        path: 'https://i.imgur.com/TDxDVSc.png',
+        path: '/img/projects/dockerman-2.png',
         title: 'Config Screen',
         description:
           'Change configuration options and manage security features.',
       },
       {
-        path: 'https://i.imgur.com/E3zizY1.png',
+        path: '/img/projects/dockerman-3.png',
         title: 'Log Screen',
         description:
           'View logs from database of performed actions, login requests, and more.',
@@ -90,6 +119,7 @@ export const projectData: ProjectData = [
     technologies: 'JavaScript, ReactJS, Node.js, Express.js, SQL',
     description: [
       'Discord bot built with Discord.js API and React to solve multiple needs for Science Undergraduate Society',
+      '',
       'React control-panel utilizes SQL to allow users to easily manage database of events at Simon Fraser University',
       'Uses GIPHY SDK to get gifs in response to user query',
     ],
@@ -97,22 +127,22 @@ export const projectData: ProjectData = [
       {
         title: 'Github',
         url: 'https://github.com/NickChubb/hawking',
-        Icon: <FaGithub />
+        Icon: <FaGithub />,
       },
     ],
     image: [
       {
-        path: 'https://i.imgur.com/cG6rfkp.png',
+        path: '/img/projects/hawking-1.png',
         title: '',
         description: '',
       },
       {
-        path: 'https://i.imgur.com/UourrNo.png',
+        path: '/img/projects/hawking-1.png',
         title: '',
         description: '',
       },
       {
-        path: 'https://i.imgur.com/Rt2w2l2.png',
+        path: '/img/projects/hawking-1.png',
         title: '',
         description: '',
       },
@@ -134,7 +164,7 @@ export const projectData: ProjectData = [
       {
         title: 'Github',
         url: 'https://github.com/NickChubb/ReversiRust',
-        Icon: <FaGithub />
+        Icon: <FaGithub />,
       },
       {
         title: 'Crates.io',

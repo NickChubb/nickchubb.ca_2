@@ -5,6 +5,7 @@ import { breakpoints, colour, shadow, text } from '../../shared/styles'
 import ProjectDisplay from './ProjectDisplay'
 import { scrollToSection } from '../../../utils/scroll'
 import useMediaQuery from '../../../hooks/use-media-query'
+import { AnimatePresence } from 'framer-motion'
 
 const ProjectContent = styled.div`
   display: flex;
@@ -46,6 +47,7 @@ const ProjectNavItem = styled.h3<{ isActive: boolean }>`
 const ProjectDisplayWrapper = styled.div`
   height: 100%;
   width: 100%;
+  overflow: hidden;
 `
 
 const MobileProjectDisplayWrapper = styled.div`
@@ -89,7 +91,9 @@ const ProjectsContent: React.FC = () => {
         )}
       </ProjectNavWrapper>
       <ProjectDisplayWrapper>
-        <ProjectDisplay project={projectData[project]} isMobile={isMobile} />
+        <AnimatePresence>
+          <ProjectDisplay key={project} project={projectData[project]} isMobile={isMobile} />
+        </AnimatePresence>
       </ProjectDisplayWrapper>
     </ProjectContent>
   )

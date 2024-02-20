@@ -9,6 +9,10 @@ import {
 } from '../../shared/styles'
 import { Project } from './ProjectTypes'
 import Gallery from './Gallery'
+import { useEffect, useRef } from 'react'
+import { motion, usePresence } from 'framer-motion'
+import { gsap } from 'gsap'
+import Slideshow from './Slideshow'
 
 const ProjectDisplayWrapper = styled.div`
   height: 100%;
@@ -54,7 +58,7 @@ const Summary = styled.div`
   gap: 24px;
 `
 
-const Paragraph = styled.p<{ type?: string, fontSize?: string }>`
+const Paragraph = styled.p<{ type?: string; fontSize?: string }>`
   margin: 0;
 
   ${(props) =>
@@ -104,8 +108,26 @@ const ProjectDisplay: React.FC<{ project: Project; isMobile: boolean }> = ({
   project,
   isMobile,
 }) => {
+  // Generate fade on window leaving and entering DOM with framer-motion
+  const projectDisplayRef = useRef(null)
+  const [isPresent, safeToRemove] = usePresence()
+  useEffect(() => {
+    if (!isPresent) {
+      gsap.to(projectDisplayRef.current, {
+        opacity: 0,
+        duration: 0.2,
+        onComplete: () => safeToRemove?.(),
+      })
+    } else {
+      gsap.to(projectDisplayRef.current, {
+        opacity: 1,
+        duration: 0.2,
+      })
+    }
+  }, [isPresent, safeToRemove])
+
   return (
-    <ProjectDisplayWrapper>
+    <ProjectDisplayWrapper ref={projectDisplayRef}>
       <Summary>
         <ProjectDisplayHeader>
           <Title>
@@ -127,7 +149,8 @@ const ProjectDisplay: React.FC<{ project: Project; isMobile: boolean }> = ({
         </Paragraph>
         {project?.alert && <Alert>{project?.alert}</Alert>}
       </Summary>
-      <Gallery images={project.image} />
+      {/* <Gallery images={project.image} /> */}
+      <Slideshow images={project.image} />
     </ProjectDisplayWrapper>
   )
 }
