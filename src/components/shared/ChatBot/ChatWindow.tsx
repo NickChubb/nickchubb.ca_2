@@ -4,8 +4,9 @@ import {
   getHelpMessage,
   getSuggestionsMessage,
   storeLocalChat,
-  getUserId
+  getUserId,
 } from './chat'
+import { AiFillCloseCircle } from 'react-icons/ai'
 import { ChatItem } from './types'
 import useClickOutside from '../../../hooks/use-click-outside'
 import styled from 'styled-components'
@@ -119,6 +120,20 @@ const Input = styled(Field)`
   border-radius: 4px;
   &:focus {
     outline: none;
+  }
+`
+
+const CloseButton = styled.div`
+  position: absolute;
+  top: 16px;
+  right 16px;
+  font-size: 22px;
+  cursor: pointer;
+  color: ${colour.cardHighlighted};
+  transition: 0.2s all;
+
+  &:hover {
+    color: ${text.fade};
   }
 `
 
@@ -283,6 +298,10 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ hide, chat, setChat }) => {
             />
           </Form>
         </Formik>
+
+        <CloseButton onClick={hide}>
+          <AiFillCloseCircle width={24} height={24} />
+        </CloseButton>
       </PopupWrapper>
     </Container>
   )
