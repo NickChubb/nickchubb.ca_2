@@ -26,7 +26,7 @@ const TabWrapper = styled.div`
     height: calc(
       848px - 132px - 62px
     ); // height of tabbed content slider - title - tab nav
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 `
 
