@@ -74,6 +74,7 @@ const Home: React.FC = () => {
           title={section.title}
           setSection={setSection}
           center={section.center ?? false}
+          showTitle={section.showTitle ?? false}
         />
       )
     })

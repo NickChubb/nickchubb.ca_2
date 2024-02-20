@@ -12,39 +12,45 @@ export type Section = {
   center?: boolean
   backgroundColor?: string
   textColor?: string
+  showTitle?: boolean
 }
 
 export const sections: Array<Section> = [
   {
     title: 'bio',
     Content: BioContent,
-    center: true,
+    center: true
   },
   {
     title: 'experience',
     Content: <ExperienceContent data={experienceData}/>,
     center: true,
-    backgroundColor: 'rgb(60, 67, 64)'
+    backgroundColor: 'rgb(60, 67, 64)',
+    showTitle: true
   },
   {
     title: 'projects',
     Content: ProjectsContent,
-    center: true
+    center: true,
+    showTitle: true
   },
   {
     title: 'volunteering',
     Content: <ExperienceContent data={volunteeringData}/>,
     center: true,
-    backgroundColor: 'rgb(60, 67, 64)'
+    backgroundColor: 'rgb(60, 67, 64)',
+    showTitle: true
   },
   {
     title: 'personal',
     Content: PersonalContent,
     center: true,
+    showTitle: true
   },
   {
     title: 'contact',
     Content: ContactContent,
-    center: true
+    center: true,
+    showTitle: true
   }
 ]
