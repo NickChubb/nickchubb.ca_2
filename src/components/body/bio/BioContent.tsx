@@ -62,6 +62,7 @@ const TitleLarge = styled.span`
   padding-bottom: 8px;
   border-bottom: 1px solid ${text.fade};
   text-align: center;
+  font-weight: 400;
 `
 
 const RolesSection = styled.div`
@@ -102,6 +103,7 @@ const Subtitle = styled.h3`
   font-family: 'Roboto Mono', monospace;
   padding-bottom: 8px;
   border-bottom: 1px solid ${text.fade};
+  font-weight: 400;
 `
 
 const SkillsSection = styled.div`
