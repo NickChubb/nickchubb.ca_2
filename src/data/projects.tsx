@@ -46,11 +46,12 @@ export const projectData: ProjectData = [
     title: 'Chatbot',
     display: true,
     summary:
-      'Python Bot uses OpenAI API to ask questions about me with my own data',
+      'Python Bot with OpenAI API to ask questions about me with my own data',
     technologies: 'TypeScript, Python, ReactJs, PostgreSQL, Docker',
     description: [
-      'TypeScript chat popup frontend allows visitors to my site to ask questions',
-      'Dockerized Python Flask server and Python Retrieval-Augmented Generation (RAG) library LlamaIndex',
+      // 'TypeScript chat popup frontend allows visitors to my site to ask questions',
+      'Uses Python Retrieval-Augmented Generation (RAG) library LlamaIndex',
+      'Dockerized Python Flask server hosted on GCP Cloud Run for scalability and maintainability',
       'User cookie authentication and rate-limiting by integration with PostgreSQL database',
       'CORS enabled and shared secret authorization allows only API calls from frontend to chatbot API'
     ],
