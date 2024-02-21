@@ -45,7 +45,7 @@ export const volunteeringData: ExperienceData = [
     finishDate: '2020-04',
     website: 'https://sfss.ca/',
     description: [
-      'Represented the Faculty of Applied Science as an integral part of the student society for all of SFU',
+      'Represented the Faculty of Applied Science as an integral member of the student society for all of SFU',
       'Established and led a team as chair of the Surrey Campus Committee to successfully host over 15 events'
     ],
     skills: ['Leadership', 'Communication', 'Project Management', 'Team Management' ],

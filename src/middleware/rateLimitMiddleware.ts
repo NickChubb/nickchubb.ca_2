@@ -8,7 +8,7 @@ const supabase = createClient(
 )
 
 const RATE_LIMIT_WINDOW_MS = 60000 // 1 minute window
-const MAX_REQUESTS_PER_WINDOW = 5 // Allow a maximum of 10 requests per minute
+const MAX_REQUESTS_PER_WINDOW = 3 // Maximum requests per minute
 
 const rateLimitMiddleware = async (
   req: NextApiRequest,
@@ -65,8 +65,7 @@ const rateLimitMiddleware = async (
       await supabase
         .from('users')
         .update({
-          request_count: data?.request_count + 1,
-          last_request_time: currentTime.toISOString(),
+          request_count: data?.request_count + 1
         })
         .eq('id', userId)
     } else {

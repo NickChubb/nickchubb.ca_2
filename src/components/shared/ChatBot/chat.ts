@@ -1,32 +1,32 @@
 import { v4 as uuidv4 } from 'uuid'
-import { ChatItem, CommandType } from "./types"
+import { ChatItem, CommandType } from './types'
 
 export const commands: Array<CommandType> = [
   {
     id: 0,
     name: 'exit',
     command: ['exit', 'quit', ':wq', '', 'close'],
-    description: 'Close the chat window.'
+    description: 'Close the chat window.',
   },
   {
     id: 1,
     name: 'clear',
     command: ['clear', 'cls', 'refresh', 'reset'],
-    description: 'Reset chat window.'
+    description: 'Reset chat window.',
   },
   {
     id: 2,
     name: 'help',
     command: ['help'],
-    description: 'Generate a list of available functions.'
+    description: 'Generate a list of available functions.',
   },
   {
     id: 3,
     name: 'suggestions',
     command: ['suggestions', 'suggest'],
-    description: 'Generate a list of suggested queries.'
-  }
-] 
+    description: 'Generate a list of suggested queries.',
+  },
+]
 
 export const getHelpMessage = (): Array<string> => {
   const response: Array<string> = []
@@ -37,7 +37,11 @@ export const getHelpMessage = (): Array<string> => {
 }
 
 export const getSuggestionsMessage = (): Array<string> => {
-  return ['What projects have you worked on?', 'How much experience do you have as a Back-end Developer?']
+  return [
+    '> What personal projects have you worked on and how do they demonstrate your full stack development skills?',
+    '> How much experience do you have as a Back-end Developer?',
+    '> What do you like to do in your free time? What are your favourite books? Authors? Games?'
+  ]
 }
 
 // Maintain copy of chat in the LocalStorage for persistence across visits
