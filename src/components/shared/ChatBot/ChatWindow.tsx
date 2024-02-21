@@ -81,7 +81,7 @@ const ChatArea = styled.div`
   text-align: justify;
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
-    max-height: calc(100% - 212px);
+    max-height: calc(100% - 360px);
     height: 100%;
   }
 `
