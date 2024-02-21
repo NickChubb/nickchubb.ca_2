@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import styled from 'styled-components'
 import NavBar from '../src/components/nav/NavBar'
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Section from '../src/components/shared/Section'
 import { sections } from '../src/components/body/sections'
 import { breakpoints } from '../src/components/shared/styles'
@@ -10,6 +10,8 @@ import Scroller from '../src/components/shared/technologies/Scroller'
 import GithubModal from '../src/components/shared/GithubModal'
 import useOnFocusChangeFavicon from '../src/hooks/use-on-focus-change-favicon'
 import Chatbot from '../src/components/shared/ChatBot'
+import { ChatbotContext } from '../src/components/shared/ChatBot/ChatbotProvider'
+import { pluck } from 'ramda'
 
 const Container = styled.div<{
   backgroundColor?: string
@@ -60,9 +62,16 @@ const MainWrapper = styled.main`
 
 const Home: React.FC = () => {
   const { asPath } = useRouter()
-  const currentSection = asPath.substring(2)
-  const [section, setSection] = useState(currentSection ?? 'bio')
+  const path = asPath.substring(2)
+  const initialSection = pluck('title', sections).includes(path) ? path : 'bio'
+  const [section, setSection] = useState(initialSection)
   useOnFocusChangeFavicon()
+
+  // Handles showing chat window when url is nickchubb.ca/#chat
+  const { show } = useContext(ChatbotContext)
+  useEffect(() => {
+    if (path === 'chat') return show()
+  }, [])
 
   const renderSections = () => {
     return sections.map((section, key) => {
