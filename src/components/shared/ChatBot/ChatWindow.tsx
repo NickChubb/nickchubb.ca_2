@@ -227,14 +227,14 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ hide, chat, setChat }) => {
       ])
     }
 
-    message = message.toLowerCase()
+    const messageLower = message.toLowerCase()
 
     // Local Commands
-    if (commands[0].command.includes(message)) return hide()
-    if (commands[1].command.includes(message)) return clear()
-    if (commands[2].command.includes(message))
+    if (commands[0].command.includes(messageLower)) return hide()
+    if (commands[1].command.includes(messageLower)) return clear()
+    if (commands[2].command.includes(messageLower))
       return localCommand(getHelpMessage)
-    if (commands[3].command.includes(message))
+    if (commands[3].command.includes(messageLower))
       return localCommand(getSuggestionsMessage)
 
     // Fetch response from backend API and update chat
