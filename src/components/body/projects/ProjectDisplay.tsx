@@ -158,7 +158,6 @@ const ProjectDisplay: React.FC<{ project: Project; isMobile: boolean }> = ({
         </Paragraph>
         {project?.alert && <Alert>{project?.alert}</Alert>}
       </Summary>
-      {/* <Gallery images={project.image} /> */}
       <Slideshow images={project.image} />
     </ProjectDisplayWrapper>
   )
