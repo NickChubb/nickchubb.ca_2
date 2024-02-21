@@ -10,6 +10,7 @@ export default function Document() {
         <meta property="og:url" content="https://nickchubb.ca" />
         <meta property="og:description" content="Hi" />
         <meta property="og:type" content="website" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content" />
         <Main />
         <NextScript />
       </body>

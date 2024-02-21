@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { fontSize, text } from "./styles"
+import { colour, fontSize, text } from "./styles"
 
 export const Blink = styled.span`
   animation: blinker 1.12s linear infinite;
@@ -19,4 +19,11 @@ export const Paragraph = styled.div`
 
 export const GreenText = styled.span`
   color: ${text.green};
+`
+
+export const Code = styled.span`
+  font-family: "Roboto Mono", monospace;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: ${colour.cardHeader};
 `

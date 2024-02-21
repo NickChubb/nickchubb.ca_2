@@ -5,13 +5,14 @@ import { FaCaretRight } from 'react-icons/fa'
 import { Fade } from 'react-awesome-reveal'
 // @ts-ignore
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
-import SocialLinks from '../shared/SocialLinks'
 import { breakpoints, colour, shadow, text } from '../shared/styles'
 import MenuItem from './MenuItem'
 import SubMenu from './SubMenu'
 import { Section, sections } from '../body/sections'
 import useClickOutside from '../../hooks/use-click-outside'
 import { HeaderImage, HeaderTitle } from './nav.styled'
+import ChatbotButton from '../shared/ChatBot/ChatbotButton'
+import useMediaQuery from '../../hooks/use-media-query'
 
 const NavContainer = styled.div`
   z-index: 9;
@@ -138,6 +139,7 @@ type NavBarProps = {
 }
 
 const NavBar: React.FC<NavBarProps> = ({ section, setSection }) => {
+  const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile})`)
   const [isHidden, setHidden] = useState(true)
   const navBarRef = useRef(null)
 
@@ -215,8 +217,8 @@ const NavBar: React.FC<NavBarProps> = ({ section, setSection }) => {
               {renderMenu()}
             </Fade>
           </MenuItemContainer>
-          <Fade delay={600}>
-            <SocialLinks />
+          <Fade delay={600} style={{ marginRight: isMobile ? '-18px' : 0}}>
+            <ChatbotButton />
           </Fade>
         </NavMenuWrapper>
       </NavWrapper>

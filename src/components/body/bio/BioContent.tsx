@@ -146,7 +146,7 @@ const BioContent: React.FC<SectionProps> = () => {
   return (
     <BioWrapper>
       <HeaderImageWrapper>
-        <HeaderImage src="/me.png" width={200} height={200} alt="me" priority />
+        <HeaderImage src="/me_coding.png" width={200} height={200} alt="me" priority />
       </HeaderImageWrapper>
       <DesktopFade direction="down" duration={500} triggerOnce>
         <TitleParagraph>
@@ -220,13 +220,13 @@ const BioContent: React.FC<SectionProps> = () => {
           triggerOnce
         >
           <Button href={'https://nickchubb.github.io/resume/'} width="100%">
-            Resume <FaFileAlt />
+            resume <FaFileAlt />
           </Button>
           <Button href={'https://www.linkedin.com/in/nickrchubb/'} width="100%">
-            Linkedin <FaLinkedin />
+            linkedin <FaLinkedin />
           </Button>
           <Button onClick={handleContactClick} width="100%">
-            Contact
+            contact
             <FaEnvelope />
           </Button>
         </DesktopFade>

@@ -9,6 +9,7 @@ import { useRouter } from 'next/router'
 import Scroller from '../src/components/shared/technologies/Scroller'
 import GithubModal from '../src/components/shared/GithubModal'
 import useOnFocusChangeFavicon from '../src/hooks/use-on-focus-change-favicon'
+import Chatbot from '../src/components/shared/ChatBot'
 
 const Container = styled.div<{
   backgroundColor?: string
@@ -73,6 +74,7 @@ const Home: React.FC = () => {
           title={section.title}
           setSection={setSection}
           center={section.center ?? false}
+          showTitle={section.showTitle ?? false}
         />
       )
     })
@@ -92,6 +94,7 @@ const Home: React.FC = () => {
       </AppWrapper>
       <GithubModal section={section} />
       <Scroller />
+      <Chatbot />
     </Container>
   )
 }
