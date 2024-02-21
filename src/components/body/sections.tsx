@@ -19,7 +19,7 @@ export const sections: Array<Section> = [
   {
     title: 'bio',
     Content: BioContent,
-    center: true
+    center: true,
   },
   {
     title: 'experience',

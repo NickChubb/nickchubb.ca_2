@@ -65,7 +65,6 @@ type SectionProps = {
   setSection: Dispatch<SetStateAction<string>>
   Component: React.FC<any> | React.ReactNode
   center?: boolean
-  showTitle?: boolean
 }
 
 const Section: React.FC<SectionProps> = ({
