@@ -290,7 +290,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ hide, chat, setChat }) => {
               name="message"
               id="message"
               placeholder={
-                isLoading ? 'Generating response...' : '✨ Ask me anything! ✨'
+                isLoading ? 'Generating response... 🤔' : '✨ Ask me anything! ✨'
               }
               disabled={isLoading}
               autoComplete="off"
