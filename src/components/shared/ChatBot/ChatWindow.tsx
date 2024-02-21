@@ -217,7 +217,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ hide, chat, setChat }) => {
   }
 
   const handleSubmit = async (message: string) => {
-    message = message.trim().toLowerCase()
+    message = message.trim()
 
     const localCommand = (callback: () => Array<string>) => {
       return updateChat([
@@ -226,6 +226,8 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ hide, chat, setChat }) => {
         ...chat,
       ])
     }
+
+    message = message.toLowerCase()
 
     // Local Commands
     if (commands[0].command.includes(message)) return hide()
