@@ -8,9 +8,8 @@ import {
   text,
 } from '../../shared/styles'
 import { Project } from './ProjectTypes'
-import Gallery from './Gallery'
 import { useEffect, useRef } from 'react'
-import { motion, usePresence } from 'framer-motion'
+import { usePresence } from 'framer-motion'
 import { gsap } from 'gsap'
 import Slideshow from './Slideshow'
 import { Mono } from '../../shared/text'
