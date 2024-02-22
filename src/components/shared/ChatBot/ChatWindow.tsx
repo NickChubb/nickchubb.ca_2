@@ -227,9 +227,8 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ hide, chat, setChat }) => {
       ])
     }
 
-    const messageLower = message.toLowerCase()
-
     // Local Commands
+    const messageLower = message.toLowerCase()
     if (commands[0].command.includes(messageLower)) return hide()
     if (commands[1].command.includes(messageLower)) return clear()
     if (commands[2].command.includes(messageLower))

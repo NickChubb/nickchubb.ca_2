@@ -5,6 +5,7 @@ import { ImageDetails } from './ProjectTypes'
 import styled from 'styled-components'
 import { breakpoints, colour, shadow, text } from '../../shared/styles'
 import useMediaQuery from '../../../hooks/use-media-query'
+import Image from 'next/image'
 
 const Wrapper = styled.div`
   height: 100%;
@@ -43,13 +44,10 @@ const NavButton = styled.div`
   }
 `
 
-const Image = styled(motion.div)<{ src: string }>`
+const ImageContainer = styled(motion.div)`
   position: absolute;
   width: 100%;
   height: 100%;
-  background-size: cover;
-  background-position-x: center;
-  ${(props) => `background-image: url(${props.src});`}
 `
 
 const variants = {
@@ -98,9 +96,8 @@ const Slideshow: React.FC<SlideshowProps> = ({ images }) => {
   return (
     <Wrapper>
       <AnimatePresence initial={false} custom={direction}>
-        <Image
+        <ImageContainer
           key={page}
-          src={images[imageIndex].path}
           custom={direction}
           variants={variants}
           initial="enter"
@@ -110,7 +107,7 @@ const Slideshow: React.FC<SlideshowProps> = ({ images }) => {
             x: { type: 'spring', stiffness: 300, damping: 30 },
             opacity: { duration: 0.2 },
           }}
-          drag={images.length <= 1 ? false : "x"}
+          drag={images.length <= 1 ? false : 'x'}
           dragConstraints={{ left: 0, right: 0 }}
           dragElastic={1}
           onDragEnd={(e, { offset, velocity }) => {
@@ -122,9 +119,17 @@ const Slideshow: React.FC<SlideshowProps> = ({ images }) => {
               paginate(-1)
             }
           }}
-        />
+        >
+          <Image
+            src={images[imageIndex].path}
+            fill={true}
+            alt={images[imageIndex].title}
+            priority={true}
+            style={{ objectFit: 'cover', objectPosition: 'top' }}
+          />
+        </ImageContainer>
       </AnimatePresence>
-      {images.length > 1 && !isMobile &&(
+      {images.length > 1 && !isMobile && (
         <>
           <NavButton style={{ right: '10px' }} onClick={() => paginate(1)}>
             {'‣'}
