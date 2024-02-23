@@ -27,3 +27,11 @@ export const Code = styled.span`
   border-radius: 4px;
   background: ${colour.cardHeader};
 `
+
+export const Subtitle = styled.h3`
+  font-family: 'Roboto Mono', monospace;
+  padding-bottom: 4px;
+  border-bottom: 1px solid ${text.fade};
+  font-weight: 400;
+  color: ${text.normal};
+`

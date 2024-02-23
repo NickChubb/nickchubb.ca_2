@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import Button from '../../shared/Button'
 import { SectionProps } from '../../shared/types'
 import { breakpoints, fontSize, text } from '../../shared/styles'
-import { Blink, Mono, Paragraph } from '../../shared/text'
+import { Blink, Mono, Paragraph, Subtitle } from '../../shared/text'
 import useScrollToSection from '../../../hooks/use-scroll-to-section'
 import DesktopFade from '../../shared/DesktopFade'
 import Technologies from '../../shared/technologies'
@@ -59,13 +59,6 @@ const TitleLarge = styled.span`
   font-size: 42px;
   border-bottom: 1px solid ${text.fade};
   text-align: center;
-  font-weight: 400;
-`
-
-const Subtitle = styled.h3`
-  font-family: 'Roboto Mono', monospace;
-  padding-bottom: 4px;
-  border-bottom: 1px solid ${text.fade};
   font-weight: 400;
 `
 
