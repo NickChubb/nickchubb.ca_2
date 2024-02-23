@@ -44,6 +44,7 @@ export const projectData: ProjectData = [
       {
         src: commmunities1,
         title: 'Explore Communities',
+        priority: true,
       },
       {
         src: commmunities2,
@@ -82,6 +83,7 @@ export const projectData: ProjectData = [
         title: 'React Popup Chat Window',
         description:
           'Start/Stop/Restart individual containers or all containers.  Serve port from container at URL endpoint to quickly host GUI and API apps.',
+        priority: true
       },
     ],
     icon: '✨',
@@ -111,6 +113,7 @@ export const projectData: ProjectData = [
           <ProjectImage
             src={dockerMan1}
             alt="Container Control Panel"
+            priority={true}
           />
         ),
         src: dockerMan1,
@@ -169,6 +172,7 @@ export const projectData: ProjectData = [
         src: hawking1,
         title: 'Dashboard',
         description: '',
+        priority: true,
       },
       {
         src: hawking2,
