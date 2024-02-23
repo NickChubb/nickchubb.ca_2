@@ -4,9 +4,9 @@ import { ProjectData } from '../components/body/projects/ProjectTypes'
 import ProjectImage from '../components/body/projects/ProjectImage'
 
 // Import local images
-import dockerMan1 from '/img/projects/dockerman-1.png'
-import dockerMan2 from '/img/projects/dockerman-2.png'
-import dockerMan3 from '/img/projects/dockerman-3.png'
+import dockerMan1 from '/public/img/projects/dockerman-1.png'
+import dockerMan2 from '/public/img/projects/dockerman-2.png'
+import dockerMan3 from '/public/img/projects/dockerman-3.png'
 
 export const projectData: ProjectData = [
   {
