@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-import { text } from './styles'
+import { colour, text } from './styles'
 
 const ButtonWrapper = styled.a<{
   width?: string
 }>`
-  padding: 10px 20px;
-  background: #1f1f1f;
-  border-radius: 4px;
-  color: ${text.normal};
+  padding: 12px 20px;
+  background: ${colour.cardHeader};
+  border-radius: 8px;
+  color: ${text.light};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,15 +17,13 @@ const ButtonWrapper = styled.a<{
   cursor: pointer;
   width: ${(props) => props.width || 'auto'};
   font-family: 'Roboto Mono', monospace;
+  font-size: 18px;
+  line-height: 18px;
+  border: 1px solid #111;
 
   &:hover {
-    background: #292929;
-    transform: scale(0.98);
-  }
-
-  &:active {
-    background: #333333;
-    color: ${text.green};
+    background: ${colour.cardHighlighted};
+    color: ${text.normal};
   }
 `
 

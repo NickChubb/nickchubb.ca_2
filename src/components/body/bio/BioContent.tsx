@@ -52,7 +52,9 @@ const TitleParagraph = styled.div`
   }
 `
 
-const ContentParagraph = styled(Paragraph)``
+const ContentParagraph = styled(Paragraph)`
+  color: ${text.light};
+`
 
 const TitleLarge = styled.span`
   font-size: 42px;
