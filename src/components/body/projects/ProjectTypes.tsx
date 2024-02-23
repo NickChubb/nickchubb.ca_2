@@ -5,6 +5,7 @@ export type Link = {
 }
 
 export type ImageDetails = {
+  Element?: React.ReactElement
   path: string
   title: string
   description?: string

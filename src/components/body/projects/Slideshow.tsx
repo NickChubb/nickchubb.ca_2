@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import { breakpoints, colour, shadow, text } from '../../shared/styles'
 import useMediaQuery from '../../../hooks/use-media-query'
 import Image from 'next/image'
+import ProjectImage from './ProjectImage'
 
 const Wrapper = styled.div`
   height: 100%;
@@ -120,13 +121,14 @@ const Slideshow: React.FC<SlideshowProps> = ({ images }) => {
             }
           }}
         >
-          <Image
-            src={images[imageIndex].path}
-            fill={true}
-            alt={images[imageIndex].title}
-            priority
-            style={{ objectFit: 'cover', objectPosition: 'top' }}
-          />
+          {images[imageIndex].Element ? (
+            images[imageIndex].Element
+          ) : (
+            <ProjectImage
+              src={images[imageIndex].path}
+              alt={images[imageIndex].title}
+            />
+          )}
         </ImageContainer>
       </AnimatePresence>
       {images.length > 1 && !isMobile && (

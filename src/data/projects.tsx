@@ -1,6 +1,7 @@
 import { FaGithub } from 'react-icons/fa'
 import { RiComputerLine } from 'react-icons/ri'
 import { ProjectData } from '../components/body/projects/ProjectTypes'
+import ProjectImage from '../components/body/projects/ProjectImage'
 
 export const projectData: ProjectData = [
   {
@@ -53,7 +54,7 @@ export const projectData: ProjectData = [
       'Uses Python Retrieval-Augmented Generation (RAG) library LlamaIndex',
       'Dockerized Python Flask server hosted on GCP Cloud Run for scalability and maintainability',
       'User cookie authentication and rate-limiting by integration with PostgreSQL database',
-      'CORS enabled and shared secret authorization allows only API calls from frontend to chatbot API'
+      'CORS enabled and shared secret authorization allows only API calls from frontend to chatbot API',
     ],
     links: [
       {
@@ -93,18 +94,36 @@ export const projectData: ProjectData = [
     ],
     image: [
       {
+        Element: (
+          <ProjectImage
+            src="/img/projects/dockerman-1.png"
+            alt="Container Control Panel"
+          />
+        ),
         path: '/img/projects/dockerman-1.png',
         title: 'Container Control Panel',
         description:
           'Start/Stop/Restart individual containers or all containers.  Serve port from container at URL endpoint to quickly host GUI and API apps.',
       },
       {
+        Element: (
+          <ProjectImage
+            src="/img/projects/dockerman-2.png"
+            alt="Config Screen"
+          />
+        ),
         path: '/img/projects/dockerman-2.png',
         title: 'Config Screen',
         description:
           'Change configuration options and manage security features.',
       },
       {
+        Element: (
+          <ProjectImage
+            src="/img/projects/dockerman-3.png"
+            alt="Log Screen"
+          />
+        ),
         path: '/img/projects/dockerman-3.png',
         title: 'Log Screen',
         description:
@@ -133,17 +152,17 @@ export const projectData: ProjectData = [
     ],
     image: [
       {
-        path: '/img/projects/hawking-1.png',
+        path: 'https://i.imgur.com/kpwVKCg.png',
         title: '',
         description: '',
       },
       {
-        path: '/img/projects/hawking-2.png',
+        path: 'https://i.imgur.com/qPOzVod.png',
         title: '',
         description: '',
       },
       {
-        path: '/img/projects/hawking-3.png',
+        path: 'https://i.imgur.com/UutgzrX.png',
         title: '',
         description: '',
       },
