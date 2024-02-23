@@ -39,7 +39,7 @@ export const getHelpMessage = (): Array<string> => {
 export const getSuggestionsMessage = (): Array<string> => {
   return [
     '> What personal projects have you worked on and how do they demonstrate your full stack development skills?',
-    '> How much experience do you have as a Back-end Developer?',
+    '> How much experience do you have as a Front-end Developer?',
     '> What do you like to do in your free time? What are your favourite books? Authors? Games?'
   ]
 }

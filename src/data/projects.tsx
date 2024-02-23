@@ -1,7 +1,6 @@
 import { FaGithub } from 'react-icons/fa'
 import { RiComputerLine } from 'react-icons/ri'
 import { ProjectData } from '../components/body/projects/ProjectTypes'
-import SlideshowImage from '../components/body/projects/SlideshowImage'
 
 // Import local images
 import commmunities1 from '/public/img/projects/communities-1.png'
