@@ -3,6 +3,11 @@ import { RiComputerLine } from 'react-icons/ri'
 import { ProjectData } from '../components/body/projects/ProjectTypes'
 import ProjectImage from '../components/body/projects/ProjectImage'
 
+// Import local images
+import dockerMan1 from '/img/projects/dockerman-1.png'
+import dockerMan2 from '/img/projects/dockerman-2.png'
+import dockerMan3 from '/img/projects/dockerman-3.png'
+
 export const projectData: ProjectData = [
   {
     title: 'Communities',
@@ -96,7 +101,7 @@ export const projectData: ProjectData = [
       {
         Element: (
           <ProjectImage
-            src="/img/projects/dockerman-1.png"
+            src={dockerMan1}
             alt="Container Control Panel"
           />
         ),
@@ -108,7 +113,7 @@ export const projectData: ProjectData = [
       {
         Element: (
           <ProjectImage
-            src="/img/projects/dockerman-2.png"
+            src={dockerMan2}
             alt="Config Screen"
           />
         ),
@@ -120,7 +125,7 @@ export const projectData: ProjectData = [
       {
         Element: (
           <ProjectImage
-            src="/img/projects/dockerman-3.png"
+            src={dockerMan3}
             alt="Log Screen"
           />
         ),

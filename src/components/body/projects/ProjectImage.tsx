@@ -1,8 +1,8 @@
 import React from 'react'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 
 type ProjectImageProps = {
-  src: string
+  src: StaticImageData
   alt: string
 }
 
