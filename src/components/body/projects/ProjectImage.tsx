@@ -13,6 +13,7 @@ const ProjectImage: React.FC<ProjectImageProps> = ({ src, alt }) => {
       alt={alt}
       fill={true}
       style={{ objectFit: 'cover', objectPosition: 'top' }}
+      placeholder="blur"
     />
   )
 }
