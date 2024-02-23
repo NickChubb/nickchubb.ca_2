@@ -2,7 +2,7 @@ import React from 'react'
 import Image, { StaticImageData } from 'next/image'
 
 type ProjectImageProps = {
-  src: StaticImageData
+  src: StaticImageData | string
   alt: string
 }
 
