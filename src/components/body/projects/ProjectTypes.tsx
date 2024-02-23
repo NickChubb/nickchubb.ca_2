@@ -7,7 +7,6 @@ export type Link = {
 }
 
 export type ImageDetails = {
-  Element?: React.ReactElement
   src: StaticImageData
   title: string
   description?: string

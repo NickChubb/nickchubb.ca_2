@@ -120,15 +120,11 @@ const Slideshow: React.FC<SlideshowProps> = ({ images }) => {
             }
           }}
         >
-          {images[imageIndex].Element ? (
-            images[imageIndex].Element
-          ) : (
-            <SlideshowImage
-              src={images[imageIndex].src}
-              alt={images[imageIndex].title}
-              priority={images[imageIndex].priority ?? false}
-            />
-          )}
+          <SlideshowImage
+            src={images[imageIndex].src}
+            alt={images[imageIndex].title}
+            priority={images[imageIndex].priority ?? false}
+          />
         </ImageContainer>
       </AnimatePresence>
       {images.length > 1 && !isMobile && (

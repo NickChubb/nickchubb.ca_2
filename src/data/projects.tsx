@@ -109,13 +109,6 @@ export const projectData: ProjectData = [
     ],
     image: [
       {
-        Element: (
-          <SlideshowImage
-            src={dockerMan1}
-            alt="Container Control Panel"
-            priority={true}
-          />
-        ),
         src: dockerMan1,
         title: 'Container Control Panel',
         description:
@@ -123,24 +116,12 @@ export const projectData: ProjectData = [
         priority: true
       },
       {
-        Element: (
-          <SlideshowImage
-            src={dockerMan2}
-            alt="Config Screen"
-          />
-        ),
         src: dockerMan2,
         title: 'Config Screen',
         description:
           'Change configuration options and manage security features.',
       },
       {
-        Element: (
-          <SlideshowImage
-            src={dockerMan3}
-            alt="Log Screen"
-          />
-        ),
         src: dockerMan3,
         title: 'Log Screen',
         description:
