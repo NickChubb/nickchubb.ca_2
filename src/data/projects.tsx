@@ -117,6 +117,7 @@ export const projectData: ProjectData = [
         title: 'Container Control Panel',
         description:
           'Start/Stop/Restart individual containers or all containers.  Serve port from container at URL endpoint to quickly host GUI and API apps.',
+        priority: true
       },
       {
         Element: (
@@ -205,11 +206,11 @@ export const projectData: ProjectData = [
       },
     ],
     image: [
-      {
-        src: 'https://github.com/NickChubb/ReversiRust/raw/master/game_example.gif',
-        title: '',
-        description: '',
-      },
+      // {
+      //   src: 'https://github.com/NickChubb/ReversiRust/raw/master/game_example.gif',
+      //   title: '',
+      //   description: '',
+      // },
     ],
     icon: '🦀',
   },

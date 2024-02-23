@@ -11,6 +11,7 @@ export type ImageDetails = {
   src: StaticImageData
   title: string
   description?: string
+  priority?: boolean
 }
 
 export type Project = {

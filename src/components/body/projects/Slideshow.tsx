@@ -127,6 +127,7 @@ const Slideshow: React.FC<SlideshowProps> = ({ images }) => {
             <ProjectImage
               src={images[imageIndex].src}
               alt={images[imageIndex].title}
+              priority={images[imageIndex].priority ?? false}
             />
           )}
         </ImageContainer>
