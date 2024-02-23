@@ -7,7 +7,7 @@ type ProjectImageProps = {
   priority?: boolean
 }
 
-const ProjectImage: React.FC<ProjectImageProps> = ({ src, alt, priority }) => {
+const SlideshowImage: React.FC<ProjectImageProps> = ({ src, alt, priority }) => {
   return (
     <Image
       src={src}
@@ -20,4 +20,4 @@ const ProjectImage: React.FC<ProjectImageProps> = ({ src, alt, priority }) => {
   )
 }
 
-export default ProjectImage
+export default SlideshowImage

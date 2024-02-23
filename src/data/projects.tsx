@@ -1,7 +1,7 @@
 import { FaGithub } from 'react-icons/fa'
 import { RiComputerLine } from 'react-icons/ri'
 import { ProjectData } from '../components/body/projects/ProjectTypes'
-import ProjectImage from '../components/body/projects/ProjectImage'
+import SlideshowImage from '../components/body/projects/SlideshowImage'
 
 // Import local images
 import commmunities1 from '/public/img/projects/communities-1.png'
@@ -110,7 +110,7 @@ export const projectData: ProjectData = [
     image: [
       {
         Element: (
-          <ProjectImage
+          <SlideshowImage
             src={dockerMan1}
             alt="Container Control Panel"
             priority={true}
@@ -124,7 +124,7 @@ export const projectData: ProjectData = [
       },
       {
         Element: (
-          <ProjectImage
+          <SlideshowImage
             src={dockerMan2}
             alt="Config Screen"
           />
@@ -136,7 +136,7 @@ export const projectData: ProjectData = [
       },
       {
         Element: (
-          <ProjectImage
+          <SlideshowImage
             src={dockerMan3}
             alt="Log Screen"
           />

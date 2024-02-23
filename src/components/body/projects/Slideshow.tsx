@@ -3,10 +3,9 @@ import React, { useState } from 'react'
 import { wrap } from 'popmotion'
 import { ImageDetails } from './ProjectTypes'
 import styled from 'styled-components'
-import { breakpoints, colour, shadow, text } from '../../shared/styles'
+import { breakpoints } from '../../shared/styles'
 import useMediaQuery from '../../../hooks/use-media-query'
-import Image from 'next/image'
-import ProjectImage from './ProjectImage'
+import SlideshowImage from './SlideshowImage'
 
 const Wrapper = styled.div`
   height: 100%;
@@ -124,7 +123,7 @@ const Slideshow: React.FC<SlideshowProps> = ({ images }) => {
           {images[imageIndex].Element ? (
             images[imageIndex].Element
           ) : (
-            <ProjectImage
+            <SlideshowImage
               src={images[imageIndex].src}
               alt={images[imageIndex].title}
               priority={images[imageIndex].priority ?? false}
