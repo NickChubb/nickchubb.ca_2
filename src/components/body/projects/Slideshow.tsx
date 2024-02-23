@@ -124,7 +124,7 @@ const Slideshow: React.FC<SlideshowProps> = ({ images }) => {
             src={images[imageIndex].path}
             fill={true}
             alt={images[imageIndex].title}
-            priority={true}
+            priority
             style={{ objectFit: 'cover', objectPosition: 'top' }}
           />
         </ImageContainer>
