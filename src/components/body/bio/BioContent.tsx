@@ -5,9 +5,8 @@ import styled from 'styled-components'
 import Button from '../../shared/Button'
 import { FaLinkedin, FaEnvelope, FaFileAlt } from 'react-icons/fa'
 import { SectionProps } from '../../shared/types'
-import { ExternalLink } from '../../shared/link'
 import { breakpoints, fontSize, text } from '../../shared/styles'
-import { Blink, Large, Paragraph } from '../../shared/text'
+import { Blink, Mono, Paragraph } from '../../shared/text'
 import useScrollToSection from '../../../hooks/use-scroll-to-section'
 import DesktopFade from '../../shared/DesktopFade'
 import Technologies from '../../shared/technologies'
@@ -16,7 +15,7 @@ const BioWrapper = styled.div`
   font-size: ${fontSize.normal};
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 76px;
   max-width: 740px;
   align-self: center;
 
@@ -53,55 +52,18 @@ const TitleParagraph = styled.div`
   }
 `
 
-const ContentParagraph = styled(Paragraph)`
-  margin-bottom: -8px;
-`
+const ContentParagraph = styled(Paragraph)``
 
 const TitleLarge = styled.span`
   font-size: 42px;
-  padding-bottom: 8px;
   border-bottom: 1px solid ${text.fade};
   text-align: center;
   font-weight: 400;
 `
 
-const RolesSection = styled.div`
-  margin: 3rem 0 0;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-
-  @media only screen and (max-width: ${breakpoints.mobile}) {
-    margin: 0;
-    margin-top: 24px;
-  }
-`
-
-const RoleItem = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 16px;
-`
-
-const RoleIcon = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 30px;
-`
-
-const RoleItemDescription = styled.div`
-  display: flex;
-  align-items: center;
-  flex: 1;
-`
-
-const RoleItemWrapper = styled.div`
-  margin: 0;
-`
 const Subtitle = styled.h3`
   font-family: 'Roboto Mono', monospace;
-  padding-bottom: 8px;
+  padding-bottom: 4px;
   border-bottom: 1px solid ${text.fade};
   font-weight: 400;
 `
@@ -111,7 +73,7 @@ const SkillsSection = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  padding: 8px 0 20px;
+  margin-bottom: 16px;
 `
 
 const SkillsListWrapper = styled.div`
@@ -121,8 +83,17 @@ const SkillsListWrapper = styled.div`
   justify-content: center;
 `
 
+const InformationSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  text-align: center;
+`
+
 const ButtonContainer = styled.div`
   margin: 1rem 0;
+  width: 100%;
   display: flex;
   gap: 12px;
   justify-content: space-between;
@@ -146,7 +117,13 @@ const BioContent: React.FC<SectionProps> = () => {
   return (
     <BioWrapper>
       <HeaderImageWrapper>
-        <HeaderImage src="/me_coding.png" width={200} height={200} alt="me" priority />
+        <HeaderImage
+          src="/me_coding.png"
+          width={200}
+          height={200}
+          alt="me"
+          priority
+        />
       </HeaderImageWrapper>
       <DesktopFade direction="down" duration={500} triggerOnce>
         <TitleParagraph>
@@ -159,78 +136,48 @@ const BioContent: React.FC<SectionProps> = () => {
           </TitleLarge>
         </TitleParagraph>
       </DesktopFade>
-      <RolesSection>
-        <DesktopFade delay={1800} cascade triggerOnce>
-          <RoleItem>
-            <RoleIcon>👨‍💻&nbsp;&nbsp;{'>'} </RoleIcon>
-            <RoleItemDescription>
-              <RoleItemWrapper>
-                <b>2 years Software Experience</b> including React,
-                TypeScript, Java and CSS
-              </RoleItemWrapper>
-            </RoleItemDescription>
-          </RoleItem>
-          <RoleItem>
-            <RoleIcon>🖥&nbsp;&nbsp;{'>'} </RoleIcon>
-            <RoleItemDescription>
-              <RoleItemWrapper>
-                BSc. in Computer Science & Molecular Biology from{' '}
-                <b>Simon Fraser University</b>
-              </RoleItemWrapper>
-            </RoleItemDescription>
-          </RoleItem>
-          <RoleItem>
-            <RoleIcon>👨🏼‍💼&nbsp;&nbsp;{'>'} </RoleIcon>
-            <RoleItemDescription>
-              <RoleItemWrapper>
-                Software Developer for{' '}
-                <ExternalLink href="https://vanstartupweek.ca/">
-                  Vancouver Startup Week
-                </ExternalLink>
-              </RoleItemWrapper>
-            </RoleItemDescription>
-          </RoleItem>
-        </DesktopFade>
-      </RolesSection>
       <SkillsSection>
-        <DesktopFade delay={3200} triggerOnce>
+        <DesktopFade delay={1800} triggerOnce>
           <Subtitle>Skills</Subtitle>
         </DesktopFade>
-        <DesktopFade direction="up" delay={3400} cascade triggerOnce>
+        <DesktopFade direction="up" delay={2000} cascade triggerOnce>
           <SkillsListWrapper>
-              <Technologies fill="white" />
+            <Technologies fill="white" />
           </SkillsListWrapper>
         </DesktopFade>
       </SkillsSection>
-      <DesktopFade direction="up" delay={3600} cascade triggerOnce>
-        <ContentParagraph>
-          I am{' '}
-          <Large>
-            <b>Full-Stack Developer</b>
-          </Large>{' '}
-          who is currently seeking employment opportunities in Toronto or Vancouver, Canada. If you are hiring, I would love to hear from you!
-        </ContentParagraph>
-      </DesktopFade>
-      <ButtonContainer>
-        <DesktopFade
-          direction="up"
-          delay={4000}
-          duration={300}
-          cascade
-          triggerOnce
-        >
-          <Button href={'https://nickchubb.github.io/resume/'} width="100%">
-            resume <FaFileAlt />
-          </Button>
-          <Button href={'https://www.linkedin.com/in/nickrchubb/'} width="100%">
-            linkedin <FaLinkedin />
-          </Button>
-          <Button onClick={handleContactClick} width="100%">
-            contact
-            <FaEnvelope />
-          </Button>
+      <InformationSection>
+        <DesktopFade direction="up" delay={2400} cascade triggerOnce>
+          <ContentParagraph>
+            I am a<Mono> Full-Stack Developer </Mono>
+            who is currently seeking employment opportunities in Toronto or
+            Vancouver, Canada. If you are hiring, I would love to hear from you!
+          </ContentParagraph>
         </DesktopFade>
-      </ButtonContainer>
+        <ButtonContainer>
+          <DesktopFade
+            direction="up"
+            delay={2800}
+            duration={300}
+            cascade
+            triggerOnce
+          >
+            <Button href={'https://nickchubb.github.io/resume/'} width="100%">
+              resume <FaFileAlt />
+            </Button>
+            <Button
+              href={'https://www.linkedin.com/in/nickrchubb/'}
+              width="100%"
+            >
+              linkedin <FaLinkedin />
+            </Button>
+            <Button onClick={handleContactClick} width="100%">
+              contact
+              <FaEnvelope />
+            </Button>
+          </DesktopFade>
+        </ButtonContainer>
+      </InformationSection>
     </BioWrapper>
   )
 }
