@@ -125,7 +125,7 @@ const Slideshow: React.FC<SlideshowProps> = ({ images }) => {
             images[imageIndex].Element
           ) : (
             <ProjectImage
-              src={images[imageIndex].path}
+              src={images[imageIndex].src}
               alt={images[imageIndex].title}
             />
           )}

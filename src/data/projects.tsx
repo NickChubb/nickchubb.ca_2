@@ -4,9 +4,17 @@ import { ProjectData } from '../components/body/projects/ProjectTypes'
 import ProjectImage from '../components/body/projects/ProjectImage'
 
 // Import local images
+import commmunities1 from '/public/img/projects/communities-1.png'
+import commmunities2 from '/public/img/projects/communities-2.png'
+import commmunities3 from '/public/img/projects/communities-3.png'
+import chatbot1 from '/public/img/projects/chatbot-1.png'
 import dockerMan1 from '/public/img/projects/dockerman-1.png'
 import dockerMan2 from '/public/img/projects/dockerman-2.png'
 import dockerMan3 from '/public/img/projects/dockerman-3.png'
+import hawking1 from '/public/img/projects/hawking-1.png'
+import hawking2 from '/public/img/projects/hawking-2.png'
+import hawking3 from '/public/img/projects/hawking-3.png'
+
 
 export const projectData: ProjectData = [
   {
@@ -34,15 +42,15 @@ export const projectData: ProjectData = [
     ],
     image: [
       {
-        path: '/img/projects/communities-1.png',
+        src: commmunities1,
         title: 'Explore Communities',
       },
       {
-        path: '/img/projects/communities-2.png',
+        src: commmunities2,
         title: 'Create a new Community',
       },
       {
-        path: '/img/projects/communities-3.png',
+        src: commmunities3,
         title: "User's page",
       },
     ],
@@ -70,7 +78,7 @@ export const projectData: ProjectData = [
     ],
     image: [
       {
-        path: '/img/projects/chatbot-1.png',
+        src: chatbot1,
         title: 'React Popup Chat Window',
         description:
           'Start/Stop/Restart individual containers or all containers.  Serve port from container at URL endpoint to quickly host GUI and API apps.',
@@ -105,7 +113,7 @@ export const projectData: ProjectData = [
             alt="Container Control Panel"
           />
         ),
-        path: '/img/projects/dockerman-1.png',
+        src: dockerMan1,
         title: 'Container Control Panel',
         description:
           'Start/Stop/Restart individual containers or all containers.  Serve port from container at URL endpoint to quickly host GUI and API apps.',
@@ -117,7 +125,7 @@ export const projectData: ProjectData = [
             alt="Config Screen"
           />
         ),
-        path: '/img/projects/dockerman-2.png',
+        src: dockerMan2,
         title: 'Config Screen',
         description:
           'Change configuration options and manage security features.',
@@ -129,7 +137,7 @@ export const projectData: ProjectData = [
             alt="Log Screen"
           />
         ),
-        path: '/img/projects/dockerman-3.png',
+        src: dockerMan3,
         title: 'Log Screen',
         description:
           'View logs from database of performed actions, login requests, and more.',
@@ -157,18 +165,18 @@ export const projectData: ProjectData = [
     ],
     image: [
       {
-        path: 'https://i.imgur.com/kpwVKCg.png',
-        title: '',
+        src: hawking1,
+        title: 'Dashboard',
         description: '',
       },
       {
-        path: 'https://i.imgur.com/qPOzVod.png',
-        title: '',
+        src: hawking2,
+        title: 'Event Management',
         description: '',
       },
       {
-        path: 'https://i.imgur.com/UutgzrX.png',
-        title: '',
+        src: hawking3,
+        title: 'User Queries',
         description: '',
       },
     ],
@@ -198,7 +206,7 @@ export const projectData: ProjectData = [
     ],
     image: [
       {
-        path: 'https://github.com/NickChubb/ReversiRust/raw/master/game_example.gif',
+        src: 'https://github.com/NickChubb/ReversiRust/raw/master/game_example.gif',
         title: '',
         description: '',
       },

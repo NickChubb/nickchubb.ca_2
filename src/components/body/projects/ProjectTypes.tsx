@@ -1,3 +1,5 @@
+import { StaticImageData } from 'next/image'
+
 export type Link = {
   title: string
   url: string
@@ -6,7 +8,7 @@ export type Link = {
 
 export type ImageDetails = {
   Element?: React.ReactElement
-  path: string
+  src: StaticImageData
   title: string
   description?: string
 }
