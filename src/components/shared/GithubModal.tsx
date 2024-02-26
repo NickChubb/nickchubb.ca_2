@@ -15,7 +15,7 @@ import {
   useDismiss,
   useRole,
   useInteractions,
-  FloatingArrow
+  FloatingArrow,
 } from '@floating-ui/react'
 
 const Popup = styled.div`
@@ -30,6 +30,7 @@ const Popup = styled.div`
   font-size: 14px;
   user-select: none;
   box-shadow: ${shadow.tooltip};
+  z-index: 12;
 `
 
 const PopupButton = styled.span`
@@ -84,16 +85,12 @@ const GithubModal: React.FC<GithubModalPops> = ({ section }) => {
     return `https://github.com/NickChubb/nickchubb.ca_2/tree/main/src/components/body/${slug}`
   }, [section])
 
-  const arrowRef = useRef(null);
+  const arrowRef = useRef(null)
   const { refs, floatingStyles, context } = useFloating({
     placement: 'left',
     open: isOpen,
     onOpenChange: setIsOpen,
-    middleware: [
-      offset(10),
-      shift(),
-      inline()
-    ],
+    middleware: [offset(10), shift(), inline()],
     whileElementsMounted: autoUpdate,
   })
 
@@ -136,7 +133,11 @@ const GithubModal: React.FC<GithubModalPops> = ({ section }) => {
             Click this button to explore the current section on Github
           </PopupContent>
           <span>👉</span>
-          <FloatingArrow ref={arrowRef} context={context} fill={colour.cardHeader} />
+          <FloatingArrow
+            ref={arrowRef}
+            context={context}
+            fill={colour.cardHeader}
+          />
         </Popup>
       )}
       <ModalLink
