@@ -61,6 +61,7 @@ const PopupHeaderTitle = styled.div`
 
 const PopupHeaderSubtitle = styled.div`
   color: ${text.fade};
+  margin-bottom: 16px;
 `
 
 const Separator = styled.div`
@@ -72,13 +73,18 @@ const Separator = styled.div`
 `
 
 const ChatArea = styled.div`
-  margin: 16px;
-  max-height: 360px;
+  margin: 0 16px;
+  max-height: 400px;
   overflow-y: scroll;
   display: flex;
   flex-direction: column-reverse;
-  background: ${colour.cardBackground};
+  gap: 24px;
+  background-color: ${colour.cardBackground};
+  background-image: url('/grainy_background.png');
+  padding: 24px 16px;
   text-align: justify;
+  border-radius: 4px;
+  border: 1px solid rgb(20, 20, 20);
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
     max-height: calc(100% - 360px);
@@ -86,18 +92,32 @@ const ChatArea = styled.div`
   }
 `
 
-const UserChatElement = styled.div`
-  color: ${text.light};
-`
-
-const BotChatItem = styled.div<{ error?: boolean }>`
-  padding: 12px 20px;
-  margin: 16px 0;
+const chatElementStyles = `
   border-radius: 4px;
   font-size: 16px;
   line-height: 22px;
+  padding: 10px 20px;
+  border: 1px solid;
+  width: fit-content;
+`
+
+const UserChatElement = styled.div`
+  ${chatElementStyles}
+  color: ${colour.cardHeader};
+  background: ${colour.lightGreen};
+  border-bottom-left-radius: 0px;
+  border-color: ${colour.lightGreenBorder};
+  margin-right: 24px;
+`
+
+const BotChatItem = styled.div<{ error?: boolean }>`
+  ${chatElementStyles}
+  padding: 12px 20px; /* Override for specific padding */
   color: ${text.fade};
   background-color: ${colour.cardHeader};
+  border-bottom-right-radius: 0px;
+  border-color: ${colour.cardBackground};
+  margin-left: 24px;
 
   ${(props) =>
     props.error &&
@@ -118,6 +138,7 @@ const Input = styled(Field)`
   background-color: ${colour.cardHeader};
   color: ${text.light};
   border-radius: 4px;
+  margin-top: 16px;
   &:focus {
     outline: none;
   }
@@ -140,7 +161,7 @@ const CloseButton = styled.div`
 const renderChat = (chat: Array<ChatItem>) => {
   return chat.map((elem) => {
     if (elem.user) {
-      return <UserChatElement>{`> ${elem.message}`}</UserChatElement>
+      return <UserChatElement>{`${elem.message}`}</UserChatElement>
     } else {
       return (
         <BotChatItem error={elem.error}>
@@ -272,11 +293,13 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ hide, chat, setChat }) => {
             </small>
           </PopupHeaderSubtitle>
         </PopupHeader>
-        <Separator />
-        <ChatArea>
-          {isLoading && <ChatLoading />}
-          {renderChat(chat)}
-        </ChatArea>
+        {/* <Separator /> */}
+        {chat.length > 0 && (
+          <ChatArea>
+            {isLoading && <ChatLoading />}
+            {renderChat(chat)}
+          </ChatArea>
+        )}
         <Formik
           initialValues={{ message: '' }}
           onSubmit={({ message }, { resetForm }) => {
@@ -291,7 +314,9 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ hide, chat, setChat }) => {
               name="message"
               id="message"
               placeholder={
-                isLoading ? 'Generating response... 🤔' : '✨ Ask me anything! ✨'
+                isLoading
+                  ? 'Generating response... 🤔'
+                  : '✨ Ask me anything! ✨'
               }
               disabled={isLoading}
               autoComplete="off"

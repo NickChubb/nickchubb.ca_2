@@ -19,6 +19,7 @@ export const colour = {
   cardHeader: 'rgb(32, 32, 32)',
   cardHighlighted: '#343434',
   lightGreen: '#91ee91',
+  lightGreenBorder: '##57a357',
   lightRed: '#FF9494',
   button: '',
   buttonHover: '',
