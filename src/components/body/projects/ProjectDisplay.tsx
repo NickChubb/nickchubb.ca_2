@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import DropdownMenu from '../../shared/DropdownMenu'
+import Dropdown from './dropdown/Dropdown'
 import {
   breakpoints,
   colour,
@@ -140,7 +140,7 @@ const ProjectDisplay: React.FC<{ project: Project; isMobile: boolean }> = ({
             {isMobile ? <>{project?.icon}&nbsp;&nbsp;&nbsp;&nbsp;</> : ``}
             {project?.title}
           </Title>
-          <DropdownMenu data={project.links} />
+          <Dropdown data={project.links} />
         </ProjectDisplayHeader>
         <Paragraph type="quote">
           <i>{project?.summary}</i>
