@@ -105,9 +105,10 @@ const UserChatElement = styled.div`
   ${chatElementStyles}
   color: ${colour.cardHeader};
   background: ${colour.lightGreen};
-  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
   border-color: ${colour.lightGreenBorder};
-  margin-right: 24px;
+  margin-left: 24px;
+  align-self: flex-end;
 `
 
 const BotChatItem = styled.div<{ error?: boolean }>`
@@ -115,9 +116,10 @@ const BotChatItem = styled.div<{ error?: boolean }>`
   padding: 12px 20px; /* Override for specific padding */
   color: ${text.fade};
   background-color: ${colour.cardHeader};
-  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
   border-color: ${colour.cardBackground};
-  margin-left: 24px;
+  margin-right: 24px;
+  align-self: flex-start;
 
   ${(props) =>
     props.error &&
