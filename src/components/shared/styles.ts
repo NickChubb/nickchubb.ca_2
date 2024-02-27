@@ -8,7 +8,7 @@ export const text = {
 
 export const shadow = {
   inset: '#141414',
-  tooltip: '0px 0px 16px 0px #101010',
+  tooltip: '4px 4px 12px 0px rgb(20, 20, 20)',
   drop: '0px 0px 32px 0px #060606'
 }
 
