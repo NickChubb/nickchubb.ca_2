@@ -3,7 +3,7 @@ import { Fade } from 'react-awesome-reveal'
 import styled from 'styled-components'
 import { aboutData } from '../../../data/about'
 import { breakpoints, text } from '../../shared/styles'
-import { Subtitle } from '../../shared/text'
+import { Mono } from '../../shared/text'
 
 const Container = styled.div`
   height: 100%;
@@ -17,9 +17,20 @@ const AboutSectionWrapper = styled.div`
   color: ${text.light};
 `
 
+const Subtitle = styled.h4`
+  font-family: 'Roboto Mono', monospace;
+  padding-bottom: 4px;
+  border-bottom: 1px solid ${text.fade};
+  font-weight: 400;
+  color: ${text.normal};
+  width: fit-content;
+`
+
 const EducationSection = styled.div``
 
-const EducationItem = styled.div``
+const EducationItem = styled.div`
+  margin-bottom: 24px;
+`
 
 const Paragraph = styled.p`
   @media only screen and (min-width: ${breakpoints.large}) {
@@ -40,20 +51,18 @@ const AboutSection = () => {
             <p>Error loading bio</p>
           )}
           <EducationSection>
-            <Subtitle>Education</Subtitle>
+            <Subtitle>education</Subtitle>
             <EducationItem>
               <div>
-                BSc. in Computer Science and Molecular Biology and Biochemistry
+                <Mono>BSc. in Computer Science and Molecular Biology and Biochemistry</Mono>
               </div>
-              <div>Simon Fraser University</div>
-              <div>Completed: 2023</div>
+              <div>Simon Fraser University, 2023</div>
             </EducationItem>
             <EducationItem>
               <div>
-                BSc. in Computer Science and Molecular Biology and Biochemistry
+                <Mono>Back-End Engineer Career Path</Mono>
               </div>
-              <div>Simon Fraser University</div>
-              <div>Completed: 2023</div>
+              <div>CodeCademy, 2024</div>
             </EducationItem>
           </EducationSection>
         </Fade>
