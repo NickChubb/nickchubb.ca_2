@@ -12,10 +12,10 @@ const pages: Array<Page> = [
     title: 'map',
     Content: <MapSection />,
   },
-  {
-    title: 'bookshelf',
-    Content: <BookshelfSection />,
-  },
+  // {
+  //   title: 'bookshelf',
+  //   Content: <BookshelfSection />,
+  // },
 ]
 
 const PersonalContent: React.FC = () => {
