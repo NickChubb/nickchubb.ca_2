@@ -14,12 +14,13 @@ const BioWrapper = styled.div`
   font-size: ${fontSize.normal};
   display: flex;
   flex-direction: column;
-  gap: 84px;
+  gap: 76px;
   max-width: 740px;
   align-self: center;
+  padding-top: 44px;
 
   @media only screen and (min-width: ${breakpoints.mobile}) {
-    padding-top: 44px;
+    84px;
   }
 `
 
