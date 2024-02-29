@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import styled from 'styled-components'
 import { projectData } from '../../../data/projects'
-import { breakpoints, colour, shadow, text } from '../../shared/styles'
+import { colour, shadow, text } from '../../shared/styles'
 import ProjectDisplay from './ProjectDisplay'
 import { scrollToSection } from '../../../utils/scroll'
-import useMediaQuery from '../../../hooks/use-media-query'
 import { AnimatePresence } from 'framer-motion'
+import useIsMobile from '../../../hooks/use-is-mobile'
 
 const ProjectContent = styled.div`
   display: flex;
@@ -58,7 +58,7 @@ const MobileProjectDisplayWrapper = styled.div`
 
 const ProjectsContent: React.FC = () => {
   const [project, setProject] = useState(0)
-  const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile})`)
+  const isMobile = useIsMobile()
 
   const handleClick = (key: number) => {
     scrollToSection('projects')

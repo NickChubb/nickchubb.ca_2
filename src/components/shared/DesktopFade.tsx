@@ -1,14 +1,13 @@
 import React from 'react'
 import { Fade, FadeProps } from 'react-awesome-reveal'
-import { breakpoints } from './styles'
-import useMediaQuery from '../../hooks/use-media-query'
+import useIsMobile from '../../hooks/use-is-mobile'
 
 type DesktopFadeProps = FadeProps & {
   chidlren?: React.ReactNode
 }
 
 const DesktopFade: React.FC<DesktopFadeProps> = ({ children, ...rest }) => {
-  const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile})`)
+  const isMobile = useIsMobile()
   if (isMobile) {
       return <>{children}</> // Render children directly if isMobile is true
   } else {

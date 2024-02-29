@@ -13,7 +13,7 @@ const geoUrl = map
 const MapSectionWrapper = styled.div``
 
 const TotalCount = styled.h4`
-  font-family: 'Roboto Mono', monospace;
+  font-family: ${text.mono};
 `
 
 const MapWrapper = styled.div`

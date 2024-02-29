@@ -6,10 +6,10 @@ import { Mono } from '../../src/components/shared/text'
 import QRCode from 'react-qr-code'
 import { breakpoints, colour, text } from '../../src/components/shared/styles'
 import Link from 'next/link'
-import useMediaQuery from '../../src/hooks/use-media-query'
 import MobileLinkPage from '../../src/components/LinkPage/MobileLinkPage'
 import { Link as LinkListItem } from '../../src/components/LinkPage/types'
 import { links } from '../../src/components/LinkPage/links'
+import useIsMobile from '../../src/hooks/use-is-mobile'
 
 const Container = styled.div`
   width: 100vw;
@@ -88,7 +88,7 @@ const LinkPageWrapper: React.FC<{ children: React.ReactNode }> = ({
 )
 
 const LinkPage: React.FC<{}> = () => {
-  const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile})`)
+  const isMobile = useIsMobile()
 
   const renderLinksList = (linksList: Array<LinkListItem>) => {
     return linksList.map((link, key) => (

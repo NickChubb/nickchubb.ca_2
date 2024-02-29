@@ -18,7 +18,7 @@ const FooterWrapper = styled.footer`
 `
 
 const Copyright = styled.div`
-  font-family: 'Roboto Mono', monospace;
+  font-family: ${text.mono};
   color: ${text.fade};
 `
 

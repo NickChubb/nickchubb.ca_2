@@ -16,7 +16,7 @@ const ButtonWrapper = styled.a<{
   transition: 0.25s;
   cursor: pointer;
   width: ${(props) => props.width || 'auto'};
-  font-family: 'Roboto Mono', monospace;
+  font-family: ${text.mono};
   font-size: 18px;
   line-height: 18px;
   border: 1px solid #111;

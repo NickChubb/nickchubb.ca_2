@@ -31,7 +31,7 @@ const TabWrapper = styled.div`
 `
 
 const NavWrapper = styled.div`
-  font-family: 'Roboto Mono', monospace;
+  font-family: ${text.mono};
   display: flex;
   gap: 48px;
   overflow-x: auto;

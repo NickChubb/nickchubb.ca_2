@@ -88,10 +88,6 @@ const DescriptionWrapper = styled.ul`
 `
 
 const DescriptionListItem = styled.li`
-  // &:before {
-  //   font-family: 'Roboto Mono', monospace;
-  //   content: '>  ';
-  // }
   font-size: ${fontSize.small};
   text-align: justify;
 `

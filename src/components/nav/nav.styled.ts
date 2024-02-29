@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import Image from "next/image"
-import { breakpoints } from "../shared/styles"
+import { breakpoints, text } from "../shared/styles"
 
 export const HeaderImage = styled(Image)`
   user-select: none;
@@ -10,7 +10,7 @@ export const HeaderImage = styled(Image)`
 `
 
 export const HeaderTitle = styled.h1`
-  font-family: 'Roboto Mono', monospace;
+  font-family: ${text.mono};
   line-height: 36px;
   margin-bottom: 0;
   white-space: nowrap;

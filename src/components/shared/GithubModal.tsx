@@ -2,8 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { FaGithub } from 'react-icons/fa'
 import { AiFillCloseCircle } from 'react-icons/ai'
 import styled from 'styled-components'
-import { breakpoints, colour, shadow, text } from './styles'
-import useMediaQuery from '../../hooks/use-media-query'
+import { colour, shadow, text } from './styles'
 import {
   useFloating,
   autoUpdate,
@@ -17,6 +16,7 @@ import {
   useInteractions,
   FloatingArrow,
 } from '@floating-ui/react'
+import useIsMobile from '../../hooks/use-is-mobile'
 
 const Popup = styled.div`
   background: ${colour.cardHeader};
@@ -77,7 +77,7 @@ type GithubModalPops = {
 const GithubModal: React.FC<GithubModalPops> = ({ section }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [triggeredPopup, setTriggered] = useState(false)
-  const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile})`)
+  const isMobile = useIsMobile()
 
   const link = useMemo(() => {
     // volunteering section usees same component as experience

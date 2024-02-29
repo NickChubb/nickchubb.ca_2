@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import styled from 'styled-components'
 import { RiCheckboxCircleFill, RiErrorWarningLine } from 'react-icons/ri'
-import useMediaQuery from '../../../hooks/use-media-query'
-import { breakpoints, colour, text } from '../../shared/styles'
+import { breakpoints, text } from '../../shared/styles'
 import { Mono, Paragraph } from '../../shared/text'
 import { State } from './types'
 import ContactForm from './ContactForm'
@@ -13,6 +12,10 @@ const ContactContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 48px;
+
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    padding-bottom: 100px;
+  }
 `
 
 const ContactHeader = styled.div``
@@ -62,13 +65,12 @@ const Content = styled.div`
 `
 
 const Link = styled.a`
-  font-family: 'Roboto Mono', monospace;
+  font-family: ${text.mono};
   font-weight: 800;
 `
 
 const Subtitle = styled.h3`
-  font-family: 'Roboto Mono', monospace;
-  // padding-bottom: 8px;
+  font-family: ${text.mono};
 `
 
 const SendingPanel: React.FC = () => (
