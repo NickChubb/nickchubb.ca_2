@@ -4,8 +4,8 @@ import { breakpoints, colour, text } from '../styles'
 import Marquee from 'react-fast-marquee'
 import Technologies from '.'
 import useScrollToSection from '../../../hooks/use-scroll-to-section'
-import useMediaQuery from '../../../hooks/use-media-query'
 import { ChatbotContext } from '../ChatBot/ChatbotProvider'
+import useIsMobile from '../../../hooks/use-is-mobile'
 
 const Container = styled.div`
   height: 32px;
@@ -51,7 +51,7 @@ const Divider: React.FC = () => <ScrollerItem>•</ScrollerItem>
 type ScrollerProps = {}
 
 const Scroller: React.FC<ScrollerProps> = ({}) => {
-  const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile})`)
+  const isMobile = useIsMobile()
   const scrollToContact = useScrollToSection('contact')
   const { show } = useContext(ChatbotContext)
 

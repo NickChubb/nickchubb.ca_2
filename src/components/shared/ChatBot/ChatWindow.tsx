@@ -18,7 +18,7 @@ import useKeyPress from '../../../hooks/use-key-press'
 import { usePresence } from 'framer-motion'
 import { gsap } from 'gsap'
 import { useUserInfo } from '../../../hooks/use-user-info'
-import useMediaQuery from '../../../hooks/use-media-query'
+import useIsMobile from '../../../hooks/use-is-mobile'
 
 const Container = styled.div<{ isPresent: boolean }>`
   height: 100vh;
@@ -181,7 +181,7 @@ type ChatWindowProps = {
 }
 
 const ChatWindow: React.FC<ChatWindowProps> = ({ hide, chat, setChat }) => {
-  const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile})`)
+  const isMobile = useIsMobile()
   const [isLoading, setLoading] = useState(false)
   const clear = () => updateChat([])
   const userData = useUserInfo()

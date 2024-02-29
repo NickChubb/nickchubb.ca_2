@@ -4,8 +4,8 @@ import { wrap } from 'popmotion'
 import { ImageDetails } from './ProjectTypes'
 import styled from 'styled-components'
 import { breakpoints } from '../../shared/styles'
-import useMediaQuery from '../../../hooks/use-media-query'
 import SlideshowImage from './SlideshowImage'
+import useIsMobile from '../../../hooks/use-is-mobile'
 
 const Wrapper = styled.div`
   height: 100%;
@@ -81,7 +81,7 @@ type SlideshowProps = {
 }
 
 const Slideshow: React.FC<SlideshowProps> = ({ images }) => {
-  const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile})`)
+  const isMobile = useIsMobile()
   const [[page, direction], setPage] = useState([0, 0])
 
   // We only have 3 images, but we paginate them absolutely (ie 1, 2, 3, 4, 5...) and

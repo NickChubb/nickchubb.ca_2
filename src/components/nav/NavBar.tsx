@@ -12,7 +12,7 @@ import { Section, sections } from '../body/sections'
 import useClickOutside from '../../hooks/use-click-outside'
 import { HeaderImage, HeaderTitle } from './nav.styled'
 import ChatbotButton from '../shared/ChatBot/ChatbotButton'
-import useMediaQuery from '../../hooks/use-media-query'
+import useIsMobile from '../../hooks/use-is-mobile'
 
 const NavContainer = styled.div`
   z-index: 9;
@@ -139,7 +139,7 @@ type NavBarProps = {
 }
 
 const NavBar: React.FC<NavBarProps> = ({ section, setSection }) => {
-  const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile})`)
+  const isMobile = useIsMobile()
   const [isHidden, setHidden] = useState(true)
   const navBarRef = useRef(null)
 

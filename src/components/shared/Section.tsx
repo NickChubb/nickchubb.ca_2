@@ -1,8 +1,8 @@
 import { Dispatch, SetStateAction, useRef } from 'react'
 import styled from 'styled-components'
-import useMediaQuery from '../../hooks/use-media-query'
 import useOnScreen from '../../hooks/use-on-screen'
 import { breakpoints, text } from './styles'
+import useIsMobile from '../../hooks/use-is-mobile'
 
 export const SectionWrapper = styled.div<{
   ref: any
@@ -75,7 +75,7 @@ const Section: React.FC<SectionProps> = ({
   center,
   showTitle
 }) => {
-  const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile})`)
+  const isMobile = useIsMobile()
   const ref = useRef()
   const threshold = title === 'experience' && isMobile ? 0.25 : 0.5
   const isVisible: boolean = useOnScreen(ref, threshold)

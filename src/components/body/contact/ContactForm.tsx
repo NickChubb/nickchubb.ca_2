@@ -1,10 +1,9 @@
 import { Formik, Form, Field, FieldAttributes } from 'formik'
-import { Fade } from 'react-awesome-reveal'
 import styled from 'styled-components'
-import useMediaQuery from '../../../hooks/use-media-query'
 import { breakpoints, colour, text } from '../../shared/styles'
 import { State } from './types'
 import DesktopFade from '../../shared/DesktopFade'
+import useIsMobile from '../../../hooks/use-is-mobile'
 
 const FormWrapper = styled(Form)`
   display: flex;
@@ -118,7 +117,7 @@ type ContactFormProps = {
 }
 
 const ContactForm: React.FC<ContactFormProps> = ({ state, setState }) => {
-  const isMobile = useMediaQuery(`(max-width: ${breakpoints.mobile})`)
+  const isMobile = useIsMobile()
 
   const sendEmail = async (data: any) => {
     setState('SENDING')
