@@ -4,6 +4,7 @@ export const text = {
   fade: 'rgba(222, 222, 222, 0.3)',
   green: '#33ff33',
   red: '#ff3333',
+  mono: '"Roboto Mono", monospace'
 }
 
 export const shadow = {

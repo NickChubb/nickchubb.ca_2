@@ -23,7 +23,7 @@ const Container = styled.div`
 `
 
 const ScrollerWrapper = styled.div`
-  font-family: 'Roboto Mono', monospace;
+  font-family: ${text.mono};
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -37,7 +37,7 @@ const ScrollerWrapper = styled.div`
 `
 
 const ScrollerItem = styled.div<{ onClick?: () => void }>`
-  font-family: 'Roboto Mono', monospace;
+  font-family: ${text.mono};
   margin-left: 60px !important;
   user-select: none;
 

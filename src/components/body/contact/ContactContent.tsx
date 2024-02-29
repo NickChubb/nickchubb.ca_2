@@ -65,13 +65,12 @@ const Content = styled.div`
 `
 
 const Link = styled.a`
-  font-family: 'Roboto Mono', monospace;
+  font-family: ${text.mono};
   font-weight: 800;
 `
 
 const Subtitle = styled.h3`
-  font-family: 'Roboto Mono', monospace;
-  // padding-bottom: 8px;
+  font-family: ${text.mono};
 `
 
 const SendingPanel: React.FC = () => (

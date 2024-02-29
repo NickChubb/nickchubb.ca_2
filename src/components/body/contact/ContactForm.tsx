@@ -63,7 +63,7 @@ const TextArea = styled(Field)`
 const SubmitButton = styled.input`
   padding: 12px 16px;
   font-size: 18px;
-  font-family: 'Roboto Mono', monospace;
+  font-family: ${text.mono};
   cursor: pointer;
   background: none;
   border: 2px solid ${colour.cardHighlighted};

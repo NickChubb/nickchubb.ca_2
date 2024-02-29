@@ -38,7 +38,7 @@ const HeaderImageWrapper = styled.div`
 const HeaderImage = styled(Image)``
 
 const TitleParagraph = styled.div`
-  font-family: 'Roboto Mono', monospace;
+  font-family: ${text.mono};
   text-align: justify;
   display: flex;
   align-items: baseline;

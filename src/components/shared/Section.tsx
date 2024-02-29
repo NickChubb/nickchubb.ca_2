@@ -35,7 +35,7 @@ export const SectionWrapper = styled.div<{
 `
 
 export const SectionTitle = styled.h2<{ isVisible: boolean }>`
-  font-family: 'Roboto Mono', monospace;
+  font-family: ${text.mono};
   transition: color 0.5s;
   padding-bottom: 8px;
   margin: 48px 0;

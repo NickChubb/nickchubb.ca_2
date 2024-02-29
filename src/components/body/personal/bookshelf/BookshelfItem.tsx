@@ -60,7 +60,7 @@ const DescriptionWrapper = styled.div`
 `
 
 const DescriptionInfoLine = styled.small`
-  font-family: 'Roboto Mono', monospace;
+  font-family: ${text.mono};
   display: flex;
   gap: 8px;
 
@@ -70,7 +70,7 @@ const DescriptionInfoLine = styled.small`
 `
 
 const MoreLink = styled.small`
-  font-family: 'Roboto Mono', monospace;
+  font-family: ${text.mono};
 `
 
 const Date = styled.i`

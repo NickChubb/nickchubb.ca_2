@@ -11,7 +11,7 @@ const MenuItemWrapper = styled(StyledLink)<{
 }>`
   font-size: ${(props) => props.fontSize ?? '22'}px;
   transition: 0.5s;
-  font-family: 'Roboto Mono', monospace;
+  font-family: ${text.mono};
   white-space: nowrap;
   user-select: none;
   color: ${text.fade};

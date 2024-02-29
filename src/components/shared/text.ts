@@ -10,7 +10,7 @@ export const Large = styled.span`
 `
 
 export const Mono = styled.span`
-  font-family: "Roboto Mono", monospace;
+  font-family: ${text.mono};
 `
 
 export const Paragraph = styled.div`
@@ -22,14 +22,14 @@ export const GreenText = styled.span`
 `
 
 export const Code = styled.span`
-  font-family: "Roboto Mono", monospace;
+  font-family: ${text.mono};
   padding: 2px 8px;
   border-radius: 4px;
   background: ${colour.cardHeader};
 `
 
 export const Subtitle = styled.h3`
-  font-family: 'Roboto Mono', monospace;
+  font-family: ${text.mono};
   padding-bottom: 4px;
   border-bottom: 1px solid ${text.fade};
   font-weight: 400;

@@ -31,7 +31,7 @@ const MapSectionWrapper = styled.div`
 `
 
 const MapInfo = styled.div`
-  font-family: 'Roboto Mono', monospace;
+  font-family: ${text.mono};
   font-size: 16px;
   margin: 1rem 0 2rem;
   display: flex;
@@ -88,7 +88,7 @@ const LegendIcon = styled.span`
 `
 
 const CountryList = styled.div`
-  font-family: 'Roboto Mono', monospace;
+  font-family: ${text.mono};
   font-size: 16px;
   max-height: calc( 848px - 132px - 62px - 74px );
   overflow-y: scroll;
@@ -143,7 +143,7 @@ const MapControls = styled.div`
 `
 
 const MapControlButton = styled.div<{ disabled: boolean }>`
-  font-family: 'Roboto Mono', monospace;
+  font-family: ${text.mono};
   font-size: 20px;
   line-height: 20px;
   padding: 8px;
