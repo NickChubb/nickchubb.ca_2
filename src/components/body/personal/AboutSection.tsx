@@ -18,18 +18,44 @@ const AboutSectionWrapper = styled.div`
 `
 
 const Subtitle = styled.h4`
-  font-family: 'Roboto Mono', monospace;
+  font-family: ${text.mono};
   padding-bottom: 4px;
   border-bottom: 1px solid ${text.fade};
   font-weight: 400;
   color: ${text.normal};
   width: fit-content;
+  margin-bottom: 8px;
+
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    margin-bottom: 16px;
+  }
 `
 
 const EducationSection = styled.div``
 
 const EducationItem = styled.div`
   margin-bottom: 24px;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    flex-direction: column;
+  }
+`
+
+const EducationItemTitle = styled.div`
+  padding-bottom: 4px;
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    padding-bottom: 8px;
+  }
+`
+
+const EducationItemContent = styled.small`
+  align-self: center;
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    align-self: flex-start;
+  }
 `
 
 const Paragraph = styled.p`
@@ -53,16 +79,20 @@ const AboutSection = () => {
           <EducationSection>
             <Subtitle>education</Subtitle>
             <EducationItem>
-              <div>
-                <Mono>BSc. in Computer Science and Molecular Biology and Biochemistry</Mono>
-              </div>
-              <div>Simon Fraser University, 2023</div>
+              <EducationItemTitle>
+                <Mono>
+                  BSc. Computer Science and Molecular Biology &
+                  Biochemistry
+                </Mono>
+              </EducationItemTitle>
+              <EducationItemContent><i>Simon Fraser University, 2023</i></EducationItemContent>
             </EducationItem>
+            <Subtitle>certificates</Subtitle>
             <EducationItem>
-              <div>
+              <EducationItemTitle>
                 <Mono>Back-End Engineer Career Path</Mono>
-              </div>
-              <div>CodeCademy, 2024</div>
+              </EducationItemTitle>
+              <EducationItemContent><i>CodeCademy, 2024</i></EducationItemContent>
             </EducationItem>
           </EducationSection>
         </Fade>
