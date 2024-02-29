@@ -64,14 +64,6 @@ const PopupHeaderSubtitle = styled.div`
   margin-bottom: 16px;
 `
 
-const Separator = styled.div`
-  height: 1px;
-  width: 100%:
-  border-radius: 4px;
-  margin: 16px;
-  background-color: ${colour.cardHeader};
-`
-
 const ChatArea = styled.div`
   margin: 0 16px;
   max-height: 400px;
@@ -132,7 +124,7 @@ const ChatLine = styled.p`
   margin: 4px;
 `
 
-const Input = styled(Field)`
+const Input = styled(Field)<{ disabled: boolean }>`
   width: 100%;
   padding: 16px 16px;
   font-size: 18px;
@@ -144,6 +136,12 @@ const Input = styled(Field)`
   &:focus {
     outline: none;
   }
+
+  ${(props) =>
+    props.disabled &&
+    `
+    cursor: wait;
+  `}
 `
 
 const CloseButton = styled.div`
@@ -295,7 +293,6 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ hide, chat, setChat }) => {
             </small>
           </PopupHeaderSubtitle>
         </PopupHeader>
-        {/* <Separator /> */}
         {chat.length > 0 && (
           <ChatArea>
             {isLoading && <ChatLoading />}
