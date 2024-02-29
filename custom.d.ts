@@ -4,3 +4,8 @@ declare module '*.svg' {
   const src: string;
   export default src;
 }
+
+// types/d3-geo-projection.d.ts
+declare module 'd3-geo-projection' {
+  export function geoTimes(): any;
+}

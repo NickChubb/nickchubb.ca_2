@@ -84,18 +84,19 @@ const LegendIcon = styled.span`
   color: ${text.light};
   opacity: 0;
   transition: translate 0.5s, opacity 0.5s;
+  mix-blend-mode: difference;
 `
 
 const CountryList = styled.div`
   font-family: 'Roboto Mono', monospace;
   font-size: 16px;
-  max-height: 525px;
+  max-height: calc( 848px - 132px - 62px - 74px );
   overflow-y: scroll;
   overscroll-behavior: contain;
   translate: -100%;
   transition: 0.5s translate;
   color: ${text.light};
-  padding: 16px;
+  padding: 8px 16px;
   background-color: rgba(0, 0, 0, 0.8);
   user-select: none;
 
