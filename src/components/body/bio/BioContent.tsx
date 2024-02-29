@@ -14,7 +14,7 @@ const BioWrapper = styled.div`
   font-size: ${fontSize.normal};
   display: flex;
   flex-direction: column;
-  gap: 76px;
+  gap: 64px;
   max-width: 740px;
   align-self: center;
   padding-top: 44px;
