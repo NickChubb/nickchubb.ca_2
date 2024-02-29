@@ -196,7 +196,6 @@ const DesktopMap: React.FC<{}> = () => {
   ) => {
     event.persist()
     const path = geoPath().projection(projection())
-    console.log(path, geography)
     const centroid = projection().invert(path.centroid(geography))
     setCenter([centroid[0], centroid[1] - 5])
     const size = path.area(geography)
@@ -213,9 +212,9 @@ const DesktopMap: React.FC<{}> = () => {
     setZoom(zoom)
   }
 
-  const handleZoomFilter = (event: { type: string }) => {
+  const handleZoomFilter = (element: SVGElement): boolean => {
     const disableTypes = ['wheel']
-    return !disableTypes.includes(event.type)
+    return !disableTypes.includes((element as unknown as Event).type)
   }
 
   return (
@@ -288,7 +287,6 @@ const DesktopMap: React.FC<{}> = () => {
                       selected={current === geo.properties.name}
                       geo={geo}
                       onClick={(event) => {
-                        console.log(geo)
                         handleGeographyClick(geo, event)
                         setCurrent(geo.properties.name)
                       }}

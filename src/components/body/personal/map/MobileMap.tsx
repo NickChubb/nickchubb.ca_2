@@ -35,7 +35,6 @@ const MobileMap: React.FC<{}> = () => {
           <Geographies geography={geoUrl}>
             {({ geographies }) =>
               geographies.map((geo) => {
-                console.log(geo.properties.name)
                 const fill = includes(geo.properties.name, countryList)
                   ? text.green
                   : 'white'
