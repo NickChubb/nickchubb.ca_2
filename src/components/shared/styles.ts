@@ -35,6 +35,7 @@ export const fontSize = {
 }
 
 export const breakpoints = {
-  mobile: '768px',
+  mobile: '1024px',
+  smallScreen: '1280px',
   large: '2400px'
 }

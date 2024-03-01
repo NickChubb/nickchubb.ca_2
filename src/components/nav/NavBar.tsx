@@ -45,7 +45,7 @@ const NavWrapper = styled.div<{ isHidden: boolean }>`
 
 const NavMenuWrapper = styled.div<{ isHidden: boolean }>`
   height: 100%;
-  padding: 0 142px 34px 0;
+  padding-bottom: 34px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;

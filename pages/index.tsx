@@ -37,12 +37,20 @@ const Container = styled.div<{
 
 const AppWrapper = styled.div`
   min-height: 100%;
-  max-width: 75%;
+  width: 100%;
+  max-width: 75rem; /* Adjusted for a more responsive design */
   margin: 0 auto;
   display: flex;
   flex-direction: row;
+  gap: 142px;
+
+  @media only screen and (max-width: ${breakpoints.smallScreen}) {
+    padding: 0 32px; /* Added padding for smaller screens */
+    gap: 64px;
+  }
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
+    padding: 0;
     max-width: 100%;
   }
 `
