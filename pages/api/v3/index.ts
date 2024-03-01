@@ -3,13 +3,13 @@ import crypto from 'crypto'
 import { createClient } from '@supabase/supabase-js'
 import rateLimitMiddleware from '../../../src/middleware/rateLimitMiddleware'
 
-const supabase = createClient(
-  process.env.NEXT_PRIVATE_SUPABASE_URL || '',
-  process.env.NEXT_PRIVATE_SUPABASE_ANON_KEY || ''
-)
+// const supabase = createClient(
+//   process.env.NEXT_PRIVATE_SUPABASE_URL || '',
+//   process.env.NEXT_PRIVATE_SUPABASE_ANON_KEY || ''
+// )
 
-const CHATBOT_BASE_URL = process.env.CHATBOT_BASE_URL || ''
-const CHATBOT_API_SECRET = process.env.CHATBOT_API_SECRET || ''
+const ENTITY_BASE_URL = process.env.ENTITY_BASE_URL || ''
+const ENTITY_API_SECRET = process.env.ENTITY_API_SECRET || ''
 
 export default async function handler(
   req: NextApiRequest,
@@ -17,26 +17,26 @@ export default async function handler(
 ) {
   if (req.method !== 'POST') return null
 
-  const { message, userData } = JSON.parse(req.body)
+  const { message } = JSON.parse(req.body)
   const query = message.toLowerCase().trim()
 
-  if (!userData || !userData.userId)
-    return res.status(500).json({ error: 'No user data supplied.' })
+  // if (!userData || !userData.userId)
+  //   return res.status(500).json({ error: 'No user data supplied.' })
 
   // Prevent too many requests from being sent to OpenAI
-  await rateLimitMiddleware(req, res)
+  // await rateLimitMiddleware(req, res)
 
   // Append message to user
-  supabase
-    .rpc('append_to_messages', {
-      user_id: userData.userId,
-      message: query,
-    })
-    .then(({ error }) => error && console.log(error))
+  // supabase
+  //   .rpc('append_to_messages', {
+  //     user_id: userData.userId,
+  //     message: query,
+  //   })
+  //   .then(({ error }) => error && console.log(error))
 
-  const secret = crypto.createHash('sha256').update(CHATBOT_API_SECRET).digest('hex')
+  const secret = crypto.createHash('sha256').update(ENTITY_API_SECRET).digest('hex')
   const endpoint =
-    CHATBOT_BASE_URL + `/chatbot?query=${query}&secret=${secret}`
+    ENTITY_BASE_URL + `?message=${query}&secret=${secret}`
   try {
     const response = await fetch(endpoint)
     if (!response.ok) throw new Error()
