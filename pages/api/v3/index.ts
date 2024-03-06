@@ -8,8 +8,8 @@ import rateLimitMiddleware from '../../../src/middleware/rateLimitMiddleware'
 //   process.env.NEXT_PRIVATE_SUPABASE_ANON_KEY || ''
 // )
 
-const ENTITY_BASE_URL = process.env.ENTITY_BASE_URL || ''
-const ENTITY_API_SECRET = process.env.ENTITY_API_SECRET || ''
+const CHATBOT_BASE_URL = process.env.CHATBOT_BASE_URL || ''
+const CHATBOT_API_SECRET = process.env.CHATBOT_API_SECRET || ''
 
 export default async function handler(
   req: NextApiRequest,
@@ -26,24 +26,29 @@ export default async function handler(
   // Prevent too many requests from being sent to OpenAI
   // await rateLimitMiddleware(req, res)
 
-  // Append message to user
-  // supabase
-  //   .rpc('append_to_messages', {
-  //     user_id: userData.userId,
-  //     message: query,
-  //   })
-  //   .then(({ error }) => error && console.log(error))
-
-  const secret = crypto.createHash('sha256').update(ENTITY_API_SECRET).digest('hex')
+  const query_wrapper = [
+    'You are to return a valid block of HTML code which builds the body component.',
+    'You are not to include head or HTML tags, only content in the body tag.',
+    'The body component is for the personal portfolio site of Nick Chubb, a software engineer.',
+    'Use data from the provided context to fill information about the topic in the HTML.',
+    'Include style tags and centering divs to make the body look nice.',
+    'Make sure the colors of the text and the background do not overlap significantly.',
+    'Here is the topic and specifications for the body component you should generate: ',
+  ]
+  const secret = crypto
+    .createHash('sha256')
+    .update(CHATBOT_API_SECRET)
+    .digest('hex')
   const endpoint =
-    ENTITY_BASE_URL + `?message=${query}&secret=${secret}`
+    CHATBOT_BASE_URL +
+    `/generator?query=${query_wrapper.join(' ') + query}&secret=${secret}`
   try {
     const response = await fetch(endpoint)
     if (!response.ok) throw new Error()
     const text = await response.text()
     if (!text) throw new Error()
 
-    return res.status(200).json({ message: text })
+    return res.status(200).json({ content: text })
   } catch (err) {
     return res
       .status(500)

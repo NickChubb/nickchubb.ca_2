@@ -10,8 +10,6 @@ const Input = styled(Field)<{ disabled: boolean }>`
   border: 1px solid rgb(20, 20, 20);
   background-color: ${colour.cardHeader};
   color: ${text.light};
-  border-radius: 4px;
-  margin-top: 16px;
   &:focus {
     outline: none;
   }
@@ -26,13 +24,14 @@ const Input = styled(Field)<{ disabled: boolean }>`
 type TextInputProps = {
   onSubmit: (message: string) => void
   isLoading?: boolean
+  style?: object
 }
 
 const TextInput: React.FC<TextInputProps> = ({
   onSubmit,
   isLoading = false,
+  style,
 }) => {
-
   // Ref for input form to reset focus when isLoading is set to false
   const ref = useRef<HTMLInputElement>(null)
   useEffect(() => {
@@ -50,7 +49,7 @@ const TextInput: React.FC<TextInputProps> = ({
         resetForm()
       }}
     >
-      <Form>
+      <Form style={style}>
         <Input
           innerRef={ref}
           type="text"
