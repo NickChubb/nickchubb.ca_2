@@ -22,13 +22,13 @@ export default async function handler(
 
   const page = parseInt((req.query.page ?? 0) as string)
 
-  fetch(
-    `https://www.googleapis.com/books/v1/users/${
-      process.env.GOOGLE_BOOKS_USERID
-    }/bookshelves/0/volumes?key=${process.env.GOOGLE_API_KEY}&startIndex=${
-      page * BOOKS_PER_PAGE
-    }&maxResults=${BOOKS_PER_PAGE}`
-  )
+  const endpoint = `https://www.googleapis.com/books/v1/users/${
+    process.env.GOOGLE_BOOKS_USERID
+  }/bookshelves/0/volumes?key=${process.env.GOOGLE_API_KEY}&startIndex=${
+    page * BOOKS_PER_PAGE
+  }&maxResults=${BOOKS_PER_PAGE}`
+
+  fetch(endpoint)
     .then((response) => {
       if (response.ok) {
         response.json().then((data) => {
