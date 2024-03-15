@@ -46,6 +46,8 @@ const EducationItem = styled.div`
 
 const EducationItemTitle = styled.div`
   padding-bottom: 4px;
+  font-size: 16px;
+
   @media only screen and (max-width: ${breakpoints.mobile}) {
     padding-bottom: 8px;
   }
