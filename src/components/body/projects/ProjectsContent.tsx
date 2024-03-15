@@ -31,15 +31,18 @@ const ProjectNavItem = styled.h3<{ isActive: boolean }>`
   padding: 24px 24px;
   cursor: pointer;
   transition: 0.25s;
+  filter: grayscale(100%);
 
   ${(props) =>
     props.isActive &&
     `
+    filter: none;
     background: ${colour.cardBackground} !important;
     color: ${text.green};
   `}
 
   &:hover {
+    filter: none;
     background: ${colour.cardHighlighted};
   }
 `
