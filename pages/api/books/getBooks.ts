@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { map, path, pick, pipe } from 'ramda'
-import { Book } from '../../../src/components/body/personal/bookshelf/types'
+import { Book } from '../../../src/components/body/bio/bookshelf/types'
 
 const BOOKS_PER_PAGE = 6
 

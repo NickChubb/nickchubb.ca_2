@@ -1,10 +1,10 @@
 import { experienceData } from '../../data/experience'
 import { volunteeringData } from '../../data/volunteering'
-import BioContent from './bio/BioContent'
 import ContactContent from './contact/ContactContent'
-import ExperienceContent from './experience/ExperienceContent'
-import PersonalContent from './personal/PersonalContent'
 import ProjectsContent from './projects/ProjectsContent'
+import HomeContent from './home/HomeContent'
+import ExperienceContent from './experience/ExperienceContent'
+import BioContent from './bio/BioContent'
 
 export type Section = {
   title: string
@@ -17,8 +17,8 @@ export type Section = {
 
 export const sections: Array<Section> = [
   {
-    title: 'bio',
-    Content: BioContent,
+    title: 'home',
+    Content: HomeContent,
     center: true,
   },
   {
@@ -42,8 +42,8 @@ export const sections: Array<Section> = [
     showTitle: true
   },
   {
-    title: 'personal',
-    Content: PersonalContent,
+    title: 'bio',
+    Content: BioContent,
     center: true,
     showTitle: true
   },
