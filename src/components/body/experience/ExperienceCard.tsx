@@ -6,7 +6,7 @@ import { breakpoints, text } from '../../shared/styles'
 import { Experience } from './ExperienceTypes'
 import { Mono } from '../../shared/text'
 
-const ExperienceCardWrapper = styled.div`
+const ExperienceCardWrapper = styled.a`
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -93,17 +93,13 @@ const ExperienceCard: React.FC<{ experience: Experience; index: number }> = ({
   index,
 }) => {
   return (
-    <ExperienceCardWrapper>
+    <ExperienceCardWrapper href={experience.website} target="_blank">
       <ExperienceCardHeader index={index}>
         {experience.image && (
           <ExperienceCardHeaderImage src={experience.image} />
         )}
         <ExperienceCardHeaderTitle>
-          <ExperienceCardTitle>
-            <ExternalLink href={experience.website} style={{ opacity: 1 }}>
-              {experience.company}
-            </ExternalLink>
-          </ExperienceCardTitle>
+          <ExperienceCardTitle>{experience.company}</ExperienceCardTitle>
 
           <ExperienceCardSubtitle>
             <b>{experience.title}</b>

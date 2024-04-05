@@ -14,6 +14,7 @@ export type ImageDetails = {
 }
 
 export type Project = {
+  id: string
   display?: boolean
   title: string
   summary: string

@@ -17,6 +17,7 @@ import hawking3 from '/public/img/projects/hawking-3.png'
 
 export const projectData: ProjectData = [
   {
+    id: 'communities',
     title: 'Communities',
     display: true,
     summary: 'Social Network built on a Blockchain Backend',
@@ -57,6 +58,7 @@ export const projectData: ProjectData = [
     icon: '🦄',
   },
   {
+    id: 'chatbot',
     title: 'Chatbot',
     display: true,
     summary:
@@ -88,6 +90,7 @@ export const projectData: ProjectData = [
     icon: '✨',
   },
   {
+    id: 'dockerman',
     title: 'dockerman',
     display: true,
     summary: 'A React app for controlling and hosting docker containers.',
@@ -130,6 +133,7 @@ export const projectData: ProjectData = [
     icon: '🐳',
   },
   {
+    id: 'hawking',
     title: 'hawking',
     display: true,
     summary: 'The SFU Science Discord Multi-purpose Bot.',
@@ -168,6 +172,7 @@ export const projectData: ProjectData = [
     icon: '🤖',
   },
   {
+    id: 'reversi-rust',
     title: 'ReversiRust',
     display: false,
     summary:
