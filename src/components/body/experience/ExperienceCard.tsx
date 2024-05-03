@@ -10,12 +10,6 @@ const ExperienceCardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
-
-  &:hover {
-    & > div > div {
-      filter: none;
-    }
-  }
 `
 
 const ExperienceCardHeader = styled.div<{ index: number }>`
@@ -39,8 +33,6 @@ const ExperienceCardHeaderImage = styled.div<{ src: string }>`
   background-image: url(${(props) => props.src});
   background-size: contain;
   background-position: center;
-  transition: all 0.5s;
-  filter: grayscale(100%);
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
     min-width: 100px;
