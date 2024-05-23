@@ -66,7 +66,7 @@ const MobileLinkPage: React.FC<MobileLinkPageProps> = ({ renderLinksList }) => {
   return (
     <Wrapper>
       <Header>
-        <HeaderImage src="/me.png" width={200} height={200} alt="me" priority />
+        <HeaderImage src="/me_coding.png" width={200} height={200} alt="me" priority />
         <Title>Nick Chubb.</Title>
       </Header>
       <Body>

@@ -128,7 +128,7 @@ const LinkPage: React.FC<{}> = () => {
           <Content>
             <LinksListWrapper>{renderLinksList(links)}</LinksListWrapper>
             <HeaderImage
-              src="/me.png"
+              src="/me_coding.png"
               width={160}
               height={160}
               alt="me"
