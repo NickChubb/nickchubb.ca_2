@@ -14,8 +14,9 @@ export default async function handler(req, res) {
   // }
 
   let emailBody = {
-    date: new Date(),
+    service: 'chatbot',
     message: '',
+    status: 'OK'
   }
 
   try {
@@ -49,13 +50,15 @@ export default async function handler(req, res) {
       'Successfully connected to OpenAI. Chatbot is operational.'
   } catch (err) {
     emailBody.message = err
+    emailBody.status = 'FAILED'
   } finally {
     const formData = new FormData()
-    formData.append('date', emailBody.date.toDateString())
+    formData.append('service', emailBody.service)
+    formData.append('status', emailBody.status)
     formData.append('message', emailBody.message)
     formData.append('service_id', process.env.EMAILJS_SERVICE_ID || '')
     formData.append('accessToken', process.env.EMAILJS_PRIVATE_KEY || '')
-    formData.append('template_id', process.env.EMAILJS_TEMPLATE_ID || '')
+    formData.append('template_id', process.env.EMAILJS_TEST_TEMPLATE_ID || '')
     formData.append('user_id', process.env.EMAILJS_USER_ID || '')
     fetch('https://api.emailjs.com/api/v1.0/email/send-form', {
       method: 'POST',
