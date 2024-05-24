@@ -22,11 +22,11 @@ export default async function handler(req, res) {
     await supabase
       .from('users')
       .upsert({
-        id: 'cron-test',
-        country_name: '',
-        city: '',
-        ip: '',
-        state: '',
+        id: '572a4a0c-29d0-4e88-a340-cf8be067ccaa',
+        country_name: 'cron-test',
+        city: 'cron-test',
+        ip: undefined,
+        state: 'cron-test',
       })
       .then(({ error }) => {
         if (error) throw new Error(`Could not connect to database. ERROR: ${JSON.stringify(error)}`)
