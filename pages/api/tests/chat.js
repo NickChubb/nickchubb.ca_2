@@ -29,7 +29,7 @@ export default async function handler(req, res) {
         state: '',
       })
       .then(({ error }) => {
-        if (error) throw new Error('ERROR: Could not connect to database.')
+        if (error) throw new Error(`Could not connect to database. ERROR: ${error}`)
       })
 
     const secret = crypto
