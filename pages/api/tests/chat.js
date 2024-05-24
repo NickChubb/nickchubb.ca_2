@@ -16,7 +16,7 @@ export default async function handler(req, res) {
   let emailBody = {
     service: 'chatbot',
     message: '',
-    status: 'OK'
+    status: 'OK',
   }
 
   try {
@@ -30,7 +30,10 @@ export default async function handler(req, res) {
         state: 'cron-test',
       })
       .then(({ error }) => {
-        if (error) throw new Error(`Could not connect to database. ERROR: ${JSON.stringify(error)}`)
+        if (error)
+          throw new Error(
+            `Could not connect to database. ERROR: ${JSON.stringify(error)}`
+          )
       })
 
     const secret = crypto
@@ -66,11 +69,11 @@ export default async function handler(req, res) {
     })
       .then((response) => {
         if (response.ok) return res.status(200).json({})
-        return res.status(500).json({})
+        return res.status(500).json(JSON.stringify(response))
       })
       .catch((err) => {
         console.log(err)
-        return res.status(500).json({})
+        return res.status(500).json(JSON.stringify(err))
       })
   }
 }
