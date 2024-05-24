@@ -7,11 +7,11 @@ const supabase = createClient(
 )
 
 export default async function handler(req, res) {
-  if (
-    req.headers['Authorization'] !== `Bearer ${process.env.CRON_SECRET}`
-  ) {
-    return res.status(401).end('Unauthorized')
-  }
+  // if (
+  //   req.headers['Authorization'] !== `Bearer ${process.env.CRON_SECRET}`
+  // ) {
+  //   return res.status(401).end('Unauthorized')
+  // }
 
   let emailBody = {
     date: new Date(),
